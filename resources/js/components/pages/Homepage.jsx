@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled, { keyframes } from "styled-components";
 import Header from './HomepageComponents/Header';
-import Header2 from './HomepageComponents/Header2';
 
 const jump = keyframes`
   0% {
@@ -32,7 +31,7 @@ function Homepage() {
   return (
 
     <Container >
-      <Header2 />
+      <Header />
 
     </Container>
 
