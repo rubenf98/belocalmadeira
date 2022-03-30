@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled, { keyframes } from "styled-components";
-
+import Header from './HomepageComponents/Header';
+import Header2 from './HomepageComponents/Header2';
 
 const jump = keyframes`
   0% {
@@ -16,21 +17,26 @@ const jump = keyframes`
   }
 `;
 
-const Header = styled.div`
-    background: url("/header_wallpaper.webp");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: relative;
-    height: ${props => props.height};
-    overflow-y: hidden;
-    z-index: 10;
+
+const Container = styled.div`
+  width: 100vw;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
 `;
 
+
+
 function Homepage() {
-    return (
-        <div>Homepage</div>
-    )
+
+  return (
+
+    <Container >
+      <Header2 />
+
+    </Container>
+
+  )
 }
 
 export default Homepage
