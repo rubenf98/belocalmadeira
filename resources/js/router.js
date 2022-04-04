@@ -4,9 +4,10 @@ import { createBrowserHistory } from "history";
 
 //public pages
 import Homepage from "./components/pages/Homepage";
-import About from "./components/pages/Homepage";
-import Contact from "./components/pages/Homepage";
+import About from "./components/pages/About";
+import Contact from "./components/pages/Contact";
 import Login from "./components/pages/Login";
+import Layout from "./components/Layout";
 
 export const history = createBrowserHistory();
 
@@ -17,7 +18,7 @@ function Router() {
                 <Route exact path="/about" element={<About />} />
                 <Route exact path="/contact" element={<Contact />} />
                 <Route exact path="/login" element={<Login />} />
-                <Route exact path="/" element={<Homepage />} />
+                <Route exact path="/" element={<Layout><Homepage /></Layout>} />
 
 
 

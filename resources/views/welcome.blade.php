@@ -7,7 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
 
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;500;700&family=Playfair+Display:ital,wght@0,500;1,900&display=swap"
+        rel="stylesheet">
 
 
     <meta name="keywords"
@@ -24,7 +28,7 @@
     body,
     #index {
         height: 100%;
-        font-family: 'Inter', sans-serif;
+        font-family: 'IBM Plex Sans Arabic', sans-serif;
         scroll-behavior: smooth;
     }
 
