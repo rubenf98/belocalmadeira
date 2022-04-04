@@ -1,4 +1,4 @@
-export const maxWidth = "1400px"
+export const maxWidth = "1270px"
 
 export const dimensions = {
 	"xs": "575px",

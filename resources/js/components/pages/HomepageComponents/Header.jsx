@@ -1,17 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import styled, { keyframes } from "styled-components";
-
-const arrowAnimationContainer = keyframes`
-  0% {
-    transform:rotate(0deg);
-  }
-
-
-  
-  100% {
-    transform:rotate(360deg);
-  }
-`;
+import styled from "styled-components";
 
 
 const Container = styled.section`
@@ -111,19 +99,6 @@ const Scroll = styled.div`
   }
 `;
 
-const ScrollAnimation = styled.div`
-  margin: auto;
-  position: absolute;
-  z-index: 999999999;
-  bottom: -150px;
-  transform: translate(-50%, 0);
-  border: 1px dashed white;
-  width: 300px;
-  height: 300px;
-  border-radius: 300px;
-  animation: ${arrowAnimationContainer} 100s linear infinite;
-
-`;
 
 const ScrollDownIndicator = () => (
   <Scroll>
@@ -176,7 +151,6 @@ function Header() {
       </TitleContainer>
 
       <ScrollDownIndicator />
-      <ScrollAnimation />
     </Container>
   )
 }

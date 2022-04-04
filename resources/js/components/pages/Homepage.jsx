@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from "styled-components";
+import About from './HomepageComponents/About';
 import Header from './HomepageComponents/Header';
 
 
@@ -15,6 +16,10 @@ function Homepage() {
 
   return (
     <Container >
+      <Header />
+      <About />
+      <Header />
+      <Header />
       <Header />
     </Container>
   )

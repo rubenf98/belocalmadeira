@@ -11355,6 +11355,12 @@ function Navbar() {
             },
             to: "/contact",
             children: ["contact ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {})]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(NavbarLink, {
+            onClick: function onClick() {
+              return setHasShadow(true);
+            },
+            to: "/activities",
+            children: ["activities ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {})]
           })]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(FlexItem, {
@@ -12128,9 +12134,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var _HomepageComponents_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./HomepageComponents/Header */ "./resources/js/components/pages/HomepageComponents/Header.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _HomepageComponents_About__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./HomepageComponents/About */ "./resources/js/components/pages/HomepageComponents/About.jsx");
+/* harmony import */ var _HomepageComponents_Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./HomepageComponents/Header */ "./resources/js/components/pages/HomepageComponents/Header.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 var _templateObject;
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
@@ -12139,11 +12146,13 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var Container = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  width: 100vw;\n  position: relative;\n  overflow-x: hidden;\n"])));
+
+
+var Container = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  width: 100vw;\n  position: relative;\n  overflow-x: hidden;\n"])));
 
 function Homepage() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Container, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_HomepageComponents_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {})
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(Container, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_HomepageComponents_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_HomepageComponents_About__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_HomepageComponents_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_HomepageComponents_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_HomepageComponents_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {})]
   });
 }
 
@@ -12151,10 +12160,10 @@ function Homepage() {
 
 /***/ }),
 
-/***/ "./resources/js/components/pages/HomepageComponents/Header.jsx":
-/*!*********************************************************************!*\
-  !*** ./resources/js/components/pages/HomepageComponents/Header.jsx ***!
-  \*********************************************************************/
+/***/ "./resources/js/components/pages/HomepageComponents/About.jsx":
+/*!********************************************************************!*\
+  !*** ./resources/js/components/pages/HomepageComponents/About.jsx ***!
+  \********************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -12163,9 +12172,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7;
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _helper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../helper */ "./resources/js/helper.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6;
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -12185,15 +12195,127 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var arrowAnimationContainer = (0,styled_components__WEBPACK_IMPORTED_MODULE_2__.keyframes)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  0% {\n    transform:rotate(0deg);\n  }\n\n\n  \n  100% {\n    transform:rotate(360deg);\n  }\n"])));
-var Container = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].section(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  width: 100%;\n  height: 100vh;\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  overflow: hidden;\n  flex-wrap: wrap;\n"])));
-var BackgroundContainer = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  width: 100vw;\n  height: 100vh;\n  display: inline-block;\n  perspective: 100vw;\n  overflow: hidden;\n  scale: 1.05;\n  top: 0;bottom:0;left:0;right: 0;\n  position: absolute;\n  z-index: -2;\n  \n  picture {\n    width: 100vw;\n    height: 100vh;\n    display: block;\n    object-fit: cover;\n    transition: transform .3s linear;\n    scale: 1.05;\n    transform: ", ";\n    \n    img {\n      width: 100%;\n      height: 100%;\n    }\n  }\n"])), function (props) {
+
+var Container = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].section(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n background: #f6f6f6;\n position: relative;\n"])));
+var Separator = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    height: 200px;\n    width: 50%;\n    border-right: 1px solid lightgray;\n"])));
+var ScrollIndicator = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    position: absolute;\n    transform: translate(-50%, 0);\n    left: 50%;\n    top: ", ";\n    width: 5px;\n    height: 50px;\n    background: green;\n"])), function (props) {
+  return props.scrollPosition + "px";
+});
+var Section = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    box-sizing: border-box;\n    width: 60%;\n    max-width: ", ";\n    margin: auto;\n"])), _helper__WEBPACK_IMPORTED_MODULE_1__.maxWidth);
+var ImageContainer = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    width: 50%;\n    border-right: 1px solid lightgray;\n    order: ", ";\n\n    img {\n        width: 100%;\n    }\n"])), function (props) {
+  return props.reverseOrder ? 2 : 1;
+});
+var InfoContainer = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n    width: 50%;\n    padding: 0px 50px;\n    box-sizing: border-box;\n    order: ", ";\n\n    h2 {\n        font-size: 50px;\n        font-weight: bold;\n        text-transform: uppercase;\n    }\n\n    p {\n        font-size: 22px;\n        color: #777;\n    }\n"])), function (props) {
+  return props.reverseOrder ? 1 : 2;
+});
+
+function About() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+      _useState2 = _slicedToArray(_useState, 2),
+      scrollPosition = _useState2[0],
+      setScrollPosition = _useState2[1];
+
+  var handleScroll = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(function () {
+    var DOM = document.getElementById("homepage-about-container");
+    var rect = DOM.getBoundingClientRect();
+    var max = DOM.offsetHeight + rect.top + window.scrollY - screen.height;
+    console.log(max);
+    var position = window.scrollY - screen.height / 2;
+    setScrollPosition(position < max ? position > 0 ? position : 0 : max);
+  }, []);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    window.addEventListener("scroll", function () {
+      return handleScroll();
+    }, true);
+    return function () {
+      window.removeEventListener("scroll", function () {
+        return handleScroll();
+      });
+    };
+  }, [handleScroll]);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(Container, {
+    id: "homepage-about-container",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(ScrollIndicator, {
+      scrollPosition: scrollPosition
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Separator, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(Section, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(ImageContainer, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+          className: "separator",
+          src: "/image/about/1.JPG",
+          alt: ""
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(InfoContainer, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+          children: "start your journey TODAY"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+          children: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci rem voluptatibus maxime fugit. Tenetur voluptatum quas, aut minus consequuntur est itaque dignissimos. Molestias neque voluptatibus sequi modi velit unde tempore."
+        })]
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Separator, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(Section, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(ImageContainer, {
+        reverseOrder: true,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+          className: "separator",
+          src: "/image/about/1.JPG",
+          alt: ""
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(InfoContainer, {
+        reverseOrder: true,
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+          children: "start your journey TODAY"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+          children: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci rem voluptatibus maxime fugit. Tenetur voluptatum quas, aut minus consequuntur est itaque dignissimos. Molestias neque voluptatibus sequi modi velit unde tempore."
+        })]
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Separator, {})]
+  });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (About);
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/HomepageComponents/Header.jsx":
+/*!*********************************************************************!*\
+  !*** ./resources/js/components/pages/HomepageComponents/Header.jsx ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5;
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+
+
+var Container = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].section(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  width: 100%;\n  height: 100vh;\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  overflow: hidden;\n  flex-wrap: wrap;\n"])));
+var BackgroundContainer = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  width: 100vw;\n  height: 100vh;\n  display: inline-block;\n  perspective: 100vw;\n  overflow: hidden;\n  scale: 1.05;\n  top: 0;bottom:0;left:0;right: 0;\n  position: absolute;\n  z-index: -2;\n  \n  picture {\n    width: 100vw;\n    height: 100vh;\n    display: block;\n    object-fit: cover;\n    transition: transform .3s linear;\n    scale: 1.05;\n    transform: ", ";\n    \n    img {\n      width: 100%;\n      height: 100%;\n    }\n  }\n"])), function (props) {
   return "rotateX(" + Math.floor(props.positionOffset.x) + "deg) rotateY(" + Math.floor(props.positionOffset.y) + "deg)";
 });
-var Overlay = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  z-index: -1;\n  top: 0;bottom:0;left:0;right: 0;\n  position: absolute;\n  background: rgb(0,0,0);\n  background: linear-gradient(180deg, #000 0%, #0000004e 100%);\n  opacity: 0.7;\n"])));
-var TitleContainer = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n  width: 100%;\n  \n  display: block;\n  position: relative;\n\n  h1, h2 {\n    width: 40%;\n    margin: auto;\n    color: white;\n    text-align: center;\n  }\n  h1 {\n    font-size: 70px;\n    line-height: 4.375rem;\n    font-family: 'Playfair Display', serif;\n  }\n\n  h2 {\n    font-size: 24px;\n    text-transform: uppercase;\n    margin-bottom: 30px;\n  }\n"])));
-var Scroll = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n  margin: auto;\n  position: absolute;\n  left: 50%;\n  bottom: 10px;\n  transform: translate(-50%, 0);\n  display: flex;\n  color: white;\n\n  img {\n    width: 15px;\n    margin-left: 10px;\n  }\n\n  p {\n    margin: 0px 5px;\n    line-height: 15px;\n    text-transform: uppercase;\n\n    &:first-child() {\n      letter-spacing: -3px;\n    }\n  }\n"])));
-var ScrollAnimation = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n  margin: auto;\n  position: absolute;\n  z-index: 999999999;\n  bottom: -150px;\n  transform: translate(-50%, 0);\n  border: 1px dashed white;\n  width: 300px;\n  height: 300px;\n  border-radius: 300px;\n  animation: ", " 100s linear infinite;\n\n"])), arrowAnimationContainer);
+var Overlay = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  z-index: -1;\n  top: 0;bottom:0;left:0;right: 0;\n  position: absolute;\n  background: rgb(0,0,0);\n  background: linear-gradient(180deg, #000 0%, #0000004e 100%);\n  opacity: 0.7;\n"])));
+var TitleContainer = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  width: 100%;\n  \n  display: block;\n  position: relative;\n\n  h1, h2 {\n    width: 40%;\n    margin: auto;\n    color: white;\n    text-align: center;\n  }\n  h1 {\n    font-size: 70px;\n    line-height: 4.375rem;\n    font-family: 'Playfair Display', serif;\n  }\n\n  h2 {\n    font-size: 24px;\n    text-transform: uppercase;\n    margin-bottom: 30px;\n  }\n"])));
+var Scroll = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n  margin: auto;\n  position: absolute;\n  left: 50%;\n  bottom: 10px;\n  transform: translate(-50%, 0);\n  display: flex;\n  color: white;\n\n  img {\n    width: 15px;\n    margin-left: 10px;\n  }\n\n  p {\n    margin: 0px 5px;\n    line-height: 15px;\n    text-transform: uppercase;\n\n    &:first-child() {\n      letter-spacing: -3px;\n    }\n  }\n"])));
 
 var ScrollDownIndicator = function ScrollDownIndicator() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(Scroll, {
@@ -12257,7 +12379,7 @@ function Header() {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
         children: "Get to know Madeira Island from a local\u2019s perspective."
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(ScrollDownIndicator, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(ScrollAnimation, {})]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(ScrollDownIndicator, {})]
   });
 }
 
@@ -12437,7 +12559,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "getCarouselBreakpoints": () => (/* binding */ getCarouselBreakpoints),
 /* harmony export */   "maxWidth": () => (/* binding */ maxWidth)
 /* harmony export */ });
-var maxWidth = "1400px";
+var maxWidth = "1270px";
 var dimensions = {
   "xs": "575px",
   "sm": "576px",

@@ -121,6 +121,7 @@ function Navbar() {
                     <MenuContainer>
                         <NavbarLink onClick={() => setHasShadow(true)} to="/about">about <div /></NavbarLink>
                         <NavbarLink onClick={() => setHasShadow(true)} to="/contact">contact <div /></NavbarLink>
+                        <NavbarLink onClick={() => setHasShadow(true)} to="/activities">activities <div /></NavbarLink>
                     </MenuContainer>
                 </FlexItem>
                 <FlexItem>
