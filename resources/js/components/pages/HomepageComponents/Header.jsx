@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import styled from "styled-components";
+import React, { useEffect, useState, useContext } from 'react'
+import styled, { ThemeContext } from "styled-components";
 
 
 const Container = styled.section`
@@ -11,6 +11,7 @@ const Container = styled.section`
   justify-content: center;
   overflow: hidden;
   flex-wrap: wrap;
+  color: ${props => props.color};
 `;
 
 const BackgroundContainer = styled.div`
@@ -58,7 +59,7 @@ const TitleContainer = styled.div`
   h1, h2 {
     width: 40%;
     margin: auto;
-    color: white;
+    color: inherit;
     text-align: center;
   }
   h1 {
@@ -81,7 +82,7 @@ const Scroll = styled.div`
   bottom: 10px;
   transform: translate(-50%, 0);
   display: flex;
-  color: white;
+  color: inherit;
 
   img {
     width: 15px;
@@ -109,9 +110,10 @@ const ScrollDownIndicator = () => (
 
 function Header() {
   const [positionOffset, setPositionOffset] = useState({ x: undefined, y: undefined });
+  const themeContext = useContext(ThemeContext);
 
   useEffect(() => {
-    const DOM = document.getElementById("header2-container");
+    const DOM = document.getElementById("header-container");
 
     const setFromEvent = (e) => {
       var yOffset = e.pageY - (window.innerHeight / 2);
@@ -136,7 +138,7 @@ function Header() {
 
 
   return (
-    <Container id="header2-container">
+    <Container color={themeContext.inverseText} id="header-container">
       <Overlay />
       <BackgroundContainer positionOffset={positionOffset}>
         <picture>
@@ -146,7 +148,7 @@ function Header() {
       </BackgroundContainer>
 
       <TitleContainer >
-        <h2>Outdoor Activities </h2>
+        <h2>Be Local Madeira </h2>
         <h1>Get to know Madeira Island from a local’s perspective.</h1>
       </TitleContainer>
 

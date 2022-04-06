@@ -1,5 +1,5 @@
-import React from 'react'
-import styled, { keyframes } from "styled-components";
+import React, { useContext } from 'react'
+import styled, { ThemeContext } from "styled-components";
 import {
     Link
 } from "react-router-dom";
@@ -18,7 +18,6 @@ const Container = styled.div`
     top: 0;
     z-index: 20;
     width: 100%;
-    color: white;
     transition: .5s ease-in-out;
     transform: translate(-50%, 0);
     left: 50%;
@@ -57,27 +56,25 @@ const MenuContainer = styled.div`
 const OrderButton = styled.div`
     box-sizing: border-box;
     cursor: pointer;
-    background: #0b4209;
-    padding: 10px 50px 10px 50px;
-    font-size: 20px;
+    background: ${props => props.background};
+    padding: 10px 30px 10px 30px;
+    font-size: 18px;
     transition: .4s;
     margin-left: auto; 
     overflow: hidden;
     border-radius: 4px;
     position: relative;
-    color: white;
     background-size: 110%;
     text-transform: uppercase;
-    
+    color: ${props => props.color};
     &:hover {
-        background: #095a07;
+        background: ${props => props.backgroundHover};
     }
     
 `;
 
 
 const NavbarLink = styled(Link)`
-    color: #ffffff;
     display: block;
     text-align: center;
     font-size: 1.2em;
@@ -87,7 +84,7 @@ const NavbarLink = styled(Link)`
     padding: 29px 27px;
     font-weight: bold;
     text-align: center;
-
+    color: ${props => props.color};
     @media (max-width: ${dimensions.md}) {
         display: none;
     }
@@ -95,7 +92,7 @@ const NavbarLink = styled(Link)`
     &:hover {
         outline: none;
         transition-duration: 500ms;
-        color: #fff
+        color: ${props => props.color};
         div {
             width: 100%;
         }
@@ -108,6 +105,7 @@ const NavbarLink = styled(Link)`
 
 
 function Navbar() {
+    const themeContext = useContext(ThemeContext);
 
     return (
         <div>
@@ -119,13 +117,15 @@ function Navbar() {
                 </FlexItem>
                 <FlexItem>
                     <MenuContainer>
-                        <NavbarLink onClick={() => setHasShadow(true)} to="/about">about <div /></NavbarLink>
-                        <NavbarLink onClick={() => setHasShadow(true)} to="/contact">contact <div /></NavbarLink>
-                        <NavbarLink onClick={() => setHasShadow(true)} to="/activities">activities <div /></NavbarLink>
+                        <NavbarLink color={themeContext.inverseText} onClick={() => setHasShadow(true)} to="/about">about <div /></NavbarLink>
+                        <NavbarLink color={themeContext.inverseText} onClick={() => setHasShadow(true)} to="/contact">contact <div /></NavbarLink>
+                        <NavbarLink color={themeContext.inverseText} onClick={() => setHasShadow(true)} to="/activities">activities <div /></NavbarLink>
                     </MenuContainer>
                 </FlexItem>
                 <FlexItem>
-                    <OrderButton>book now</OrderButton>
+                    <OrderButton color={themeContext.inverseText} background={themeContext.primary} backgroundHover={themeContext.primaryHover}>
+                        book now
+                    </OrderButton>
                 </FlexItem>
             </Container>
         </div>

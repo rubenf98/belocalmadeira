@@ -2,10 +2,15 @@ import React, { Component } from "react";
 import Navbar from "./common/Navbar";
 import Footer from "./common/Footer";
 import styled from "styled-components";
+import SmoothScroll from "./common/SmoothScroll";
+
+import { ThemeProvider } from "styled-components";
+import { GlobalStyles } from "./globalStyles";
+import { light, dark } from "./themes"
+import { connect } from "react-redux";
 
 const Container = styled.div`
     width: 100%;
-    max-width: 3840px;
     min-height: 100%;
     margin: auto;
     display: block;
@@ -17,16 +22,30 @@ const Container = styled.div`
 class Layout extends Component {
     render() {
         return (
-            <Container>
-                <Navbar onOrder={this.openForm} />
+            <ThemeProvider theme={this.props.theme === 'light' ? light : dark}>
+                <Container>
+                    <SmoothScroll>
+                        <GlobalStyles />
+                        <Navbar onOrder={this.openForm} />
 
-                <div> {this.props.children} </div>
+                        <div> {this.props.children} </div>
 
 
-                <Footer />
-            </Container>
+                        <Footer />
+                    </SmoothScroll>
+                </Container>
+            </ThemeProvider>
         );
     }
 }
 
-export default Layout;
+const mapStateToProps = (state) => {
+    return {
+        theme: state.application.theme,
+    };
+};
+
+export default connect(
+    mapStateToProps,
+    null
+)(Layout);

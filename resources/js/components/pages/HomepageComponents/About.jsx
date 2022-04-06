@@ -1,24 +1,27 @@
-import React, { useEffect, useCallback, useState } from 'react'
-import styled from "styled-components";
+import React, { useEffect, useCallback, useState, useContext } from 'react'
+import styled, { ThemeContext } from "styled-components";
 import { maxWidth } from '../../../helper';
 
 const Container = styled.section`
- background: #f6f6f6;
- position: relative;
+    position: relative;
+    z-index: -2;
 `;
+
 const Separator = styled.div`
     height: 200px;
     width: 50%;
     border-right: 1px solid lightgray;
 `;
+
 const ScrollIndicator = styled.div`
     position: absolute;
     transform: translate(-50%, 0);
     left: 50%;
     top: ${props => props.scrollPosition + "px"};
-    width: 5px;
+    width: 4px;
     height: 50px;
-    background: green;
+    background: ${props => props.background};
+    transition: all .2s ease-in-out;
 `;
 
 
@@ -30,6 +33,7 @@ const Section = styled.div`
     width: 60%;
     max-width: ${maxWidth};
     margin: auto;
+    align-items: center;
 `;
 
 const ImageContainer = styled.div`
@@ -56,21 +60,23 @@ const InfoContainer = styled.div`
 
     p {
         font-size: 22px;
-        color: #777;
+        color: ${props => props.lightText};
     }
 `;
 
 function About() {
-    const [scrollPosition, setScrollPosition] = useState(0)
+    const [scrollPosition, setScrollPosition] = useState(0);
+    const [scrollIndicatorPosition, setScrollIndicatorPosition] = useState(0);
+    const [lastUpdated, setLastUpdated] = useState(new Date().getTime() / 1000);
+    const themeContext = useContext(ThemeContext);
+
     const handleScroll = useCallback(() => {
         var DOM = document.getElementById("homepage-about-container");
 
         const rect = DOM.getBoundingClientRect();
-
-
-        var max = DOM.offsetHeight + rect.top + window.scrollY - screen.height;
-        console.log(max);
+        var max = DOM.offsetHeight + rect.top + window.scrollY - screen.height / 2;
         var position = window.scrollY - (screen.height / 2);
+
         setScrollPosition((position < max ? ((position > 0) ? position : 0) : max));
     }, []);
 
@@ -82,15 +88,24 @@ function About() {
         }
     }, [handleScroll]);
 
+    useEffect(() => {
+        var newDate = new Date().getTime() / 1000;
+
+        if (newDate - lastUpdated > .3) {
+            setScrollIndicatorPosition(scrollPosition);
+            setLastUpdated(newDate);
+        }
+    }, [scrollPosition]);
+
     return (
         <Container id="homepage-about-container">
-            <ScrollIndicator scrollPosition={scrollPosition} />
+            <ScrollIndicator background={themeContext.primaryHover} scrollPosition={scrollIndicatorPosition} />
             <Separator />
             <Section>
                 <ImageContainer>
-                    <img className='separator' src="/image/about/1.JPG" alt="" />
+                    <img className='separator' src="/image/about/1.jpg" alt="" />
                 </ImageContainer>
-                <InfoContainer>
+                <InfoContainer lightText={themeContext.lightText}>
                     <h2>start your journey TODAY</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci rem voluptatibus maxime fugit. Tenetur voluptatum quas, aut minus consequuntur est itaque dignissimos. Molestias neque voluptatibus sequi modi velit unde tempore.</p>
                 </InfoContainer>
@@ -98,9 +113,9 @@ function About() {
             <Separator />
             <Section>
                 <ImageContainer reverseOrder>
-                    <img className='separator' src="/image/about/1.JPG" alt="" />
+                    <img className='separator' src="/image/about/1.jpg" alt="" />
                 </ImageContainer>
-                <InfoContainer reverseOrder>
+                <InfoContainer lightText={themeContext.lightText} reverseOrder>
                     <h2>start your journey TODAY</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci rem voluptatibus maxime fugit. Tenetur voluptatum quas, aut minus consequuntur est itaque dignissimos. Molestias neque voluptatibus sequi modi velit unde tempore.</p>
                 </InfoContainer>

@@ -2,6 +2,7 @@ import React from 'react'
 import styled from "styled-components";
 import About from './HomepageComponents/About';
 import Header from './HomepageComponents/Header';
+import Services from './HomepageComponents/Services';
 
 
 const Container = styled.div`
@@ -18,9 +19,7 @@ function Homepage() {
     <Container >
       <Header />
       <About />
-      <Header />
-      <Header />
-      <Header />
+      <Services />
     </Container>
   )
 }
