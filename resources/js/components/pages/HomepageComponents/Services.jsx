@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import styled, { ThemeContext } from "styled-components";
 import { maxWidth } from '../../../helper';
+import SectionTitle from '../../common/SectionTitle';
 
 const Container = styled.section`
     background: ${props => props.background};
@@ -19,18 +20,7 @@ const Content = styled.div`
     margin: auto;
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
-
-    h1 {
-        color: inherit;
-        text-align: center;
-        margin: 50px auto 80px auto;
-        width: 100%;
-        font-size: 60px;
-        text-transform: capitalize;
-        font-family: 'Playfair Display', serif;
-    }
-    
+    flex-wrap: wrap;    
 `;
 
 const Column = styled.div`
@@ -100,7 +90,7 @@ function Services() {
     return (
         <Container color={themeContext.inverseText} background={themeContext.primary}>
             <Content>
-                <h1>What we have to <br></br> offer</h1>
+                <SectionTitle title={(<>What we have to <span>offer</span></>)} subtitle="services" />
                 <Column>
                     <Service />
                     <Service moveToRight />
