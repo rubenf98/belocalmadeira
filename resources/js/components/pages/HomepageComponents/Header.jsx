@@ -94,8 +94,8 @@ const Scroll = styled.div`
     line-height: 15px;
     text-transform: uppercase;
 
-    &:first-child() {
-      letter-spacing: -3px;
+    &:nth-child(2) {
+      letter-spacing: 2px;
     }
   }
 `;
@@ -104,7 +104,6 @@ const Scroll = styled.div`
 const ScrollDownIndicator = () => (
   <Scroll>
     <div><p>scroll</p> <p>down</p></div>
-    <img src="/icon/down-arrow.svg" />
   </Scroll>
 )
 

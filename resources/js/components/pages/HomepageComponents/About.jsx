@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import styled, { ThemeContext } from "styled-components";
 import { maxWidth } from '../../../helper';
 
@@ -11,17 +11,6 @@ const Separator = styled.div`
     height: 200px;
     width: 50%;
     border-right: 1px solid lightgray;
-`;
-
-const ScrollIndicator = styled.div`
-    position: absolute;
-    transform: translate(-50%, 0);
-    left: 50%;
-    top: ${props => props.scrollPosition + "px"};
-    width: 4px;
-    height: 50px;
-    background: ${props => props.background};
-    transition: all .2s ease-in-out;
 `;
 
 
@@ -65,41 +54,11 @@ const InfoContainer = styled.div`
 `;
 
 function About() {
-    const [scrollPosition, setScrollPosition] = useState(0);
-    const [scrollIndicatorPosition, setScrollIndicatorPosition] = useState(0);
-    const [lastUpdated, setLastUpdated] = useState(new Date().getTime() / 1000);
     const themeContext = useContext(ThemeContext);
 
-    const handleScroll = useCallback(() => {
-        var DOM = document.getElementById("homepage-about-container");
-
-        const rect = DOM.getBoundingClientRect();
-        var max = DOM.offsetHeight + rect.top + window.scrollY - screen.height / 2;
-        var position = window.scrollY - (screen.height / 2);
-
-        setScrollPosition((position < max ? ((position > 0) ? position : 0) : max));
-    }, []);
-
-    useEffect(() => {
-        window.addEventListener("scroll", () => handleScroll(), true);
-
-        return () => {
-            window.removeEventListener("scroll", () => handleScroll());
-        }
-    }, [handleScroll]);
-
-    useEffect(() => {
-        var newDate = new Date().getTime() / 1000;
-
-        if (newDate - lastUpdated > .3) {
-            setScrollIndicatorPosition(scrollPosition);
-            setLastUpdated(newDate);
-        }
-    }, [scrollPosition]);
 
     return (
         <Container id="homepage-about-container">
-            <ScrollIndicator background={themeContext.primaryHover} scrollPosition={scrollIndicatorPosition} />
             <Separator />
             <Section>
                 <ImageContainer>

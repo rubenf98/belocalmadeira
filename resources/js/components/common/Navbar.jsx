@@ -41,7 +41,7 @@ const Logo = styled(Link)`
     flex: 1;
 
     img {
-        height: 100%;
+        height: 60px;
     }
 `;
 
@@ -112,7 +112,7 @@ function Navbar() {
             <Container>
                 <FlexItem>
                     <Logo to="/">
-                        Be Local Madeira
+                        <img src="/image/logo_white.png" alt="be local madeira white logo" />
                     </Logo>
                 </FlexItem>
                 <FlexItem>

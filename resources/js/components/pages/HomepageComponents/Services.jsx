@@ -1,18 +1,124 @@
-import React from 'react'
-import styled from "styled-components";
+import React, { useContext } from 'react'
+import styled, { ThemeContext } from "styled-components";
 import { maxWidth } from '../../../helper';
 
 const Container = styled.section`
-    background: #032a02;
+    background: ${props => props.background};
+    color: ${props => props.color};
     min-height: 100vh;
     width: 100%;
     position: relative;
-    z-index: -2;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 
+const Content = styled.div`
+    max-width: ${maxWidth};
+    margin: auto;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    h1 {
+        color: inherit;
+        text-align: center;
+        margin: 50px auto 80px auto;
+        width: 100%;
+        font-size: 60px;
+        text-transform: capitalize;
+        font-family: 'Playfair Display', serif;
+    }
+    
+`;
+
+const Column = styled.div`
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: ${props => props.fullHeight ? "space-between" : "flex-start"};
+`;
+
+const ServiceContainer = styled.div`
+    width: 80%;
+    padding: 60px 30px;
+    box-sizing: border-box;
+    text-align: center;
+
+    h3 {
+        color: inherit;
+        font-family: 'Playfair Display', serif;
+        font-size: 26px;
+    }
+
+    img {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 5px;
+    }
+`;
+
+const ImageContainer = styled.div`
+    width: 90%;
+    height: 50vh;
+    padding: 30px;
+    box-sizing: border-box;
+    margin: auto;
+    margin-bottom: 50px;
+    position: relative;
+    
+
+    img {
+        position: absolute;
+        width: 100%;
+
+        &:nth-child(1){
+            width: 70%;
+            top: 0; left: 0;
+            transform: rotate(-2deg);
+        }
+
+        &:nth-child(2){
+            width: 60%;
+            bottom: 0; right: 0;
+            transform: rotate(1deg);
+        }
+    }
+`;
+
+const Service = ({ moveToRight = false, center = false }) => (
+    <ServiceContainer style={{ margin: center ? "auto" : "0px", marginLeft: moveToRight ? "auto" : (center ? "auto" : "0px") }}>
+        <img src="/icon/homepage/services1.svg" alt="" />
+        <h3>Unforgettable experiences</h3>
+        <p>Creating your trip is entirely collaborative and our Travel Researchers are here for every step.</p>
+    </ServiceContainer>
+)
+
 function Services() {
+    const themeContext = useContext(ThemeContext);
     return (
-        <Container></Container>
+        <Container color={themeContext.inverseText} background={themeContext.primary}>
+            <Content>
+                <h1>What we have to <br></br> offer</h1>
+                <Column>
+                    <Service />
+                    <Service moveToRight />
+                </Column>
+                <Column fullHeight>
+                    <ImageContainer>
+                        <img src="/image/homepage/services1.jpg" />
+                        <img src="/image/homepage/services2.jpg" />
+                    </ImageContainer>
+
+                    <Service center />
+                </Column>
+                <Column>
+                    <Service moveToRight />
+                    <Service />
+                </Column>
+            </Content>
+        </Container>
     )
 }
 
