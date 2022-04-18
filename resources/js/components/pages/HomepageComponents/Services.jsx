@@ -52,28 +52,13 @@ const ServiceContainer = styled.div`
 const ImageContainer = styled.div`
     width: 90%;
     height: 50vh;
-    padding: 30px;
     box-sizing: border-box;
     margin: auto;
     margin-bottom: 50px;
-    position: relative;
-    
 
     img {
-        position: absolute;
         width: 100%;
-
-        &:nth-child(1){
-            width: 70%;
-            top: 0; left: 0;
-            transform: rotate(-2deg);
-        }
-
-        &:nth-child(2){
-            width: 60%;
-            bottom: 0; right: 0;
-            transform: rotate(1deg);
-        }
+        height: 100%;
     }
 `;
 
@@ -97,8 +82,7 @@ function Services() {
                 </Column>
                 <Column fullHeight>
                     <ImageContainer>
-                        <img src="/image/homepage/services1.jpg" />
-                        <img src="/image/homepage/services2.jpg" />
+                        <img src="/image/homepage/service.png" />
                     </ImageContainer>
 
                     <Service center />
