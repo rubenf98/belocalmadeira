@@ -46,7 +46,7 @@ const Overlay = styled.div`
   top: 0;bottom:0;left:0;right: 0;
   position: absolute;
   background: rgb(0,0,0);
-  background: linear-gradient(180deg, #000 0%, #0000004e 100%);
+  background: linear-gradient(180deg, #000 0%, #38383830 100%);
   opacity: 0.7;
 `;
 

@@ -8,6 +8,8 @@ import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./globalStyles";
 import { light, dark } from "./themes"
 import { connect } from "react-redux";
+import OrderForm from "./pages/OrderForm";
+import { handleForm } from "../redux/application/actions";
 
 const Container = styled.div`
     width: 100%;
@@ -26,7 +28,8 @@ class Layout extends Component {
                 <Container>
                     <SmoothScroll>
                         <GlobalStyles />
-                        <Navbar onOrder={this.openForm} />
+                        <Navbar onOrder={this.openForm} handleVisibility={this.props.handleForm} />
+                        <OrderForm visible={this.props.formVisible} handleVisibility={this.props.handleForm} />
 
                         <div> {this.props.children} </div>
 
@@ -42,10 +45,17 @@ class Layout extends Component {
 const mapStateToProps = (state) => {
     return {
         theme: state.application.theme,
+        formVisible: state.application.formVisible
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        handleForm: (visibility) => dispatch(handleForm(visibility)),
     };
 };
 
 export default connect(
     mapStateToProps,
-    null
+    mapDispatchToProps
 )(Layout);

@@ -18,3 +18,9 @@ export function handleMenu(state) {
     };
 }
 
+export function handleForm(state) {
+    return {
+        type: types.HANDLE_FORM, payload: state
+    };
+}
+

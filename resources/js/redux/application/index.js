@@ -3,6 +3,7 @@ import { types } from "./types";
 export const initialState = {
     theme: "light",
     menuVisible: false,
+    formVisible: false,
 }
 
 export default (state = initialState, action = {}) => {
@@ -18,6 +19,12 @@ export default (state = initialState, action = {}) => {
             return {
                 ...state,
                 menuVisible: action.payload,
+            };
+
+        case `${types.HANDLE_FORM}`:
+            return {
+                ...state,
+                formVisible: action.payload,
             };
         default:
             return state

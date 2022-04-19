@@ -7,7 +7,6 @@ import { dimensions } from '../../helper';
 
 const Container = styled.div`
     height: 80px;
-    max-width: 1200px;
     background: transparent;
     margin: auto;
     display: flex;
@@ -17,11 +16,13 @@ const Container = styled.div`
     display: flex;
     top: 0;
     z-index: 20;
-    width: 100%;
+    width: 90%;
+    margin: auto;
     transition: .5s ease-in-out;
     transform: translate(-50%, 0);
     left: 50%;
     align-items: center;
+    margin-top: 20px;
 `;
 
 const FlexItem = styled.div`
@@ -32,13 +33,13 @@ const FlexItem = styled.div`
 
 const Logo = styled(Link)`
     margin: auto;
-    margin-left: 30px;
-    display: block;
+    display: flex;
     color: white;
     text-decoration: none;
     font-size: 22px;
     font-weight: bold;
-    flex: 1;
+    justify-content: center;
+
 
     img {
         height: 60px;
@@ -49,14 +50,15 @@ const Logo = styled(Link)`
 const MenuContainer = styled.div`
     display: flex;
     align-items: center;
-    justify-content: center;
     text-align: center;
+    justify-content: flex-start;
+    flex: 1;
 `;
 
 const OrderButton = styled.div`
     box-sizing: border-box;
     cursor: pointer;
-    background: ${props => props.background};
+    background: ${props => props.backgroundHover};
     padding: 10px 30px 10px 30px;
     font-size: 18px;
     transition: .4s;
@@ -68,7 +70,7 @@ const OrderButton = styled.div`
     text-transform: uppercase;
     color: ${props => props.color};
     &:hover {
-        background: ${props => props.backgroundHover};
+        background: ${props => props.background};
     }
     
 `;
@@ -104,17 +106,12 @@ const NavbarLink = styled(Link)`
 
 
 
-function Navbar() {
+function Navbar({ handleVisibility }) {
     const themeContext = useContext(ThemeContext);
 
     return (
         <div>
             <Container>
-                <FlexItem>
-                    <Logo to="/">
-                        <img src="/image/logo_white.png" alt="be local madeira white logo" />
-                    </Logo>
-                </FlexItem>
                 <FlexItem>
                     <MenuContainer>
                         <NavbarLink color={themeContext.inverseText} onClick={() => setHasShadow(true)} to="/about">about <div /></NavbarLink>
@@ -122,11 +119,19 @@ function Navbar() {
                         <NavbarLink color={themeContext.inverseText} onClick={() => setHasShadow(true)} to="/activities">activities <div /></NavbarLink>
                     </MenuContainer>
                 </FlexItem>
+
                 <FlexItem>
-                    <OrderButton color={themeContext.inverseText} background={themeContext.primary} backgroundHover={themeContext.primaryHover}>
+                    <Logo to="/">
+                        <img src="/image/logo_white.png" alt="be local madeira white logo" />
+                    </Logo>
+                </FlexItem>
+
+                <FlexItem>
+                    <OrderButton onClick={() => handleVisibility(true)} color={themeContext.inverseText} background={themeContext.primary} backgroundHover={themeContext.primaryHover}>
                         book now
                     </OrderButton>
                 </FlexItem>
+
             </Container>
         </div>
     )
