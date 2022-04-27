@@ -1,10 +1,11 @@
 import React, { useEffect, useState, useContext } from 'react'
 import styled, { ThemeContext } from "styled-components";
+import { dimensions } from '../../../helper';
 
 
 const Container = styled.section`
   width: 100%;
-  height: 100vh;
+  height: 101vh;
   position: relative;
   display: flex;
   align-items: center;
@@ -34,6 +35,12 @@ const BackgroundContainer = styled.div`
     scale: 1.05;
     transform: ${props => "rotateX(" + Math.floor(props.positionOffset.x) + "deg) rotateY(" + Math.floor(props.positionOffset.y) + "deg)"};
     
+    @media(max-width: ${dimensions.md}) {
+      transform: none;
+      scale: 1;
+      object-fit: fill;
+    }
+
     img {
       width: 100%;
       height: 100%;
@@ -61,17 +68,33 @@ const TitleContainer = styled.div`
     margin: auto;
     color: inherit;
     text-align: center;
+
+    @media(max-width: ${dimensions.lg}) {
+      width: 70%;
+    }
+
+    @media(max-width: ${dimensions.md}) {
+      width: 90%;
+    }
   }
   h1 {
     font-size: 70px;
     line-height: 4.375rem;
     font-family: 'Playfair Display', serif;
+
+    @media(max-width: ${dimensions.sm}) {
+      font-size: 50px;
+    }
   }
 
   h2 {
     font-size: 24px;
     text-transform: uppercase;
     margin-bottom: 30px;
+
+    @media(max-width: ${dimensions.sm}) {
+      font-size: 22px;
+    }
   }
 `;
 
@@ -79,7 +102,7 @@ const Scroll = styled.div`
   margin: auto;
   position: absolute;
   left: 50%;
-  bottom: 10px;
+  bottom: 30px;
   transform: translate(-50%, 0);
   display: flex;
   color: inherit;

@@ -1,12 +1,10 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { Form, Drawer, Row } from 'antd';
 import styled, { ThemeContext } from "styled-components";
-import Activity from './Form/Activity';
-import Location from './Form/Location';
-import People from './Form/People';
 import { dimensions } from "../../helper";
 import Information from './Form/Information';
 import Date from './Form/Date';
+import Participants from './Form/Participants';
 
 const Content = styled(Drawer)`
     color: white;
@@ -62,11 +60,27 @@ const Next = styled.div`
     }
 `;
 
-const OrderForm = ({ visible, handleVisibility, onCancel, activities = [], initForm = [0, 0] }) => {
+const Previous = styled.img`
+    cursor: pointer;
+    width: 20px;
+    opacity: ${props => props.visible ? 1 : 0};
+    cursor: ${props => props.visible ? "pointer" : "default"};
+    
+`;
+
+const FlexContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+`;
+
+
+const OrderForm = ({ visible, handleVisibility }) => {
     const { text } = require('../../assets/' + localStorage.getItem('language') + "/form");
 
     const [step, setStep] = useState(0);
-    const [loadingSubmit, setLoadingSubmit] = useState(false);
+    const [nParticipants, setNParticipants] = useState(2);
     const [calendarMetadata, setCalendarMetadata] = useState({});
     const [drawerWidth, setDrawerWidth] = useState(720);
     const [form] = Form.useForm();
@@ -78,15 +92,24 @@ const OrderForm = ({ visible, handleVisibility, onCancel, activities = [], initF
 
     const steps = [
         { title: "Explore our activities and book your Madeira Island experience right here!", content: <Information /> },
-        { title: "Select the date for your activity from the available options on the calendar", content: <Date /> }
+        { title: "Select the date for your activity from the available options on the calendar", content: <Date /> },
+        { title: "Fill the details of everyone that will participate on the activity", content: <Participants n={nParticipants} text={text} /> }
     ]
 
     const nextStep = () => {
+        if (step == 1) {
+            setNParticipants(form.getFieldValue('participants'));
+        }
         setStep(step == (steps.length - 1) ? step : step + 1);
     }
 
     const previousStep = () => {
         setStep(step > 0 ? step - 1 : 0);
+    }
+
+    const handleClose = () => {
+        setStep(0);
+        handleVisibility(false);
     }
 
     return (
@@ -96,17 +119,29 @@ const OrderForm = ({ visible, handleVisibility, onCancel, activities = [], initF
             placement="right"
             width={drawerWidth}
             closable={false}
+            maskClosable={false}
             visible={visible}
+            onClose={handleClose}
         >
-
-            <CloseContainer onClick={() => handleVisibility(false)}>
-                <span>close</span> <img src="/icon/close.svg" alt="close icon" />
-            </CloseContainer>
+            <FlexContainer>
+                <Previous visible={step != 0} onClick={previousStep} src='/icon/previous.svg' alt="previous step" />
+                <CloseContainer onClick={() => handleVisibility(false)}>
+                    <span>close</span> <img src="/icon/close.svg" alt="close icon" />
+                </CloseContainer>
+            </FlexContainer>
 
             <Title>{steps[step].title}</Title>
-
-            {steps[step].content}
-
+            <Form
+                form={form}
+                layout="vertical"
+                name="order"
+                requiredMark={false}
+                initialValues={{
+                    people: 2,
+                }}
+            >
+                {steps[step].content}
+            </Form>
             <Next onClick={nextStep}>
                 <img src="/icon/next.svg" alt='next step' />
             </Next>

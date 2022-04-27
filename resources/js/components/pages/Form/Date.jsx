@@ -6,7 +6,7 @@ import styled, { ThemeContext } from "styled-components";
 const CustomCalendar = styled(Calendar)`
     background: transparent;
     color: white;
-    margin: 30px 0px 50px 0px;
+    margin: 10px 0px;
 
     .ant-picker-body {
         padding: 30px 0px !important;
@@ -62,8 +62,6 @@ const CustomSelect = styled(Select)`
 function Date() {
     return (
         <div>
-
-            <Row gutter={32}>
 
                 <Form.Item
                     name="date"
@@ -142,7 +140,7 @@ function Date() {
                 </Form.Item>
 
 
-            </Row>
+
 
 
         </div>
