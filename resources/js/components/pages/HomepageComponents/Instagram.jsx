@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import SectionTitle from '../../common/SectionTitle'
 
 const Title = styled.h2`
     font-size: 40px;
@@ -12,53 +13,31 @@ const Title = styled.h2`
 const FlexContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
-    margin: 50px auto;
+    margin: 10px auto;
 
-    a {
-        width: 20vw;
-        height: 20vw;
-        position: relative;
-        background-color: black;
+    div {
+        padding: 10px;
+        box-sizing: border-box;
 
-        &:hover {
-            .instagram-logo {
-                display: block;
-            }
-
-            .overlay {
-                opacity: .5;
-            }
-
-        }
-
-        .instagram-post {
+        img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-
-        .overlay {
-            background: black;
-            opacity: 0;
-            position: absolute;
-            top: 0px;bottom: 0px; left: 0px; right: 0px;
-            transition: opacity .3s ease;
-        }
-
-        .instagram-logo {
-            width: 30px;
-            height: 30px;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%,-50%);
-            display: none;
-        }
-    }
-
-    
+    } 
 `;
-const items = [
+
+const FiveItem = styled.div`
+    width: 20vw;
+    height: 20vw;
+`;
+
+const ThreeItem = styled.div`
+    width: ${props => props.centerImage ? "60vw" : "20vw"};
+    height: 30vw;
+`;
+
+const items2 = [
     { src: "instagram1.jpg", url: "https://www.instagram.com/p/CZkhqsQKliS/" },
     { src: "instagram2.jpg", url: "https://www.instagram.com/p/CZSTQ7AKY0T/" },
     { src: "instagram3.jpg", url: "https://www.instagram.com/p/CYB9Fq7KzdE/" },
@@ -66,21 +45,31 @@ const items = [
     { src: "instagram5.jpg", url: "https://www.instagram.com/p/CX3jkZ8qZWC/" },
 ]
 
+const items = [
+    { src: "instagram6.jpg", centerImage: false },
+    { src: "instagram7.jpg", centerImage: true },
+    { src: "instagram8.jpg", centerImage: false },
+]
+
 
 function Instagram() {
     return (
         <section>
-            <Title>
-                Follow us on Instagram
-            </Title>
+            <SectionTitle title={(<>Follow us on <span>Instagram</span></>)} subtitle="Socials" />
 
             <FlexContainer>
                 {items.map((item) => (
-                    <a href={item.url} target="_blank" rel="noreferrer">
-                        <div className='overlay' />
+                    <ThreeItem centerImage={item.centerImage}>
                         <img className='instagram-post' src={"/image/homepage/" + item.src} alt="instagram post" />
-                        <img className='instagram-logo' src="/icon/instagram.png" alt="" />
-                    </a>
+                    </ThreeItem>
+                ))}
+            </FlexContainer>
+
+            <FlexContainer>
+                {items2.map((item) => (
+                    <FiveItem>
+                        <img className='instagram-post' src={"/image/homepage/" + item.src} alt="instagram post" />
+                    </FiveItem>
                 ))}
 
             </FlexContainer>
