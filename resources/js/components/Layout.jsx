@@ -26,7 +26,6 @@ class Layout extends Component {
         return (
             <ThemeProvider theme={this.props.theme === 'light' ? light : dark}>
                 <Container>
-                    <SmoothScroll>
                         <GlobalStyles />
                         <Navbar onOrder={this.openForm} handleVisibility={this.props.handleForm} />
                         <OrderForm visible={this.props.formVisible} handleVisibility={this.props.handleForm} />
@@ -35,7 +34,6 @@ class Layout extends Component {
 
 
                         <Footer />
-                    </SmoothScroll>
                 </Container>
             </ThemeProvider>
         );

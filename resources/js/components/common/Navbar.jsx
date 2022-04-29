@@ -105,13 +105,13 @@ const NavbarLink = styled(Link)`
 
 
 
-
 function Navbar({ handleVisibility }) {
     const themeContext = useContext(ThemeContext);
 
     return (
         <div>
             <Container>
+                
                 <FlexItem>
                     <MenuContainer>
                         <NavbarLink color={themeContext.inverseText} onClick={() => setHasShadow(true)} to="/about">about <div /></NavbarLink>
