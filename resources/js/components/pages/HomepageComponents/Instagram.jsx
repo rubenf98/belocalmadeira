@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { maxWidth } from '../../../helper';
 import SectionTitle from '../../common/SectionTitle'
 
 const Title = styled.h2`
@@ -14,6 +15,7 @@ const FlexContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     margin: 10px auto;
+    max-width: ${maxWidth};
 
     div {
         padding: 10px;
@@ -28,13 +30,13 @@ const FlexContainer = styled.div`
 `;
 
 const FiveItem = styled.div`
-    width: 20vw;
-    height: 20vw;
+    width: 20%;
+    height: auto;
 `;
 
 const ThreeItem = styled.div`
-    width: ${props => props.centerImage ? "60vw" : "20vw"};
-    height: 30vw;
+    width: ${props => props.centerImage ? "60%" : "20%"};
+    height: auto;
 `;
 
 const items2 = [

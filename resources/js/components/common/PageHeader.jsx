@@ -1,0 +1,55 @@
+import React from 'react'
+import styled from "styled-components";
+
+const Overlay = styled.div`
+  z-index: 1;
+  top: 0;bottom:0;left:0;right: 0;
+  position: absolute;
+  background: rgb(0,0,0);
+  background: linear-gradient(180deg, #000 0%, #38383830 100%);
+  opacity: 0.7;
+
+`;
+
+const Header = styled.div`
+    height: calc(60vh);
+    background: url("/image/2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 200px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    div {
+        z-index: 1;
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 60px;
+            color: white;
+            text-align: center;
+        }
+
+        p {
+            font-size: 18px;
+            color: white;
+            text-align: center;
+        }
+    }
+`;
+
+function PageHeader({ title, subtitle }) {
+    return (
+        <Header >
+            <Overlay />
+            <div>
+                <h1>{title}</h1>
+                <p>Fowl living for lights our ears bearing to heaven signs</p>
+            </div>
+        </Header>
+    )
+}
+
+export default PageHeader

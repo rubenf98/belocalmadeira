@@ -1,10 +1,8 @@
 import React from 'react'
 import styled, { withTheme } from "styled-components";
-import Team from './About/Team';
-import History from './About/History';
-import Services from './About/Services';
 import { Col, Row } from 'antd';
 import { maxWidth } from '../../helper';
+import PageHeader from '../common/PageHeader';
 
 const Container = styled.div`
     //
@@ -17,6 +15,7 @@ const PartnerContainer = styled(Row)`
 
     img {
        width: 20%;
+       max-width: 250px;
        filter: contrast(0);
     }
 `;
@@ -50,55 +49,14 @@ const Column = styled(Col)`
     }
 `;
 
-const Header = styled.div`
-    height: calc(60vh);
-    background: url("/image/2.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin-bottom: 200px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-    div {
-        z-index: 1;
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 60px;
-            color: white;
-            text-align: center;
-        }
 
-        p {
-            font-size: 18px;
-            color: white;
-            text-align: center;
-        }
-    }
-`;
 
-const Overlay = styled.div`
-  z-index: 1;
-  top: 0;bottom:0;left:0;right: 0;
-  position: absolute;
-  background: rgb(0,0,0);
-  background: linear-gradient(180deg, #000 0%, #38383830 100%);
-  opacity: 0.7;
-
-`;
 
 function About({ theme }) {
     return (
         <Container>
-            <Header >
-                <Overlay />
-                <div>
-                    <h1>About Us</h1>
-                    <p>Fowl living for lights our ears bearing to heaven signs</p>
-                </div>
-            </Header>
+            <PageHeader title="About Us" subtitle="Fowl living for lights our ears bearing to heaven signs" />
             <InfoContainer>
                 <Column text={theme.lightText} xs={24} md={10}>
                     <h2>Lorem, ipsum dolor sit amet.</h2>
@@ -108,19 +66,19 @@ function About({ theme }) {
                 <Column xs={24} md={14}>
                     <Row type="flex" gutter={20}>
                         <Col xs={24} md={8}>
-                            <img src="/image/about/biking.jpg" alt="" />
+                            <img src="/image/about/about1.jpg" alt="" />
                         </Col>
                         <Col xs={24} md={16}>
                             <Row gutter={20} style={{ marginBottom: "20px" }}>
                                 <Col xs={24} md={12}>
-                                    <img src="/image/about/biking.jpg" alt="" />
+                                    <img src="/image/about/about2.jpg" alt="" />
                                 </Col>
                                 <Col xs={24} md={12}>
                                     <img src="/image/about/leaf.svg" alt="" />
                                 </Col>
                             </Row>
                             <Row>
-                                <img src="/image/about/instagram7.jpg" alt="" />
+                                <img src="/image/about/about3.jpg" alt="" />
                             </Row>
                         </Col>
                     </Row>

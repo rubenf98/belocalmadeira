@@ -7,24 +7,16 @@ import Instagram from './HomepageComponents/Instagram';
 import Services from './HomepageComponents/Services';
 
 
-const Container = styled.div`
-  width: 100vw;
-  position: relative;
-  overflow-x: hidden;
-`;
-
-
-
 function Homepage() {
 
   return (
-    <Container >
+    < >
       <Header />
       <About />
       <Services />
       <Activities />
       <Instagram />
-    </Container>
+    </>
   )
 }
 

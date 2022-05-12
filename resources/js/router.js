@@ -8,6 +8,7 @@ import About from "./components/pages/About";
 import Contact from "./components/pages/Contact";
 import Login from "./components/pages/Login";
 import Layout from "./components/Layout";
+import Canyoning from "./components/pages/Canyoning";
 
 export const history = createBrowserHistory();
 
@@ -15,8 +16,9 @@ function Router() {
     return (
         <BrowserRouter history={history}>
             <Routes>
+                <Route exact path="/activities/canyoning" element={<Layout><Canyoning /></Layout>} />
                 <Route exact path="/about" element={<Layout><About /></Layout>} />
-                <Route exact path="/contact" element={<Contact />} />
+                <Route exact path="/contact" element={<Layout><Contact /></Layout>} />
                 <Route exact path="/login" element={<Login />} />
                 <Route exact path="/" element={<Layout><Homepage /></Layout>} />
 

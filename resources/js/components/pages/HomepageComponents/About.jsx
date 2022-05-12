@@ -4,7 +4,6 @@ import { maxWidth } from '../../../helper';
 
 const Container = styled.section`
     position: relative;
-    z-index: -2;
 `;
 
 const Separator = styled.div`
@@ -56,13 +55,15 @@ const InfoContainer = styled.div`
 function About() {
     const themeContext = useContext(ThemeContext);
 
-
     return (
         <Container id="homepage-about-container">
             <Separator />
             <Section>
                 <ImageContainer>
-                    <img className='separator' src="/image/about/1.jpg" alt="" />
+                    <video loop autoPlay className='separator' width="100%"  controls={false}>
+                        <source src="/image/about/about-video.webm" type="video/webm" />
+                        Your browser does not support the video tag.
+                    </video>
                 </ImageContainer>
                 <InfoContainer lightText={themeContext.lightText}>
                     <h2>start your journey TODAY</h2>

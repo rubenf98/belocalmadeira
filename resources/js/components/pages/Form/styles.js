@@ -84,6 +84,16 @@ export const CustomInput = styled(Input)`
 `;
 
 
+export const CustomTextArea = styled(Input.TextArea)`
+    ${baseInputStyles}
+
+    .ant-input {
+        border: 0px;
+        background-color: transparent;
+    }
+`;
+
+
 export const CustomInputNumber = styled(InputNumber)`
     ${baseInputStyles}    
 
