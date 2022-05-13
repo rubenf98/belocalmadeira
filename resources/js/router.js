@@ -8,7 +8,7 @@ import About from "./components/pages/About";
 import Contact from "./components/pages/Contact";
 import Login from "./components/pages/Login";
 import Layout from "./components/Layout";
-import Canyoning from "./components/pages/Canyoning";
+import Canyoning from "./components/pages/Activities/Canyoning";
 
 export const history = createBrowserHistory();
 

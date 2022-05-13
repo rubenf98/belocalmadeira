@@ -19,6 +19,11 @@ const Container = styled.div`
     position: relative;
     box-sizing: border-box;
     overflow-x: hidden;
+
+
+    .ant-select-dropdown {
+        background-color: transparent !important;
+    }
 `;
 
 class Layout extends Component {

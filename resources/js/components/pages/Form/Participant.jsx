@@ -65,7 +65,14 @@ function Participant({ text, nParticipant }) {
                 </Col>
                 <Col xs={24} md={12}>
                     <Form.Item name="shoe" rules={rules.shoe}>
-                        <CustomSelect placeholder={text.form.person.shoe.placeholder}>
+                        <CustomSelect
+                            dropdownRender={menu => (
+                                <div className='colored-dropdown'>
+                                    {menu}
+                                </div >
+                            )}
+                            placeholder={text.form.person.shoe.placeholder}
+                        >
                             <Select.Option value="35">2 UK / 35 EU</Select.Option>
                             <Select.Option value="36">3 UK / 36 EU</Select.Option>
                             <Select.Option value="37">4 UK / 37 EU</Select.Option>
@@ -84,7 +91,14 @@ function Participant({ text, nParticipant }) {
                 </Col>
                 <Col xs={24} md={8}>
                     <Form.Item name="gender" rules={rules.gender}>
-                        <CustomSelect placeholder={text.form.person.gender.placeholder}>
+                        <CustomSelect
+                            dropdownRender={menu => (
+                                <div className='colored-dropdown'>
+                                    {menu}
+                                </div >
+                            )}
+                            placeholder={text.form.person.gender.placeholder}
+                        >
                             <Select.Option value="male">{text.form.gender[0]}</Select.Option>
                             <Select.Option value="female">{text.form.gender[1]}</Select.Option>
                         </CustomSelect>
@@ -92,7 +106,14 @@ function Participant({ text, nParticipant }) {
                 </Col>
                 <Col xs={24} md={8}>
                     <Form.Item name="height" rules={rules.height}>
-                        <CustomSelect placeholder={text.form.person.height.placeholder}>
+                        <CustomSelect
+                            dropdownRender={menu => (
+                                <div className='colored-dropdown'>
+                                    {menu}
+                                </div >
+                            )}
+                            placeholder={text.form.person.height.placeholder}
+                        >
                             <Select.Option value="120">&lt; 120cm</Select.Option>
                             {[...Array(89)].map((count, index) =>
                                 <Select.Option key={index} value={index + 121}>{index + 121}cm</Select.Option>
@@ -103,7 +124,14 @@ function Participant({ text, nParticipant }) {
                 </Col>
                 <Col xs={24} md={8}>
                     <Form.Item name="weight" rules={rules.weight}>
-                        <CustomSelect placeholder={text.form.person.weight.placeholder}>
+                        <CustomSelect
+                            dropdownRender={menu => (
+                                <div className='colored-dropdown'>
+                                    {menu}
+                                </div >
+                            )}
+                            placeholder={text.form.person.weight.placeholder}
+                        >
                             <Select.Option value="Under 30kg">&lt; 30kg</Select.Option>
                             {[...Array(89)].map((count, index) =>
                                 <Select.Option key={index} value={index + 31}>{index + 31}kg</Select.Option>

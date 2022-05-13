@@ -1,10 +1,9 @@
 import React from 'react'
-import Activity from '../common/Activity'
-import PageHeader from '../common/PageHeader'
+import Activity from '../../common/Activity'
+import PageHeader from '../../common/PageHeader'
 
 function Canyoning() {
-    const { text } = require('../../assets/' + localStorage.getItem('language') + "/activityCanyoning");
-
+    const { text } = require('../../../assets/' + localStorage.getItem('language') + "/activityCanyoning");
 
     return (
         <div>

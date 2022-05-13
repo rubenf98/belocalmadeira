@@ -2,8 +2,8 @@
 import { Input, Checkbox, Select, InputNumber, DatePicker } from 'antd';
 import styled, { css } from "styled-components";
 
-const baseInputStyles = css`
-  width: 100%;
+export const baseInputStyles = css`
+    width: 100%;
     margin: 10px 0px;
     border: none;
     border-bottom: 1px solid #cfcfcf;

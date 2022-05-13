@@ -48,7 +48,15 @@ function Information() {
                     <Form.Item
                         name="activity"
                     >
-                        <CustomSelect size='large' placeholder="Activity">
+                        <CustomSelect
+                            dropdownRender={menu => (
+                                <div className='colored-dropdown'>
+                                    {menu}
+                                </div >
+                            )}
+                            size='large'
+                            placeholder="Activity"
+                        >
                             <Select.Option value="canyoning">Canyoning</Select.Option>
                             <Select.Option value="hiking">Hiking</Select.Option>
                             <Select.Option value="biking">Biking</Select.Option>

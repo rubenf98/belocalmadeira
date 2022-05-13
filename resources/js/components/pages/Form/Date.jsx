@@ -63,81 +63,91 @@ function Date() {
     return (
         <div>
 
-                <Form.Item
-                    name="date"
-                >
-                    <CustomCalendar
-                        fullscreen={false}
-                        headerRender={({ value, onChange }) => {
-                            const currentDate = moment();
-                            const currentYear = currentDate.year();
-                            const monthOptions = [];
-                            const month = value.month();
-                            const year = value.year();
+            <Form.Item
+                name="date"
+            >
+                <CustomCalendar
+                    fullscreen={false}
+                    headerRender={({ value, onChange }) => {
+                        const currentDate = moment();
+                        const currentYear = currentDate.year();
+                        const monthOptions = [];
+                        const month = value.month();
+                        const year = value.year();
 
-                            const current = value.clone();
-                            const localeData = value.localeData();
-                            const months = [];
+                        const current = value.clone();
+                        const localeData = value.localeData();
+                        const months = [];
 
-                            for (let i = 0; i < 12; i++) {
-                                current.month(i);
-                                months.push(localeData.monthsShort(current));
-                            }
+                        for (let i = 0; i < 12; i++) {
+                            current.month(i);
+                            months.push(localeData.monthsShort(current));
+                        }
 
-                            for (let index = 0; index < 12; index++) {
-                                monthOptions.push(
-                                    <Select.Option style={{ width: "100px" }} key={index}>
-                                        {months[index]}
-                                    </Select.Option>,
-                                );
-                            }
-
-                            const options = [];
-                            for (let i = currentYear; i < year + 2; i += 1) {
-                                options.push(
-                                    <Select.Option key={i} value={i}>
-                                        {i}
-                                    </Select.Option>,
-                                );
-                            }
-                            return (
-                                <div style={{ padding: 8 }}>
-                                    <Row gutter={32}>
-                                        <Col span={12}>
-                                            <CustomSelect
-                                                style={{ width: "100%" }}
-                                                size="large"
-                                                dropdownMatchSelectWidth={false}
-                                                onChange={newYear => {
-                                                    const now = value.clone().year(newYear);
-                                                    onChange(now);
-                                                }}
-                                                value={String(year)}
-                                            >
-                                                {options}
-                                            </CustomSelect>
-                                        </Col>
-                                        <Col span={12}>
-                                            <CustomSelect
-                                                style={{ width: "100%" }}
-                                                size="large"
-                                                dropdownMatchSelectWidth={false}
-                                                value={String(month)}
-                                                onChange={selectedMonth => {
-                                                    const newValue = value.clone();
-                                                    newValue.month(parseInt(selectedMonth, 10));
-                                                    onChange(newValue);
-                                                }}
-                                            >
-                                                {monthOptions}
-                                            </CustomSelect>
-                                        </Col>
-                                    </Row>
-                                </div>
+                        for (let index = 0; index < 12; index++) {
+                            monthOptions.push(
+                                <Select.Option style={{ width: "100px" }} key={index}>
+                                    {months[index]}
+                                </Select.Option>,
                             );
-                        }}
-                    />
-                </Form.Item>
+                        }
+
+                        const options = [];
+                        for (let i = currentYear; i < year + 2; i += 1) {
+                            options.push(
+                                <Select.Option key={i} value={i}>
+                                    {i}
+                                </Select.Option>,
+                            );
+                        }
+                        return (
+                            <div style={{ padding: 8 }}>
+                                <Row gutter={32}>
+                                    <Col span={12}>
+                                        <CustomSelect
+                                            style={{ width: "100%" }}
+                                            size="large"
+                                            dropdownMatchSelectWidth={false}
+                                            onChange={newYear => {
+                                                const now = value.clone().year(newYear);
+                                                onChange(now);
+                                            }}
+                                            dropdownRender={menu => (
+                                                <div className='colored-dropdown'>
+                                                    {menu}
+                                                </div >
+                                            )}
+                                            value={String(year)}
+                                        >
+                                            {options}
+                                        </CustomSelect>
+                                    </Col>
+                                    <Col span={12}>
+                                        <CustomSelect
+                                            style={{ width: "100%" }}
+                                            size="large"
+                                            dropdownMatchSelectWidth={false}
+                                            value={String(month)}
+                                            onChange={selectedMonth => {
+                                                const newValue = value.clone();
+                                                newValue.month(parseInt(selectedMonth, 10));
+                                                onChange(newValue);
+                                            }}
+                                            dropdownRender={menu => (
+                                                <div className='colored-dropdown'>
+                                                    {menu}
+                                                </div >
+                                            )}
+                                        >
+                                            {monthOptions}
+                                        </CustomSelect>
+                                    </Col>
+                                </Row>
+                            </div>
+                        );
+                    }}
+                />
+            </Form.Item>
 
 
 
