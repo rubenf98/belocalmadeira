@@ -9,7 +9,7 @@ export const GlobalStyles = createGlobalStyle`
   }
   
   .ant-select-dropdown {
-    background-color: transparent ;
+    background-color: #232E19 ;
 
     .ant-select-item-option-active:not(.ant-select-item-option-disabled) {
       background-color: rgba(0,0,0,.6) !important;

@@ -9,6 +9,9 @@ import Contact from "./components/pages/Contact";
 import Login from "./components/pages/Login";
 import Layout from "./components/Layout";
 import Canyoning from "./components/pages/Activities/Canyoning";
+import Hiking from "./components/pages/Activities/Hiking";
+import Coasteering from "./components/pages/Activities/Coasteering";
+import Biking from "./components/pages/Activities/Biking";
 
 export const history = createBrowserHistory();
 
@@ -17,6 +20,9 @@ function Router() {
         <BrowserRouter history={history}>
             <Routes>
                 <Route exact path="/activities/canyoning" element={<Layout><Canyoning /></Layout>} />
+                <Route exact path="/activities/hiking" element={<Layout><Hiking /></Layout>} />
+                <Route exact path="/activities/coasteering" element={<Layout><Coasteering /></Layout>} />
+                <Route exact path="/activities/biking" element={<Layout><Biking /></Layout>} />
                 <Route exact path="/about" element={<Layout><About /></Layout>} />
                 <Route exact path="/contact" element={<Layout><Contact /></Layout>} />
                 <Route exact path="/login" element={<Login />} />

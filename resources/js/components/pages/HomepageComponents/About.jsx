@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import styled, { ThemeContext } from "styled-components";
-import { maxWidth } from '../../../helper';
+import { dimensions, maxWidth } from '../../../helper';
 
 const Container = styled.section`
     position: relative;
@@ -10,6 +10,10 @@ const Separator = styled.div`
     height: 200px;
     width: 50%;
     border-right: 1px solid lightgray;
+
+    @media (max-width: ${dimensions.md}) {
+        border: 0px;
+    }
 `;
 
 
@@ -22,15 +26,29 @@ const Section = styled.div`
     max-width: ${maxWidth};
     margin: auto;
     align-items: center;
+    flex-wrap: wrap;
+
+    @media (max-width: ${dimensions.md}) {
+        width: 90%;
+    }
 `;
 
 const ImageContainer = styled.div`
     width: 50%;
     border-right: 1px solid lightgray;
     order: ${props => props.reverseOrder ? 2 : 1};
+    position: relative;
 
-    img {
+    @media (max-width: ${dimensions.md}) {
         width: 100%;
+        border: 0px;
+        order: 2;
+    }
+
+    video, img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 `;
 
@@ -40,10 +58,22 @@ const InfoContainer = styled.div`
     box-sizing: border-box;
     order: ${props => props.reverseOrder ? 1 : 2};
 
+    @media (max-width: ${dimensions.md}) {
+        width: 100%;
+        border: 0px;
+        order: 1;
+        padding: 0px;
+
+        h2, p {
+            text-align: center;
+        }
+    }
+
     h2 {
         font-size: 50px;
         font-weight: bold;
         text-transform: uppercase;
+        
     }
 
     p {
@@ -51,6 +81,16 @@ const InfoContainer = styled.div`
         color: ${props => props.lightText};
     }
 `;
+
+const Overlay = styled.div`
+  z-index: 5;
+  top: 0;bottom:0;left:0;right: 0;
+  position: absolute;
+  background: rgb(0,0,0);
+  background: linear-gradient(180deg, #000 0%, #38383830 100%);
+  opacity: 0.2;
+`;
+
 
 function About() {
     const themeContext = useContext(ThemeContext);
@@ -60,8 +100,9 @@ function About() {
             <Separator />
             <Section>
                 <ImageContainer>
-                    <video loop autoPlay className='separator' width="100%"  controls={false}>
-                        <source src="/image/about/about-video.webm" type="video/webm" />
+                    <Overlay />
+                    <video loop autoPlay className='separator' width="100%" controls={false}>
+                        <source src="/image/homepage/about.webm" type="video/webm" />
                         Your browser does not support the video tag.
                     </video>
                 </ImageContainer>
@@ -73,7 +114,11 @@ function About() {
             <Separator />
             <Section>
                 <ImageContainer reverseOrder>
-                    <img className='separator' src="/image/about/1.jpg" alt="" />
+                    <Overlay />
+                    <video loop autoPlay className='separator' width="100%" controls={false}>
+                        <source src="/image/homepage/view.webm" type="video/webm" />
+                        Your browser does not support the video tag.
+                    </video>
                 </ImageContainer>
                 <InfoContainer lightText={themeContext.lightText} reverseOrder>
                     <h2>start your journey TODAY</h2>

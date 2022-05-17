@@ -14,7 +14,7 @@ function Canyoning() {
                     subtitle: text.subtitle,
                     info: text.information,
                     images: [
-                        "01_canyoning.jpg", "02_canyoning.jpg"
+                        "01_canyoning.jpg"
                     ],
                     section: text.section,
                     includes: text.includes,
@@ -23,9 +23,9 @@ function Canyoning() {
                         title: text.gallery.title,
                         subtitle: text.gallery.subtitle,
                         images: [
-                            ["01_canyoning", "04_canyoning", "07_canyoning", "10_canyoning"],
-                            ["02_canyoning", "05_canyoning", "08_canyoning", "11_canyoning"],
-                            ["03_canyoning", "06_canyoning", "09_canyoning", "12_canyoning", "15_canyoning"],
+                            ["canyoning/01", "canyoning/04", "canyoning/07", "canyoning/10"],
+                            ["canyoning/02", "canyoning/05", "canyoning/08", "canyoning/11"],
+                            ["canyoning/03", "canyoning/06", "canyoning/09", "canyoning/12", "canyoning/15"],
                         ]
                     }
                 }}

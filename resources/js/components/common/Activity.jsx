@@ -199,7 +199,7 @@ function Activity({ content }) {
                         {column.map((image, index) => (
                             <picture key={index}>
                                 <source srcSet={"/image/activities/gallery/" + image + ".jpg"} type="image/jpg" />
-                                <img alt="canyoning" className='profile' src={"/image/activities/gallery/" + image + ".webp"} loading="lazy" />
+                                <img alt="gallery image" className='profile' src={"/image/activities/gallery/" + image + ".webp"} loading="lazy" />
                             </picture>
 
                         ))}

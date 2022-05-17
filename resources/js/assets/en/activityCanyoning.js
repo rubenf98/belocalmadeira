@@ -1,6 +1,6 @@
 export const text = {
     title: "canyoning",
-    subtitle: (<>Meet the old <span>world</span> with excitement</>),
+    subtitle: (<>Meet the <span>island</span> with excitement</>),
     information: [
         "Canyoning is an activity that consists of the progressive exploration of a stream in the case of Madeira, overcoming vertical obstacles through various techniques and equipment.",
         "Madeira Island is considered one of the best places in the world to practice Canyoning, where it is possible to practice it all year round. This water and mountain activity promotes pure and playful contact with NATURE, allowing the participant to discover landscapes and places that others only dream of.",

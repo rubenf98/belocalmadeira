@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import SectionTitle from '../../common/SectionTitle'
 import styled, { ThemeContext } from "styled-components";
 import { dimensions } from '../../../helper';
+import { Link } from 'react-router-dom';
 
 const Container = styled.section`
     min-height: 100vh;
@@ -21,18 +22,25 @@ const ActivitiesContainer = styled.div`
     }
 `;
 
-const ActivityContainer = styled.div`
+const ActivityContainer = styled(Link)`
     width: 25%;
     padding: 30px;
     box-sizing: border-box;
 
+    &:hover {
+        .image-container {
+            box-shadow: 0px 0px 15px 0px rgba(0,0,0,.3);
+            scale: 1.01;
+        }
+        
+    }
     @media (max-width: ${dimensions.lg}){
         width: 50%;
         margin-top: 0px !important;
     }
 
     @media (max-width: ${dimensions.md}){
-        width: 100%;
+        padding: 10px;
     }
 
     .image-container {
@@ -43,6 +51,9 @@ const ActivityContainer = styled.div`
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
+        transition: all .3s ease;
+        
+
 
         .overlay {
             background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 100%);
@@ -57,30 +68,25 @@ const ActivityContainer = styled.div`
             transform: translate(-50%, 0);
             text-transform: capitalize;
             font-size: 36px;
+
+            @media (max-width: ${dimensions.md}){
+                font-size: 28px;
+            }
         }
 
         
     }
-
-    p {
-        text-align: center;
-        font-size: 16px;
-        width: 80%;
-        margin: 20px auto 0px auto;
-    }
 `;
 
-const Activity = ({ title, description, image, spacingTop = false }) => {
+const Activity = ({ title, spacingTop = false, url }) => {
     const themeContext = useContext(ThemeContext);
 
     return (
-        <ActivityContainer background={"/image/homepage/" + image + ".jpg"} descriptionColor={themeContext.lightText} style={{ marginTop: spacingTop ? "50px" : "0px" }}>
+        <ActivityContainer to={url} background={"/image/homepage/" + title + ".jpg"} descriptionColor={themeContext.lightText} style={{ marginTop: spacingTop ? "50px" : "0px" }}>
             <div className='image-container'>
                 <div className='overlay' />
                 <h4>{title}</h4>
             </div>
-
-            <p>{description}</p>
         </ActivityContainer>
     )
 
@@ -95,25 +101,21 @@ function Activities() {
             <ActivitiesContainer titleColor={themeContext.inverseText}>
                 <Activity
                     title="canyoning"
-                    description="Luxury family safaris and inspiring wildlife adventures with a positive impact."
-                    image="canyoning"
+                    url="/activities/canyoning"
                 />
                 <Activity
                     title="biking"
-                    description="Luxury family safaris and inspiring wildlife adventures with a positive impact."
-                    image="biking"
                     spacingTop
+                    url="/activities/biking"
                 />
                 <Activity
-                    title="coastering"
-                    description="Luxury family safaris and inspiring wildlife adventures with a positive impact."
-                    image="coastering"
+                    title="coasteering"
+                    url="/activities/coasteering"
                 />
                 <Activity
-                    title="walking"
-                    description="Luxury family safaris and inspiring wildlife adventures with a positive impact."
-                    image="walking"
+                    title="hiking"
                     spacingTop
+                    url="/activities/hiking"
                 />
             </ActivitiesContainer>
         </Container>

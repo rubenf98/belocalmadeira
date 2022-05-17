@@ -1,6 +1,6 @@
 export const text = {
     title: "canyoning",
-    subtitle: (<>Conheça o <span>mundo</span> com entusiasmo</>),
+    subtitle: (<>Conheça a <span>ilha</span> com entusiasmo</>),
     information: [
         "Canyoning é uma atividade que consiste na exploração progressiva de uma ribeira no caso da Madeira, transpondo obstáculos verticais através de diversas técnicas e equipamentos.",
         "A Ilha da Madeira é considerada um dos melhores locais do mundo para a prática do Canyoning, onde é possível a pratica todo o ano. Esta atividade de água e montanha promove um contacto puro e lúdico com a NATUREZA, permitindo ao participante a possibilidade de descobrir paisagens e lugares com que os outros apenas sonham.",

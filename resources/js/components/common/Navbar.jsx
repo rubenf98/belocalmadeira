@@ -1,30 +1,44 @@
-import React, { useContext, useState } from 'react'
-import styled, { ThemeContext } from "styled-components";
+import React, { useContext, useState, useEffect } from 'react'
+import styled, { ThemeContext, withTheme } from "styled-components";
 import {
     Link
 } from "react-router-dom";
 import { dimensions } from '../../helper';
-import { baseInputStyles } from '../pages/Form/styles';
 import { Select } from 'antd';
 
 const Container = styled.div`
-    height: 80px;
+    background: ${props => props.background};
+    width: 100vw;
+    height: ${props => props.hasBackground ? "100px" : "0px"};
+    left: 50%;
+    top: 0;
+    position: fixed;
+    z-index: 20;
+    transform: translate(-50%, 0);
+    transition: all .3s ease;
+    box-shadow:0px 5px 5px rgba(0,0,0,.2);
+
+    @media(max-width: ${dimensions.md}) {
+        height: ${props => props.hasBackground ? "70px" : "0px"};
+    }
+`;
+
+const Content = styled.div`
+    height: 60px;
     background: transparent;
     margin: auto;
     display: flex;
-    padding: 10px;
-    position: fixed;
-    box-sizing: border-box;
-    display: flex;
-    top: 0;
-    z-index: 20;
     width: 90%;
     margin: auto;
     transition: .5s ease-in-out;
-    transform: translate(-50%, 0);
-    left: 50%;
+    box-sizing: border-box;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 15px;
+
+    @media(max-width: ${dimensions.md}) {
+        margin-top: 5px;
+        height: 50px;
+    }
 `;
 
 const FlexItem = styled.div`
@@ -38,13 +52,16 @@ const Logo = styled(Link)`
     display: flex;
     color: white;
     text-decoration: none;
-    font-size: 22px;
     font-weight: bold;
     justify-content: center;
 
 
     img {
         height: 60px;
+
+        @media(max-width: ${dimensions.md}) {
+            height: 40px;
+        }
     }
 `;
 
@@ -55,12 +72,16 @@ const MenuContainer = styled.div`
     text-align: center;
     justify-content: flex-start;
     flex: 1;
+
+    @media(max-width: ${dimensions.md}) {
+        display: none;
+    }
 `;
 
 const OrderButton = styled.div`
     box-sizing: border-box;
     cursor: pointer;
-    background: ${props => props.backgroundHover};
+    background: ${props => props.background};
     padding: 10px 30px 10px 30px;
     font-size: 18px;
     transition: .4s;
@@ -71,8 +92,15 @@ const OrderButton = styled.div`
     background-size: 110%;
     text-transform: uppercase;
     color: ${props => props.color};
+    font-weight: bold;
+
+    @media(max-width: ${dimensions.md}) {
+        font-size: 16px;
+        padding: 5px 10px 5px 10px;
+    }
+
     &:hover {
-        background: ${props => props.background};
+        background: ${props => props.backgroundHover};
     }
     
 `;
@@ -168,14 +196,31 @@ const Activities = styled.div`
     }
 `;
 
-function Navbar({ handleVisibility }) {
+function Navbar({ handleVisibility, theme }) {
     const [openSelect, setOpenSelect] = useState(false)
-    const [activities, setActivities] = useState("activities")
+    const [hasBackground, setHasBackground] = useState(false)
     const themeContext = useContext(ThemeContext);
 
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY / window.innerHeight > .6) {
+                setHasBackground(true);
+            }
+            else {
+                setHasBackground(false);
+            }
+        }
+
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", setFromEvent);
+        };
+
+    }, []);
+
     return (
-        <div>
-            <Container>
+        <Container background={theme.primary} hasBackground={hasBackground}>
+            <Content>
 
                 <FlexItem>
                     <MenuContainer>
@@ -187,7 +232,7 @@ function Navbar({ handleVisibility }) {
                             onMouseLeave={() => setOpenSelect(false)}
                             onMouseEnter={() => setOpenSelect(true)}
                             placeholder="Activities"
-                            value={activities}
+                            value="activities"
                         >
                             <Select.Option style={{ display: "none" }} value="activities">
                                 <Activities>Activities</Activities>
@@ -202,7 +247,7 @@ function Navbar({ handleVisibility }) {
                                 <SelectLink to="/activities/biking">biking</SelectLink>
                             </Select.Option>
                             <Select.Option value="coastering" >
-                                <SelectLink to="/activities/coastering">coastering</SelectLink>
+                                <SelectLink to="/activities/coasteering">coasteering</SelectLink>
                             </Select.Option>
                         </CustomSelect><div />
 
@@ -221,9 +266,9 @@ function Navbar({ handleVisibility }) {
                     </OrderButton>
                 </FlexItem>
 
-            </Container>
-        </div>
+            </Content>
+        </Container>
     )
 }
 
-export default Navbar
+export default withTheme(Navbar)
