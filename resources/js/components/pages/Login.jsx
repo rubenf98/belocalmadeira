@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import styled from "styled-components";
+import styled, { withTheme } from "styled-components";
 import { login } from "../../redux/auth/actions";
 import { dimensions } from "../../helper";
 import { connect } from "react-redux";
@@ -26,7 +26,7 @@ const Input = styled.input`
     &:active {
         outline: none;
         border: none;
-        border-bottom: 2px solid red;
+        border-bottom: 2px solid #3e8100;
         background-color: white !important;
         appearance: none;
     }
@@ -55,7 +55,7 @@ const Card = styled.div`
     min-height: 500px;
     display: block;
     padding: 20px;
-    background: linear-gradient(90deg, #4d73f1, #0c2968);		
+    background: linear-gradient(90deg, #546049, #42572e);		
 	position: relative;	
     border-radius: 8px;
 	box-shadow: 0px 0px 24px #0000005a;
@@ -101,7 +101,7 @@ const Card = styled.div`
     .screen__background__shape2 {
         height: 220px;
         width: 220px;
-        background: #0144af;	
+        background: #232E19;	
         top: -172px;
         right: 0;	
         border-radius: 32px;
@@ -110,7 +110,7 @@ const Card = styled.div`
     .screen__background__shape3 {
         height: 540px;
         width: 190px;
-        background: linear-gradient(270deg, #2d6df8, rgb(34, 93, 255));
+        background: linear-gradient(270deg, #252f1c, #5b7c3d);
         top: -24px;
         right: 0;	
         border-radius: 32px;
@@ -119,7 +119,7 @@ const Card = styled.div`
     .screen__background__shape4 {
         height: 400px;
         width: 200px;
-        background: #0138af;	
+        background: #232E19;	
         top: 420px;
         right: 50px;	
         border-radius: 60px;
@@ -132,14 +132,14 @@ const Button = styled.button`
     display: block;
     padding: 10px 26px;
     border: none;
-    background: rgb(33, 33, 255);
+    background: ${props => props.background};
     color: white;
     cursor: pointer;
     font-size: 1.2em;
     border-radius: 8px;
 
     &:hover {
-        background: rgb(22, 22, 173);
+        background: ${props => props.backgroundH};
     }
 `;
 
@@ -159,6 +159,7 @@ class Login extends Component {
         this.props.login(formData);
     };
     render() {
+        var { theme } = this.props;
         return (
             <Container>
                 <Card>
@@ -183,7 +184,7 @@ class Login extends Component {
                                     this.setState({ password: e.target.value })
                                 }
                             />
-                            <Button onClick={this.submitForm}>Login</Button>
+                            <Button background={theme.primary} backgroundH={theme.primaryHover} onClick={this.submitForm}>Login</Button>
                         </div>
                     </FormContainer>
                     <div className="screen__background">
@@ -205,4 +206,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(null, mapDispatchToProps)(Login);
+export default connect(null, mapDispatchToProps)(withTheme(Login));

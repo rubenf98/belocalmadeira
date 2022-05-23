@@ -19,4 +19,9 @@ class Experience extends Model
     {
         return $this->belongsTo("App\Models\Experience");
     }
+
+    public function reservations()
+    {
+        return $this->morphMany(Reservation::class, 'experienceable');
+    }
 }

@@ -12,7 +12,11 @@ import Canyoning from "./components/pages/Activities/Canyoning";
 import Hiking from "./components/pages/Activities/Hiking";
 import Coasteering from "./components/pages/Activities/Coasteering";
 import Biking from "./components/pages/Activities/Biking";
-
+import ThemeContainer from "./components/ThemeContainer";
+import PainelLayout from "./components/dashboard/PainelLayout";
+import DashboardContact from "./components/dashboard/pages/Contact/Contact";
+import DashboardReservations from "./components/dashboard/pages/Reservations/Reservations";
+import DashboardPainel from "./components/dashboard/pages/Painel";
 export const history = createBrowserHistory();
 
 function Router() {
@@ -25,7 +29,12 @@ function Router() {
                 <Route exact path="/activities/biking" element={<Layout><Biking /></Layout>} />
                 <Route exact path="/about" element={<Layout><About /></Layout>} />
                 <Route exact path="/contact" element={<Layout><Contact /></Layout>} />
-                <Route exact path="/login" element={<Login />} />
+                <Route exact path="/login" element={<ThemeContainer><Login /></ThemeContainer>} />
+
+                <Route exact path="/painel/contacto" element={<PainelLayout><DashboardContact /></PainelLayout>} />
+                <Route exact path="/painel/reservas" element={<PainelLayout><DashboardReservations /></PainelLayout>} />
+                <Route exact path="/painel" element={<PainelLayout><DashboardPainel /></PainelLayout>} />
+
                 <Route exact path="/" element={<Layout><Homepage /></Layout>} />
 
             </Routes>

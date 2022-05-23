@@ -14,7 +14,7 @@ const PartnerContainer = styled(Row)`
     margin: 200px auto;
 
     img {
-       width: 20%;
+       width: 15%;
        max-width: 250px;
        filter: contrast(0);
     }
@@ -90,6 +90,7 @@ function About({ theme }) {
                 <img loading="lazy" src="/image/about/tripadvisor.png" alt="tripadvisor" />
                 <img loading="lazy" src="/image/about/movigo.svg" alt="movigo" />
                 <img loading="lazy" src="/image/about/espacomilenio.png" alt="espacomilenio" />
+                <img style={{ filter: "contrast(1) grayscale(1)" }} loading="lazy" src="/image/about/liveinmadeira.png" alt="liveinmadeira" />
             </PartnerContainer>
         </Container>
     )

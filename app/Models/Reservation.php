@@ -11,16 +11,20 @@ class Reservation extends Model
 {
     use FiltersRecords;
 
-    protected $fillable = ['private', 'source', 'price', 'people', 'notes', 'name', 'email', 'address', 'phone', 'date', 'experience_id', "confirmation_token", "confirmation"];
+    protected $fillable = [
+        'private', 'experienceable_id',
+        'experienceable_type', 'source', 'price', 'participants', 'notes', 'name',
+        'email', 'address', 'phone', 'date', 'experience_id', "confirmation_token", "confirmation"
+    ];
 
     public function participants()
     {
         return $this->hasMany('App\Models\ReservationParticipant');
     }
 
-    public function experience()
+    public function experienceable()
     {
-        return $this->belongsTo('App\Models\Experience');
+        return $this->morphTo();
     }
 
     public function activity($id)
@@ -30,9 +34,7 @@ class Reservation extends Model
 
     public function storeParticipants($participants)
     {
-        foreach ($participants as $key => $participant) {
-            // $print = new \Symfony\Component\Console\Output\ConsoleOutput();
-            // $print->writeln($participant['birthday']);
+        foreach ($participants as $participant) {
             $participant['birthday']  = new Carbon($participant['birthday']);
             $p = new ReservationParticipant($participant);
             $this->participants()->save($p);

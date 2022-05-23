@@ -82,7 +82,7 @@ const Activity = ({ title, spacingTop = false, url }) => {
     const themeContext = useContext(ThemeContext);
 
     return (
-        <ActivityContainer to={url} background={"/image/homepage/" + title + ".jpg"} descriptionColor={themeContext.lightText} style={{ marginTop: spacingTop ? "50px" : "0px" }}>
+        <ActivityContainer to={url} background={"/image/homepage/" + title + ".jpg"} style={{ marginTop: spacingTop ? "50px" : "0px" }}>
             <div className='image-container'>
                 <div className='overlay' />
                 <h4>{title}</h4>

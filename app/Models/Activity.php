@@ -18,8 +18,13 @@ class Activity extends Model
         return $this->hasMany("App\Models\Experience");
     }
 
-    public function reservations()
+    public function reservation()
     {
         return $this->hasManyThrough(Reservation::class, Experience::class);
+    }
+
+    public function reservations()
+    {
+        return $this->morphMany(Reservation::class, 'experienceable');
     }
 }

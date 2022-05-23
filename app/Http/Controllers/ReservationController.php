@@ -71,8 +71,7 @@ class ReservationController extends Controller
         }
         DB::commit();
 
-        ConfirmationEmail::dispatch($record->email, $record->confirmation_token)
-            ->delay(now()->addSecond());
+        ConfirmationEmail::dispatch($record->email, $record->confirmation_token)->delay(now()->addSecond());
 
         return new ReservationResource($record);
     }

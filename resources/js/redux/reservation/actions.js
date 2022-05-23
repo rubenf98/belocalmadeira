@@ -9,6 +9,11 @@ export const fetchReservations = (page = 1, filters = {}) => ({
     })}&page=${page}`)
 })
 
+export const fetchDisabledDates = (participants) => ({
+    type: types.FETCH_DISABLED_DATES,
+    payload: axios.get(`${window.location.origin}/api/reservation/disabledDate?participants=${participants}`)
+})
+
 export const fetchReservation = (id) => ({
     type: types.FETCH_RESERVATION,
     payload: axios.get(`${window.location.origin}/api/reservation/${id}`)
@@ -19,6 +24,12 @@ export const deleteReservation = id => ({
     payload: axios.delete(`${window.location.origin}/api/reservation/${id}`),
     meta: { id }
 });
+
+export const createReservation = (data) => ({
+    type: types.CREATE_RESERVATION,
+    payload: axios.post(`${window.location.origin}/api/reservation`, data),
+});
+
 
 export const updateReservation = (id, data) => ({
     type: types.UPDATE_RESERVATION,

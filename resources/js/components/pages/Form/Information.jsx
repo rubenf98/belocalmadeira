@@ -1,8 +1,14 @@
-import React from 'react'
-import { Row, Form, Col, Select } from 'antd';
-import { CustomCheckbox, CustomSelect, CustomInput, CustomInputNumber } from './styles';
+import React, { useEffect } from 'react'
+import { Row, Form, Col } from 'antd';
+import { CustomCheckbox, CustomCascader, CustomInput, CustomInputNumber } from './styles';
+import { fetchActivities } from "../../../redux/activity/actions";
+import { connect } from "react-redux";
 
-function Information() {
+function Information({ fetchActivities, data }) {
+    useEffect(() => {
+        fetchActivities({ language: localStorage.getItem('language') });
+    }, [])
+
     return (
         <div>
 
@@ -48,26 +54,24 @@ function Information() {
                     <Form.Item
                         name="activity"
                     >
-                        <CustomSelect
+                        <CustomCascader
+                            size="large"
+                            expandTrigger="hover"
+                            options={data}
+                            allowClear={false}
+                            placeholder='Activity'
                             dropdownRender={menu => (
                                 <div className='colored-dropdown'>
                                     {menu}
                                 </div >
                             )}
-                            size='large'
-                            placeholder="Activity"
-                        >
-                            <Select.Option value="canyoning">Canyoning</Select.Option>
-                            <Select.Option value="hiking">Hiking</Select.Option>
-                            <Select.Option value="biking">Biking</Select.Option>
-                            <Select.Option value="coastering">Coastering</Select.Option>
-                        </CustomSelect>
+                        />
                     </Form.Item>
                 </Col>
-
                 <Col xs={24}>
                     <Form.Item
                         name="private"
+                        valuePropName="checked"
                     >
                         <CustomCheckbox>Private Experience</CustomCheckbox>
                     </Form.Item>
@@ -81,4 +85,19 @@ function Information() {
     )
 }
 
-export default Information
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchActivities: (filters) => dispatch(fetchActivities(filters)),
+    };
+};
+
+const mapStateToProps = (state) => {
+    return {
+        data: state.activity.data,
+    };
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Information);

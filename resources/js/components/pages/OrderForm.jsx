@@ -1,10 +1,11 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { Form, Drawer, Row } from 'antd';
+import { Form, Drawer, Button } from 'antd';
 import styled, { ThemeContext } from "styled-components";
-import { dimensions } from "../../helper";
 import Information from './Form/Information';
 import Date from './Form/Date';
 import Participants from './Form/Participants';
+import { createReservation } from '../../redux/reservation/actions';
+import { connect } from "react-redux";
 
 const Content = styled(Drawer)`
     color: white;
@@ -76,15 +77,20 @@ const FlexContainer = styled.div`
 `;
 
 
-const OrderForm = ({ visible, handleVisibility }) => {
+const OrderForm = ({ visible, handleVisibility, createReservation }) => {
     const { text } = require('../../assets/' + localStorage.getItem('language') + "/form");
-
+    const [formData, setFormData] = useState({})
     const [step, setStep] = useState(0);
     const [nParticipants, setNParticipants] = useState(2);
-    const [calendarMetadata, setCalendarMetadata] = useState({});
     const [drawerWidth, setDrawerWidth] = useState(720);
     const [form] = Form.useForm();
     const themeContext = useContext(ThemeContext);
+
+    useEffect(() => {
+        if (visible)
+            handleReset(true);
+
+    }, [visible])
 
     useEffect(() => {
         setDrawerWidth(window.innerWidth > 720 ? 720 : window.innerWidth);
@@ -92,11 +98,14 @@ const OrderForm = ({ visible, handleVisibility }) => {
 
     const steps = [
         { title: "Explore our activities and book your Madeira Island experience right here!", content: <Information /> },
-        { title: "Select the date for your activity from the available options on the calendar", content: <Date /> },
+        { title: "Select the date for your activity from the available options on the calendar", content: <Date participants={form.getFieldValue('participants')} /> },
         { title: "Fill the details of everyone that will participate on the activity", content: <Participants n={nParticipants} text={text} /> }
     ]
 
+
     const nextStep = () => {
+        var currentStepData = form.getFieldsValue();
+        setFormData({ ...formData, ...currentStepData });
         if (step == 1) {
             setNParticipants(form.getFieldValue('participants'));
         }
@@ -107,9 +116,20 @@ const OrderForm = ({ visible, handleVisibility }) => {
         setStep(step > 0 ? step - 1 : 0);
     }
 
-    const handleClose = () => {
+    const handleReset = (close = true) => {
         setStep(0);
-        handleVisibility(false);
+        form.resetFields();
+        setFormData({});
+        handleVisibility(close);
+    }
+
+    const handleFinish = () => {
+        var currentStepData = form.getFieldsValue();
+        createReservation({ ...formData, ...currentStepData }).then((response, err) => {
+            if (!err) {
+                handleReset();
+            }
+        });
     }
 
     return (
@@ -121,7 +141,7 @@ const OrderForm = ({ visible, handleVisibility }) => {
             closable={false}
             maskClosable={false}
             visible={visible}
-            onClose={handleClose}
+            onClose={handleReset}
         >
             <FlexContainer>
                 <Previous visible={step != 0} onClick={previousStep} src='/icon/previous.svg' alt="previous step" />
@@ -139,15 +159,39 @@ const OrderForm = ({ visible, handleVisibility }) => {
                 initialValues={{
                     people: 2,
                 }}
+
             >
                 {steps[step].content}
             </Form>
-            <Next onClick={nextStep}>
-                <img src="/icon/next.svg" alt='next step' />
-            </Next>
+            {step != 2 ?
+                <Next onClick={nextStep}>
+                    <img src="/icon/next.svg" alt='next' />
+                </Next> :
+                <Button onClick={handleFinish} type='primary' htmlType="submit">
+                    submit
+                </Button>
+            }
+
         </Content>
 
     );
 };
 
-export default OrderForm;
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        createReservation: (data) => dispatch(createReservation(data)),
+    };
+};
+
+const mapStateToProps = (state) => {
+    return {
+        loading: state.reservation.loading,
+        calendarMetadata: state.reservation.calendarMetadata,
+    };
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(OrderForm);

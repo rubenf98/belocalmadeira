@@ -1,6 +1,6 @@
 import Row from "antd/es/row"
 import Col from "antd/es/col"
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import moment from "moment";
@@ -91,43 +91,35 @@ const CardContainer = ({ img, text, to }) => (
     </CardContent>
 );
 
-class Painel extends Component {
-    render() {
-        return (
-            <Container>
-                <SubContainer>
-                    <h1> Bem vindo de volta ao painel de controlo</h1>
-                    <Content type="flex" align="middle" justify="space-around">
-                        <Col md={7} sm={24}>
-                            <CardContainer
-                                img="/icon/dashboard/reservation.svg"
-                                text="Listagem de reservas"
-                                to="/painel/reservas"
-                            />
-                        </Col>
-                        <Col md={7} sm={24}>
-                            <CardContainer
-                                img="/icon/dashboard/feedback.svg"
-                                text="Avaliações na plataforma"
-                                to="/painel/avaliacao"
-                            />
-                        </Col>
-                        <Col md={7} sm={24}>
-                            <CardContainer
-                                img="/icon/dashboard/contact.svg"
-                                text="Mensagens de clientes"
-                                to="/painel/contacto"
-                            />
-                        </Col>
-                    </Content>
-                    <Footer>
-                        <img src="/logo.png" alt="logo" />
-                        <p>© {moment().year()} Fast Rope Madeira. All Rights Reserved.</p>
-                    </Footer>
-                </SubContainer>
-            </Container>
-        );
-    }
+
+function Painel() {
+    return (
+        <Container>
+            <SubContainer>
+                <h1> Bem vindo de volta ao painel de controlo</h1>
+                <Content type="flex" align="middle" justify="space-around">
+                    <Col md={11} sm={24}>
+                        <CardContainer
+                            img="/icon/dashboard/reservation.svg"
+                            text="Listagem de reservas"
+                            to="/painel/reservas"
+                        />
+                    </Col>
+                    <Col md={11} sm={24}>
+                        <CardContainer
+                            img="/icon/dashboard/contact.svg"
+                            text="Mensagens de clientes"
+                            to="/painel/contacto"
+                        />
+                    </Col>
+                </Content>
+                <Footer>
+                    <img src="/image/logo.png" alt="logo" />
+                    <p>© {moment().year()} Be Local Madeira. All Rights Reserved.</p>
+                </Footer>
+            </SubContainer>
+        </Container>
+    )
 }
 
 export default Painel;

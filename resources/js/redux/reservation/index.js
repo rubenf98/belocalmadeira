@@ -2,6 +2,10 @@ import { types } from "./types";
 
 export const initialState = {
     data: [],
+    calendarMetadata: {
+        dates: {},
+        disabled: []
+    },
     meta: {},
     links: {},
     loading: false,
@@ -12,9 +16,11 @@ export default (state = initialState, action = {}) => {
     switch (action.type) {
         case `${types.DELETE_RESERVATION}_PENDING`:
         case `${types.CREATE_EXTERNAL_RESERVATION}_PENDING`:
+        case `${types.CREATE_RESERVATION}_PENDING`:
         case `${types.UPDATE_RESERVATION}_PENDING`:
         case `${types.FETCH_RESERVATIONS}_PENDING`:
         case `${types.FETCH_RESERVATION}_PENDING`:
+        case `${types.FETCH_DISABLED_DATES}_PENDING`:
             return {
                 ...state,
                 loading: true,
@@ -23,12 +29,22 @@ export default (state = initialState, action = {}) => {
         case `${types.CREATE_EXTERNAL_RESERVATION}_REJECTED`:
         case `${types.UPDATE_RESERVATION}_REJECTED`:
         case `${types.DELETE_RESERVATION}_REJECTED`:
+        case `${types.FETCH_DISABLED_DATES}_REJECTED`:
+        case `${types.CREATE_RESERVATION}_REJECTED`:
             return {
                 ...state,
                 loading: false,
             };
 
+        case `${types.FETCH_DISABLED_DATES}_FULFILLED`:
+            return {
+                ...state,
+                loading: false,
+                calendarMetadata: action.payload.data,
+            };
+
         case `${types.CREATE_EXTERNAL_RESERVATION}_FULFILLED`:
+        case `${types.CREATE_RESERVATION}_FULFILLED`:
             return {
                 ...state,
                 loading: false,

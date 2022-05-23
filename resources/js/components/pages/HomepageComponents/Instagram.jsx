@@ -102,7 +102,7 @@ function Instagram() {
 
             <FlexContainer>
                 {items.map((item, index) => (
-                    <TwoItem width={index == 0 ? 70 : 30}>
+                    <TwoItem key={index} width={index == 0 ? 70 : 30}>
                         <img className='instagram-post' src={"/image/homepage/" + item.src} alt="instagram post" />
                     </TwoItem>
                 ))}
@@ -123,7 +123,7 @@ function Instagram() {
 
             <FlexContainer>
                 {items3.map((item, index) => (
-                    <TwoItem width={index == 0 ? 70 : 30}>
+                    <TwoItem key={index} width={index == 0 ? 70 : 30}>
                         <img className='instagram-post' src={"/image/homepage/" + item.src} alt="instagram post" />
                     </TwoItem>
                 ))}

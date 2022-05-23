@@ -15,23 +15,21 @@ class CreateReservationsTable extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('experience_id');
+            $table->integer('experienceable_id');
+            $table->string('experienceable_type');
             $table->boolean('private')->default(false);
             $table->boolean('confirmation')->default(false);
             $table->string('confirmation_token')->unique();
             $table->string('name')->nullable();
             $table->string('email')->nullable();
             $table->string('address')->nullable();
-            $table->integer('people');
+            $table->integer('participants');
             $table->string('source')->default("website");
             $table->integer('price')->default(0);
-            $table->text('notes')->nullable();
             $table->string('phone')->nullable();
             $table->date('date');
             $table->time('time')->default("08:00:00");
             $table->timestamps();
-
-            $table->foreign('experience_id')->references('id')->on('experiences');
         });
     }
 

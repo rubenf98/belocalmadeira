@@ -1,7 +1,9 @@
-import React from 'react'
-import { Row, Form, Calendar, Col, Slider, Select, Button, Switch, Divider, InputNumber } from 'antd';
+import React, { useEffect } from 'react'
+import { Row, Form, Calendar, Col, Select } from 'antd';
 import moment from "moment";
-import styled, { ThemeContext } from "styled-components";
+import styled from "styled-components";
+import { fetchDisabledDates } from "../../../redux/reservation/actions";
+import { connect } from "react-redux";
 
 const CustomCalendar = styled(Calendar)`
     background: transparent;
@@ -59,95 +61,114 @@ const CustomSelect = styled(Select)`
 `;
 
 
-function Date() {
+function Date({ fetchDisabledDates, calendarMetadata, loading, participants }) {
+
+    useEffect(() => {
+        fetchDisabledDates(participants);
+    }, []);
+
+    function handleDateChange(value) {
+        var currentDate = moment(value).format("YYYY-MM-DD");
+        // if (calendarMetadata.dates[currentDate]) {
+        //     setCurrentLimit(15 - calendarMetadata.dates[currentDate]);
+        // } else setCurrentLimit(15);
+    }
+    console.log(loading)
     return (
         <div>
+            {!loading &&
+                <Form.Item
+                    name="date"
+                >
+                    <CustomCalendar
+                        fullscreen={false}
+                        onSelect={handleDateChange}
+                        disabledDate={(currentDate) => {
+                            return currentDate && (
+                                (currentDate < moment())
+                                || (calendarMetadata.disabled.includes(moment(currentDate).format("YYYY-MM-DD"))));
+                        }}
+                        headerRender={({ value, onChange }) => {
+                            const currentDate = moment();
+                            const currentYear = currentDate.year();
+                            const monthOptions = [];
+                            const month = value.month();
+                            const year = value.year();
 
-            <Form.Item
-                name="date"
-            >
-                <CustomCalendar
-                    fullscreen={false}
-                    headerRender={({ value, onChange }) => {
-                        const currentDate = moment();
-                        const currentYear = currentDate.year();
-                        const monthOptions = [];
-                        const month = value.month();
-                        const year = value.year();
+                            const current = value.clone();
+                            const localeData = value.localeData();
+                            const months = [];
 
-                        const current = value.clone();
-                        const localeData = value.localeData();
-                        const months = [];
+                            for (let i = 0; i < 12; i++) {
+                                current.month(i);
+                                months.push(localeData.monthsShort(current));
+                            }
 
-                        for (let i = 0; i < 12; i++) {
-                            current.month(i);
-                            months.push(localeData.monthsShort(current));
-                        }
+                            for (let index = 0; index < 12; index++) {
+                                monthOptions.push(
+                                    <Select.Option style={{ width: "100px" }} key={index}>
+                                        {months[index]}
+                                    </Select.Option>,
+                                );
+                            }
 
-                        for (let index = 0; index < 12; index++) {
-                            monthOptions.push(
-                                <Select.Option style={{ width: "100px" }} key={index}>
-                                    {months[index]}
-                                </Select.Option>,
+                            const options = [];
+                            for (let i = currentYear; i < year + 2; i += 1) {
+                                options.push(
+                                    <Select.Option key={i} value={i}>
+                                        {i}
+                                    </Select.Option>,
+                                );
+                            }
+                            return (
+                                <div style={{ padding: 8 }}>
+                                    <Row gutter={32}>
+                                        <Col span={12}>
+                                            <CustomSelect
+                                                style={{ width: "100%" }}
+                                                size="large"
+                                                dropdownMatchSelectWidth={false}
+                                                onChange={newYear => {
+                                                    const now = value.clone().year(newYear);
+                                                    onChange(now);
+                                                }}
+                                                dropdownRender={menu => (
+                                                    <div className='colored-dropdown'>
+                                                        {menu}
+                                                    </div >
+                                                )}
+                                                value={String(year)}
+                                            >
+                                                {options}
+                                            </CustomSelect>
+                                        </Col>
+                                        <Col span={12}>
+                                            <CustomSelect
+                                                style={{ width: "100%" }}
+                                                size="large"
+                                                dropdownMatchSelectWidth={false}
+                                                value={String(month)}
+                                                onChange={selectedMonth => {
+                                                    const newValue = value.clone();
+                                                    newValue.month(parseInt(selectedMonth, 10));
+                                                    onChange(newValue);
+                                                }}
+                                                dropdownRender={menu => (
+                                                    <div className='colored-dropdown'>
+                                                        {menu}
+                                                    </div >
+                                                )}
+                                            >
+                                                {monthOptions}
+                                            </CustomSelect>
+                                        </Col>
+                                    </Row>
+                                </div>
                             );
-                        }
+                        }}
+                    />
+                </Form.Item>}
 
-                        const options = [];
-                        for (let i = currentYear; i < year + 2; i += 1) {
-                            options.push(
-                                <Select.Option key={i} value={i}>
-                                    {i}
-                                </Select.Option>,
-                            );
-                        }
-                        return (
-                            <div style={{ padding: 8 }}>
-                                <Row gutter={32}>
-                                    <Col span={12}>
-                                        <CustomSelect
-                                            style={{ width: "100%" }}
-                                            size="large"
-                                            dropdownMatchSelectWidth={false}
-                                            onChange={newYear => {
-                                                const now = value.clone().year(newYear);
-                                                onChange(now);
-                                            }}
-                                            dropdownRender={menu => (
-                                                <div className='colored-dropdown'>
-                                                    {menu}
-                                                </div >
-                                            )}
-                                            value={String(year)}
-                                        >
-                                            {options}
-                                        </CustomSelect>
-                                    </Col>
-                                    <Col span={12}>
-                                        <CustomSelect
-                                            style={{ width: "100%" }}
-                                            size="large"
-                                            dropdownMatchSelectWidth={false}
-                                            value={String(month)}
-                                            onChange={selectedMonth => {
-                                                const newValue = value.clone();
-                                                newValue.month(parseInt(selectedMonth, 10));
-                                                onChange(newValue);
-                                            }}
-                                            dropdownRender={menu => (
-                                                <div className='colored-dropdown'>
-                                                    {menu}
-                                                </div >
-                                            )}
-                                        >
-                                            {monthOptions}
-                                        </CustomSelect>
-                                    </Col>
-                                </Row>
-                            </div>
-                        );
-                    }}
-                />
-            </Form.Item>
 
 
 
@@ -156,5 +177,20 @@ function Date() {
         </div>
     )
 }
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchDisabledDates: (participants) => dispatch(fetchDisabledDates(participants)),
+    };
+};
 
-export default Date
+const mapStateToProps = (state) => {
+    return {
+        loading: state.reservation.loading,
+        calendarMetadata: state.reservation.calendarMetadata,
+    };
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Date);

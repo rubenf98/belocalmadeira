@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import styled from "styled-components";
+import styled, { withTheme } from "styled-components";
 import { dimensions, colors } from "../../helper";
 import Row from "antd/es/row"
 import { NavLink } from "react-router-dom";
@@ -82,7 +82,7 @@ const LinkWithSeparator = styled(NavLink)`
         height: 8px;
         left: 0;
         bottom: 0px;
-        background: ${colors.mainOverlay};
+        background: ${props => props.accent};
         z-index: -1;
         transition: 0.3s;
     }
@@ -105,30 +105,27 @@ const LinkWithSeparator = styled(NavLink)`
     }
 `;
 
-class NavBar extends Component {
-    render() {
-        const NavBarItem = ({ item, name }) => (
-            <LinkWithSeparator activeClassName="link--active" to={"/painel/" + item} >
-                {name}
-            </LinkWithSeparator>
-        )
+const NavBarItem = ({ item, name, color }) => (
+    <LinkWithSeparator accent={color} activeClassName="link--active" to={"/painel/" + item} >
+        {name}
+    </LinkWithSeparator>
+)
 
-        return (
-            <Container type="flex" justify="center" align="middle">
-                <NavBarContainer type="flex" justify="space-around" align="middle">
+function NavBar({ theme }) {
+    return (
+        <Container type="flex" justify="center" align="middle">
+            <NavBarContainer type="flex" justify="space-around" align="middle">
 
-                    <TabList>
-                        <li>
-                            <NavBarItem item="reservas" name="reservas" />
-                            <NavBarItem item="avaliacao" name="avaliações" />
-                            <NavBarItem item="contacto" name="contacto" />
-                        </li>
-                    </TabList>
+                <TabList>
+                    <li>
+                        <NavBarItem color={theme.primary} item="reservas" name="reservas" />
+                        <NavBarItem color={theme.primary} item="contacto" name="contacto" />
+                    </li>
+                </TabList>
 
-                </NavBarContainer>
-            </Container>
-        );
-    }
+            </NavBarContainer>
+        </Container>
+    )
 }
 
-export default NavBar;
+export default withTheme(NavBar);

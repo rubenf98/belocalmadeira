@@ -1,5 +1,5 @@
 
-import { Input, Checkbox, Select, InputNumber, DatePicker } from 'antd';
+import { Input, Checkbox, Select, InputNumber, DatePicker, Cascader } from 'antd';
 import styled, { css } from "styled-components";
 
 export const baseInputStyles = css`
@@ -21,6 +21,33 @@ export const baseInputStyles = css`
 
     &::placeholder {
         color: #b1b1b1;
+    }
+`;
+
+export const CustomCascader = styled(Cascader)`
+    ${baseInputStyles}    
+
+    .ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input) .ant-select-selector, .ant-select-selector {
+        border: none !important;
+        box-shadow: none !important;
+        
+    }
+
+    .ant-select-selector {
+        background-color: transparent !important;
+    }
+
+    &:focus,
+    &:active, &:hover {
+        box-shadow: none;
+
+        .ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input) .ant-select-selector, .ant-select-selector{
+            border-bottom: 1px solid white !important;
+        }   
+    }
+
+    svg {
+        color: white;
     }
 `;
 
@@ -52,8 +79,12 @@ export const CustomSelect = styled(Select)`
 `;
 
 export const CustomDatePicker = styled(DatePicker)`
-    ${baseInputStyles}    
-
+    ${baseInputStyles} 
+      
+    .ant-picker-input > input {
+        color: #ffffff;
+    } 
+    
     .ant-picker-focused:not(.ant-picker-disabled).ant-picker:not(.ant-picker-customize-input) .ant-picker-input, .ant-picker-input {
         border: none !important;
         box-shadow: none !important;

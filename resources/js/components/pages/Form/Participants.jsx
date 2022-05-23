@@ -2,8 +2,6 @@ import React from 'react';
 import { Row, Form } from 'antd';
 import Participant from './Participant';
 
-
-
 function Participants({ text, n }) {
 
     return (

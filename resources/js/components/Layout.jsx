@@ -2,14 +2,10 @@ import React, { Component } from "react";
 import Navbar from "./common/Navbar";
 import Footer from "./common/Footer";
 import styled from "styled-components";
-import SmoothScroll from "./common/SmoothScroll";
-
-import { ThemeProvider } from "styled-components";
-import { GlobalStyles } from "./globalStyles";
-import { light, dark } from "./themes"
 import { connect } from "react-redux";
 import OrderForm from "./pages/OrderForm";
 import { handleForm } from "../redux/application/actions";
+import ThemeContainer from "./ThemeContainer";
 
 const Container = styled.div`
     width: 100%;
@@ -29,25 +25,24 @@ const Container = styled.div`
 class Layout extends Component {
     render() {
         return (
-            <ThemeProvider theme={this.props.theme === 'light' ? light : dark}>
+            <ThemeContainer>
                 <Container>
-                        <GlobalStyles />
-                        <Navbar onOrder={this.openForm} handleVisibility={this.props.handleForm} />
-                        <OrderForm visible={this.props.formVisible} handleVisibility={this.props.handleForm} />
+                    <Navbar onOrder={this.openForm} handleVisibility={this.props.handleForm} />
+                    <OrderForm visible={this.props.formVisible} handleVisibility={this.props.handleForm} />
 
-                        <div> {this.props.children} </div>
+                    <div> {this.props.children} </div>
 
 
-                        <Footer />
+                    <Footer />
                 </Container>
-            </ThemeProvider>
+            </ThemeContainer>
+
         );
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        theme: state.application.theme,
         formVisible: state.application.formVisible
     };
 };

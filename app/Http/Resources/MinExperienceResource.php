@@ -16,7 +16,7 @@ class MinExperienceResource extends JsonResource
     {
         return [
             'value' => $this->id,
-            'label' =>  $this->getTranslation('name', $request->language),
+            'label' =>  $this->getTranslation('name', $request->language). ($this->price ? (" (" . $this->price . "€)") : ""),
             'price' => $this->price,
             'private_price' => $this->private_price,
         ];

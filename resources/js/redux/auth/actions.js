@@ -16,6 +16,7 @@ export const login = data => {
                 localStorage.setItem("token", token);
                 setAuthorizationToken(token);
                 history.push("/painel");
+                location.reload();
             },
             err => {
 

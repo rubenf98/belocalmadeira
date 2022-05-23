@@ -15,6 +15,8 @@ class ReservationRequest extends FormRequest
      *
      * @return bool
      */
+    private $polymorphic_classes = ['App\Models\Activity', 'App\Models\Experience'];
+
     public function authorize()
     {
         return true;
@@ -22,18 +24,14 @@ class ReservationRequest extends FormRequest
 
     protected function prepareForValidation()
     {
-        $phone = null;
-        if (array_key_exists("code", $this->phone) && array_key_exists("phone", $this->phone)) {
-            $phone = $this->phone["code"] . $this->phone["phone"];
-        }
 
-        $experience = Experience::find($this->experience_id);
+        $helper_size = count($this->activity);
+
         $this->merge([
-            'phone' =>  $phone,
             'date' => new Carbon($this->date),
             'confirmation_token' => uniqid(),
-            'hasPerson' => $this->experience_id < 6 ?  true : false,
-            'price' => ($this->private ? $experience->private_price : $experience->price) * $this->people,
+            'experienceable_type' => $this->polymorphic_classes[$helper_size - 1],
+            'experienceable_id' =>  $helper_size == 2 ? $this->activity[1] : $this->activity[0],
         ]);
     }
 
@@ -47,16 +45,15 @@ class ReservationRequest extends FormRequest
         return [
             'date' => 'required|date|after:today',
             'address' => 'required|string',
+            'experienceable_type' => 'required|string',
+            'experienceable_id' => 'required|integer|exists:' . ($this->experienceable_type == 'App\Models\Activity' ? "activities" : "experiences") . ',id',
             'confirmation_token' => 'required',
             'email' => 'required|email',
             'name' => 'required|string',
-            'price' => 'required',
-            'notes' => 'required_if:experience_id,11|string',
-            'people' => 'required|integer|min:2|max:15',
-            'experience_id' => 'required|exists:experiences,id',
+            'participants' => 'required|integer|min:2|max:15',
             'private' => 'required|boolean',
             'phone' => 'nullable|numeric',
-            'person' => 'required_if:hasPerson,true|size:' . $this->people,
+            'person' => 'required|size:' . $this->participants,
             'person.*.birthday' => 'required|date',
             'person.*.gender' => 'required|string',
             'person.*.height' => 'required',
