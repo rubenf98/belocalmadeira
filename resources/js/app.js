@@ -26,7 +26,7 @@ const store = createStore(
     )
 )
 if (!localStorage.language) {
-    localStorage.setItem({ language: "pt" })
+    localStorage.setItem("language", "pt")
 }
 
 if (localStorage.token) {
