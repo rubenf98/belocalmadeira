@@ -19,18 +19,13 @@ const Separator = styled.div`
 
 const Section = styled.div`
     display: flex;
-    flex-direction: row;
     justify-content: center;
     box-sizing: border-box;
-    width: 60%;
+    width: 100%;
     max-width: ${maxWidth};
     margin: auto;
     align-items: center;
     flex-wrap: wrap;
-
-    @media (max-width: ${dimensions.md}) {
-        width: 90%;
-    }
 `;
 
 const ImageContainer = styled.div`
@@ -45,11 +40,10 @@ const ImageContainer = styled.div`
         order: 2;
     }
 
-    video, img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+    video {
+        height: 400px;
     }
+ 
 `;
 
 const InfoContainer = styled.div`
@@ -101,7 +95,7 @@ function About() {
             <Section>
                 <ImageContainer>
                     <Overlay />
-                    <video loop autoPlay className='separator' width="100%" controls={false}>
+                    <video loop autoPlay className='separator' controls={false}>
                         <source src="/image/homepage/about.webm" type="video/webm" />
                         Your browser does not support the video tag.
                     </video>
@@ -115,8 +109,8 @@ function About() {
             <Section>
                 <ImageContainer reverseOrder>
                     <Overlay />
-                    <video loop autoPlay className='separator' width="100%" controls={false}>
-                        <source src="/image/homepage/view.webm" type="video/webm" />
+                    <video loop autoPlay className='separator' controls={false}>
+                        <source src="/image/homepage/about2.webm" type="video/webm" />
                         Your browser does not support the video tag.
                     </video>
                 </ImageContainer>

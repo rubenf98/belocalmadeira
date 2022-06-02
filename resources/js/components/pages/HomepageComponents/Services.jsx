@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import styled, { ThemeContext } from "styled-components";
-import { maxWidth } from '../../../helper';
+import { dimensions, maxWidth } from '../../../helper';
 import SectionTitle from '../../common/SectionTitle';
 
 const Container = styled.section`
@@ -20,7 +20,13 @@ const Content = styled.div`
     margin: auto;
     width: 100%;
     display: flex;
-    flex-wrap: wrap;    
+    flex-wrap: wrap; 
+    
+    @media (max-width: ${dimensions.md}) {
+        .hidden-column {
+            display: none;
+        }
+    }
 `;
 
 const Column = styled.div`
@@ -28,6 +34,11 @@ const Column = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: ${props => props.fullHeight ? "space-between" : "flex-start"};
+    align-items: stretch;
+
+    @media (max-width: ${dimensions.md}) {
+        width: 50%;
+    }
 `;
 
 const ServiceContainer = styled.div`
@@ -40,6 +51,7 @@ const ServiceContainer = styled.div`
         color: inherit;
         font-family: 'Playfair Display', serif;
         font-size: 26px;
+        
     }
 
     img {
@@ -47,18 +59,55 @@ const ServiceContainer = styled.div`
         height: 40px;
         margin-bottom: 5px;
     }
+
+    @media (max-width: ${dimensions.md}) {
+        width: 100%;
+        padding: 30px 10px;
+
+        h3 {
+            font-size: 20px;
+        }
+
+        p {
+            display: none;
+        }
+
+        img {
+            width: 30px;
+            height: 30px;
+        }
+        
+    }
 `;
 
 const ImageContainer = styled.div`
     width: 90%;
-    height: 50vh;
     box-sizing: border-box;
     margin: auto;
-    margin-bottom: 50px;
+
+    @media (max-width: ${dimensions.md}) {
+        display: none;
+        
+    }
 
     img {
         width: 100%;
         height: 100%;
+    }
+`;
+
+const HiddenImage = styled.img`
+    width: 70%;
+    margin: auto;
+    display: none;
+
+    @media (max-width: ${dimensions.md}) {
+        display: block;
+    }
+
+    @media (max-width: ${dimensions.sm}) {
+        width: 80%;
+        
     }
 `;
 
@@ -76,11 +125,13 @@ function Services() {
         <Container color={themeContext.inverseText} background={themeContext.primary}>
             <Content>
                 <SectionTitle title={(<>What we have to <span>offer</span></>)} subtitle="services" />
+
+                <HiddenImage src="/image/homepage/service.png" />
                 <Column>
                     <Service />
                     <Service moveToRight />
                 </Column>
-                <Column fullHeight>
+                <Column className='hidden-column' fullHeight>
                     <ImageContainer>
                         <img src="/image/homepage/service.png" />
                     </ImageContainer>

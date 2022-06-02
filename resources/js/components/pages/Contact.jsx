@@ -113,7 +113,7 @@ function Contact({ theme }) {
 
         setTimeout(() => {
             form.resetFields();
-            setSubmitted(true);
+            //setSubmitted(true);
         }, 300);
 
     };

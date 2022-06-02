@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Activity;
 use App\Models\Experience;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
@@ -24,11 +25,21 @@ class ReservationRequest extends FormRequest
 
     protected function prepareForValidation()
     {
-
+        $price = 0;
         $helper_size = count($this->activity);
+        $experienceable_type = $this->polymorphic_classes[$helper_size - 1];
+        if ($experienceable_type == 'App\Models\Activity') {
+            $activity = Activity::find($this->activity[0]);
+            $price = $activity->price;
+        } else {
+            $experience = Experience::find($this->activity[1]);
+            $price = $experience->price;
+        }
 
         $this->merge([
             'date' => new Carbon($this->date),
+            'price' => $price,
+            'private' => $this->private && true,
             'confirmation_token' => uniqid(),
             'experienceable_type' => $this->polymorphic_classes[$helper_size - 1],
             'experienceable_id' =>  $helper_size == 2 ? $this->activity[1] : $this->activity[0],
@@ -49,6 +60,7 @@ class ReservationRequest extends FormRequest
             'experienceable_id' => 'required|integer|exists:' . ($this->experienceable_type == 'App\Models\Activity' ? "activities" : "experiences") . ',id',
             'confirmation_token' => 'required',
             'email' => 'required|email',
+            'price' => 'required',
             'name' => 'required|string',
             'participants' => 'required|integer|min:2|max:15',
             'private' => 'required|boolean',

@@ -17,7 +17,7 @@ class Reservation extends Model
         'email', 'address', 'phone', 'date', 'experience_id', "confirmation_token", "confirmation"
     ];
 
-    public function participants()
+    public function reservationRarticipants()
     {
         return $this->hasMany('App\Models\ReservationParticipant');
     }

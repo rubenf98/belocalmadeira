@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Input from "antd/es/input"
 import Cascader from "antd/es/cascader"
 import DatePicker from "antd/es/date-picker"
-import styled from "styled-components";
+import styled, { withTheme } from "styled-components";
 import Table from "../../../common/TableContainer";
 import RowOperation from "../../RowOperation";
 import StopPropagation from "../../StopPropagation";
@@ -30,14 +30,14 @@ const AddButton = styled.div`
     width: 80px;
     height: 40px;
     float: right;
-    background: ${colors.main};
+    background: ${props => props.background};
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
     cursor: pointer;
     padding: 10px;
 
     &:hover {
-        background: ${colors.mainHover};
+        background: ${props => props.backgroundH};
     }
 
     img {
@@ -47,7 +47,7 @@ const AddButton = styled.div`
     }
 `;
 
-function TableContainer({ activities, fetchActivities, loading, data, meta, handlePageChange, onRowClick, onDelete, updateReservation, setFilters, createExternalReservation }) {
+function TableContainer({ theme, activities, fetchActivities, loading, data, meta, handlePageChange, onRowClick, onDelete, updateReservation, setFilters, createExternalReservation }) {
     const [visibility, setVisibility] = useState(false);
     const [reservationVisibility, setReservationVisibility] = useState(false);
     const [currentRecord, setCurrentRecord] = useState({});
@@ -79,13 +79,12 @@ function TableContainer({ activities, fetchActivities, loading, data, meta, hand
         },
         {
             title: 'Atividade',
-            dataIndex: 'experience',
-            filterDropdown: () => (getCascader("activity")),
-            render: (experience, row) => (<span>{row.activity.name.pt} ({experience.name.pt})</span>),
+            dataIndex: 'experienceable',
+            render: (experience, row) => (<span>{getActivityField(experience)}</span>),
         },
         {
             title: 'Pessoas',
-            dataIndex: 'people',
+            dataIndex: 'participants',
         },
         {
             title: 'Data',
@@ -111,6 +110,16 @@ function TableContainer({ activities, fetchActivities, loading, data, meta, hand
         },
     ];
 
+    function getActivityField(experience) {
+        var response = null;
+        if (experience.activity_id) {
+            response = experience.activity.name.pt + " (" + experience.name.pt + ")"
+        } else {
+            response = experience.name.pt
+        }
+        return response;
+    }
+
     function onUpdateClick(record) {
         setVisibility(true);
         setCurrentRecord(record);
@@ -127,20 +136,6 @@ function TableContainer({ activities, fetchActivities, loading, data, meta, hand
             <div style={{ padding: 8 }}>
                 <DatePicker
                     onChange={(value, date) => setFilters({ date: date })}
-                    allowClear
-                />
-            </div>
-        );
-    }
-
-    function getCascader() {
-        return (
-            <div style={{ padding: 8 }}>
-                <Cascader
-                    onChange={(value) => setFilters({ activity: value })}
-                    size="large"
-                    expandTrigger="hover"
-                    options={activities}
                     allowClear
                 />
             </div>
@@ -165,7 +160,7 @@ function TableContainer({ activities, fetchActivities, loading, data, meta, hand
 
     return (
         <Container>
-            <AddButton onClick={() => setReservationVisibility(true)}>
+            <AddButton backgroundH={theme.primaryHover} background={theme.primary} onClick={() => setReservationVisibility(true)}>
                 <img src="/icon/add_white.svg" alt="add" />
             </AddButton>
             <Table
@@ -211,4 +206,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TableContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(withTheme(TableContainer));

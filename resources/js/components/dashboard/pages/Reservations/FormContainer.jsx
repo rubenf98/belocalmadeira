@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { Modal, Row, Form, Input, DatePicker, Button, InputNumber, Col } from 'antd';
+import { Modal, Row, Form, DatePicker, Button, InputNumber, Col } from 'antd';
 import moment from 'moment';
 import { connect } from "react-redux";
 import axios from "axios";

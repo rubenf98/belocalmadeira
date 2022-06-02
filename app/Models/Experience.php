@@ -15,9 +15,11 @@ class Experience extends Model
         'name', 'level',
     ];
 
+    protected $with = ['activity'];
+
     public function activity()
     {
-        return $this->belongsTo("App\Models\Experience");
+        return $this->belongsTo("App\Models\Activity");
     }
 
     public function reservations()
