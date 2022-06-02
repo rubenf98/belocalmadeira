@@ -25,7 +25,9 @@ const store = createStore(
         )
     )
 )
-
+if (!localStorage.language) {
+    localStorage.setItem({ language: "pt" })
+}
 
 if (localStorage.token) {
     const token = jwtDecode(localStorage.token);

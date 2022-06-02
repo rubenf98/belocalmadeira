@@ -30,7 +30,6 @@ const Section = styled.div`
 
 const ImageContainer = styled.div`
     width: 50%;
-    border-right: 1px solid lightgray;
     order: ${props => props.reverseOrder ? 2 : 1};
     position: relative;
 
@@ -41,9 +40,16 @@ const ImageContainer = styled.div`
     }
 
     video {
-        height: 400px;
+        max-height: 600px;
+        border-left: 1px solid lightgray;
     }
- 
+
+    .full-width-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-right: 1px solid lightgray;
+    }
 `;
 
 const InfoContainer = styled.div`
@@ -95,7 +101,7 @@ function About() {
             <Section>
                 <ImageContainer>
                     <Overlay />
-                    <video loop autoPlay className='separator' controls={false}>
+                    <video className="full-width-video separator" loop autoPlay controls={false}>
                         <source src="/image/homepage/about.webm" type="video/webm" />
                         Your browser does not support the video tag.
                     </video>
@@ -108,8 +114,7 @@ function About() {
             <Separator />
             <Section>
                 <ImageContainer reverseOrder>
-                    <Overlay />
-                    <video loop autoPlay className='separator' controls={false}>
+                    <video muted loop autoPlay className='separator' controls={false}>
                         <source src="/image/homepage/about2.webm" type="video/webm" />
                         Your browser does not support the video tag.
                     </video>
