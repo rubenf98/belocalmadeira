@@ -28,17 +28,6 @@ export const text = {
         "Our Highly Qualified Team",
         "Contributors That Support Us"
     ],
-    about: {
-        title: "About Us",
-        paragraph: "Fast Rope is more than a Adventure company, is a team that we all share the passion for Canyoning, Hiking and much more...we also do private and personalized tours, you choose what you want to do and we make it happen.",
-        item: [
-            "Certified material according to European directives",
-            "Amazing canyoning and hiking adventures around the island",
-            "Fully custom private tours at your request",
-            "Services provided by a team of certified professionals"
-        ],
-        more: "View More"
-    },
     activities: {
         title: ["Hiking", "Canyoning"],
         hikingParagraph: [

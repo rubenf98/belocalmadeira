@@ -10,7 +10,7 @@ import { useSearchParams } from "react-router-dom";
 function Homepage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const { text } = require('../../assets/' + localStorage.getItem('language') + "/homepage");
-
+  console.log(text.about)
   useEffect(() => {
     var filter = searchParams.get("scrollTo");
     var element = document.getElementById(filter);
