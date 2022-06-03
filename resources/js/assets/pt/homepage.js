@@ -1,51 +1,62 @@
 export const text = {
-    header: "Atividades ao ar livre em de toda a ilha",
+    header: {
+        title: "Be Local Madeira",
+        subtitle: "Get to know Madeira Island from a local’s perspective."
+    },
+    about: {
+        videoError: "Your browser does not support the video tag.",
+        titles: ["start your journey TODAY", "start your journey TODAY"],
+        description: [
+            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci rem voluptatibus maxime fugit. Tenetur voluptatum quas, aut minus consequuntur est itaque dignissimos. Molestias neque voluptatibus sequi modi velit unde tempore.",
+            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci rem voluptatibus maxime fugit. Tenetur voluptatum quas, aut minus consequuntur est itaque dignissimos. Molestias neque voluptatibus sequi modi velit unde tempore."
+        ],
+    },
     titleSection: [
-        "Aventura",
-        "Experiência",
-        "Equipa",
-        "Parceiros"
+        "Adventure",
+        "Experience",
+        "Team",
+        "Partners"
     ],
     reservation: {
-        title: "Garante a tua reserva",
-        formItem: "Seleciona a tua aventura",
-        submit: "Reservar",
+        title: "Make your reservation",
+        formItem: "Select your favorite adventure",
+        submit: "Book Now",
     },
     subtitleSection: [
-        "Descrobre a Madeira Connosco",
-        "O Que Dizem Sobre Nós?",
-        "Equipa Altamente Qualificada",
-        "Contribuidores Que Nos Suportam"
+        "Discover Madeira with Us",
+        "What do People Say About Us?",
+        "Our Highly Qualified Team",
+        "Contributors That Support Us"
     ],
     about: {
-        title: "Sobre Nós",
-        paragraph: "A Fast Rope é mais do que uma empresa de Aventura, somos uma equipa onde todos partilhamos da paixão pelo Canyoning, Caminhadas e muito mais. Fazemos tours privados e personalizados, tu escolhes o que queres fazer e nós fazemos acontecer.",
+        title: "About Us",
+        paragraph: "Fast Rope is more than a Adventure company, is a team that we all share the passion for Canyoning, Hiking and much more...we also do private and personalized tours, you choose what you want to do and we make it happen.",
         item: [
-            "Material certificado de acordo com as diretivas europeias",
-            "Incríveis aventuras de canyoning e caminhadas ao redor da ilha",
-            "Tours privados totalmente personalizados a seu pedido",
-            "Serviços prestados por uma equipa de profissionais certificados"
+            "Certified material according to European directives",
+            "Amazing canyoning and hiking adventures around the island",
+            "Fully custom private tours at your request",
+            "Services provided by a team of certified professionals"
         ],
-        more: "Ver Mais"
+        more: "View More"
     },
     activities: {
-        title: ["Caminhada", "Canyoning"],
+        title: ["Hiking", "Canyoning"],
         hikingParagraph: [
-            "As altas montanhas, os vales estreitos e a costa íngreme da Madeira formam um belo pano de fundo para caminhadas, fotos e vídeos para recordações futuras.",
-            "Em todas as caminhadas existem tesouros que só quem faz descobre. Caminhar em montanha é um dos mais gratificantes exercícios, não só para o corpo como também para a mente.",
-            "Venha daí conhecer as nossas montanhas, levadas, picos e sítios onde pode observar o melhor que a ilha tem de melhor para oferecer, que é a nossa paisagem.",
+            "Madeira's high mountains, narrow valleys and steep coastline form a beautiful backdrop for hikes, photos and videos for future memories.",
+            "In all walks there are treasures that only those who do it will discover. Walking in the mountains is one of the most rewarding exercises, not only for the body but also for the mind.",
+            "Come and discover our mountains, levadas, peaks and places where you can see the best that the island has to offer, which is our landscape.",
         ],
         canyoningParagraph: [
-            "A actividade Canyoning consiste num emocionante desafio para explorar uma ribeira ou um curso de água vertiginoso,onde os obstáculos são transpostos através de diversas técnicas como escalar, saltar, descer em rappel e nadar.",
-            "Atreva-se a fazer canyoning connosco e sentirá uma incrível onda de adrenalina ao explorar e descobrir o que a ilha tem de mais puro e virgem. ",
-            "Com a ajuda dos nossos Guias, equipamento adequado, recomendado, certificado e de qualidade."
+            "The Canyoning activity is an exciting challenge to explore a stream or a dizzying watercourse, where obstacles are overcome through various techniques such as climbing, jumping, rappelling and swimming.",
+            "Dare to go canyoning with us and you'll feel an incredible rush of adrenaline as you explore and discover the most pure and virgin island.",
+            "With the help of our Guides, suitable, recommended, certified and quality equipment."
         ],
-        price: "Desde"
+        price: "From"
     },
     feedback: [
-        "Foi um grande desafio, mas bastante divertido! Pessoal muito atencioso. Estou ansiosa para poder fazer novamente, e conhecer novos lugares!",
-        "Equipa de profissionais muito prestativa, desporto imenso saudável e paisagens extremamente bonitas!",
-        "Equipa de profissionais muito prestável e atenciosa. Foi um dia muito bem passado! Mal posso esperar por repetir e conhecer mais sítios tão bonitos na ilha.",
-        "Excelente dia, excelentes Guias, atividade fantástica...desde o transporte, a explicação inicial, a atenção a todos nós. Recomendo vivamente."
+        "It was a big challenge, but a lot of fun! Very attentive staff. I'm looking forward to being able to do it again, and seeing new places!",
+        "Very helpful team of professionals, immensely healthy sport and extremely beautiful landscapes!",
+        "Very helpful and attentive team of professionals. It was a very well spent day! I can't wait to repeat and discover more beautiful places on the island.",
+        "Excellent day, excellent guides, amazing activity... from the transport, the initial explanation, the attention to all of us. I highly recommend it."
     ]
 } 

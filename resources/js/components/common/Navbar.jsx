@@ -4,7 +4,7 @@ import {
     Link
 } from "react-router-dom";
 import { dimensions } from '../../helper';
-import { Select } from 'antd';
+import { Select, Drawer } from 'antd';
 
 const Container = styled.div`
     background: ${props => props.background};
@@ -39,6 +39,12 @@ const Content = styled.div`
         margin-top: 5px;
         height: 50px;
     }
+
+    .navbar-hidden-links {
+        @media(max-width: ${dimensions.md}) {
+            display: none;
+        }
+    }
 `;
 
 const FlexItem = styled.div`
@@ -72,10 +78,6 @@ const MenuContainer = styled.div`
     text-align: center;
     justify-content: flex-start;
     flex: 1;
-
-    @media(max-width: ${dimensions.md}) {
-        display: none;
-    }
 `;
 
 const OrderButton = styled.div`
@@ -95,12 +97,48 @@ const OrderButton = styled.div`
     font-weight: bold;
 
     @media(max-width: ${dimensions.md}) {
-        font-size: 16px;
-        padding: 5px 10px 5px 10px;
+        padding: 0px;
+        background: transparent;
     }
 
     &:hover {
         background: ${props => props.backgroundHover};
+
+        @media(max-width: ${dimensions.md}) {
+            background: transparent;
+        }
+    }
+
+    span {
+        @media (max-width: ${dimensions.md}) {
+            display: none;
+        }
+    }
+
+    img {
+        display: none;
+
+        @media (max-width: ${dimensions.md}) {
+            display: block;
+            margin: auto;
+            height: 20px;
+        }
+    }
+    
+`;
+
+const MenuButton = styled.div`
+    display: none;
+    cursor: pointer;
+    flex: 1;
+
+    @media (max-width: ${dimensions.md}) {
+        display: block;  
+    }
+
+    img {
+        margin: auto;
+        height: 25px; 
     }
     
 `;
@@ -117,6 +155,11 @@ const NavbarLink = styled(Link)`
     font-weight: bold;
     text-align: center;
     color: ${props => props.color};
+
+    @media (max-width: ${dimensions.lg}) {
+        padding: 15px 10px;
+    }
+
     @media (max-width: ${dimensions.md}) {
         display: none;
     }
@@ -151,6 +194,10 @@ export const CustomSelect = styled(Select)`
     padding: 29px 27px;
     color: #fff;
 
+    @media (max-width: ${dimensions.lg}) {
+        padding: 15px 10px;
+    }
+
     .ant-select-dropdown {
         background-color: transparent !important;
     }
@@ -184,6 +231,21 @@ export const CustomSelect = styled(Select)`
     }
 `;
 
+const CustomDrawer = styled(Drawer)`
+    div {
+        display: flex;
+        align-items: center;
+    }
+
+    .ant-drawer-content {
+        background: ${props => props.background};
+
+        ul {
+            list-style: none;
+        }
+    }
+`;
+
 const Activities = styled.div`
     display: block;
     font-size: 1.2em;
@@ -196,10 +258,31 @@ const Activities = styled.div`
     }
 `;
 
+const MenuLink = styled(Link)`
+    color: white !important;
+    display: block;
+    text-align: center;
+    font-size: 3em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+    font-family: 'Playfair Display', serif;
+
+    &:hover {
+        text-shadow:
+        -1px -1px 0 white,
+        1px -1px 0 white,
+        -1px 1px 0 white,
+        1px 1px 0 white;
+    }
+    
+`;
+
 function Navbar({ handleVisibility, theme }) {
     const [openSelect, setOpenSelect] = useState(false)
     const [hasBackground, setHasBackground] = useState(false)
     const themeContext = useContext(ThemeContext);
+    const [visible, setVisible] = useState(0);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -221,9 +304,20 @@ function Navbar({ handleVisibility, theme }) {
     return (
         <Container background={theme.primary} hasBackground={hasBackground}>
             <Content>
+                <MenuButton onClick={() => setVisible(!visible)}>
+                    <img
 
-                <FlexItem>
+                        src={visible ?
+                            "/image/navbar/close.svg" :
+                            "/image/navbar/menu.svg"
+                        }
+                        alt="menu"
+                    />
+                </MenuButton>
+                <FlexItem className='navbar-hidden-links'>
+
                     <MenuContainer>
+
                         <NavbarLink color={themeContext.inverseText} to="/about">about <div /></NavbarLink>
                         <NavbarLink color={themeContext.inverseText} to="/contact">contact <div /></NavbarLink>
 
@@ -262,12 +356,36 @@ function Navbar({ handleVisibility, theme }) {
 
                 <FlexItem>
                     <OrderButton onClick={() => handleVisibility(true)} color={themeContext.inverseText} background={themeContext.primary} backgroundHover={themeContext.primaryHover}>
-                        book now
+                        <span>book now</span>
+                        <img src="/image/navbar/order.svg" alt="create reservation" />
                     </OrderButton>
                 </FlexItem>
 
             </Content>
-        </Container>
+            <CustomDrawer
+                background={theme.primary}
+                style={{ zIndex: "15" }}
+                placement="right"
+                height={"100%"}
+                width={"100%"}
+                onClose={() => setVisible(0)}
+                visible={visible}
+                closable={false}
+            >
+                <div>
+                    <ul style={{ padding: "0px" }}>
+                        <li><MenuLink onClick={() => setVisible(0)} to="/">home</MenuLink></li>
+                        <li><MenuLink onClick={() => setVisible(0)} to="/about">about</MenuLink></li>
+                        <li><MenuLink onClick={() => setVisible(0)} to="/contact">contact</MenuLink></li>
+                        <li><MenuLink onClick={() => setVisible(0)} to="/activities/canyoning">canyoning</MenuLink></li>
+                        <li><MenuLink onClick={() => setVisible(0)} to="/activities/biking">biking</MenuLink></li>
+                        <li><MenuLink onClick={() => setVisible(0)} to="/activities/coasteering">coasteering</MenuLink></li>
+                        <li><MenuLink onClick={() => setVisible(0)} to="/activities/hiking">hiking</MenuLink></li>
+                    </ul>
+
+                </div>
+            </CustomDrawer>
+        </Container >
     )
 }
 

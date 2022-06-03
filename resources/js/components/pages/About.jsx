@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { withTheme } from "styled-components";
 import { Col, Row } from 'antd';
-import { maxWidth } from '../../helper';
+import { dimensions, maxWidth } from '../../helper';
 import PageHeader from '../common/PageHeader';
 
 const Container = styled.div`
@@ -13,10 +13,23 @@ const PartnerContainer = styled(Row)`
     max-width: ${maxWidth};
     margin: 200px auto;
 
+    @media (max-width: ${dimensions.md}) {
+            margin: 100px auto;
+    }
+
     img {
        width: 15%;
        max-width: 250px;
        filter: contrast(0);
+
+        @media (max-width: ${dimensions.md}) {
+                width: 30%;
+                margin: 20px 0px;
+        }
+
+        @media (max-width: ${dimensions.sm}) {
+                width: 40%;
+        }
     }
 `;
 
@@ -50,9 +63,6 @@ const Column = styled(Col)`
 `;
 
 
-
-
-
 function About({ theme }) {
     return (
         <Container>
@@ -65,15 +75,15 @@ function About({ theme }) {
                 </Column>
                 <Column xs={24} md={14}>
                     <Row type="flex" gutter={20}>
-                        <Col xs={24} md={8}>
+                        <Col xs={8} md={8}>
                             <img src="/image/about/about1.jpg" alt="" />
                         </Col>
-                        <Col xs={24} md={16}>
+                        <Col xs={16} md={16}>
                             <Row gutter={20} style={{ marginBottom: "20px" }}>
-                                <Col xs={24} md={12}>
+                                <Col xs={12} md={12}>
                                     <img src="/image/about/about2.jpg" alt="" />
                                 </Col>
-                                <Col xs={24} md={12}>
+                                <Col xs={12} md={12}>
                                     <img src="/image/about/leaf.svg" alt="" />
                                 </Col>
                             </Row>

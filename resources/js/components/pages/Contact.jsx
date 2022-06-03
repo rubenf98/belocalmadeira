@@ -17,20 +17,42 @@ const Container = styled.div`
     justify-content: space-between;
     width: 90%;
     margin: 200px auto;
+
+    @media (max-width: ${dimensions.md}) {
+        .hide {
+            display: none;
+        }
+    }
 `;
 
 const SectionContainer = styled.div`
     width: 50%;
     margin: auto;
+
+    @media (max-width: ${dimensions.md}) {
+        width: 100%;
+    }
 `;
 
 const ContactForm = styled(Form)`
     width: 60%;
     margin: 20px 0px 50px 0px;
+
+    @media (max-width: ${dimensions.lg}) {
+        width: 80%;
+    }
+
+    @media (max-width: ${dimensions.md}) {
+        width: 100%;
+    }
 `;
 
 const FormContainer = styled.div`
     width: 70%;
+
+    @media (max-width: ${dimensions.lg}) {
+        width: 100%;
+    }
 
     h2, h3 {
         font-family: 'Playfair Display', serif;
@@ -122,15 +144,11 @@ function Contact({ theme }) {
 
     return (
         <div>
-            <PageHeader title="Contact Us" subtitle="Fowl living for lights our ears bearing to heaven signs" />
+            <PageHeader title={text.title} subtitle={text.subtitle} />
             <Container>
-                <SectionContainer>
+                <SectionContainer className='hide'>
                     <Sentence color={theme.primary}>
-                        Life. <br />
-                        It could be
-                        just the thing
-                        your brand
-                        needs.
+                        {text.sentence}
                     </Sentence>
 
 

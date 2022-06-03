@@ -130,7 +130,7 @@ const ScrollDownIndicator = () => (
   </Scroll>
 )
 
-function Header() {
+function Header({ text }) {
   const [positionOffset, setPositionOffset] = useState({ x: undefined, y: undefined });
   const themeContext = useContext(ThemeContext);
 
@@ -170,8 +170,8 @@ function Header() {
       </BackgroundContainer>
 
       <TitleContainer >
-        <h2>Be Local Madeira </h2>
-        <h1>Get to know Madeira Island from a local’s perspective.</h1>
+        <h2>{text.title}</h2>
+        <h1>{text.subtitle}</h1>
       </TitleContainer>
 
       <ScrollDownIndicator />

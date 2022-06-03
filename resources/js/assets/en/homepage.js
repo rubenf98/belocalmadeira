@@ -1,5 +1,16 @@
 export const text = {
-    header: "Outdoor Activities all around the Island",
+    header: {
+        title: "Be Local Madeira",
+        subtitle: "Get to know Madeira Island from a local’s perspective."
+    },
+    about: {
+        videoError: "Your browser does not support the video tag.",
+        titles: ["start your journey TODAY", "start your journey TODAY"],
+        description: [
+            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci rem voluptatibus maxime fugit. Tenetur voluptatum quas, aut minus consequuntur est itaque dignissimos. Molestias neque voluptatibus sequi modi velit unde tempore.",
+            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci rem voluptatibus maxime fugit. Tenetur voluptatum quas, aut minus consequuntur est itaque dignissimos. Molestias neque voluptatibus sequi modi velit unde tempore."
+        ],
+    },
     titleSection: [
         "Adventure",
         "Experience",

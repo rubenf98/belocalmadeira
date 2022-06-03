@@ -1,20 +1,15 @@
 export const text = {
-    formTitle: "Contact",
-    formParagraph: "You can contact us using the form below, where you will receive a response via the email address provided. If you prefer, you can contact us using the email address and telephone number in the description.",
-    formFeedback: "Thank you contacting us! We'll try to answer any doubts as soon as possible. You'll receive an update thought the email address provided on the form.",
+    title: "Contact Us",
+    subtitle: "Fowl living for lights our ears bearing to heaven signs",
+    sentence: "Life. It could be just the thing your brand needs.",
+    formTitle: "Send us an Email",
     form: {
         items: [
-            "Name",
-            "Message",
+            "Your Name",
+            "Email Address",
+            "Message ...",
         ],
-        info: [
-            "Phone",
-            "Follow",
-        ],
+
         submit: "send message"
-    },
-    feedback: {
-        title: "Can we ask you something?",
-        paragraph: "Let us know what we're getting right and what we can improve",
     },
 } 

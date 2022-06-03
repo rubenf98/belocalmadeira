@@ -3,7 +3,7 @@ import styled, { ThemeContext } from "styled-components";
 import moment from "moment";
 import { dimensions, maxWidth } from '../../helper';
 import {
-    Link
+    Link, useLocation, useNavigate
 } from "react-router-dom";
 
 const Container = styled.div`
@@ -69,9 +69,35 @@ const CustomLink = styled(Link)`
     }
 `;
 
+const ActivitiesLink = styled.span`
+    color: #e4e4e4;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: capitalize;
+    cursor: pointer;
+
+    &:hover, &:focus {
+        color: #ffffff;
+    }
+
+    &:nth-child(2) {
+        margin: 0px 30px;
+    }
+`;
+
+
 
 function Footer() {
     const themeContext = useContext(ThemeContext);
+    const { pathname } = useLocation();
+    let navigate = useNavigate();
+
+    const handleClick = (filter) => {
+        if (pathname == "/") {
+            var element = document.getElementById(filter);
+            window.scrollTo({ top: element.offsetTop, behavior: 'smooth' });
+        } else return navigate("/?scrollTo=" + filter);
+    }
 
     return (
         <Container background={themeContext.primary}>
@@ -82,7 +108,7 @@ function Footer() {
                 <div className='links-container'>
                     <CustomLink to="/contact">contact</CustomLink>
                     <CustomLink to="/about">about</CustomLink>
-                    <CustomLink to="/activities">activities</CustomLink>
+                    <ActivitiesLink onClick={() => handleClick("activities")}>activities</ActivitiesLink>
                 </div>
             </Content>
 

@@ -96,7 +96,7 @@ function Activities() {
     const themeContext = useContext(ThemeContext);
 
     return (
-        <Container>
+        <Container id="activities">
             <SectionTitle title={(<>Get a glimpse of what you can <span>experience</span></>)} subtitle="Activities" />
             <ActivitiesContainer titleColor={themeContext.inverseText}>
                 <Activity
