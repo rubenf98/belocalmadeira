@@ -111,36 +111,36 @@ const HiddenImage = styled.img`
     }
 `;
 
-const Service = ({ moveToRight = false, center = false }) => (
+const Service = ({ moveToRight = false, center = false, text }) => (
     <ServiceContainer style={{ margin: center ? "auto" : "0px", marginLeft: moveToRight ? "auto" : (center ? "auto" : "0px") }}>
         <img src="/icon/homepage/services1.svg" alt="" />
-        <h3>Unforgettable experiences</h3>
-        <p>Creating your trip is entirely collaborative and our Travel Researchers are here for every step.</p>
+        <h3>{text.title}</h3>
+        <p>{text.description}</p>
     </ServiceContainer>
 )
 
-function Services() {
+function Services({ text }) {
     const themeContext = useContext(ThemeContext);
     return (
         <Container color={themeContext.inverseText} background={themeContext.primary}>
             <Content>
-                <SectionTitle title={(<>What we have to <span>offer</span></>)} subtitle="services" />
+                <SectionTitle title={text.subtitle} subtitle={text.title} />
 
                 <HiddenImage src="/image/homepage/service.png" />
                 <Column>
-                    <Service />
-                    <Service moveToRight />
+                    <Service text={text.items[0]} />
+                    <Service text={text.items[1]} moveToRight />
                 </Column>
                 <Column className='hidden-column' fullHeight>
                     <ImageContainer>
                         <img src="/image/homepage/service.png" />
                     </ImageContainer>
 
-                    <Service center />
+                    <Service text={text.items[2]} center />
                 </Column>
                 <Column>
-                    <Service moveToRight />
-                    <Service />
+                    <Service text={text.items[3]} moveToRight />
+                    <Service text={text.items[4]} />
                 </Column>
             </Content>
         </Container>

@@ -64,14 +64,17 @@ const Column = styled(Col)`
 
 
 function About({ theme }) {
+    const { text } = require('../../assets/' + localStorage.getItem('language') + "/about");
+
     return (
         <Container>
-            <PageHeader title="About Us" subtitle="Fowl living for lights our ears bearing to heaven signs" />
+            <PageHeader title={text.title} subtitle={text.subtitle} />
             <InfoContainer>
                 <Column text={theme.lightText} xs={24} md={10}>
-                    <h2>Lorem, ipsum dolor sit amet.</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae nulla dolorem aliquid consectetur, autem, beatae officiis sunt vel, quo et nam ipsam esse eius modi. Libero cupiditate architecto illum sunt.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure nulla eligendi vel id labore doloribus consectetur.</p>
+                    <h2>{text.section.title}</h2>
+                    {text.section.items.map((paragraph, index) => (
+                        <p key={index}>{paragraph}</p>
+                    ))}
                 </Column>
                 <Column xs={24} md={14}>
                     <Row type="flex" gutter={20}>

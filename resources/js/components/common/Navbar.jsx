@@ -283,6 +283,7 @@ function Navbar({ handleVisibility, theme }) {
     const [hasBackground, setHasBackground] = useState(false)
     const themeContext = useContext(ThemeContext);
     const [visible, setVisible] = useState(0);
+    const { text } = require('../../assets/' + localStorage.getItem('language') + "/links");
 
     useEffect(() => {
         const handleScroll = () => {
@@ -318,30 +319,30 @@ function Navbar({ handleVisibility, theme }) {
 
                     <MenuContainer>
 
-                        <NavbarLink color={themeContext.inverseText} to="/about">about <div /></NavbarLink>
-                        <NavbarLink color={themeContext.inverseText} to="/contact">contact <div /></NavbarLink>
+                        <NavbarLink color={themeContext.inverseText} to="/about">{text.links[0]} <div /></NavbarLink>
+                        <NavbarLink color={themeContext.inverseText} to="/contact">{text.links[1]} <div /></NavbarLink>
 
                         <CustomSelect
                             open={openSelect}
                             onMouseLeave={() => setOpenSelect(false)}
                             onMouseEnter={() => setOpenSelect(true)}
-                            placeholder="Activities"
+                            placeholder={text.links[2]}
                             value="activities"
                         >
                             <Select.Option style={{ display: "none" }} value="activities">
-                                <Activities>Activities</Activities>
+                                <Activities>{text.links[2]}</Activities>
                             </Select.Option>
                             <Select.Option value="canyoning" >
-                                <SelectLink to="/activities/canyoning">Canyoning</SelectLink>
+                                <SelectLink to="/activities/canyoning">{text.links[3]}</SelectLink>
                             </Select.Option>
                             <Select.Option value="hiking" >
-                                <SelectLink to="/activities/hiking">hiking</SelectLink>
+                                <SelectLink to="/activities/hiking">{text.links[4]}</SelectLink>
                             </Select.Option>
                             <Select.Option value="biking" >
-                                <SelectLink to="/activities/biking">biking</SelectLink>
+                                <SelectLink to="/activities/biking">{text.links[5]}</SelectLink>
                             </Select.Option>
                             <Select.Option value="coastering" >
-                                <SelectLink to="/activities/coasteering">coasteering</SelectLink>
+                                <SelectLink to="/activities/coasteering">{text.links[6]}</SelectLink>
                             </Select.Option>
                         </CustomSelect><div />
 
@@ -356,7 +357,7 @@ function Navbar({ handleVisibility, theme }) {
 
                 <FlexItem>
                     <OrderButton onClick={() => handleVisibility(true)} color={themeContext.inverseText} background={themeContext.primary} backgroundHover={themeContext.primaryHover}>
-                        <span>book now</span>
+                        <span>{text.button}</span>
                         <img src="/image/navbar/order.svg" alt="create reservation" />
                     </OrderButton>
                 </FlexItem>

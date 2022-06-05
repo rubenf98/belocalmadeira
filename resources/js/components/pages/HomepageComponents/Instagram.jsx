@@ -49,25 +49,8 @@ const TwoItem = styled.div`
     }
 `;
 
-const LinkContainer = styled.a`
-    display: inline;
-    position: relative;
-    margin-left: 15px;
-    color: black;
 
-    &:hover {
-        color: black;
-    }
-`;
 
-const Link = styled.img`
-    position: absolute;
-    bottom: -25px;
-    right: -30px;
-    height: 35px;
-    width: auto;
-    
-`;
 
 
 const items = [
@@ -87,18 +70,12 @@ const items3 = [
 ]
 
 
-function Instagram() {
+function Instagram({ text }) {
     return (
         <Container>
             <SectionTitle
-                title={(
-                    <>Follow us on
-                        <LinkContainer href="https://www.instagram.com/belocalmadeira/" target="_blank">
-                            <span>Instagram</span>
-                            <Link src='/image/homepage/instagram_arrow.svg' />
-                        </LinkContainer>
-                    </>)}
-                subtitle="Socials" />
+                title={text.subtitle}
+                subtitle={text.title} />
 
             <FlexContainer>
                 {items.map((item, index) => (

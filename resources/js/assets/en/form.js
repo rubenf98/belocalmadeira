@@ -1,56 +1,61 @@
 export const text = {
-    instructions: "Explore our activities and book your Madeira Island experience now! We have fantastic routes and personalized packages that will undoubtedly please you.",
-    activityBackButton: "Pick your activity",
-    experienceBackButton: "Pick your experience",
-    formTitle: "Reservation Details",
-    form: {
-        name: {
-            label: "Name",
-            placeholder: "Reservation name"
-        },
-        email: {
-            label: "Email",
-            placeholder: "Contact email"
-        },
-        phone: {
-            label: "Phone Number",
-            placeholder: "Optional phone number for further contact"
-        },
-        address: {
-            label: "Please specify your address so we can pick you up",
-            placeholder: "Address and/or hotel name"
-        },
-        notes: {
-            label: "Reservation requests and notes",
-            placeholder: "Please specify any additional requests or doubts regarding the reservation as detailed as possible."
-        },
-        private: {
-            label: "Private experience",
-        },
-        people: {
-            label: "Number of participants",
-        },
-        gender: [
-            "Male", "Female"
-        ],
-        person: {
-            bday: {
-                placeholder: "Birthday"
-            },
-            gender: {
-                placeholder: "Gender"
-            },
-            height: {
-                placeholder: "Height"
-            },
-            weight: {
-                placeholder: "Weight"
-            },
-            shoe: {
-                placeholder: "Shoe size"
+    close: "close",
+    pages: [
+        {
+            title: "Explore our activities and book your Madeira Island experience right here!",
+            form: {
+                name: {
+                    placeholder: "Name (required)"
+                },
+                email: {
+                    placeholder: "Email (required)"
+                },
+                phone: {
+                    placeholder: "Phone Number"
+                },
+                address: {
+                    placeholder: "Pickup Address"
+                },
+                activity: {
+                    placeholder: "Activity"
+                },
+                private: {
+                    placeholder: "Private experience",
+                },
+                participants: {
+                    placeholder: "Number of participants",
+                },
             },
         },
-    },
-    price: "Pending Budget",
+        {
+            title: "Select the date for your activity from the available options on the calendar"
+        },
+        {
+            title: "Fill the details of everyone that will participate on the activity",
+            subtitle: "Participant",
+            form: {
+                person: {
+                    bday: {
+                        placeholder: "Aniversário"
+                    },
+                    gender: {
+                        placeholder: "Sexo",
+                        options: [
+                            "male", "female"
+                        ],
+                    },
+                    height: {
+                        placeholder: "Altura"
+                    },
+                    weight: {
+                        placeholder: "Peso"
+                    },
+                    shoe: {
+                        placeholder: "Tamanho sapato"
+                    },
+                },
+            },
+        }
+    ],
     submit: "CHECKOUT"
 } 

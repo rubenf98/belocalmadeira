@@ -4,7 +4,7 @@ import { CustomCheckbox, CustomCascader, CustomInput, CustomInputNumber } from '
 import { fetchActivities } from "../../../redux/activity/actions";
 import { connect } from "react-redux";
 
-function Information({ fetchActivities, data }) {
+function Information({ fetchActivities, data, text }) {
     useEffect(() => {
         fetchActivities({ language: localStorage.getItem('language') });
     }, [])
@@ -17,28 +17,28 @@ function Information({ fetchActivities, data }) {
                     <Form.Item
                         name="name"
                     >
-                        <CustomInput size='large' placeholder='Name (required)' />
+                        <CustomInput size='large' placeholder={text.form.name.placeholder} />
                     </Form.Item>
                 </Col>
                 <Col xs={24} md={12}>
                     <Form.Item
                         name="email"
                     >
-                        <CustomInput size='large' placeholder='E-mail (required)' />
+                        <CustomInput size='large' placeholder={text.form.email.placeholder} />
                     </Form.Item>
                 </Col>
                 <Col xs={24} md={12}>
                     <Form.Item
                         name="phone"
                     >
-                        <CustomInput size='large' placeholder='Phone Number' />
+                        <CustomInput size='large' placeholder={text.form.phone.placeholder} />
                     </Form.Item>
                 </Col>
                 <Col xs={24} md={12}>
                     <Form.Item
                         name="address"
                     >
-                        <CustomInput size='large' placeholder='Pickup Address' />
+                        <CustomInput size='large' placeholder={text.form.address.placeholder} />
                     </Form.Item>
                 </Col>
 
@@ -46,7 +46,7 @@ function Information({ fetchActivities, data }) {
                     <Form.Item
                         name="participants"
                     >
-                        <CustomInputNumber controls={false} size='large' placeholder='Number of participants (required)' />
+                        <CustomInputNumber controls={false} size='large' placeholder={text.form.participants.placeholder} />
                     </Form.Item>
                 </Col>
 
@@ -59,7 +59,7 @@ function Information({ fetchActivities, data }) {
                             expandTrigger="hover"
                             options={data}
                             allowClear={false}
-                            placeholder='Activity'
+                            placeholder={text.form.activity.placeholder}
                             dropdownRender={menu => (
                                 <div className='colored-dropdown'>
                                     {menu}
@@ -73,7 +73,7 @@ function Information({ fetchActivities, data }) {
                         name="private"
                         valuePropName="checked"
                     >
-                        <CustomCheckbox>Private Experience</CustomCheckbox>
+                        <CustomCheckbox>{text.form.private.placeholder}</CustomCheckbox>
                     </Form.Item>
                 </Col>
 

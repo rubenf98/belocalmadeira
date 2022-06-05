@@ -97,9 +97,18 @@ const OrderForm = ({ visible, handleVisibility, createReservation }) => {
     }, [window.innerWidth])
 
     const steps = [
-        { title: "Explore our activities and book your Madeira Island experience right here!", content: <Information /> },
-        { title: "Select the date for your activity from the available options on the calendar", content: <Date participants={form.getFieldValue('participants')} /> },
-        { title: "Fill the details of everyone that will participate on the activity", content: <Participants n={nParticipants} text={text} /> }
+        {
+            title: text.pages[0].title,
+            content: <Information text={text.pages[0]} />
+        },
+        {
+            title: text.pages[1].title,
+            content: <Date text={text.pages[1]} participants={form.getFieldValue('participants')} />
+        },
+        {
+            title: text.pages[2].title,
+            content: <Participants text={text.pages[2]} n={nParticipants} />
+        }
     ]
 
 
@@ -146,7 +155,7 @@ const OrderForm = ({ visible, handleVisibility, createReservation }) => {
             <FlexContainer>
                 <Previous visible={step != 0} onClick={previousStep} src='/icon/previous.svg' alt="previous step" />
                 <CloseContainer onClick={() => handleVisibility(false)}>
-                    <span>close</span> <img src="/icon/close.svg" alt="close icon" />
+                    <span>{text.close}</span> <img src="/icon/close.svg" alt="close icon" />
                 </CloseContainer>
             </FlexContainer>
 
@@ -168,7 +177,7 @@ const OrderForm = ({ visible, handleVisibility, createReservation }) => {
                     <img src="/icon/next.svg" alt='next' />
                 </Next> :
                 <Button onClick={handleFinish} type='primary' htmlType="submit">
-                    submit
+                    {text.submit}
                 </Button>
             }
 

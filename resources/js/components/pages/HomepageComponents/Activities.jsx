@@ -78,11 +78,13 @@ const ActivityContainer = styled(Link)`
     }
 `;
 
-const Activity = ({ title, spacingTop = false, url }) => {
-    const themeContext = useContext(ThemeContext);
-
+const Activity = ({ title, spacingTop = false, code }) => {
     return (
-        <ActivityContainer to={url} background={"/image/homepage/" + title + ".jpg"} style={{ marginTop: spacingTop ? "50px" : "0px" }}>
+        <ActivityContainer
+            to={"/activities/" + code}
+            background={"/image/homepage/" + code + ".jpg"}
+            style={{ marginTop: spacingTop ? "50px" : "0px" }}
+        >
             <div className='image-container'>
                 <div className='overlay' />
                 <h4>{title}</h4>
@@ -92,30 +94,30 @@ const Activity = ({ title, spacingTop = false, url }) => {
 
 }
 
-function Activities() {
+function Activities({ text }) {
     const themeContext = useContext(ThemeContext);
 
     return (
         <Container id="activities">
-            <SectionTitle title={(<>Get a glimpse of what you can <span>experience</span></>)} subtitle="Activities" />
+            <SectionTitle title={text.subtitle} subtitle={text.title} />
             <ActivitiesContainer titleColor={themeContext.inverseText}>
                 <Activity
-                    title="canyoning"
-                    url="/activities/canyoning"
+                    title={text.items[0]}
+                    code="canyoning"
                 />
                 <Activity
-                    title="biking"
+                    title={text.items[1]}
                     spacingTop
-                    url="/activities/biking"
+                    code="biking"
                 />
                 <Activity
-                    title="coasteering"
-                    url="/activities/coasteering"
+                    title={text.items[2]}
+                    code="coasteering"
                 />
                 <Activity
-                    title="hiking"
+                    title={text.items[3]}
                     spacingTop
-                    url="/activities/hiking"
+                    code="hiking"
                 />
             </ActivitiesContainer>
         </Container>

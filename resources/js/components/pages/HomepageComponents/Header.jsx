@@ -123,6 +123,26 @@ const Scroll = styled.div`
   }
 `;
 
+const LanguageContainer = styled.div`
+  margin: auto;
+  position: absolute;
+  right: 100px;
+  bottom: 30px;
+  color: inherit;
+`;
+
+const LanguageIndicator = styled.span`
+    filter: ${props => props.active ? "opacity(1)" : "opacity(.4)"};
+    z-index: 100;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: bold;
+
+    &:nth-child(2) {
+      margin-left: 13px;
+    }
+`;
+
 
 const ScrollDownIndicator = () => (
   <Scroll>
@@ -132,9 +152,11 @@ const ScrollDownIndicator = () => (
 
 function Header({ text }) {
   const [positionOffset, setPositionOffset] = useState({ x: undefined, y: undefined });
+  const [active, setActive] = useState("en")
   const themeContext = useContext(ThemeContext);
 
   useEffect(() => {
+    setActive(localStorage.getItem("language"));
     const DOM = document.getElementById("header-container");
 
     const setFromEvent = (e) => {
@@ -158,6 +180,12 @@ function Header({ text }) {
 
   }, []);
 
+  function handleLanguageClick(language) {
+    localStorage.setItem("language", language);
+    setActive(language)
+    location.reload();
+  }
+
 
   return (
     <Container color={themeContext.inverseText} id="header-container">
@@ -175,6 +203,10 @@ function Header({ text }) {
       </TitleContainer>
 
       <ScrollDownIndicator />
+      <LanguageContainer>
+        <LanguageIndicator active={active == "pt"} onClick={() => handleLanguageClick("pt")}>pt</LanguageIndicator>
+        <LanguageIndicator active={active == "en"} onClick={() => handleLanguageClick("en")}>en</LanguageIndicator>
+      </LanguageContainer>
     </Container>
   )
 }

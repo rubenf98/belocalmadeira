@@ -31,13 +31,12 @@ const Content = styled.div`
     display: block;
 
     .links-container {
-        border-top: 1px solid #e4e4e4;
-        border-bottom: 1px solid #e4e4e4;
+        border-top: 1px solid #e4e4e45d;
         width: 50%;
         margin: 40px auto;
         display: flex;
         justify-content: center;
-        padding: 20px 0px;
+        padding: 30px 0px 20px 0px;
         box-sizing: border-box;
 
     }
@@ -89,6 +88,7 @@ const ActivitiesLink = styled.span`
 
 function Footer() {
     const themeContext = useContext(ThemeContext);
+    const { text } = require('../../assets/' + localStorage.getItem('language') + "/links");
     const { pathname } = useLocation();
     let navigate = useNavigate();
 
@@ -106,9 +106,9 @@ function Footer() {
                     <img src="/image/logo_white.png" alt="be local madeira white logo" />
                 </Logo>
                 <div className='links-container'>
-                    <CustomLink to="/contact">contact</CustomLink>
-                    <CustomLink to="/about">about</CustomLink>
-                    <ActivitiesLink onClick={() => handleClick("activities")}>activities</ActivitiesLink>
+                    <CustomLink to="/contact">{text.links[1]}</CustomLink>
+                    <CustomLink to="/about">{text.links[0]}</CustomLink>
+                    <ActivitiesLink onClick={() => handleClick("activities")}>{text.links[2]}</ActivitiesLink>
                 </div>
             </Content>
 

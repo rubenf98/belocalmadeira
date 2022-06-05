@@ -55,7 +55,7 @@ const rules = {
 function Participant({ text, nParticipant }) {
     return (
         <div>
-            <Title>Participant {nParticipant}</Title>
+            <Title>{text.subtitle} {nParticipant}</Title>
 
             <PersonForm gutter={32} key={index}>
                 <Col xs={24} md={12}>
@@ -99,8 +99,8 @@ function Participant({ text, nParticipant }) {
                             )}
                             placeholder={text.form.person.gender.placeholder}
                         >
-                            <Select.Option value="male">{text.form.gender[0]}</Select.Option>
-                            <Select.Option value="female">{text.form.gender[1]}</Select.Option>
+                            <Select.Option value="male">{text.form.person.gender.options[0]}</Select.Option>
+                            <Select.Option value="female">{text.form.person.gender.options[1]}</Select.Option>
                         </CustomSelect>
                     </Form.Item>
                 </Col>
