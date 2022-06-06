@@ -207,7 +207,7 @@
                                                                         align="center">
 
                                                                         <img align="center" border="0"
-                                                                            src="https://www.fastropemadeira.com/logo.png"
+                                                                            src="https://www.belocalmadeira.com/image/logo.png"
                                                                             alt="Image" title="Image"
                                                                             style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 29%;max-width: 168.2px;"
                                                                             width="168.2" />
@@ -241,43 +241,6 @@
                                 style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
                                 <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: #161a39;"><![endif]-->
 
-                                <!--[if (mso)|(IE)]><td align="center" width="600" style="width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
-                                <div class="u-col u-col-100"
-                                    style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
-                                    <div style="width: 100% !important;">
-                                        <!--[if (!mso)&(!IE)]><!-->
-                                        <div
-                                            style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-                                            <!--<![endif]-->
-
-                                            <table style="font-family:'Lato',sans-serif;" role="presentation"
-                                                cellpadding="0" cellspacing="0" width="100%" border="0">
-                                                <tbody>
-                                                    <tr>
-                                                        <td style="overflow-wrap:break-word;word-break:break-word;padding:30px 10px;font-family:'Lato',sans-serif;"
-                                                            align="left">
-
-                                                            <div
-                                                                style="line-height: 140%; text-align: center; word-wrap: break-word;">
-                                                                <p
-                                                                    style="font-size: 14px; line-height: 140%; text-align: center;">
-                                                                    <span
-                                                                        style="font-size: 28px; line-height: 39.2px; color: #ffffff; font-family: Lato, sans-serif;">Nova
-                                                                        Reserva<br /></span>
-                                                                </p>
-                                                            </div>
-
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-
-                                            <!--[if (!mso)&(!IE)]><!-->
-                                        </div>
-                                        <!--<![endif]-->
-                                    </div>
-                                </div>
-                                <!--[if (mso)|(IE)]></td><![endif]-->
                                 <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
                             </div>
                         </div>
@@ -321,7 +284,8 @@
                                                                 <p style="font-size: 14px; line-height: 140%;"><span
                                                                         style="font-size: 18px; line-height: 25.2px; color: #666666;"><span
                                                                             style="font-size: 14px; line-height: 19.6px; color: #7e8c8d;">
-                                                                            {{$reservation->name}} realizou uma reserva para dia
+                                                                            {{$reservation->name}} realizou uma reserva
+                                                                            para dia
                                                                             {{$reservation->date}}
                                                                         </span><br />&nbsp;</span></p>
                                                             </div>
@@ -346,10 +310,10 @@
 
                     <div class="u-row-container" style="padding: 0px;background-color: transparent">
                         <div class="u-row"
-                            style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #18163a;">
+                            style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #232E19;">
                             <div
                                 style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
-                                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: #18163a;"><![endif]-->
+                                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: #232E19;"><![endif]-->
 
                                 <!--[if (mso)|(IE)]><td align="center" width="300" style="width: 300px;padding: 20px 20px 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
                                 <div class="u-col u-col-50"
@@ -371,10 +335,11 @@
                                                                 style="line-height: 140%; text-align: left; word-wrap: break-word;">
                                                                 <p style="font-size: 14px; line-height: 140%;"><span
                                                                         style="font-size: 14px; line-height: 19.6px; color: #ecf0f1;">+351
-                                                                        933 933
-                                                                        452</span></p>
+                                                                        935 124
+                                                                        260</span></p>
                                                                 <p style="font-size: 14px; line-height: 140%;"><span
-                                                                        style="font-size: 14px; line-height: 19.6px; color: #ecf0f1;">info@fastropemadeira.com</span>
+                                                                        style="font-size: 14px; line-height: 19.6px; color: #ecf0f1;">
+                                                                        belocalmadeira@gmail.com</span>
                                                                 </p>
                                                             </div>
 
@@ -418,10 +383,10 @@
                                                                             <tr style="vertical-align: top">
                                                                                 <td align="left" valign="middle"
                                                                                     style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-                                                                                    <a href="https://www.facebook.com/madeira.fastrope "
+                                                                                    <a href="https://m.facebook.com/BeLocalMadeira"
                                                                                         title="Facebook"
                                                                                         target="_blank">
-                                                                                        <img src="https://www.fastropemadeira.com/icon/company/facebook.png"
+                                                                                        <img src="https://www.belocalmadeira.com/image/email/image-2.png"
                                                                                             alt="Facebook"
                                                                                             title="Facebook" width="24"
                                                                                             style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
@@ -440,10 +405,10 @@
                                                                             <tr style="vertical-align: top">
                                                                                 <td align="left" valign="middle"
                                                                                     style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-                                                                                    <a href=" https://www.instagram.com/fastrope_madeira/"
+                                                                                    <a href="https://www.instagram.com/belocalmadeira/"
                                                                                         title="Instagram"
                                                                                         target="_blank">
-                                                                                        <img src="https://www.fastropemadeira.com/icon/company/instagram.png"
+                                                                                        <img src="https://www.belocalmadeira.com/image/email/image-1.png"
                                                                                             alt="Instagram"
                                                                                             title="Instagram" width="24"
                                                                                             style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
@@ -453,52 +418,6 @@
                                                                         </tbody>
                                                                     </table>
                                                                     <!--[if (mso)|(IE)]></td><![endif]-->
-
-                                                                    <!--[if (mso)|(IE)]><td width="32" style="width:32px; padding-right: 15px;" valign="top"><![endif]-->
-                                                                    <table align="left" border="0" cellspacing="0"
-                                                                        cellpadding="0" width="32" height="32"
-                                                                        style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 15px">
-                                                                        <tbody>
-                                                                            <tr style="vertical-align: top">
-                                                                                <td align="left" valign="middle"
-                                                                                    style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-                                                                                    <a href="https://www.tripadvisor.pt/Attraction_Review-g189167-d23713035-Reviews-Fast_Rope_Madeira-Funchal_Madeira_Madeira_Islands.html"
-                                                                                        title="Tripadvisor"
-                                                                                        target="_blank">
-                                                                                        <img src="https://www.fastropemadeira.com/icon/company/tripadvisor.png"
-                                                                                            alt="Tripadvisor"
-                                                                                            title="Tripadvisor"
-                                                                                            width="32"
-                                                                                            style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
-                                                                                    </a>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                    <!--[if (mso)|(IE)]></td><![endif]-->
-
-                                                                    <!--[if (mso)|(IE)]><td width="32" style="width:32px; padding-right: 0px;" valign="top"><![endif]-->
-                                                                    <table align="left" border="0" cellspacing="0"
-                                                                        cellpadding="0" width="32" height="32"
-                                                                        style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 0px">
-                                                                        <tbody>
-                                                                            <tr style="vertical-align: top">
-                                                                                <td align="left" valign="middle"
-                                                                                    style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-                                                                                    <a href="https://api.whatsapp.com/send?l=en&phone=351933933452"
-                                                                                        title="WhatsApp"
-                                                                                        target="_blank">
-                                                                                        <img src="https://www.fastropemadeira.com/icon/company/whatsapp.png"
-                                                                                            alt="WhatsApp"
-                                                                                            title="WhatsApp" width="24"
-                                                                                            style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
-                                                                                    </a>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                    <!--[if (mso)|(IE)]></td><![endif]-->
-
 
                                                                     <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
                                                                 </div>
@@ -521,8 +440,8 @@
                                                                 <p style="line-height: 140%; font-size: 14px;"><span
                                                                         style="font-size: 14px; line-height: 19.6px;"><span
                                                                             style="color: #ecf0f1; font-size: 14px; line-height: 19.6px;"><span
-                                                                                style="line-height: 19.6px; font-size: 14px;">Fast
-                                                                                Rope Madeira &copy;
+                                                                                style="line-height: 19.6px; font-size: 14px;">Be
+                                                                                Local Madeira &copy;
                                                                                 <br /></span></span></span></p>
                                                             </div>
 
@@ -546,10 +465,10 @@
 
                     <div class="u-row-container" style="padding: 0px;background-color: #f9f9f9">
                         <div class="u-row"
-                            style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #1c103b;">
+                            style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #232E19;">
                             <div
                                 style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
-                                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: #f9f9f9;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: #1c103b;"><![endif]-->
+                                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: #f9f9f9;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: #232E19;"><![endif]-->
 
                                 <!--[if (mso)|(IE)]><td align="center" width="600" style="width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
                                 <div class="u-col u-col-100"
@@ -569,7 +488,7 @@
 
                                                             <table height="0px" align="center" border="0"
                                                                 cellpadding="0" cellspacing="0" width="100%"
-                                                                style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;border-top: 1px solid #1c103b;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%">
+                                                                style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;border-top: 1px solid #232E19;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%">
                                                                 <tbody>
                                                                     <tr style="vertical-align: top">
                                                                         <td

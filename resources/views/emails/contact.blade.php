@@ -3,7 +3,7 @@
 <html lang="en" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml">
 
 <head>
-    <title>Fast Rope</title>
+    <title>Be Local Madeira</title>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <!--[if mso]><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch><o:AllowPNG/></o:OfficeDocumentSettings></xml><![endif]-->
@@ -60,7 +60,7 @@
                 <td>
                     <table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-1"
                         role="presentation"
-                        style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #343c5e;background: radial-gradient(circle, rgba(52,60,94,1) 0%, rgba(52,60,94,0.97) 60%, rgba(52,60,94,0.86) 100%);"
+                        style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #232E19;background: radial-gradient(circle, rgba(35,46,25,1) 0%, rgba(35,46,25,0.97) 60%, rgba(35,46,25,0.86) 100%);"
                         width="100%">
                         <tbody>
                             <tr>
@@ -82,7 +82,7 @@
                                                             <td
                                                                 style="width:100%;padding-right:8px;padding-left:8px;padding-bottom:60px;padding-top:60px;">
                                                                 <div align="center" style="line-height:10px"><img
-                                                                        src="https://www.fastropemadeira.com/logo_white.png"
+                                                                        src="https://www.belocalmadeira.com/image/logo_white.png"
                                                                         style="display: block; height: auto; border: 0; width: 395px; max-width: 100%;"
                                                                         width="395" /></div>
                                                             </td>
@@ -98,7 +98,7 @@
                     </table>
                     <table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-2"
                         role="presentation"
-                        style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #343c5e;background: radial-gradient(circle, rgba(52,60,94,1) 0%, rgba(52,60,94,0.97) 60%, rgba(52,60,94,0.86) 100%); "
+                        style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #232E19;background: radial-gradient(circle, rgba(35,46,25,1) 0%, rgba(35,46,25,0.97) 60%, rgba(35,46,25,0.86) 100%); "
                         width="100%">
                         <tbody>
                             <tr>
@@ -177,7 +177,7 @@
                                                                             style="margin: 0; text-align: center; mso-line-height-alt: 16.8px;">
                                                                              </p>
                                                                         <p style="margin: 0; text-align: center;">
-                                                                            Copyright © 2022 Fast Rope Madeira. All
+                                                                            Copyright © 2022 Be Local Madeira. All
                                                                             rights reserved.</p>
                                                                         <p
                                                                             style="margin: 0; text-align: center; mso-line-height-alt: 16.8px;">

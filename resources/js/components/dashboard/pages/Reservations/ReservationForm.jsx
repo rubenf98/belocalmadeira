@@ -217,7 +217,13 @@ class ReservationForm extends Component {
                                         label="Fonte externa"
                                         rules={rules.source}
                                     >
-                                        <Select style={{ width: "100%" }} placeholder="Fonte externa da reserva">
+                                        <Select
+                                            dropdownRender={menu => (
+                                                <div className='colored-dropdown'>
+                                                    {menu}
+                                                </div >
+                                            )}
+                                            style={{ width: "100%" }} placeholder="Fonte externa da reserva">
                                             <Option value="tripadvisor">Tripadvisor</Option>
                                             <Option value="getyorguide">GetYourGuide</Option>
                                             <Option value="thisismadeiraisland">thisismadeiraisland</Option>
@@ -235,6 +241,11 @@ class ReservationForm extends Component {
                                             options={experiences}
                                             placeholder="Experiência para a atividade"
                                             allowClear
+                                            dropdownRender={menu => (
+                                                <div className='colored-dropdown'>
+                                                    {menu}
+                                                </div >
+                                            )}
                                         />
                                     </Form.Item>
                                 </Col>

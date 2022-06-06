@@ -94,7 +94,7 @@ function TableContainer({ theme, activities, fetchActivities, loading, data, met
         {
             title: 'Preço',
             dataIndex: 'price',
-            render: (price) => (<span>{price == 0 ? "Sob-Orçamento" : price + "€"}</span>),
+            render: (price) => (<span>{price + "€"}</span>),
         },
         {
             title: "",
