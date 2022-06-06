@@ -18,7 +18,7 @@ const PartnerContainer = styled(Row)`
     }
 
     img {
-       width: 15%;
+       width: 10%;
        max-width: 250px;
        filter: contrast(0);
 
@@ -78,22 +78,16 @@ function About({ theme }) {
                 </Column>
                 <Column xs={24} md={14}>
                     <Row type="flex" gutter={20}>
-                        <Col xs={8} md={8}>
-                            <img src="/image/about/about1.jpg" alt="" />
-                        </Col>
                         <Col xs={16} md={16}>
-                            <Row gutter={20} style={{ marginBottom: "20px" }}>
-                                <Col xs={12} md={12}>
-                                    <img src="/image/about/about2.jpg" alt="" />
-                                </Col>
-                                <Col xs={12} md={12}>
-                                    <img src="/image/about/leaf.svg" alt="" />
-                                </Col>
-                            </Row>
+
                             <Row>
                                 <img src="/image/about/about3.jpg" alt="" />
                             </Row>
                         </Col>
+                        <Col xs={8} md={8}>
+                            <img src="/image/about/about1.jpg" alt="" />
+                        </Col>
+
                     </Row>
                 </Column>
             </InfoContainer>

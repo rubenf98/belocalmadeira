@@ -13,10 +13,13 @@ function Homepage() {
 
   useEffect(() => {
     var filter = searchParams.get("scrollTo");
-    var element = document.getElementById(filter);
-    setTimeout(() => {
-      window.scrollTo({ top: element.offsetTop, behavior: 'smooth' });
-    }, 0);
+    if (filter) {
+      var element = document.getElementById(filter);
+      setTimeout(() => {
+        window.scrollTo({ top: element.offsetTop, behavior: 'smooth' });
+      }, 0);
+    }
+
   }, [])
 
   return (

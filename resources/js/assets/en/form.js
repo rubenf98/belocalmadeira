@@ -5,25 +5,25 @@ export const text = {
             title: "Explore our activities and book your Madeira Island experience right here!",
             form: {
                 name: {
-                    placeholder: "Name (required)"
+                    placeholder: "Name *"
                 },
                 email: {
-                    placeholder: "Email (required)"
+                    placeholder: "Email *"
                 },
                 phone: {
-                    placeholder: "Phone Number"
+                    placeholder: "Phone Number *"
                 },
                 address: {
-                    placeholder: "Pickup Address"
+                    placeholder: "Pickup Address *"
                 },
                 activity: {
-                    placeholder: "Activity"
+                    placeholder: "Activity *"
                 },
                 private: {
                     placeholder: "Private experience",
                 },
                 participants: {
-                    placeholder: "Number of participants",
+                    placeholder: "Number of participants *",
                 },
             },
         },
@@ -54,6 +54,24 @@ export const text = {
                         placeholder: "Tamanho sapato"
                     },
                 },
+            },
+        },
+        {
+            title: "Reservation details",
+            participantsTitle: "Participants details",
+            details: {
+                activity: "Activity",
+                name: "Reservation name",
+                email: "Email",
+                phone: "Phone number",
+                address: "Pickup address",
+                private: "Private experience",
+                privateAnswer: ['No', 'Yes'],
+                date: "Date of activity",
+                created_at: "Reserved at",
+                participant: "Participant",
+                participants: "Number of participants",
+                price: "Price"
             },
         }
     ],

@@ -25,7 +25,7 @@ function Canyoning() {
                         images: [
                             ["canyoning/01", "canyoning/04", "canyoning/07", "canyoning/10"],
                             ["canyoning/02", "canyoning/05", "canyoning/08", "canyoning/11"],
-                            ["canyoning/03", "canyoning/06", "canyoning/09", "canyoning/12", "canyoning/15"],
+                            ["canyoning/03", "canyoning/06", "canyoning/09", "canyoning/12"],
                         ]
                     }
                 }}

@@ -65,24 +65,17 @@ function Date({ fetchDisabledDates, calendarMetadata, loading, participants }) {
 
     useEffect(() => {
         fetchDisabledDates(participants);
-    }, []);
+    }, [participants]);
 
-    function handleDateChange(value) {
-        var currentDate = moment(value).format("YYYY-MM-DD");
-        // if (calendarMetadata.dates[currentDate]) {
-        //     setCurrentLimit(15 - calendarMetadata.dates[currentDate]);
-        // } else setCurrentLimit(15);
-    }
-    console.log(loading)
     return (
         <div>
             {!loading &&
                 <Form.Item
                     name="date"
+                    rules={[{ required: true, message: "Please select a date" }]}
                 >
                     <CustomCalendar
                         fullscreen={false}
-                        onSelect={handleDateChange}
                         disabledDate={(currentDate) => {
                             return currentDate && (
                                 (currentDate < moment())

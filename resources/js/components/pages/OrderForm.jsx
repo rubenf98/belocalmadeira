@@ -6,6 +6,8 @@ import Date from './Form/Date';
 import Participants from './Form/Participants';
 import { createReservation } from '../../redux/reservation/actions';
 import { connect } from "react-redux";
+import Summary from './Form/Summary';
+import moment from 'moment';
 
 const Content = styled(Drawer)`
     color: white;
@@ -61,6 +63,18 @@ const Next = styled.div`
     }
 `;
 
+const Submit = styled(Button)`
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 20px 0px;
+
+    img {
+        width: 50px;
+    }
+`;
+
 const Previous = styled.img`
     cursor: pointer;
     width: 20px;
@@ -81,7 +95,7 @@ const OrderForm = ({ visible, handleVisibility, createReservation }) => {
     const { text } = require('../../assets/' + localStorage.getItem('language') + "/form");
     const [formData, setFormData] = useState({})
     const [step, setStep] = useState(0);
-    const [nParticipants, setNParticipants] = useState(2);
+    const [nParticipants, setNParticipants] = useState(3);
     const [drawerWidth, setDrawerWidth] = useState(720);
     const [form] = Form.useForm();
     const themeContext = useContext(ThemeContext);
@@ -108,17 +122,30 @@ const OrderForm = ({ visible, handleVisibility, createReservation }) => {
         {
             title: text.pages[2].title,
             content: <Participants text={text.pages[2]} n={nParticipants} />
+        },
+        {
+            title: text.pages[3].title,
+            content: <Summary text={text.pages[3]} data={{ ...formData, date: moment(formData.date).format("YYYY-MM-DD") }} />
         }
     ]
 
 
     const nextStep = () => {
-        var currentStepData = form.getFieldsValue();
-        setFormData({ ...formData, ...currentStepData });
-        if (step == 1) {
-            setNParticipants(form.getFieldValue('participants'));
-        }
-        setStep(step == (steps.length - 1) ? step : step + 1);
+        // var currentStepData = form.getFieldsValue();
+        // setFormData({ ...formData, ...currentStepData });
+        // if (step == 1) {
+        //     setNParticipants(form.getFieldValue('participants'));
+        // }
+        // setStep(step == (steps.length - 1) ? step : step + 1);
+
+        form.validateFields().then((currentStepData) => {
+            setFormData({ ...formData, ...currentStepData });
+            if (step == 1) {
+                setNParticipants(form.getFieldValue('participants'));
+            }
+            setStep(step == (steps.length - 1) ? step : step + 1);
+        })
+
     }
 
     const previousStep = () => {
@@ -133,12 +160,13 @@ const OrderForm = ({ visible, handleVisibility, createReservation }) => {
     }
 
     const handleFinish = () => {
-        var currentStepData = form.getFieldsValue();
-        createReservation({ ...formData, ...currentStepData }).then((response, err) => {
-            if (!err) {
-                handleReset();
-            }
-        });
+        form.validateFields().then((currentStepData) => {
+            createReservation({ ...formData, ...currentStepData }).then((response, err) => {
+                if (!err) {
+                    handleReset();
+                }
+            });
+        })
     }
 
     return (
@@ -160,25 +188,23 @@ const OrderForm = ({ visible, handleVisibility, createReservation }) => {
             </FlexContainer>
 
             <Title>{steps[step].title}</Title>
+
             <Form
                 form={form}
                 layout="vertical"
                 name="order"
                 requiredMark={false}
-                initialValues={{
-                    people: 2,
-                }}
-
             >
                 {steps[step].content}
             </Form>
-            {step != 2 ?
+            {step != 3 ?
                 <Next onClick={nextStep}>
                     <img src="/icon/next.svg" alt='next' />
                 </Next> :
-                <Button onClick={handleFinish} type='primary' htmlType="submit">
-                    {text.submit}
-                </Button>
+                <Submit onClick={handleFinish} type='primary' htmlType="submit">
+                    <img src="/image/navbar/order.svg" alt='book now' />
+                </Submit>
+
             }
 
         </Content>

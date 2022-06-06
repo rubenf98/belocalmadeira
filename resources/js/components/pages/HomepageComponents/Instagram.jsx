@@ -49,24 +49,36 @@ const TwoItem = styled.div`
     }
 `;
 
+const ThreeItem = styled.div`
+    width: 33%;
+    height: auto;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+`;
+
 
 
 
 
 const items = [
-    { src: "instagram1.jpg" },
+    { src: "instagram3.jpg" },
     { src: "instagram2.jpg" },
 ]
 
 const items2 = [
-    { src: "instagram3.jpg" },
-    { src: "instagram4.jpg" },
-    { src: "instagram5.jpg" },
+    { src: "instagram7.jpg" },
+    { src: "instagram1.jpg" },
+
 ]
 
 const items3 = [
     { src: "instagram6.jpg" },
-    { src: "instagram7.jpg" },
+    { src: "instagram5.jpg" },
+    { src: "instagram8.jpg" },
 ]
 
 
@@ -87,25 +99,23 @@ function Instagram({ text }) {
             </FlexContainer>
 
             <FlexContainer>
-                <TwoItem width={70}>
-                    <img className='instagram-post' src={"/image/homepage/" + items2[0].src} alt="instagram post" />
-                </TwoItem>
-                <VerticalFlexContainer>
-                    <img src={"/image/homepage/" + items2[1].src} alt="instagram post" />
-                    <img src={"/image/homepage/" + items2[2].src} alt="instagram post" />
-                </VerticalFlexContainer>
-
+                {items3.map((item, index) => (
+                    <ThreeItem key={index} width={index == 0 ? 70 : 30}>
+                        <img className='instagram-post' src={"/image/homepage/" + item.src} alt="instagram post" />
+                    </ThreeItem>
+                ))}
 
             </FlexContainer>
 
             <FlexContainer>
-                {items3.map((item, index) => (
-                    <TwoItem key={index} width={index == 0 ? 70 : 30}>
+                {items2.map((item, index) => (
+                    <TwoItem key={index} width={index == 0 ? 30 : 70}>
                         <img className='instagram-post' src={"/image/homepage/" + item.src} alt="instagram post" />
                     </TwoItem>
                 ))}
-
             </FlexContainer>
+
+
 
         </Container>
     )

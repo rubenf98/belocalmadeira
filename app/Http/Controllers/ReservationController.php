@@ -62,10 +62,12 @@ class ReservationController extends Controller
      */
     public function store(ReservationRequest $request)
     {
+
         $validator = $request->validated();
 
         DB::beginTransaction();
         $record = Reservation::create($validator);
+
         if (array_key_exists('person', $validator)) {
             $record->storeParticipants($validator['person']);
         }

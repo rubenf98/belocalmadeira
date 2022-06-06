@@ -4,10 +4,52 @@ import { CustomCheckbox, CustomCascader, CustomInput, CustomInputNumber } from '
 import { fetchActivities } from "../../../redux/activity/actions";
 import { connect } from "react-redux";
 
+
+const rules = {
+    name: [
+        {
+            required: true,
+            message: 'Please input the name of the reservation',
+        },
+    ],
+    email: [
+        {
+            required: true,
+            message: 'Please input the gender of all participants',
+        },
+    ],
+    phone: [
+        {
+            required: true,
+            message: 'Please input the height of all participants',
+        },
+    ],
+    address: [
+        {
+            required: true,
+            message: 'Please input the weight of all participants',
+        },
+    ],
+    participants: [
+        {
+            required: true,
+            message: 'Please input the shoe size of all participants',
+        },
+    ],
+    activity: [
+        {
+            required: true,
+            message: 'Please input the shoe size of all participants',
+        },
+    ],
+};
+
 function Information({ fetchActivities, data, text }) {
     useEffect(() => {
         fetchActivities({ language: localStorage.getItem('language') });
     }, [])
+
+
 
     return (
         <div>
@@ -16,6 +58,7 @@ function Information({ fetchActivities, data, text }) {
                 <Col xs={24} md={12}>
                     <Form.Item
                         name="name"
+                        rules={rules.name}
                     >
                         <CustomInput size='large' placeholder={text.form.name.placeholder} />
                     </Form.Item>
@@ -23,6 +66,7 @@ function Information({ fetchActivities, data, text }) {
                 <Col xs={24} md={12}>
                     <Form.Item
                         name="email"
+                        rules={rules.email}
                     >
                         <CustomInput size='large' placeholder={text.form.email.placeholder} />
                     </Form.Item>
@@ -30,6 +74,7 @@ function Information({ fetchActivities, data, text }) {
                 <Col xs={24} md={12}>
                     <Form.Item
                         name="phone"
+                        rules={rules.phone}
                     >
                         <CustomInput size='large' placeholder={text.form.phone.placeholder} />
                     </Form.Item>
@@ -37,6 +82,7 @@ function Information({ fetchActivities, data, text }) {
                 <Col xs={24} md={12}>
                     <Form.Item
                         name="address"
+                        rules={rules.address}
                     >
                         <CustomInput size='large' placeholder={text.form.address.placeholder} />
                     </Form.Item>
@@ -45,14 +91,16 @@ function Information({ fetchActivities, data, text }) {
                 <Col xs={24} md={12}>
                     <Form.Item
                         name="participants"
+                        rules={rules.participants}
                     >
-                        <CustomInputNumber controls={false} size='large' placeholder={text.form.participants.placeholder} />
+                        <CustomInputNumber max={15} min={3} controls={false} size='large' placeholder={text.form.participants.placeholder} />
                     </Form.Item>
                 </Col>
 
                 <Col xs={24} md={12}>
                     <Form.Item
                         name="activity"
+                        rules={rules.activity}
                     >
                         <CustomCascader
                             size="large"

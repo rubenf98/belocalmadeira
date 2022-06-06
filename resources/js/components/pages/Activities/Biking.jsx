@@ -23,9 +23,9 @@ function Biking() {
                         title: text.gallery.title,
                         subtitle: text.gallery.subtitle,
                         images: [
-                            ["biking/01", "biking/04", "biking/07", "biking/10", "biking/11"],
-                            ["biking/02", "biking/05", "biking/08"],
-                            ["biking/03", "biking/06", "biking/09"],
+                            ["biking/10", "biking/04", "biking/08"],
+                            ["biking/02", "biking/05"],
+                            ["biking/03", "biking/06"],
                         ]
                     }
                 }}

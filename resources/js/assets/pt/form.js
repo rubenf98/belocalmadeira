@@ -5,25 +5,25 @@ export const text = {
             title: "Explora as nossas atividades e reserva a tua experiência na Ilha da Madeira!",
             form: {
                 name: {
-                    placeholder: "Nome (obrigatório)"
+                    placeholder: "Nome *"
                 },
                 email: {
-                    placeholder: "Email (obrigatório)"
+                    placeholder: "Email *"
                 },
                 phone: {
-                    placeholder: "Número telemóvel"
+                    placeholder: "Número telemóvel *"
                 },
                 address: {
-                    placeholder: "Morada de recolha"
+                    placeholder: "Morada de recolha *"
                 },
                 activity: {
-                    placeholder: "Atividade"
+                    placeholder: "Atividade *"
                 },
                 private: {
                     placeholder: "Experiência privada",
                 },
                 participants: {
-                    placeholder: "Número de participantes",
+                    placeholder: "Número de participantes *",
                 },
             },
         },
@@ -36,24 +36,42 @@ export const text = {
             form: {
                 person: {
                     bday: {
-                        placeholder: "Aniversário"
+                        placeholder: "Aniversário *"
                     },
                     gender: {
-                        placeholder: "Sexo",
+                        placeholder: "Sexo *",
                         options: [
                             "masculino", "feminino"
                         ],
                     },
                     height: {
-                        placeholder: "Altura"
+                        placeholder: "Altura *"
                     },
                     weight: {
-                        placeholder: "Peso"
+                        placeholder: "Peso *"
                     },
                     shoe: {
-                        placeholder: "Tamanho sapato"
+                        placeholder: "Tamanho sapato *"
                     },
                 },
+            },
+        },
+        {
+            title: "Detalhes da reserva",
+            participantsTitle: "Detalhes dos participantes",
+            details: {
+                activity: "Atividade",
+                name: "Nome da reserva",
+                email: "Email",
+                phone: "Nº de telemóvel",
+                address: "Morada",
+                private: "Experiência privada",
+                privateAnswer: ['Não', 'Sim'],
+                date: "Data da atividade",
+                created_at: "Data da reserva",
+                participant: "Participante",
+                participants: "Nº de participantes",
+                price: "Preço"
             },
         }
     ],

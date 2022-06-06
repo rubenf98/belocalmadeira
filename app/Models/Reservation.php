@@ -36,8 +36,10 @@ class Reservation extends Model
     {
         foreach ($participants as $participant) {
             $participant['birthday']  = new Carbon($participant['birthday']);
+
             $p = new ReservationParticipant($participant);
-            $this->participants()->save($p);
+
+            $this->reservationRarticipants()->save($p);
         }
     }
 
@@ -53,8 +55,8 @@ class Reservation extends Model
 
             if (!in_array($reservation->date, $disabled)) {
                 if (array_key_exists($reservation->date, $dates)) {
-                    $dates[$reservation->date] = $dates[$reservation->date] + $reservation->people;
-                } else $dates[$reservation->date] = $reservation->people;
+                    $dates[$reservation->date] = $dates[$reservation->date] + $reservation->participants;
+                } else $dates[$reservation->date] = $reservation->participants;
 
                 if ($dates[$reservation->date] >= $treshold || $reservation->private) {
                     array_push($disabled, $reservation->date);

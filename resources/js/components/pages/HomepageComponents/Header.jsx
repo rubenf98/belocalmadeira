@@ -129,6 +129,10 @@ const LanguageContainer = styled.div`
   right: 100px;
   bottom: 30px;
   color: inherit;
+
+  @media (max-width: ${dimensions.md}) {
+    right: 30px;
+  }
 `;
 
 const LanguageIndicator = styled.span`
