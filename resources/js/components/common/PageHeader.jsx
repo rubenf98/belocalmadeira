@@ -46,7 +46,7 @@ function PageHeader({ title, subtitle }) {
             <Overlay />
             <div>
                 <h1>{title}</h1>
-                <p>Fowl living for lights our ears bearing to heaven signs</p>
+                <p>{subtitle}</p>
             </div>
         </Header>
     )

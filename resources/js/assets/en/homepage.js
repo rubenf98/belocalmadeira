@@ -66,7 +66,7 @@ export const text = {
     },
     socials: {
         title: "socials",
-        formItem: (
+        subtitle: (
             <>follow us on
                 <LinkContainer href="https://www.instagram.com/belocalmadeira/" target="_blank">
                     <span>Instagram</span>

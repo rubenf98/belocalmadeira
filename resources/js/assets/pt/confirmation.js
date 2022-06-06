@@ -1,5 +1,8 @@
 export const text = {
+    title: "Reserva Confirmada",
+    subtitle: "",
     details: {
+        activity: "Atividade",
         name: "Nome da reserva",
         email: "Email",
         phone: "Nº de telemóvel",
@@ -10,8 +13,9 @@ export const text = {
         created_at: "Data da reserva",
         participant: "Participante",
         participants: "Nº de participantes",
-        notes: "Notas adicionais",
+        price: "Preço"
     },
+    participantsTitle: "Detalhes dos participantes",
     total: "Sob-Orçamento",
     feedback: "Reserva confirmada!",
     feedbackInstruction: "Se existir alguma dúvida, pode nos contactar através de email ou mensagem de telemóvel.",

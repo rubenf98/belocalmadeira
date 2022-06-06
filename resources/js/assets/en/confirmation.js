@@ -1,5 +1,8 @@
 export const text = {
+    title: "Booking Confirmed",
+    subtitle: "We are pleased to inform you that your reservation request has been received and confimed",
     details: {
+        activity: "Activity",
         name: "Reservation name",
         email: "Email",
         phone: "Phone number",
@@ -10,11 +13,12 @@ export const text = {
         created_at: "Reserved at",
         participant: "Participant",
         participants: "Number of participants",
-        notes: "Additional Notes",
+        price: "Price"
     },
+    participantsTitle: "Participants details",
     total: "Pending Budget",
     feedback: "Reservation confirmed!",
     feedbackInstruction: "If there are any additional doubts, feel free to contact us with an email or phone message.",
     error: "Confirmation failed!",
-    errorInstruction: "Something unexpected happened and reservation was not found"
+    errorInstruction: "Something unexpected happened and the reservation was not found"
 } 

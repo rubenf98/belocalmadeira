@@ -17,6 +17,7 @@ import PainelLayout from "./components/dashboard/PainelLayout";
 import DashboardContact from "./components/dashboard/pages/Contact/Contact";
 import DashboardReservations from "./components/dashboard/pages/Reservations/Reservations";
 import DashboardPainel from "./components/dashboard/pages/Painel";
+import Confirmation from "./components/pages/Confirmation";
 export const history = createBrowserHistory();
 
 function Router() {
@@ -30,6 +31,8 @@ function Router() {
                 <Route exact path="/about" element={<Layout><About /></Layout>} />
                 <Route exact path="/contact" element={<Layout><Contact /></Layout>} />
                 <Route exact path="/login" element={<ThemeContainer><Login /></ThemeContainer>} />
+
+                <Route exact path="/confirmation/:token" element={<Layout><Confirmation /></Layout>} />
 
                 <Route exact path="/painel/contacto" element={<PainelLayout><DashboardContact /></PainelLayout>} />
                 <Route exact path="/painel/reservas" element={<PainelLayout><DashboardReservations /></PainelLayout>} />
