@@ -195,7 +195,6 @@ function Confirmation({ match }) {
                     (Object.keys(data).length === 0) ?
                         <Loading>
                             <div className='flex-container'>
-                                <img width="250" src="/logo.png" alt="logo" />
                                 {
                                     !hasError &&
                                     <div className="gooey">

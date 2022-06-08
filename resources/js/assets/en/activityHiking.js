@@ -6,13 +6,10 @@ export const text = {
         "In our Madeira walking tours we organize everything including transfers. You enjoy the daily hiking tours to the fullest. We will take you to places that no GPS device knows and that are not to be found in your guidebook.",
         "We have comfortable buses of different sizes, so our excursions with private tour guide are suitable for both families and groups."
     ],
-    section: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit modi natus sint.",
+    section: "All necessary information regarding hiking",
     includes: [
-        "5mm neoprene suit",
-        "Canyoning boots",
-        "Safety equipment",
         "Snack",
-        "Certified Canyoning Guides",
+        "Certified Guides",
         "Photos and videos of the activity",
         "Insurance (personal accidents and civil liability)"
     ],

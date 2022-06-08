@@ -111,9 +111,9 @@ const HiddenImage = styled.img`
     }
 `;
 
-const Service = ({ moveToRight = false, center = false, text }) => (
+const Service = ({ moveToRight = false, center = false, text, icon }) => (
     <ServiceContainer style={{ margin: center ? "auto" : "0px", marginLeft: moveToRight ? "auto" : (center ? "auto" : "0px") }}>
-        <img src="/icon/homepage/services1.svg" alt="" />
+        <img src={"/icon/homepage/" + icon + ".svg"} alt={text.title} />
         <h3>{text.title}</h3>
         <p>{text.description}</p>
     </ServiceContainer>
@@ -128,19 +128,19 @@ function Services({ text }) {
 
                 <HiddenImage src="/image/homepage/service.png" />
                 <Column>
-                    <Service text={text.items[0]} />
-                    <Service text={text.items[1]} moveToRight />
+                    <Service text={text.items[0]} icon="experience" />
+                    <Service text={text.items[1]} icon="equipment" moveToRight />
                 </Column>
                 <Column className='hidden-column' fullHeight>
                     <ImageContainer>
                         <img src="/image/homepage/service.png" />
                     </ImageContainer>
 
-                    <Service text={text.items[2]} center />
+                    <Service text={text.items[2]} icon="transportation" center />
                 </Column>
                 <Column>
-                    <Service text={text.items[3]} moveToRight />
-                    <Service text={text.items[4]} />
+                    <Service text={text.items[3]} icon="photo" moveToRight />
+                    <Service text={text.items[4]} icon="guide" />
                 </Column>
             </Content>
         </Container>

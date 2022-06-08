@@ -7,8 +7,12 @@ export const baseInputStyles = css`
     margin: 10px 0px;
     border: none;
     border-bottom: 1px solid #cfcfcf;
-    background: transparent;
+    background: transparent !important;
     color: #ffffff;
+
+    .ant-input-status-error{
+        background: transparent !important;  
+    }
 
     &:focus,
     &:active, &:hover {
@@ -21,6 +25,12 @@ export const baseInputStyles = css`
 
     &::placeholder {
         color: #b1b1b1;
+    }
+
+    color: ${props => props.colored ? "black" : "white"};
+    &:focus,
+    &:active, &:hover {
+        border-color: ${props => props.colored ? "#777 !important" : "white"};
     }
 `;
 
@@ -112,6 +122,8 @@ export const CustomDatePicker = styled(DatePicker)`
 
 export const CustomInput = styled(Input)`
     ${baseInputStyles}
+
+    
 `;
 
 

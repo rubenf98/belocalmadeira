@@ -5,7 +5,6 @@ import { dimensions } from '../../../helper';
 import { Link } from 'react-router-dom';
 
 const Container = styled.section`
-    min-height: 100vh;
     width: 100%;
     padding: 100px 0px;
     box-sizing: border-box;
@@ -16,6 +15,8 @@ const ActivitiesContainer = styled.div`
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    max-width: 2600px;
+    margin: auto;
 
     h4 {
         color: ${props => props.titleColor};
@@ -94,12 +95,15 @@ const Activity = ({ title, spacingTop = false, code }) => {
 
 }
 
-function Activities({ text }) {
+function Activities({ text, showTitle = true }) {
     const themeContext = useContext(ThemeContext);
 
     return (
         <Container id="activities">
-            <SectionTitle title={text.subtitle} subtitle={text.title} />
+            {
+                showTitle && <SectionTitle title={text.subtitle} subtitle={text.title} />
+            }
+
             <ActivitiesContainer titleColor={themeContext.inverseText}>
                 <Activity
                     title={text.items[0]}

@@ -5,7 +5,7 @@ export const text = {
         "O Coasteering na Madeira consiste em explorar a costa marítima através de caminhada, natação, escalada e saltos, com equipamento apropriado e com supervisão dos guias. É uma atividade apropriada para todas as idades, (a partir dos 10 anos) adaptando-se ao perfil de cada pessoa.",
         "Possibilidade de saltos desde 1 metro até 16 metros, sendo todos estes opcionais.",
     ],
-    section: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit modi natus sint.",
+    section: "Todas as informações necessárias relativas ao Coasteering",
     includes: [
         "Transporte",
         "Equipamento individual",
@@ -24,7 +24,7 @@ export const text = {
         ],
     },
     gallery: {
-        subtitle: "gallery",
+        subtitle: "galeria",
         title: (<><span>Aventuras</span> fantásticas que não irás esquecer</>),
     }
 } 

@@ -30,10 +30,10 @@ class ReservationRequest extends FormRequest
         $experienceable_type = $this->polymorphic_classes[$helper_size - 1];
         if ($experienceable_type == 'App\Models\Activity') {
             $activity = Activity::find($this->activity[0]);
-            $price = $activity->price * count($this->person);
+            $price = ($this->private ? $activity->private_price : $activity->price) * count($this->person);
         } else {
             $experience = Experience::find($this->activity[1]);
-            $price = $experience->price * count($this->person);
+            $price = ($this->private ? $experience->private_price : $experience->price) * count($this->person);
         }
 
         $this->merge([

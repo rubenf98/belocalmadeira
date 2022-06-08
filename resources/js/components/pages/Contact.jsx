@@ -35,16 +35,8 @@ const SectionContainer = styled.div`
 `;
 
 const ContactForm = styled(Form)`
-    width: 60%;
+    width: 100%;
     margin: 20px 0px 50px 0px;
-
-    @media (max-width: ${dimensions.lg}) {
-        width: 80%;
-    }
-
-    @media (max-width: ${dimensions.md}) {
-        width: 100%;
-    }
 `;
 
 const FormContainer = styled.div`
@@ -78,8 +70,12 @@ const FormContainer = styled.div`
 const Sentence = styled.div`
     font-size: 82px;
     line-height: 70px;
-    width: 60%;
+    width: 80%;
     color: ${props => props.color};
+
+    @media (max-width: ${dimensions.lg}) {
+        font-size: 70px;
+    }
 `;
 
 const Submit = styled(Button)`
@@ -169,7 +165,7 @@ function Contact({ theme }) {
                                         name="name"
                                         rules={rules.name}
                                     >
-                                        <CustomInput placeholder={text.form.items[0]} size="large" />
+                                        <CustomInput colored placeholder={text.form.items[0]} size="large" />
                                     </Form.Item>
                                 </Col>
                                 <Col md={24} lg={24}>
@@ -177,7 +173,7 @@ function Contact({ theme }) {
                                         name="email"
                                         rules={rules.email}
                                     >
-                                        <CustomInput placeholder={text.form.items[1]} size="large" />
+                                        <CustomInput colored placeholder={text.form.items[1]} size="large" />
                                     </Form.Item>
                                 </Col>
                             </Row>
@@ -186,7 +182,7 @@ function Contact({ theme }) {
                                 name="message"
                                 rules={rules.message}
                             >
-                                <CustomTextArea placeholder={text.form.items[2]} size="large" maxLength={180} />
+                                <CustomTextArea colored placeholder={text.form.items[2]} size="large" maxLength={180} />
                             </Form.Item>
 
                             <Form.Item>

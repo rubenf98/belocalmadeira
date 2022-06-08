@@ -6,7 +6,7 @@ export const text = {
         "A Ilha da Madeira é considerada um dos melhores locais do mundo para a prática do Canyoning, onde é possível a pratica todo o ano. Esta atividade de água e montanha promove um contacto puro e lúdico com a NATUREZA, permitindo ao participante a possibilidade de descobrir paisagens e lugares com que os outros apenas sonham.",
         "Embora haja vários níveis de dificuldade, esta atividade está ao alcance de todos, levando em consideração as habilidades individuais, o conhecimento sobre a atividade e os requisitos de segurança."
     ],
-    section: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit modi natus sint.",
+    section: "Todas as informações necessárias relativas ao Canyoning",
     includes: [
         "Fato neoprene 5mm", "Botas de Canyoning", "Equipamento de segurança", "Snack", "Guias de Canyoning Certificados", "Fotos e vídeos da actividade", "Seguro (acidentes pessoais e responsabilidade civil)"
     ],

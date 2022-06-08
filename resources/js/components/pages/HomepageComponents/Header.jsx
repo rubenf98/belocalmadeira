@@ -82,8 +82,12 @@ const TitleContainer = styled.div`
     line-height: 4.375rem;
     font-family: 'Playfair Display', serif;
 
+    @media(max-width: ${dimensions.md}) {
+      font-size: 55px;
+    }
+
     @media(max-width: ${dimensions.sm}) {
-      font-size: 50px;
+      font-size: 40px;
     }
   }
 
@@ -196,8 +200,8 @@ function Header({ text }) {
       <Overlay />
       <BackgroundContainer positionOffset={positionOffset}>
         <picture>
-          <source srcSet="/image/2.jpg" type="image/jpg" />
-          <img src="/image/2.webp" alt="profile" loading="eager" />
+          <source srcSet="/image/background.jpg" type="image/jpg" />
+          <img src="/image/background.webp" alt="profile" loading="eager" />
         </picture>
       </BackgroundContainer>
 

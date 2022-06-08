@@ -5,26 +5,26 @@ export const text = {
         "O Coasteering na Madeira consiste em explorar a costa marítima através de caminhada, natação, escalada e saltos, com equipamento apropriado e com supervisão dos guias. É uma atividade apropriada para todas as idades, (a partir dos 10 anos) adaptando-se ao perfil de cada pessoa.",
         "Possibilidade de saltos desde 1 metro até 16 metros, sendo todos estes opcionais.",
     ],
-    section: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit modi natus sint.",
+    section: "All necessary information regarding Coasteering",
     includes: [
-        "Transporte",
-        "Equipamento individual",
-        "Água e chocolate",
-        "Guias certificados",
-        "Fotos e vídeos da atividade",
-        "Seguro"
+        "Transport",
+        "Individual equipment",
+        "Water and chocolate",
+        "Certified guides",
+        "Activity photos and videos",
+        "Insurance (personal accidents and civil liability)"
     ],
     activities: {
-        title: "Informações",
+        title: "Informations",
         items: [
-            "Adequa-se a todas as idades e preparação física",
-            "Duração de aproximadamente 4 horas",
-            "Disponibilidade para todos os dias",
-            "Saltos opcionais"
+            "Suitable for all ages and fitness",
+            "Duration of approximately 4 hours",
+            "Availability for all days",
+            "Pptional jumps"
         ],
     },
     gallery: {
         subtitle: "gallery",
-        title: (<><span>Aventuras</span> fantásticas que não irás esquecer</>),
+        title: (<>Amazing <span>adventures</span> that you'll never forget</>),
     }
 } 

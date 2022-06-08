@@ -182,38 +182,18 @@
                                                                         style="font-size: 28px; line-height: 39.2px;"><strong><span
                                                                                 style="line-height: 39.2px; font-size: 28px;">Obrigado
                                                                                 pela sua
-                                                                                confian&ccedil;a!<br /></span></strong></span>
+                                                                                confiança<br /></span></strong></span>
                                                                 </p>
                                                             </div>
-
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-
-                                            <table style="font-family:'Open Sans',sans-serif;" role="presentation"
-                                                cellpadding="0" cellspacing="0" width="100%" border="0">
-                                                <tbody>
-                                                    <tr>
-                                                        <td style="overflow-wrap:break-word;word-break:break-word;padding:20px 200px;font-family:'Open Sans',sans-serif;"
-                                                            align="left">
-
-                                                            <table width="100%" cellpadding="0" cellspacing="0"
-                                                                border="0">
-                                                                <tr>
-                                                                    <td style="padding-right: 0px;padding-left: 0px;"
-                                                                        align="center">
-
-                                                                        <img align="center" border="0"
-                                                                            src="http://localhost:8000/image/email/image-3.png"
-                                                                            alt="Image" title="Image"
-                                                                            style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 200px;"
-                                                                            width="200" />
-
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-
+                                                            <div
+                                                                style="margin-bottom: 50px; color: #e6e6e6; line-height: 140%; text-align: center; word-wrap: break-word;">
+                                                                <p style="font-size: 12px; line-height: 140%;"><span
+                                                                        style="font-size: 18px; line-height: 39.2px;"><strong><span
+                                                                                style="line-height: 39.2px; font-size: 18px;">Thank
+                                                                                you for your
+                                                                                trust<br /></span></strong></span>
+                                                                </p>
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -258,16 +238,12 @@
                                                             <div
                                                                 style="color: #444444; line-height: 200%; text-align: center; word-wrap: break-word;">
                                                                 <p style="font-size: 14px; line-height: 200%;"><span
-                                                                        style="font-size: 22px; line-height: 44px;">Hi,</span><br /><span
-                                                                        style="font-size: 16px; line-height: 32px;">Thank
-                                                                        you again for choosing us for your
-                                                                        lorem ipsum dolor. </span></p>
-                                                                <p style="font-size: 14px; line-height: 200%;"><span
-                                                                        style="font-size: 16px; line-height: 32px;">If
-                                                                        you were happy with the efficiency of
-                                                                        the service could I ask that you leave us some
-                                                                        brief feedback on your experience via
-                                                                        the link below.</span></p>
+                                                                        style="font-size: 22px; line-height: 44px;">A
+                                                                        sua reserva está quase terminada, confirme
+                                                                        carregando no botão em baixo</span><br /><span
+                                                                        style="font-size: 16px; line-height: 32px;">Your
+                                                                        reservation is almost finished, confirm clicking
+                                                                        on the button below</span></p>
                                                             </div>
 
                                                         </td>
@@ -395,12 +371,17 @@
                                                             <div
                                                                 style="color: #232e19; line-height: 140%; text-align: center; word-wrap: break-word;">
                                                                 <p style="font-size: 14px; line-height: 140%;"><span
-                                                                        style="font-size: 24px; line-height: 33.6px;">Look
+                                                                        style="font-size: 24px; line-height: 33.6px;">Estamos
+                                                                        ansiosos pela sua experiência
+                                                                    </span></p>
+                                                            </div>
+
+                                                            <div
+                                                                style="color: #232e19; line-height: 140%; text-align: center; word-wrap: break-word;">
+                                                                <p style="font-size: 14px; line-height: 140%;"><span
+                                                                        style="font-size: 18px; line-height: 30px;">Look
                                                                         forward to hearing from you
-                                                                    </span><br /><span
-                                                                        style="font-size: 24px; line-height: 33.6px;">in
-                                                                        the near
-                                                                        future.</span></p>
+                                                                    </span></p>
                                                             </div>
 
                                                         </td>
@@ -457,7 +438,8 @@
                                                                             <tr style="vertical-align: top">
                                                                                 <td align="left" valign="middle"
                                                                                     style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-                                                                                    <a href=" " title="Facebook"
+                                                                                    <a href="https://m.facebook.com/BeLocalMadeira/"
+                                                                                        title="Facebook"
                                                                                         target="_blank">
                                                                                         <img src="http://localhost:8000/image/email/image-2.png"
                                                                                             alt="Facebook"

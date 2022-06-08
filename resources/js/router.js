@@ -18,6 +18,7 @@ import DashboardContact from "./components/dashboard/pages/Contact/Contact";
 import DashboardReservations from "./components/dashboard/pages/Reservations/Reservations";
 import DashboardPainel from "./components/dashboard/pages/Painel";
 import Confirmation from "./components/pages/Confirmation";
+import ActivitiesContainer from "./components/pages/ActivitiesContainer";
 export const history = createBrowserHistory();
 
 function Router() {
@@ -28,6 +29,7 @@ function Router() {
                 <Route exact path="/activities/hiking" element={<Layout><Hiking /></Layout>} />
                 <Route exact path="/activities/coasteering" element={<Layout><Coasteering /></Layout>} />
                 <Route exact path="/activities/biking" element={<Layout><Biking /></Layout>} />
+                <Route exact path="/activities" element={<Layout><ActivitiesContainer /></Layout>} />
                 <Route exact path="/about" element={<Layout><About /></Layout>} />
                 <Route exact path="/contact" element={<Layout><Contact /></Layout>} />
                 <Route exact path="/login" element={<ThemeContainer><Login /></ThemeContainer>} />

@@ -13,7 +13,8 @@ const Overlay = styled.div`
 
 const Header = styled.div`
     height: calc(60vh);
-    background: url("/image/2.jpg");
+    background: url("/image/background.webp");
+    background: url("/image/background.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

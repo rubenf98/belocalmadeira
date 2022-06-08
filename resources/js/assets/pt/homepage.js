@@ -27,10 +27,12 @@ export const text = {
     },
     about: {
         videoError: "O teu browser não suporta a tag de vídeo",
-        titles: ["start your journey TODAY", "start your journey TODAY"],
+        titles: ["quem é a be local madeira", "bem vindo à aventura be local"],
         description: [
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci rem voluptatibus maxime fugit. Tenetur voluptatum quas, aut minus consequuntur est itaque dignissimos. Molestias neque voluptatibus sequi modi velit unde tempore.",
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci rem voluptatibus maxime fugit. Tenetur voluptatum quas, aut minus consequuntur est itaque dignissimos. Molestias neque voluptatibus sequi modi velit unde tempore."
+            "Somos uma empresa local que promove aventura e experiências com a natureza na Ilha da Madeira. Fornecemos atividades cheias de aventura, tanto em ambientes aquático como terrestres.",
+            "Oferecemos uma panóplia de experiências alucinantes que te irão permitir desfrutar de momentos únicos por locais fascinantes.",
+            "Temos profissionais dedicados e certificados em Canyoning, Coasteering, passeios de bicicleta e caminhadas. Desta forma irá ser acompanhado em todos os momentos.",
+            "Junte-se a nós e irá viver momentos que recordará para sempre!"
         ],
     },
     services: {
@@ -38,29 +40,29 @@ export const text = {
         subtitle: (<>O que temos para te <span>oferecer</span></>),
         items: [
             {
-                title: "Unforgettable experiences",
-                description: "Creating your trip is entirely collaborative and our Travel Researchers are here for every step."
+                title: "Experiências inesquecíveis",
+                description: "Criar sua experiência é totalmente colaborativo e os nossos guias estão aqui para cada etapa"
             },
             {
-                title: "Unforgettable experiences",
-                description: "Creating your trip is entirely collaborative and our Travel Researchers are here for every step."
+                title: "Equipamento de alta qualidade",
+                description: "A segurança é muito importante para nós, por isso garantimos equipamentos de segurança de alta qualidade para todas as atividades"
             },
             {
-                title: "Unforgettable experiences",
-                description: "Creating your trip is entirely collaborative and our Travel Researchers are here for every step."
+                title: "Transporte",
+                description: "Cuidamos dos serviços de transporte para que apenas tenha que se divertir ao máximo"
             },
             {
-                title: "Unforgettable experiences",
-                description: "Creating your trip is entirely collaborative and our Travel Researchers are here for every step."
+                title: "Fotos e vídeos da atividade",
+                description: "Recorde os momentos incríveis que teve connosco e fique com recordações fantásticas da sua experiência"
             },
             {
-                title: "Unforgettable experiences",
-                description: "Creating your trip is entirely collaborative and our Travel Researchers are here for every step."
+                title: "Guias certificados",
+                description: "Os nossos guias são certificados em todas as atividades que oferecemos, proporcionando a incrível aventura que procura."
             }
         ]
     },
     activities: {
-        title: "atividades",
+        title: "Atividades",
         subtitle: (<>Recebe uma amostra do que podes <span>experienciar</span></>),
         items: ['canyoning', "bicicleta", "coasteering", "caminhada"]
     },

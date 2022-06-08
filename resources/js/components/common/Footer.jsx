@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import styled, { ThemeContext } from "styled-components";
 import moment from "moment";
-import { dimensions, maxWidth } from '../../helper';
+import { maxWidth } from '../../helper';
 import {
-    Link, useLocation, useNavigate
+    Link
 } from "react-router-dom";
 
 const Container = styled.div`
@@ -68,36 +68,12 @@ const CustomLink = styled(Link)`
     }
 `;
 
-const ActivitiesLink = styled.span`
-    color: #e4e4e4;
-    font-size: 16px;
-    text-decoration: none;
-    text-transform: capitalize;
-    cursor: pointer;
-
-    &:hover, &:focus {
-        color: #ffffff;
-    }
-
-    &:nth-child(2) {
-        margin: 0px 30px;
-    }
-`;
-
 
 
 function Footer() {
     const themeContext = useContext(ThemeContext);
     const { text } = require('../../assets/' + localStorage.getItem('language') + "/links");
-    const { pathname } = useLocation();
-    let navigate = useNavigate();
 
-    const handleClick = (filter) => {
-        if (pathname == "/") {
-            var element = document.getElementById(filter);
-            window.scrollTo({ top: element.offsetTop, behavior: 'smooth' });
-        } else return navigate("/?scrollTo=" + filter);
-    }
 
     return (
         <Container background={themeContext.primary}>
@@ -108,7 +84,7 @@ function Footer() {
                 <div className='links-container'>
                     <CustomLink to="/contact">{text.links[1]}</CustomLink>
                     <CustomLink to="/about">{text.links[0]}</CustomLink>
-                    <ActivitiesLink onClick={() => handleClick("activities")}>{text.links[2]}</ActivitiesLink>
+                    <CustomLink to="/activities">{text.links[2]}</CustomLink>
                 </div>
             </Content>
 

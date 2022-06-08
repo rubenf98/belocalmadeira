@@ -3,43 +3,65 @@ import { Row, Form, Col } from 'antd';
 import { CustomCheckbox, CustomCascader, CustomInput, CustomInputNumber } from './styles';
 import { fetchActivities } from "../../../redux/activity/actions";
 import { connect } from "react-redux";
+import styled from "styled-components";
 
+const Warning = styled.div`
+    display: flex;
+    align-items: center;
+
+    img {
+        width: 30px;
+        margin-right: 10px;
+    }
+
+    div {
+        margin: 0px;
+        color: white;
+        font-size: 14px;
+        opacity: .6;
+    }
+    
+`;
 
 const rules = {
     name: [
         {
             required: true,
-            message: 'Please input the name of the reservation',
+            message: '',
         },
     ],
     email: [
         {
             required: true,
-            message: 'Please input the gender of all participants',
+            message: '',
+        },
+        {
+            type: 'email',
+            message: 'Please specify a valid email',
         },
     ],
     phone: [
         {
             required: true,
-            message: 'Please input the height of all participants',
+            message: '',
         },
     ],
     address: [
         {
             required: true,
-            message: 'Please input the weight of all participants',
+            message: '',
         },
     ],
     participants: [
         {
             required: true,
-            message: 'Please input the shoe size of all participants',
+            message: '',
         },
     ],
     activity: [
         {
             required: true,
-            message: 'Please input the shoe size of all participants',
+            message: 'Please select an activity',
         },
     ],
 };
@@ -49,11 +71,8 @@ function Information({ fetchActivities, data, text }) {
         fetchActivities({ language: localStorage.getItem('language') });
     }, [])
 
-
-
     return (
         <div>
-
             <Row gutter={32}>
                 <Col xs={24} md={12}>
                     <Form.Item
@@ -117,12 +136,17 @@ function Information({ fetchActivities, data, text }) {
                     </Form.Item>
                 </Col>
                 <Col xs={24}>
+
                     <Form.Item
                         name="private"
                         valuePropName="checked"
                     >
                         <CustomCheckbox>{text.form.private.placeholder}</CustomCheckbox>
                     </Form.Item>
+                    <Warning>
+                        <img src="/icon/warning.svg" alt="warning" />
+                        <div>{text.warning}</div>
+                    </Warning>
                 </Col>
 
 

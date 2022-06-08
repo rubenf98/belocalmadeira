@@ -6,7 +6,7 @@ export const text = {
         "Madeira Island is considered one of the best places in the world to practice Canyoning, where it is possible to practice it all year round. This water and mountain activity promotes pure and playful contact with NATURE, allowing the participant to discover landscapes and places that others only dream of.",
         "Although there are various levels of difficulty, this activity is within everyone's reach, taking into account individual skills, knowledge of the activity and safety requirements."
     ],
-    section: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit modi natus sint.",
+    section: "All necessary information regarding Canyoning",
     includes: [
         "5mm neoprene suit",
         "Canyoning boots",

@@ -110,7 +110,7 @@ function About({ text }) {
             <Section>
                 <ImageContainer>
                     <Overlay />
-                    <video className="full-width-video separator" loop autoPlay controls={false}>
+                    <video poster="/image/homepage/about_thumbnail.jpg" className="full-width-video separator" loop autoPlay controls={false}>
                         <source src="/image/homepage/about.webm" type="video/webm" />
                         {text.videoError}
                     </video>
@@ -118,19 +118,21 @@ function About({ text }) {
                 <InfoContainer lightText={themeContext.lightText}>
                     <h2>{text.titles[0]}</h2>
                     <p>{text.description[0]}</p>
+                    <p>{text.description[1]}</p>
                 </InfoContainer>
             </Section>
             <Separator />
             <Section>
                 <ImageContainer reverseOrder>
-                    <video muted loop autoPlay className='separator' controls={false}>
+                    <video poster="/image/homepage/about2_thumbnail.jpg" muted loop autoPlay className='separator' controls={false}>
                         <source src="/image/homepage/about2.webm" type="video/webm" />
                         {text.videoError}
                     </video>
                 </ImageContainer>
                 <InfoContainer lightText={themeContext.lightText} reverseOrder>
                     <h2>{text.titles[1]}</h2>
-                    <p>{text.description[1]}</p>
+                    <p>{text.description[2]}</p>
+                    <p>{text.description[3]}</p>
                 </InfoContainer>
             </Section>
             <Separator />

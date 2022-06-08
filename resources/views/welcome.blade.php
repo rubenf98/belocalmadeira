@@ -25,10 +25,10 @@
 
 
     <meta name="keywords"
-        content="Fast, Rope, fastrope, madeira, island, canyoning, canionismo, caminhada, hiking, adventure, experience, aventura, fast, rope">
+        content="Be, Local, Madeira, madeira, island, canyoning, canionismo, caminhada, hiking, adventure, experience, aventura, coasteering, hiking, caminhada, passeio, activity, atividade, bicicleta">
     <meta name="author" content="Rúben Freitas">
     <meta name="description"
-        content="Fast Rope is more than a Adventure company, is a team that we all share the passion for Canyoning, Hiking and much more...we also do private and personalized tours, you choose what you want to do and we make it happen.">
+        content="Be Local Madeira aims to provide the most dynamic and genuine experiences the Island has to offer. With us you will experience nature at its most stunning, creating adventures that will stay with you forever!">
 
     <title>Be Local Madeira</title>
 </head>

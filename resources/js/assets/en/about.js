@@ -1,11 +1,12 @@
 export const text = {
     title: "About Us",
-    subtitle: "Fowl living for lights our ears bearing to heaven signs",
+    subtitle: "Hello, we are Be Local Madeira, your local guide",
     section: {
-        title: "Lorem, ipsum dolor sit amet.",
+        title: "Get to know Madeira Island from the perspective of a local.",
         items: [
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae nulla dolorem aliquid consectetur, autem, beatae officiis sunt vel, quo et nam ipsam esse eius modi. Libero cupiditate architecto illum sunt.",
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure nulla eligendi vel id labore doloribus consectetur."
+            "We aim to provide the most dynamic and genuine experiences the Island has to offer.",
+            "Madeira Island is considered one of the best locations to practice sports activities related to nature.",
+            "With us you will experience nature at its most stunning, creating adventures that will stay with you forever!"
         ],
     },
 } 

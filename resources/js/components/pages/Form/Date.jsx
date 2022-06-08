@@ -30,6 +30,10 @@ const CustomCalendar = styled(Calendar)`
     .ant-picker-calendar, .ant-picker-panel {
         background: transparent;
     }
+
+    .ant-picker-cell-disabled::before {
+        background: rgba(0, 0, 0, 0.3);
+    }
 `;
 
 const CustomSelect = styled(Select)`
