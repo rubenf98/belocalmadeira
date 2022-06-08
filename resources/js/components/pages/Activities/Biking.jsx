@@ -1,13 +1,13 @@
 import React from 'react'
 import Activity from '../../common/Activity'
-import PageHeader from '../../common/PageHeader'
+import ActivityHeader from '../../common/ActivityHeader';
 
 function Biking() {
     const { text } = require('../../../assets/' + localStorage.getItem('language') + "/activityBiking");
 
     return (
         <div>
-            <PageHeader title="Biking" subtitle="innovation that escides" />
+            <ActivityHeader title="Biking" />
             <Activity
                 content={{
                     title: text.title,

@@ -110,7 +110,7 @@ function About({ text }) {
             <Section>
                 <ImageContainer>
                     <Overlay />
-                    <video poster="/image/homepage/about_thumbnail.jpg" className="full-width-video separator" loop autoPlay controls={false}>
+                    <video poster="/image/homepage/about_thumbnail.jpg" className="full-width-video separator" muted loop autoPlay controls={false}>
                         <source src="/image/homepage/about.webm" type="video/webm" />
                         {text.videoError}
                     </video>
