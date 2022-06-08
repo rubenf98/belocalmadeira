@@ -33,6 +33,6 @@ class NotifyContactEmail implements ShouldQueue
      */
     public function handle()
     {
-        Mail::to("info@fastropemadeira.com")->queue(new MailNotifyContactEmail($this->record));
+        Mail::to("belocalmadeira@gmail.com")->queue(new MailNotifyContactEmail($this->record));
     }
 }

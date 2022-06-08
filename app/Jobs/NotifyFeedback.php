@@ -33,6 +33,6 @@ class NotifyFeedback implements ShouldQueue
      */
     public function handle()
     {
-        Mail::to("info@fastropemadeira.com")->queue(new MailNotifyFeedback($this->record));
+        Mail::to("belocalmadeira@gmail.com")->queue(new MailNotifyFeedback($this->record));
     }
 }

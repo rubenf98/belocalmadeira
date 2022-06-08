@@ -35,6 +35,6 @@ class ModificationEmail implements ShouldQueue
      */
     public function handle()
     {
-        Mail::to("info@fastropemadeira.com")->queue(new MailModificationEmail($this->reservation, $this->changes));
+        Mail::to("belocalmadeira@gmail.com")->queue(new MailModificationEmail($this->reservation, $this->changes));
     }
 }
