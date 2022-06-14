@@ -62,7 +62,7 @@ class ReservationRequest extends FormRequest
             'email' => 'required|email',
             'price' => 'required',
             'name' => 'required|string',
-            'participants' => 'required|integer|min:3|max:15',
+            'participants' => 'required|integer|min:1|max:15',
             'private' => 'required|boolean',
             'phone' => 'nullable|numeric',
             'person' => 'required|size:' . $this->participants,

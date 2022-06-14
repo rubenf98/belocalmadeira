@@ -145,7 +145,64 @@ const DetailsContainer = styled.section`
     } 
 `;
 
-function Activity({ content }) {
+const StepsContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: ${maxWidth};
+    width: 100%;
+    margin: auto;
+`;
+
+const Step = styled.div`
+    width: 33%;
+    padding: 10px;
+    box-sizing: border-box;
+
+    @media (max-width: ${dimensions.lg}) {
+        width: 50%;
+        padding: 10px;
+    }
+
+    @media (max-width: ${dimensions.md}) {
+        width: 100%;
+    }
+
+    h4, h5 {
+        margin: 0px;
+        
+    }
+
+    h4 {
+        font-size: 39px;
+        font-style: italic;
+        font-weight: 900;
+        letter-spacing: -0.08px;
+
+        @media (max-width: ${dimensions.md}) {
+            font-size: 22px;
+        }
+    }
+
+    h5 {
+        font-size: 31px;
+        font-weight: 300;
+        letter-spacing: -0.06px;
+
+        @media (max-width: ${dimensions.md}) {
+            font-size: 20px;
+        }
+    }
+
+    p {
+        @media (max-width: ${dimensions.md}) {
+            font-size: 16px;
+        }
+    }
+`;
+
+function Activity({ content, levels }) {
     return (
         <div>
             <IntroContainer>
@@ -190,6 +247,29 @@ function Activity({ content }) {
                     </ul>
                 </div>
             </DetailsContainer>
+
+            {content.levels &&
+                <StepsContainer>
+
+                    <Step>
+
+                        <h5>{content.levels.title} 1</h5>
+                        <h4>{content.levels.subtitles[0]}</h4>
+                        <p>{content.levels.items[0]}</p>
+                    </Step>
+                    <Step>
+                        <h5>{content.levels.title} 2</h5>
+                        <h4>{content.levels.subtitles[1]}</h4>
+                        <p>{content.levels.items[1]}</p>
+                    </Step>
+                    <Step>
+                        <h5>{content.levels.title} 3</h5>
+                        <h4>{content.levels.subtitles[2]}</h4>
+                        <p>{content.levels.items[2]}</p>
+                    </Step>
+                </StepsContainer>
+            }
+
 
             <SectionTitle title={content.gallery.title} subtitle={content.gallery.subtitle} />
 

@@ -112,7 +112,7 @@ function Information({ fetchActivities, data, text }) {
                         name="participants"
                         rules={rules.participants}
                     >
-                        <CustomInputNumber max={15} min={3} controls={false} size='large' placeholder={text.form.participants.placeholder} />
+                        <CustomInputNumber max={15} min={1} controls={false} size='large' placeholder={text.form.participants.placeholder} />
                     </Form.Item>
                 </Col>
 

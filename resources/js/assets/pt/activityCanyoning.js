@@ -18,6 +18,19 @@ export const text = {
             "Avançado (3)",
         ],
     },
+    levels: {
+        title: "Nível",
+        subtitles: [
+            "Iniciação",
+            "Intermédio",
+            "Avançado",
+        ],
+        items: [
+            "O primeiro nível não necessita nenhuma experiência e é perfeito para quem queira dar o sue primeiro passo nesta maravilhosa atividade! Possui uma altura máxima de 15 metros com saltos opcionais",
+            "O nível intermedio é adequado para todos aqueles que já tiveram um primeiro contato com a atividade e desejam sair da sua zona de conforto e estar à altura de um desafio maior. Possui uma duração entre 4 a 5 horas com saltos até 25 metros de altura",
+            "O nível avançado destina-se para aqueles que já praticaram a atividade anteriormente e queiram experimentar um nível mais avançado. Possui uma duração média entre 4 a 5 horas, com alturas que podem chegar aos 60 metros."
+        ]
+    },
     gallery: {
         subtitle: "galeria",
         title: (<><span>Aventuras</span> fantásticas que não irás esquecer</>),

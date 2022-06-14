@@ -19,6 +19,7 @@ function Canyoning() {
                     ],
                     section: text.section,
                     includes: text.includes,
+                    levels: text.levels,
                     activities: text.activities,
                     gallery: {
                         title: text.gallery.title,
