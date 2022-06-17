@@ -109,7 +109,7 @@ function About({ text }) {
             <Section>
                 <ImageContainer>
                     <Overlay />
-                    <video poster="/image/homepage/about_thumbnail.jpg" className="full-width-video separator" muted loop autoPlay controls={false}>
+                    <video playsInline poster="/image/homepage/about_thumbnail.jpg" className="full-width-video separator" muted loop autoPlay controls={false}>
                         <source src="/image/homepage/waterfall.webm" type="video/webm" />
                         <source src="/image/homepage/waterfall.mp4" type="video/mp4" />
                         {text.videoError}
@@ -124,7 +124,7 @@ function About({ text }) {
             <Separator />
             <Section>
                 <ImageContainer reverseOrder>
-                    <video poster="/image/homepage/about2_thumbnail.jpg" muted loop autoPlay className='separator' controls={false}>
+                    <video playsInline poster="/image/homepage/about2_thumbnail.jpg" muted loop autoPlay className='separator' controls={false}>
                         <source src="/image/homepage/timelapse.webm" type="video/webm" />
                         <source src="/image/homepage/timelapse.mp4" type="video/mp4" />
                         {text.videoError}
