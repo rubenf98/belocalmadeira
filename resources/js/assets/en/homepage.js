@@ -27,9 +27,9 @@ export const text = {
     },
     about: {
         videoError: "Your browser does not support the video tag.",
-        titles: ["who is be local madeira", "welcome to the be local adventure"],
+        titles: ["who is be local", "welcome to the be local adventure"],
         description: [
-            "We are a local company that promotes adventure and experiences with nature in Madeira Island. We provide adventure-filled activities in both aquatic and terrestrial environments.",
+            "We are a local company that promotes adventure and experiences with nature in Madeira Island through.",
             "We offer a range of mind-blowing experiences that will allow you to enjoy unique moments in fascinating places.",
             "We have dedicated and certified professionals in Canyoning, Coasteering, Biking and Hiking. This way you will be accompanied at all times.",
             "Join us and you will live moments that you will remember forever!"

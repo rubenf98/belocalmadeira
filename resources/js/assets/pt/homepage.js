@@ -27,9 +27,9 @@ export const text = {
     },
     about: {
         videoError: "O teu browser não suporta a tag de vídeo",
-        titles: ["quem é a be local madeira", "bem vindo à aventura be local"],
+        titles: ["quem é a be local", "bem vindo à aventura be local"],
         description: [
-            "Somos uma empresa local que promove aventura e experiências com a natureza na Ilha da Madeira. Fornecemos atividades cheias de aventura, tanto em ambientes aquático como terrestres.",
+            "Somos uma empresa local que promove aventura e experiências com a natureza na Ilha da Madeira.",
             "Oferecemos uma panóplia de experiências alucinantes que te irão permitir desfrutar de momentos únicos por locais fascinantes.",
             "Temos profissionais dedicados e certificados em Canyoning, Coasteering, passeios de bicicleta e caminhadas. Desta forma irá ser acompanhado em todos os momentos.",
             "Junte-se a nós e irá viver momentos que recordará para sempre!"
