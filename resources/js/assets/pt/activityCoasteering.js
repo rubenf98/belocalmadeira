@@ -2,8 +2,9 @@ export const text = {
     title: "coasteering",
     subtitle: (<>Conheça a <span>ilha</span> com entusiasmo</>),
     information: [
-        "O Coasteering na Madeira consiste em explorar a costa marítima através de caminhada, natação, escalada e saltos, com equipamento apropriado e com supervisão dos guias. É uma atividade apropriada para todas as idades, (a partir dos 10 anos) adaptando-se ao perfil de cada pessoa.",
-        "Possibilidade de saltos desde 1 metro até 16 metros, sendo todos estes opcionais.",
+        "Com os nossos passeios de Coasteering, pode explorar a bela costa da ilha da Madeira e algumas das suas várias baías e grutas, utilizando vários métodos (entre os quais: emocionantes saltos de falésias notáveis, alguns momentos de escalada controlada, mergulhos e uma mergulho refrescante diretamente no oceano).",
+        "Em média, o passeio dura cerca de 3 horas, onde vamos explorar algumas cavernas, escalar o terreno vulcânico rochoso e mergulhar no oceano, onde também é possível desfrutar da nossa vida selvagem subaquática com snorkel.",
+        "NOTA: Se não se sente à vontade para saltar, saiba que existem alternativas. Entretanto, quando chegarmos ao respetivo local, procederemos à distribuição do equipamento e um rápido briefing de segurança.",
     ],
     section: "Todas as informações necessárias relativas ao Coasteering",
     includes: [
@@ -17,10 +18,10 @@ export const text = {
     activities: {
         title: "Informações",
         items: [
-            "Adequa-se a todas as idades e preparação física",
-            "Duração de aproximadamente 4 horas",
-            "Disponibilidade para todos os dias",
-            "Saltos opcionais"
+            "Horário: todos os dias, o ano todo",
+            "Duração: aproximadamente 3 a 4 horas",
+            "Importante trazer: toalha, roupa de banho",
+            "Condições: Não é necessária experiência"
         ],
     },
     gallery: {

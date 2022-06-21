@@ -2,27 +2,22 @@ export const text = {
     title: "biking",
     subtitle: (<>Meet the <span>island</span> with excitement</>),
     information: [
-        "Madeira has some of the best mountaintop trails at sea level on rocky trails, surrounded by magnificent sea views.",
-        "This tour starts at the third highest peak on the island (Pico do Areeiro), passing through nature trails, from old roads and levadas, ending by the sea.",
+        "Madeira Island is a paradise for Mountain Biking.",
+        "Here you can find fantastic trails from mountain to sea level! Its famous mild weather makes biking in Madeira enjoyable all year round.",
     ],
     section: "All necessary information regarding Biking",
     includes: [
-        "Full suspension bike and helmet",
-        "Expert and local guides",
-        "transfers and transport",
-        "Open helmet",
-        "Security protocols and licenses",
-        "Snack and water",
-        "Insurance"
+        "Hardtail bike and equipment",
+        "Experienced guide",
+        "Transport, insurance, and licenses",
+        "Free pictures"
     ],
     activities: {
         title: "Informations",
         items: [
-            "Duration: Full day",
-            "Physical level: Low/Medium",
-            "Technical difficulty: Easy/Moderate",
-            "Distance: 45KM",
-            "Special prices for groups"
+            "Schedule: everyday, all year round",
+            "Suitable for: Riders in good health with comfortable bike skills.",
+            "Distance: 30 to 50 KM",
         ],
     },
     gallery: {

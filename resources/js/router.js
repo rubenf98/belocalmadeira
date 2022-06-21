@@ -19,30 +19,33 @@ import DashboardReservations from "./components/dashboard/pages/Reservations/Res
 import DashboardPainel from "./components/dashboard/pages/Painel";
 import Confirmation from "./components/pages/Confirmation";
 import ActivitiesContainer from "./components/pages/ActivitiesContainer";
+import ScrollToTop from "./components/common/ScrollToTop";
 export const history = createBrowserHistory();
 
 function Router() {
     return (
         <BrowserRouter history={history}>
-            <Routes>
-                <Route exact path="/activities/canyoning" element={<Layout><Canyoning /></Layout>} />
-                <Route exact path="/activities/hiking" element={<Layout><Hiking /></Layout>} />
-                <Route exact path="/activities/coasteering" element={<Layout><Coasteering /></Layout>} />
-                <Route exact path="/activities/biking" element={<Layout><Biking /></Layout>} />
-                <Route exact path="/activities" element={<Layout><ActivitiesContainer /></Layout>} />
-                <Route exact path="/about" element={<Layout><About /></Layout>} />
-                <Route exact path="/contact" element={<Layout><Contact /></Layout>} />
-                <Route exact path="/login" element={<ThemeContainer><Login /></ThemeContainer>} />
+            <ScrollToTop>
+                <Routes>
+                    <Route exact path="/activities/canyoning" element={<Layout><Canyoning /></Layout>} />
+                    <Route exact path="/activities/hiking" element={<Layout><Hiking /></Layout>} />
+                    <Route exact path="/activities/coasteering" element={<Layout><Coasteering /></Layout>} />
+                    <Route exact path="/activities/biking" element={<Layout><Biking /></Layout>} />
+                    <Route exact path="/activities" element={<Layout><ActivitiesContainer /></Layout>} />
+                    <Route exact path="/about" element={<Layout><About /></Layout>} />
+                    <Route exact path="/contact" element={<Layout><Contact /></Layout>} />
+                    <Route exact path="/login" element={<ThemeContainer><Login /></ThemeContainer>} />
 
-                <Route exact path="/confirmation/:token" element={<Layout><Confirmation /></Layout>} />
+                    <Route exact path="/confirmation/:token" element={<Layout><Confirmation /></Layout>} />
 
-                <Route exact path="/painel/contacto" element={<PainelLayout><DashboardContact /></PainelLayout>} />
-                <Route exact path="/painel/reservas" element={<PainelLayout><DashboardReservations /></PainelLayout>} />
-                <Route exact path="/painel" element={<PainelLayout><DashboardPainel /></PainelLayout>} />
+                    <Route exact path="/painel/contacto" element={<PainelLayout><DashboardContact /></PainelLayout>} />
+                    <Route exact path="/painel/reservas" element={<PainelLayout><DashboardReservations /></PainelLayout>} />
+                    <Route exact path="/painel" element={<PainelLayout><DashboardPainel /></PainelLayout>} />
 
-                <Route exact path="/" element={<Layout><Homepage /></Layout>} />
+                    <Route exact path="/" element={<Layout><Homepage /></Layout>} />
 
-            </Routes>
+                </Routes>
+            </ScrollToTop>
         </BrowserRouter>
     );
 };

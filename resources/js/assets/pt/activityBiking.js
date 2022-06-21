@@ -2,27 +2,22 @@ export const text = {
     title: "bicicleta",
     subtitle: (<>Conheça a <span>ilha</span> com entusiasmo</>),
     information: [
-        "A Madeira tem alguns dos melhores trilhos do cume ao nível do mar em trilhos rochosos, rodeados por magníficas vistas para o mar.",
-        "Este passeio tem início no terceiro Pico mais alto da ilha (Pico do Areeiro), passando entre trilhos na natureza, desde estradas antigas e levadas, finalizando junto ao mar.",
+        "A Ilha da Madeira é um paraíso para o ciclismo de montanha.",
+        "Aqui pode encontrar trilhos fantásticos da montanha ao nível do mar! O seu famoso clima ameno torna o ciclismo na Madeira agradável durante todo o ano.",
     ],
     section: "Todas as informações necessárias relativas aos passeios de Bicicleta",
     includes: [
-        "Bicicleta com suspensão total e capacete", 
-        "Guias especializados e locais", 
-        "Transferes e transporte", 
-        "Capacete aberto", 
-        "Protocolos de segurança e licenças", 
-        "Snack e água",
-        "Seguros"
+        "Bicicleta e equipamentos rígidos",
+        "Guia experiente",
+        "Transporte, seguro e licença",
+        "Fotos grátis"
     ],
     activities: {
         title: "Informações",
         items: [
-            "Duração: Dia inteiro",
-            "Nível físico: Baixo/Médio",
-            "Dificuldade técnica: Fácil/Moderada",
-            "Distancia: 45 KM",
-            "Preços especiais para grupos"
+            "Horário: todos os dias, o ano todo",
+            "Adequado para: Pilotos em boa saúde com habilidades de bicicleta confortáveis.",
+            "Distância: 30 a 50 KM",
         ],
     },
     gallery: {

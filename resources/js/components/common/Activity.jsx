@@ -126,6 +126,9 @@ const DetailsContainer = styled.section`
             &:nth-child(2), &:nth-child(3) {
                 width: 50%;
             }
+            span {
+                display: none;
+            }
         }
 
         @media (max-width: ${dimensions.sm}) {
@@ -200,6 +203,11 @@ const Step = styled.div`
             font-size: 16px;
         }
     }
+
+    ul {
+        padding-left: 10px;
+        box-sizing: border-box;
+    }
 `;
 
 function Activity({ content, levels }) {
@@ -249,25 +257,47 @@ function Activity({ content, levels }) {
             </DetailsContainer>
 
             {content.levels &&
-                <StepsContainer>
+                <>
+                    <StepsContainer>
 
-                    <Step>
+                        <Step>
 
-                        <h5>{content.levels.title} 1</h5>
-                        <h4>{content.levels.subtitles[0]}</h4>
-                        <p>{content.levels.items[0]}</p>
-                    </Step>
-                    <Step>
-                        <h5>{content.levels.title} 2</h5>
-                        <h4>{content.levels.subtitles[1]}</h4>
-                        <p>{content.levels.items[1]}</p>
-                    </Step>
-                    <Step>
-                        <h5>{content.levels.title} 3</h5>
-                        <h4>{content.levels.subtitles[2]}</h4>
-                        <p>{content.levels.items[2]}</p>
-                    </Step>
-                </StepsContainer>
+                            <h5>{content.levels.title} 1</h5>
+                            <h4>{content.levels.subtitles[0]}</h4>
+                            <p>{content.levels.items[0]}</p>
+
+                            <ul>
+                                {content.levels.details[0].map((element, index) => (
+                                    <li key={index}>{element}</li>
+                                ))}
+                            </ul>
+                        </Step>
+                        <Step>
+                            <h5>{content.levels.title} 2</h5>
+                            <h4>{content.levels.subtitles[1]}</h4>
+                            <p>{content.levels.items[1]}</p>
+
+                            <ul>
+                                {content.levels.details[1].map((element, index) => (
+                                    <li key={index}>{element}</li>
+                                ))}
+                            </ul>
+                        </Step>
+                        <Step>
+                            <h5>{content.levels.title} 3</h5>
+                            <h4>{content.levels.subtitles[2]}</h4>
+                            <p>{content.levels.items[2]}</p>
+
+                            <ul>
+                                {content.levels.details[2].map((element, index) => (
+                                    <li key={index}>{element}</li>
+                                ))}
+                            </ul>
+                        </Step>
+                    </StepsContainer>
+
+                </>
+
             }
 
 
