@@ -81,7 +81,7 @@ const ServiceContainer = styled.div`
 `;
 
 const ImageContainer = styled.div`
-    width: 90%;
+    width: 80%;
     box-sizing: border-box;
     margin: auto;
 
@@ -126,14 +126,17 @@ function Services({ text }) {
             <Content>
                 <SectionTitle title={text.subtitle} subtitle={text.title} />
 
-                <HiddenImage src="/image/homepage/service.png" />
+                <HiddenImage src="/image/homepage/service.webp" />
                 <Column>
                     <Service text={text.items[0]} icon="experience" />
                     <Service text={text.items[1]} icon="equipment" moveToRight />
                 </Column>
                 <Column className='hidden-column' fullHeight>
                     <ImageContainer>
-                        <img src="/image/homepage/service.png" />
+                        <picture>
+                            <source src="/image/homepage/service.webp" type="image/webp" />
+                            <img src="/image/homepage/service.jpg" loading="lazy" />
+                        </picture>
                     </ImageContainer>
 
                     <Service text={text.items[2]} icon="transportation" center />

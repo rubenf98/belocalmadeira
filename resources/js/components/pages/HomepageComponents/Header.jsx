@@ -111,6 +111,10 @@ const Scroll = styled.div`
   display: flex;
   color: inherit;
 
+  @media (max-width: ${dimensions.md}) {
+    display: none;
+  }
+
   img {
     width: 15px;
     margin-left: 10px;
@@ -151,72 +155,95 @@ const LanguageIndicator = styled.span`
     }
 `;
 
+const Instagram = styled.div`
+  margin: auto;
+  position: absolute;
+  left: 100px;
+  bottom: 30px;
+  color: inherit;
+
+  @media (max-width: ${dimensions.md}) {
+    left: 30px;
+  }
+
+  img {
+    width: 30px;
+    height: 30px;
+  }
+`;
 
 const ScrollDownIndicator = () => (
-  <Scroll>
-    <div><p>scroll</p> <p>down</p></div>
-  </Scroll>
+    <Scroll>
+        <div><p>scroll</p> <p>down</p></div>
+    </Scroll>
 )
 
 function Header({ text }) {
-  const [positionOffset, setPositionOffset] = useState({ x: undefined, y: undefined });
-  const [active, setActive] = useState("en")
-  const themeContext = useContext(ThemeContext);
+    const [positionOffset, setPositionOffset] = useState({ x: undefined, y: undefined });
+    const [active, setActive] = useState("en")
+    const themeContext = useContext(ThemeContext);
 
-  useEffect(() => {
-    setActive(localStorage.getItem("language"));
-    const DOM = document.getElementById("header-container");
+    useEffect(() => {
+        setActive(localStorage.getItem("language"));
+        const DOM = document.getElementById("header-container");
 
-    const setFromEvent = (e) => {
-      var yOffset = e.pageY - (window.innerHeight / 2);
-      var xOffset = e.pageX - (window.innerWidth / 2);
+        const setFromEvent = (e) => {
+            var yOffset = e.pageY - (window.innerHeight / 2);
+            var xOffset = e.pageX - (window.innerWidth / 2);
 
-      var maxXOffset = window.innerWidth / 2;
-      var maxYOffset = window.innerHeight / 2;
+            var maxXOffset = window.innerWidth / 2;
+            var maxYOffset = window.innerHeight / 2;
 
-      setPositionOffset({
-        x: (((xOffset - (-maxXOffset)) * 10) / (maxXOffset * 2)) - 5,
-        y: (((yOffset - (-maxYOffset)) * 10) / (maxYOffset * 2)) - 5
-      });
+            setPositionOffset({
+                x: (((xOffset - (-maxXOffset)) * 10) / (maxXOffset * 2)) - 5,
+                y: (((yOffset - (-maxYOffset)) * 10) / (maxYOffset * 2)) - 5
+            });
+        }
+
+        DOM.addEventListener("mousemove", setFromEvent);
+
+        return () => {
+            DOM.removeEventListener("mousemove", setFromEvent);
+        };
+
+    }, []);
+
+    function handleLanguageClick(language) {
+        localStorage.setItem("language", language);
+        setActive(language)
+        location.reload();
     }
 
-    DOM.addEventListener("mousemove", setFromEvent);
 
-    return () => {
-      DOM.removeEventListener("mousemove", setFromEvent);
-    };
+    return (
+        <Container color={themeContext.inverseText} id="header-container">
+            <Overlay />
+            <BackgroundContainer positionOffset={positionOffset}>
+                <picture>
+                    <source srcSet="/image/background.jpg" type="image/jpg" />
+                    <img src="/image/background.webp" alt="profile" loading="eager" />
+                </picture>
+            </BackgroundContainer>
 
-  }, []);
+            <TitleContainer >
+                <h2>{text.title}</h2>
+                <h1>{text.subtitle}</h1>
+            </TitleContainer>
 
-  function handleLanguageClick(language) {
-    localStorage.setItem("language", language);
-    setActive(language)
-    location.reload();
-  }
+            <ScrollDownIndicator />
 
+            <Instagram>
+                <a href="https://www.instagram.com/belocalmadeira/" target="_blank" >
+                    <img src="/icon/instagram.png" alt="instagram link" />
+                </a>
 
-  return (
-    <Container color={themeContext.inverseText} id="header-container">
-      <Overlay />
-      <BackgroundContainer positionOffset={positionOffset}>
-        <picture>
-          <source srcSet="/image/background.jpg" type="image/jpg" />
-          <img src="/image/background.webp" alt="profile" loading="eager" />
-        </picture>
-      </BackgroundContainer>
-
-      <TitleContainer >
-        <h2>{text.title}</h2>
-        <h1>{text.subtitle}</h1>
-      </TitleContainer>
-
-      <ScrollDownIndicator />
-      <LanguageContainer>
-        <LanguageIndicator active={active == "pt"} onClick={() => handleLanguageClick("pt")}>pt</LanguageIndicator>
-        <LanguageIndicator active={active == "en"} onClick={() => handleLanguageClick("en")}>en</LanguageIndicator>
-      </LanguageContainer>
-    </Container>
-  )
+            </Instagram>
+            <LanguageContainer>
+                <LanguageIndicator active={active == "pt"} onClick={() => handleLanguageClick("pt")}>pt</LanguageIndicator>
+                <LanguageIndicator active={active == "en"} onClick={() => handleLanguageClick("en")}>en</LanguageIndicator>
+            </LanguageContainer>
+        </Container>
+    )
 }
 
 export default Header

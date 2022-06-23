@@ -70,25 +70,14 @@ function About({ theme }) {
         <Container>
             <PageHeader title={text.title} subtitle={text.subtitle} />
             <InfoContainer>
-                <Column text={theme.lightText} xs={24} md={10}>
+                <Column text={theme.lightText} xs={24} md={12}>
                     <h2>{text.section.title}</h2>
                     {text.section.items.map((paragraph, index) => (
                         <p key={index}>{paragraph}</p>
                     ))}
                 </Column>
-                <Column xs={24} md={14}>
-                    <Row type="flex" gutter={20}>
-                        <Col xs={16} md={16}>
-
-                            <Row>
-                                <img src="/image/about/about3.jpg" alt="" />
-                            </Row>
-                        </Col>
-                        <Col xs={8} md={8}>
-                            <img src="/image/about/about1.jpg" alt="" />
-                        </Col>
-
-                    </Row>
+                <Column xs={24} md={10}>
+                    <img src="/image/about/about3.jpg" alt="" />
                 </Column>
             </InfoContainer>
 
