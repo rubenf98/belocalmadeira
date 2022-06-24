@@ -3,7 +3,7 @@ export const text = {
     pages: [
         {
             title: "Explora as nossas atividades e reserva a tua experiência na Ilha da Madeira!",
-            warning: "Atividades privadas de canyoning e caminhadas são 120€, enquanto que coasteering e passeios de bicicleta são o mesmo preço",
+            warning: "Atividades privadas de canyoning, caminhadas, passeios de bicicleta e coasteering são 120€",
             form: {
                 name: {
                     placeholder: "Nome *"
