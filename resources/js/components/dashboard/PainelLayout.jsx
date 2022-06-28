@@ -14,9 +14,7 @@ const PageContainer = styled.div`
 `;
 
 const ContentContainer = styled.div`
-    @media (max-width: ${dimensions.md}){
-        display: none;
-    } 
+
 `;
 
 const MobileMessage = styled.div`
@@ -25,7 +23,7 @@ const MobileMessage = styled.div`
     font-weight: bold;
     text-align:center;
     margin: auto;
-
+    display: none;
     @media (min-width: ${dimensions.md}){
         display: none;
     }

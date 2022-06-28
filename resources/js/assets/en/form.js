@@ -14,6 +14,9 @@ export const text = {
                 phone: {
                     placeholder: "Phone Number *"
                 },
+                indicative: {
+                    placeholder: "+351"
+                },
                 address: {
                     placeholder: "Pickup Address *"
                 },

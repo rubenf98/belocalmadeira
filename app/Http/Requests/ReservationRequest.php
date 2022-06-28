@@ -39,6 +39,7 @@ class ReservationRequest extends FormRequest
         $this->merge([
             'date' => new Carbon($this->date),
             'price' => $price,
+            'phone' => $this->indicative . $this->phone,
             'private' => $this->private && true,
             'confirmation_token' => uniqid(),
             'experienceable_type' => $this->polymorphic_classes[$helper_size - 1],

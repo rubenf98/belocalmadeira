@@ -3,8 +3,7 @@ export const text = {
     subtitle: (<>Conheça a <span>ilha</span> com entusiasmo</>),
     information: [
         "Com os nossos passeios de Coasteering, pode explorar a bela costa da ilha da Madeira e algumas das suas várias baías e grutas, utilizando vários métodos (entre os quais: emocionantes saltos de falésias notáveis, alguns momentos de escalada controlada, mergulhos e uma mergulho refrescante diretamente no oceano).",
-        "Em média, o passeio dura cerca de 3 horas, onde vamos explorar algumas cavernas, escalar o terreno vulcânico rochoso e mergulhar no oceano, onde também é possível desfrutar da nossa vida selvagem subaquática com snorkel.",
-        "NOTA: Se não se sente à vontade para saltar, saiba que existem alternativas. Entretanto, quando chegarmos ao respetivo local, procederemos à distribuição do equipamento e um rápido briefing de segurança.",
+        "NOTA: Se você se sente desconfortável em pular, saiba que existem alternativas.",
     ],
     section: "Todas as informações necessárias relativas ao Coasteering",
     includes: [

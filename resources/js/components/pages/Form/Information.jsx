@@ -73,7 +73,7 @@ function Information({ fetchActivities, data, text }) {
 
     return (
         <div>
-            <Row gutter={32}>
+            <Row gutter={16}>
                 <Col xs={24} md={12}>
                     <Form.Item
                         name="name"
@@ -90,7 +90,15 @@ function Information({ fetchActivities, data, text }) {
                         <CustomInput size='large' placeholder={text.form.email.placeholder} />
                     </Form.Item>
                 </Col>
-                <Col xs={24} md={12}>
+                <Col xs={4} md={4} style={{ padding: "0px !important" }}>
+                    <Form.Item
+                        name="indicative"
+                        rules={rules.phone}
+                    >
+                        <CustomInput size='large' placeholder={text.form.indicative.placeholder} />
+                    </Form.Item>
+                </Col>
+                <Col xs={20} md={8} style={{ paddingLeft: "0px !important" }}>
                     <Form.Item
                         name="phone"
                         rules={rules.phone}
