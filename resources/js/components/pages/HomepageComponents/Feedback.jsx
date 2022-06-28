@@ -4,7 +4,16 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { Col, Row } from 'antd';
 import styled from "styled-components";
-import { maxWidth } from '../../../helper';
+import { dimensions, maxWidth } from '../../../helper';
+
+
+const Container = styled.div`
+    margin-bottom: 200px;
+
+    @media (max-width: ${dimensions.md}) {
+        margin-bottom: 100px;
+    }
+`;
 
 const CarouselContainer = styled(Row)`
     width: 100%;
@@ -13,14 +22,27 @@ const CarouselContainer = styled(Row)`
     margin-bottom: 200px;
     align-items: center;
 
+    @media (max-width: ${dimensions.md}) {
+        margin-bottom: 100px;
+    }
+
     h2 {
         font-size: 32px;
         margin-bottom: 5px;
+
+        @media (max-width: ${dimensions.md}) {
+            display: none;
+        }
     }
 `;
 
 const CarouselItem = styled.div`
     margin-bottom: 50px;
+
+    @media (max-width: ${dimensions.md}) {
+        text-align: center;
+        
+    }
     
     h3 {
         font-weight: bold;
@@ -30,6 +52,10 @@ const CarouselItem = styled.div`
 const ButtonContainer = styled.div`
     display: flex;
     margin: 0px 0px 20px 0px;
+
+    @media (max-width: ${dimensions.md}) {
+        display: none;
+    }
 
     img {
         width: 35px;
@@ -48,6 +74,13 @@ const MainImage = styled.img`
     width: 100%;
     max-width: 400px;
     float: right;
+
+    @media (max-width: ${dimensions.md}) {
+        margin: auto;
+        display: block;
+        float: none;
+    }
+    
 `;
 
 const Citation = styled.img`
@@ -56,10 +89,14 @@ const Citation = styled.img`
 `;
 
 const ViewMore = styled.div`
-    
     position: absolute;
     bottom: 0;
     left: 16px;
+
+    @media (max-width: ${dimensions.md}) {
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
 
     a {
         color: #777;
@@ -86,14 +123,14 @@ function Feedback({ text }) {
     const ref = useRef(null); // ref => { current: null }
 
     return (
-        <div>
+        <Container>
             <SectionTitle title={text.subtitle} subtitle={text.title} />
 
             <CarouselContainer type='flex' justify='center' align='center' gutter={32}>
-                <Col span={12}>
+                <Col xs={24} md={12}>
                     <MainImage src="/image/homepage/feedback.jpg" alt="feedabck image" />
                 </Col>
-                <Col span={12} style={{ position: "relative" }}>
+                <Col xs={24} md={12} style={{ position: "relative" }}>
                     <h2>{text.subsubtitle}</h2>
                     <ButtonContainer>
                         <img src='/icon/previous2.svg' alt="previous" />
@@ -120,7 +157,7 @@ function Feedback({ text }) {
             </CarouselContainer>
 
 
-        </div>
+        </Container>
     )
 }
 
