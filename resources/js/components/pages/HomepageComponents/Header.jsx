@@ -44,6 +44,7 @@ const BackgroundContainer = styled.div`
     img {
       width: 100%;
       height: 100%;
+      object-fit: cover;
     }
   }
 `;
@@ -236,8 +237,8 @@ function Header({ text }) {
                 <a href="https://www.instagram.com/belocalmadeira/" target="_blank" >
                     <img src="/icon/instagram.png" alt="instagram link" />
                 </a>
-
             </Instagram>
+
             <LanguageContainer>
                 <LanguageIndicator active={active == "pt"} onClick={() => handleLanguageClick("pt")}>pt</LanguageIndicator>
                 <LanguageIndicator active={active == "en"} onClick={() => handleLanguageClick("en")}>en</LanguageIndicator>
