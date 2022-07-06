@@ -432,7 +432,7 @@
                 </g>
             </svg>
 
-
+            <link rel="preload" as="image" href="/image/background.webp">
             <link rel="preload" as="image" href="/image/background.jpg">
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
