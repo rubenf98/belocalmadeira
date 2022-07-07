@@ -221,11 +221,9 @@ function Header({ text }) {
             <Overlay />
             <BackgroundContainer positionOffset={positionOffset}>
                 <picture>
-                    <source media="(max-width: 960px)" srcSet="/image/background_960.webp" />
-                    <source media="(min-width: 961px, max-width: 1920px)" srcSet="/image/background_1920.webp" />
+                    <source media="(max-width: 1920px)" srcSet="/image/background_1920.webp" />
                     <source media="(min-width: 1921px)" srcSet="/image/background_3000.webp" />
-                    <source media="(max-width: 960px)" srcSet="/image/background_960.jpg" />
-                    <source media="(min-width: 961px, max-width: 1920px)" srcSet="/image/background_1920.jpg" />
+                    <source media="(max-width: 1920px)" srcSet="/image/background_1920.jpg" />
                     <source media="(min-width: 1921px)" srcSet="/image/background_3000.jpg" />
 
                     <img src="/image/background_1920.webp" alt="profile" loading="eager" />
