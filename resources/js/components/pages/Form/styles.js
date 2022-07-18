@@ -104,6 +104,7 @@ export const CustomPhoneSelect = styled(CountryPhoneInput)`
 
     .ant-select-selector, .ant-input {
         background-color: transparent !important;
+        padding-left: 0px !important;
 
         &::placeholder {
             color: #b1b1b1;

@@ -102,6 +102,7 @@ function Information({ fetchActivities, data, text }) {
                             }}
                         >
                             <CustomPhoneSelect
+
                                 size="large"
                                 placeholder={text.form.phone.placeholder}
                             />
@@ -136,11 +137,7 @@ function Information({ fetchActivities, data, text }) {
                                 options={data}
                                 allowClear={false}
                                 placeholder={text.form.activity.placeholder}
-                                dropdownRender={menu => (
-                                    <div className='colored-dropdown'>
-                                        {menu}
-                                    </div >
-                                )}
+
                             />
                         </Form.Item>
                     </Col>

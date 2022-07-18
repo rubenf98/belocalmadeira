@@ -307,63 +307,79 @@ function Navbar({ handleVisibility, theme }) {
         <Container background={theme.primary} hasBackground={hasBackground}>
 
             <Content>
+                <AnimationContainer animateIn="fadeInDown" offset={0}>
+                    <MenuButton onClick={() => setVisible(!visible)}>
+                        <img
 
-                <MenuButton onClick={() => setVisible(!visible)}>
-                    <img
-
-                        src={visible ?
-                            "/image/navbar/close.svg" :
-                            "/image/navbar/menu.svg"
-                        }
-                        alt="menu"
-                    />
-                </MenuButton>
+                            src={visible ?
+                                "/image/navbar/close.svg" :
+                                "/image/navbar/menu.svg"
+                            }
+                            alt="menu"
+                        />
+                    </MenuButton>
+                </AnimationContainer>
 
 
                 <FlexItem className='navbar-hidden-links'>
+
                     <MenuContainer>
+                        <AnimationContainer animateIn="fadeInDown" offset={0}>
+                            <NavbarLink color={themeContext.inverseText} to="/about">{text.links[0]} <div /></NavbarLink>
+                        </AnimationContainer>
+                        <AnimationContainer animateIn="fadeInDown" offset={0}>
+                            <NavbarLink color={themeContext.inverseText} to="/contact">{text.links[1]} <div /></NavbarLink>
 
-                        <NavbarLink color={themeContext.inverseText} to="/about">{text.links[0]} <div /></NavbarLink>
-                        <NavbarLink color={themeContext.inverseText} to="/contact">{text.links[1]} <div /></NavbarLink>
+                        </AnimationContainer>
 
-                        <CustomSelect
-                            open={openSelect}
-                            onMouseLeave={() => setOpenSelect(false)}
-                            onMouseEnter={() => setOpenSelect(true)}
-                            placeholder={text.links[2]}
-                            value="activities"
-                        >
-                            <Select.Option style={{ display: "none" }} value="activities">
-                                <Activities>{text.links[2]}</Activities>
-                            </Select.Option>
-                            <Select.Option value="canyoning" >
-                                <SelectLink to="/activities/canyoning">{text.links[3]}</SelectLink>
-                            </Select.Option>
-                            <Select.Option value="hiking" >
-                                <SelectLink to="/activities/hiking">{text.links[4]}</SelectLink>
-                            </Select.Option>
-                            <Select.Option value="biking" >
-                                <SelectLink to="/activities/biking">{text.links[5]}</SelectLink>
-                            </Select.Option>
-                            <Select.Option value="coastering" >
-                                <SelectLink to="/activities/coasteering">{text.links[6]}</SelectLink>
-                            </Select.Option>
-                        </CustomSelect><div />
 
+                        <AnimationContainer animateIn="fadeInDown" offset={0}>
+                            <CustomSelect
+                                open={openSelect}
+                                onMouseLeave={() => setOpenSelect(false)}
+                                onMouseEnter={() => setOpenSelect(true)}
+                                placeholder={text.links[2]}
+                                value="activities"
+                                dropdownClassName='primary-dropdown'
+                            >
+                                <Select.Option style={{ display: "none" }} value="activities">
+                                    <Activities>{text.links[2]}</Activities>
+                                </Select.Option>
+                                <Select.Option value="canyoning" >
+                                    <SelectLink to="/activities/canyoning">{text.links[3]}</SelectLink>
+                                </Select.Option>
+                                <Select.Option value="hiking" >
+                                    <SelectLink to="/activities/hiking">{text.links[4]}</SelectLink>
+                                </Select.Option>
+                                <Select.Option value="biking" >
+                                    <SelectLink to="/activities/biking">{text.links[5]}</SelectLink>
+                                </Select.Option>
+                                <Select.Option value="coastering" >
+                                    <SelectLink to="/activities/coasteering">{text.links[6]}</SelectLink>
+                                </Select.Option>
+                            </CustomSelect><div />
+                        </AnimationContainer>
                     </MenuContainer>
+
                 </FlexItem>
 
                 <FlexItem>
-                    <Logo to="/">
-                        <img src="/image/logo_white.png" alt="be local madeira white logo" />
-                    </Logo>
+                    <AnimationContainer animateIn="fadeInDown" offset={0}>
+                        <Logo to="/">
+                            <img src="/image/logo_white.png" alt="be local madeira white logo" />
+                        </Logo>
+                    </AnimationContainer>
                 </FlexItem>
 
                 <FlexItem>
+
                     <OrderButton onClick={() => handleVisibility(true)} color={themeContext.inverseText} background={themeContext.primary} backgroundHover={themeContext.primaryHover}>
-                        <span>{text.button}</span>
-                        <img src="/image/navbar/order.svg" alt="create reservation" />
+                        <AnimationContainer animateIn="fadeInDown" offset={0}>
+                            <span>{text.button}</span>
+                            <img src="/image/navbar/order.svg" alt="create reservation" />
+                        </AnimationContainer>
                     </OrderButton>
+
                 </FlexItem>
 
             </Content>

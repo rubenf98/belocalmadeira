@@ -28,9 +28,9 @@ class Layout extends Component {
         return (
             <ThemeContainer>
                 <Container>
-                    <AnimationContainer animateIn="fadeInDown" offset={0}>
-                        <Navbar onOrder={this.openForm} handleVisibility={this.props.handleForm} />
-                    </AnimationContainer>
+
+                    <Navbar onOrder={this.openForm} handleVisibility={this.props.handleForm} />
+
                     <OrderForm visible={this.props.formVisible} handleVisibility={this.props.handleForm} />
 
                     <div> {this.props.children} </div>

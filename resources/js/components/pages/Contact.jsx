@@ -81,7 +81,7 @@ const Sentence = styled.div`
 const Submit = styled(Button)`
     background: white;
     border: none;
-    padding: 10px;
+    padding: 10px 15px;
     text-transform: uppercase;
     background-color: ${props => props.text};
     transition: box-shadow .3s ease;
@@ -89,7 +89,7 @@ const Submit = styled(Button)`
     &:hover, &:focus {
         color: white;
         background-color: ${props => props.text};
-        box-shadow: 0px 0px 15px 0px rgba(0,0,0,.5);
+        box-shadow: 0px 0px 15px 0px rgba(0,0,0,.3);
     }
     @media (max-width: ${dimensions.md}){
         margin: auto;
