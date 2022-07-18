@@ -22,5 +22,9 @@ export const GlobalStyles = createGlobalStyle`
       background-color: #f5f5f5 !important;
     }
   }
+
+  .rc-virtual-list-holder {
+    background-color: white;
+  }
   
 `

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from "styled-components";
 import { dimensions } from '../../helper';
+import AnimationContainer from './AnimationContainer';
 
 const Container = styled.div`
     margin: 50px auto 100px auto;
@@ -59,7 +60,9 @@ const SectionTitle = ({ title, subtitle }) => {
                 {subtitle}
             </SubTitle>
             <Title>
-                {title}
+                <AnimationContainer animateIn="fadeIn">
+                    {title}
+                </AnimationContainer>
             </Title>
 
         </Container>

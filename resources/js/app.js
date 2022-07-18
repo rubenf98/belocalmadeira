@@ -13,6 +13,7 @@ import {
     refreshAuthorizationToken
 } from "./redux/auth/actions";
 import 'antd/dist/antd.css';
+import 'antd-country-phone-input/dist/index.css';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

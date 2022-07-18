@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import { dimensions } from '../../helper';
 import { Select, Drawer } from 'antd';
+import AnimationContainer from './AnimationContainer';
 
 const Container = styled.div`
     background: ${props => props.background};
@@ -304,7 +305,9 @@ function Navbar({ handleVisibility, theme }) {
 
     return (
         <Container background={theme.primary} hasBackground={hasBackground}>
+
             <Content>
+
                 <MenuButton onClick={() => setVisible(!visible)}>
                     <img
 
@@ -315,8 +318,9 @@ function Navbar({ handleVisibility, theme }) {
                         alt="menu"
                     />
                 </MenuButton>
-                <FlexItem className='navbar-hidden-links'>
 
+
+                <FlexItem className='navbar-hidden-links'>
                     <MenuContainer>
 
                         <NavbarLink color={themeContext.inverseText} to="/about">{text.links[0]} <div /></NavbarLink>
@@ -386,6 +390,7 @@ function Navbar({ handleVisibility, theme }) {
 
                 </div>
             </CustomDrawer>
+
         </Container >
     )
 }

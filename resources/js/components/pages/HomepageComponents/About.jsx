@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import styled, { ThemeContext } from "styled-components";
 import { dimensions, maxWidth } from '../../../helper';
+import AnimationContainer from '../../common/AnimationContainer';
 
 const Container = styled.section`
     position: relative;
@@ -121,9 +122,11 @@ function About({ text }) {
                     </video>
                 </ImageContainer>
                 <InfoContainer lightText={themeContext.lightText}>
-                    <h2>{text.titles[0]}</h2>
-                    <p>{text.description[0]}</p>
-                    <p>{text.description[1]}</p>
+                    <AnimationContainer animateIn="fadeInRight">
+                        <h2>{text.titles[0]}</h2>
+                        <p>{text.description[0]}</p>
+                        <p>{text.description[1]}</p>
+                    </AnimationContainer>
                 </InfoContainer>
             </Section>
             <Separator />
@@ -136,9 +139,11 @@ function About({ text }) {
                     </video>
                 </ImageContainer>
                 <InfoContainer lightText={themeContext.lightText} reverseOrder>
-                    <h2>{text.titles[1]}</h2>
-                    <p>{text.description[2]}</p>
-                    <p>{text.description[3]}</p>
+                    <AnimationContainer animateIn="fadeInLeft">
+                        <h2>{text.titles[1]}</h2>
+                        <p>{text.description[2]}</p>
+                        <p>{text.description[3]}</p>
+                    </AnimationContainer>
                 </InfoContainer>
             </Section>
             <Separator />

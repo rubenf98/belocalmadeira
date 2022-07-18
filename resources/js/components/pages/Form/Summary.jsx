@@ -73,7 +73,7 @@ function Summary({ text, data, activities }) {
 
                 <Detail><span>{text.details.name} </span> {data.name} </Detail>
                 <Detail><span>{text.details.email} </span> {data.email} </Detail>
-                <Detail><span>{text.details.phone} </span> {data.phone} </Detail>
+                <Detail><span>{text.details.phone} </span> {data.phone.code}{data.phone.phone} </Detail>
                 <Detail><span>{text.details.address} </span> {data.address} </Detail>
                 <Detail><span>{text.details.private} </span> {data.private ? "Yes" : "No"} </Detail>
                 <Detail><span>{text.details.activity} </span> {activityName} </Detail>

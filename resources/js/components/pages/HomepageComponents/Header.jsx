@@ -2,6 +2,12 @@ import React, { useEffect, useState, useContext } from 'react'
 import styled, { ThemeContext } from "styled-components";
 import { dimensions } from '../../../helper';
 
+import headerWebp1920 from '/image/background_1920.webp';
+import headerJpg1920 from '/image/background_1920.jpg';
+import headerWebp3000 from '/image/background_3000.webp';
+import headerJpg3000 from '/image/background_3000.jpg';
+import AnimationContainer from '../../common/AnimationContainer';
+
 
 const Container = styled.section`
   width: 100%;
@@ -25,6 +31,10 @@ const BackgroundContainer = styled.div`
   top: 0;bottom:0;left:0;right: 0;
   position: absolute;
   z-index: -2;
+  background: url("/image/background_blur.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   
   picture {
     width: 100vw;
@@ -219,35 +229,43 @@ function Header({ text }) {
     return (
         <Container color={themeContext.inverseText} id="header-container">
             <Overlay />
-            <BackgroundContainer positionOffset={positionOffset}>
+            <BackgroundContainer background={themeContext.primary} positionOffset={positionOffset}>
                 <picture>
-                    <source media="(max-width: 1920px)" srcSet="/image/background_1920.webp" />
-                    <source media="(min-width: 1921px)" srcSet="/image/background_3000.webp" />
-                    <source media="(max-width: 1920px)" srcSet="/image/background_1920.jpg" />
-                    <source media="(min-width: 1921px)" srcSet="/image/background_3000.jpg" />
+                    <source media="(max-width: 1920px)" srcSet={headerWebp1920} />
+                    <source media="(min-width: 1921px)" srcSet={headerWebp3000} />
+                    <source media="(max-width: 1920px)" srcSet={headerJpg1920} />
+                    <source media="(min-width: 1921px)" srcSet={headerJpg3000} />
 
-                    <img src="/image/background_1920.webp" alt="profile" loading="eager" />
+                    <img src={headerWebp1920} alt="profile" loading="eager" />
                 </picture>
 
             </BackgroundContainer>
 
+
             <TitleContainer >
-                <h2>{text.title}</h2>
-                <h1>{text.subtitle}</h1>
+                <AnimationContainer animateIn="fadeIn" offset={0}>
+                    <h2>{text.title}</h2>
+                    <h1>{text.subtitle}</h1>
+                </AnimationContainer>
             </TitleContainer>
 
-            <ScrollDownIndicator />
 
             <Instagram>
-                <a href="https://www.instagram.com/belocalmadeira/" target="_blank" >
-                    <img src="/icon/instagram.png" alt="instagram link" />
-                </a>
+                <AnimationContainer animateIn="fadeInUp" offset={0}>
+                    <a href="https://www.instagram.com/belocalmadeira/" target="_blank" >
+                        <img src="/icon/instagram.png" alt="instagram link" />
+                    </a>
+                </AnimationContainer>
             </Instagram>
 
             <LanguageContainer>
-                <LanguageIndicator active={active == "pt"} onClick={() => handleLanguageClick("pt")}>pt</LanguageIndicator>
-                <LanguageIndicator active={active == "en"} onClick={() => handleLanguageClick("en")}>en</LanguageIndicator>
+                <AnimationContainer animateIn="fadeInUp" offset={0}>
+                    <LanguageIndicator active={active == "pt"} onClick={() => handleLanguageClick("pt")}>pt</LanguageIndicator>
+                    <LanguageIndicator active={active == "en"} onClick={() => handleLanguageClick("en")}>en</LanguageIndicator>
+                </AnimationContainer>
             </LanguageContainer>
+
+            <ScrollDownIndicator />
         </Container>
     )
 }

@@ -7,13 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;500;700&family=Merienda+One&family=Playfair+Display:ital,wght@0,500;1,900&display=swap"
-        rel="stylesheet">
 
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
     <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -49,10 +45,12 @@
         height: 100vh;
         width: 100vw;
         background: #344A35;
+        background: url("/image/background_blur.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
         box-sizing: border-box;
         overflow: hidden;
-        -webkit-animation: disappear .2s forwards;
-        animation: disappear .2s forwards;
         animation-delay: 5s;
     }
 
@@ -433,12 +431,12 @@
                 </g>
             </svg>
 
-            <link rel="preload" as="image" href="/image/background_1920.webp">
-            <link rel="preload" as="image" href="/image/background_1920.jpg">
+
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
             <link
-                href="https://fonts.googleapis.com/css2?family=Poppins:wght@900&family=Raleway:ital,wght@0,300;0,500;0,700;0,900;1,900&display=swap"
+                href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;500;700&family=Merienda+One&family=Playfair+Display:ital,wght@0,500;1,900&display=swap"
                 rel="stylesheet">
         </div>
     </div>

@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import OrderForm from "./pages/OrderForm";
 import { handleForm } from "../redux/application/actions";
 import ThemeContainer from "./ThemeContainer";
+import AnimationContainer from "./common/AnimationContainer";
 
 const Container = styled.div`
     width: 100%;
@@ -27,7 +28,9 @@ class Layout extends Component {
         return (
             <ThemeContainer>
                 <Container>
-                    <Navbar onOrder={this.openForm} handleVisibility={this.props.handleForm} />
+                    <AnimationContainer animateIn="fadeInDown" offset={0}>
+                        <Navbar onOrder={this.openForm} handleVisibility={this.props.handleForm} />
+                    </AnimationContainer>
                     <OrderForm visible={this.props.formVisible} handleVisibility={this.props.handleForm} />
 
                     <div> {this.props.children} </div>

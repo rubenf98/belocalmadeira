@@ -36,10 +36,16 @@ class ReservationRequest extends FormRequest
             $price = ($this->private ? $experience->private_price : $experience->price) * count($this->person);
         }
 
+        $phone = null;
+        if (array_key_exists("code", $this->phone) && array_key_exists("phone", $this->phone)) {
+            $phone = $this->phone["code"] . $this->phone["phone"];
+        }
+
+
         $this->merge([
             'date' => new Carbon($this->date),
             'price' => $price,
-            'phone' => $this->indicative . $this->phone,
+            'phone' =>  $phone,
             'private' => $this->private && true,
             'confirmation_token' => uniqid(),
             'experienceable_type' => $this->polymorphic_classes[$helper_size - 1],

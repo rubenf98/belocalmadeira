@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react'
 import { Row, Form, Col } from 'antd';
-import { CustomCheckbox, CustomCascader, CustomInput, CustomInputNumber } from './styles';
+import { CustomCheckbox, CustomCascader, CustomInput, CustomInputNumber, CustomPhoneSelect } from './styles';
 import { fetchActivities } from "../../../redux/activity/actions";
+import { ConfigProvider } from 'antd-country-phone-input';
+import en from 'world_countries_lists/data/countries/en/world.json';
 import { connect } from "react-redux";
 import styled from "styled-components";
 
@@ -72,96 +74,96 @@ function Information({ fetchActivities, data, text }) {
     }, [])
 
     return (
-        <div>
-            <Row gutter={16}>
-                <Col xs={24} md={12}>
-                    <Form.Item
-                        name="name"
-                        rules={rules.name}
-                    >
-                        <CustomInput size='large' placeholder={text.form.name.placeholder} />
-                    </Form.Item>
-                </Col>
-                <Col xs={24} md={12}>
-                    <Form.Item
-                        name="email"
-                        rules={rules.email}
-                    >
-                        <CustomInput size='large' placeholder={text.form.email.placeholder} />
-                    </Form.Item>
-                </Col>
-                <Col xs={4} md={4} style={{ padding: "0px !important" }}>
-                    <Form.Item
-                        name="indicative"
-                        rules={rules.phone}
-                    >
-                        <CustomInput size='large' placeholder={text.form.indicative.placeholder} />
-                    </Form.Item>
-                </Col>
-                <Col xs={20} md={8} style={{ paddingLeft: "0px !important" }}>
-                    <Form.Item
-                        name="phone"
-                        rules={rules.phone}
-                    >
-                        <CustomInput size='large' placeholder={text.form.phone.placeholder} />
-                    </Form.Item>
-                </Col>
-                <Col xs={24} md={12}>
-                    <Form.Item
-                        name="address"
-                        rules={rules.address}
-                    >
-                        <CustomInput size='large' placeholder={text.form.address.placeholder} />
-                    </Form.Item>
-                </Col>
+        <ConfigProvider locale={en}>
+            <div>
+                <Row gutter={16}>
+                    <Col xs={24} md={12}>
+                        <Form.Item
+                            name="name"
+                            rules={rules.name}
+                        >
+                            <CustomInput size='large' placeholder={text.form.name.placeholder} />
+                        </Form.Item>
+                    </Col>
+                    <Col xs={24} md={12}>
+                        <Form.Item
+                            name="email"
+                            rules={rules.email}
+                        >
+                            <CustomInput size='large' placeholder={text.form.email.placeholder} />
+                        </Form.Item>
+                    </Col>
+                    <Col xs={24} md={12}>
+                        <Form.Item
+                            name="phone"
+                            rules={rules.phone}
+                            initialValue={{
+                                short: 'pt',
+                            }}
+                        >
+                            <CustomPhoneSelect
+                                size="large"
+                                placeholder={text.form.phone.placeholder}
+                            />
+                        </Form.Item>
+                    </Col>
+                    <Col xs={24} md={12}>
+                        <Form.Item
+                            name="address"
+                            rules={rules.address}
+                        >
+                            <CustomInput size='large' placeholder={text.form.address.placeholder} />
+                        </Form.Item>
+                    </Col>
 
-                <Col xs={24} md={12}>
-                    <Form.Item
-                        name="participants"
-                        rules={rules.participants}
-                    >
-                        <CustomInputNumber max={15} min={1} controls={false} size='large' placeholder={text.form.participants.placeholder} />
-                    </Form.Item>
-                </Col>
+                    <Col xs={24} md={12}>
+                        <Form.Item
+                            name="participants"
+                            rules={rules.participants}
+                        >
+                            <CustomInputNumber max={15} min={1} controls={false} size='large' placeholder={text.form.participants.placeholder} />
+                        </Form.Item>
+                    </Col>
 
-                <Col xs={24} md={12}>
-                    <Form.Item
-                        name="activity"
-                        rules={rules.activity}
-                    >
-                        <CustomCascader
-                            size="large"
-                            expandTrigger="hover"
-                            options={data}
-                            allowClear={false}
-                            placeholder={text.form.activity.placeholder}
-                            dropdownRender={menu => (
-                                <div className='colored-dropdown'>
-                                    {menu}
-                                </div >
-                            )}
-                        />
-                    </Form.Item>
-                </Col>
-                <Col xs={24}>
+                    <Col xs={24} md={12}>
+                        <Form.Item
+                            name="activity"
+                            rules={rules.activity}
+                        >
+                            <CustomCascader
+                                size="large"
+                                expandTrigger="hover"
+                                options={data}
+                                allowClear={false}
+                                placeholder={text.form.activity.placeholder}
+                                dropdownRender={menu => (
+                                    <div className='colored-dropdown'>
+                                        {menu}
+                                    </div >
+                                )}
+                            />
+                        </Form.Item>
+                    </Col>
+                    <Col xs={24}>
 
-                    <Form.Item
-                        name="private"
-                        valuePropName="checked"
-                    >
-                        <CustomCheckbox>{text.form.private.placeholder}</CustomCheckbox>
-                    </Form.Item>
-                    <Warning>
-                        <img src="/icon/warning.svg" alt="warning" />
-                        <div>{text.warning}</div>
-                    </Warning>
-                </Col>
-
-
-            </Row>
+                        <Form.Item
+                            name="private"
+                            valuePropName="checked"
+                        >
+                            <CustomCheckbox>{text.form.private.placeholder}</CustomCheckbox>
+                        </Form.Item>
+                        <Warning>
+                            <img src="/icon/warning.svg" alt="warning" />
+                            <div>{text.warning}</div>
+                        </Warning>
+                    </Col>
 
 
-        </div >
+                </Row>
+
+
+            </div >
+        </ConfigProvider>
     )
 }
 

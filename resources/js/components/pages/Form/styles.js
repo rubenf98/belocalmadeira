@@ -1,6 +1,7 @@
 
 import { Input, Checkbox, Select, InputNumber, DatePicker, Cascader } from 'antd';
 import styled, { css } from "styled-components";
+import CountryPhoneInput from 'antd-country-phone-input';
 
 export const baseInputStyles = css`
     width: 100%;
@@ -87,6 +88,42 @@ export const CustomSelect = styled(Select)`
         color: white;
     }
 `;
+
+export const CustomPhoneSelect = styled(CountryPhoneInput)`
+    ${baseInputStyles}    
+
+    .ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input) .ant-select-selector, .ant-select-selector {
+        border: none !important;
+        box-shadow: none !important;
+        
+    }
+
+    .ant-input-lg {
+        color: white;
+    }
+
+    .ant-select-selector, .ant-input {
+        background-color: transparent !important;
+
+        &::placeholder {
+            color: #b1b1b1;
+        }
+    }
+
+    .ant-select-selection-item {
+        color: #b1b1b1;
+    }
+
+    &:focus,
+    &:active, &:hover {
+        box-shadow: none;
+    }
+
+    .ant-select-arrow {
+        color: white;
+    }
+`;
+
 
 export const CustomDatePicker = styled(DatePicker)`
     ${baseInputStyles} 
