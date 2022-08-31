@@ -36,7 +36,7 @@ const Title = styled.h2`
 
     span {
         font-weight: bold;
-        font-family: 'Merienda One', cursive;
+        font-family: 'Merienda One', cursive;;
     }
 `;
 

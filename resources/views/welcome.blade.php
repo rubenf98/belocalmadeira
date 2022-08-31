@@ -26,6 +26,13 @@
     <meta name="description"
         content="Be Local Madeira aims to provide the most dynamic and genuine experiences the Island has to offer. With us you will experience nature at its most stunning, creating adventures that will stay with you forever!">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;500;700&family=Merienda+One&family=Playfair+Display:ital,wght@0,500;1,900&display=swap"
+        rel="stylesheet">
+
     <title>Be Local Madeira</title>
 </head>
 
@@ -442,12 +449,7 @@
             </svg>
 
 
-            <link rel="preconnect" href="https://fonts.googleapis.com">
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-            <link
-                href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;500;700&family=Merienda+One&family=Playfair+Display:ital,wght@0,500;1,900&display=swap"
-                rel="stylesheet">
         </div>
     </div>
 </body>

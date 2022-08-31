@@ -8,7 +8,18 @@ const Container = styled.section`
     width: 100%;
     padding: 100px 0px;
     box-sizing: border-box;
+    position: relative;
 `;
+
+const OffsetBackground = styled.div`
+    background: ${props => props.background};
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    top: 0;
+    z-index: -1;
+`;
+
 
 const ActivitiesContainer = styled.div`
     width: 100%;
@@ -103,6 +114,8 @@ function Activities({ text, showTitle = true }) {
             {
                 showTitle && <SectionTitle title={text.subtitle} subtitle={text.title} />
             }
+
+            <OffsetBackground background={themeContext.primaryBackground} />
 
             <ActivitiesContainer titleColor={themeContext.inverseText}>
                 <Activity

@@ -5,7 +5,8 @@ export const light = {
     background: '#ffffff',
     primary: "#232E19",
     primaryHover: "#29361d",
-    primaryLight: "#1d530c"
+    primaryLight: "#1d530c",
+    primaryBackground: "#EEF2E9"
 }
 
 export const dark = {

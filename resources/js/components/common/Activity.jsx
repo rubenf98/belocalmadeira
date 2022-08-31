@@ -42,7 +42,7 @@ const IntroContainer = styled.section`
 
             span {
                 font-weight: bold;
-                font-family: 'Merienda One', cursive;
+                font-family: 'Merienda One', cursive;;
             }
         }
 
