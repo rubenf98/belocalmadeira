@@ -66,6 +66,16 @@
         width: 150px;
     }
 
+    .menu-dropdown {
+        right: 0;
+        top: 80px !important;
+        padding: 20px 30px;
+    }
+
+    .ant-dropdown {
+        position: fixed !important;
+    }
+
     @-webkit-keyframes disappear {
         0% {
             opacity: 1;
@@ -452,6 +462,6 @@
     script.src = "{{mix('js/app.js')}}";
     setTimeout(() => {
         document.getElementById('index').append(script);
-    }, 4300);
-    
+    }, 1);
+    // 4300
 </script>

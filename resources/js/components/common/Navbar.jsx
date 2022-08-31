@@ -4,7 +4,7 @@ import {
     Link
 } from "react-router-dom";
 import { dimensions } from '../../helper';
-import { Select, Drawer } from 'antd';
+import { Select, Drawer, Dropdown, Menu } from 'antd';
 import AnimationContainer from './AnimationContainer';
 
 const Container = styled.div`
@@ -39,6 +39,7 @@ const Content = styled.div`
     @media(max-width: ${dimensions.md}) {
         margin-top: 5px;
         height: 50px;
+        justify-content: space-between;
     }
 
     .navbar-hidden-links {
@@ -52,6 +53,10 @@ const FlexItem = styled.div`
     flex: 1;
     display: flex;
     justify-content: center;
+
+    @media(max-width: ${dimensions.md}) {
+        flex: none;
+    }
 `;
 
 const Logo = styled(Link)`
@@ -86,14 +91,14 @@ const OrderButton = styled.div`
     cursor: pointer;
     background: ${props => props.background};
     padding: 10px 30px 10px 30px;
-    font-size: 18px;
+    font-size: 15px;
     transition: .4s;
     margin-left: auto; 
     overflow: hidden;
     border-radius: 4px;
     position: relative;
     background-size: 110%;
-    text-transform: uppercase;
+    text-transform: capitalize;
     color: ${props => props.color};
     font-weight: bold;
 
@@ -148,11 +153,11 @@ const MenuButton = styled.div`
 const NavbarLink = styled(Link)`
     display: block;
     text-align: center;
-    font-size: 1.2em;
+    font-size: 15px;
     text-transform: capitalize;
     cursor: pointer;
     transition: .3s ease-in-out;
-    padding: 29px 27px;
+    padding: 25px 10px;
     font-weight: bold;
     text-align: center;
     color: ${props => props.color};
@@ -192,7 +197,7 @@ export const CustomSelect = styled(Select)`
     margin: 10px 0px;
     border: none;
     background-color: transparent !important;
-    padding: 29px 27px;
+    padding: 25px 10px;
     color: #fff;
 
     @media (max-width: ${dimensions.lg}) {
@@ -232,24 +237,9 @@ export const CustomSelect = styled(Select)`
     }
 `;
 
-const CustomDrawer = styled(Drawer)`
-    div {
-        display: flex;
-        align-items: center;
-    }
-
-    .ant-drawer-content {
-        background: ${props => props.background};
-
-        ul {
-            list-style: none;
-        }
-    }
-`;
-
 const Activities = styled.div`
     display: block;
-    font-size: 1.2em;
+    font-size: 15px;
     text-transform: capitalize;
     font-weight: bold;
     color: #fff;    
@@ -259,32 +249,46 @@ const Activities = styled.div`
     }
 `;
 
-const MenuLink = styled(Link)`
-    color: white !important;
+const MenuItem = styled(Menu.Item)`
+    padding: 10px 25px;
+    box-sizing: border-box;
+    padding-left: ${props => props.main ? "20px" : "40px"};
+    color: ${props => props.color};
     display: block;
-    text-align: center;
-    font-size: 3em;
-    text-transform: uppercase;
-    cursor: pointer;
+    font-weight: ${props => props.main ? "700" : "400"};;
+    font-size: ${props => props.main ? "14px" : "12px"};
+    text-transform: capitalize;
     transition: .3s ease-in-out;
     font-family: 'Playfair Display', serif;
 
-    &:hover {
-        text-shadow:
-        -1px -1px 0 white,
-        1px -1px 0 white,
-        -1px 1px 0 white,
-        1px 1px 0 white;
-    }
-    
+    a {
+        color: ${props => props.color};
+    } 
 `;
+
+
 
 function Navbar({ handleVisibility, theme }) {
     const [openSelect, setOpenSelect] = useState(false)
     const [hasBackground, setHasBackground] = useState(false)
     const themeContext = useContext(ThemeContext);
-    const [visible, setVisible] = useState(0);
     const { text } = require('../../assets/' + localStorage.getItem('language') + "/links");
+
+    const menu = (
+        <Menu style={{ width: "90vw", transform: "translate(-50%, 0)", left: "50%" }}>
+            <MenuItem color={theme.primaryLight} main><Link to="/">home</Link></MenuItem>
+            <MenuItem color={theme.primaryLight} main>Activities</MenuItem>
+            <MenuItem color={theme.primaryLight} ><Link to="/activities/canyoning">canyoning</Link></MenuItem>
+            <MenuItem color={theme.primaryLight} ><Link to="/activities/biking">biking</Link></MenuItem>
+            <MenuItem color={theme.primaryLight} ><Link to="/activities/coasteering">coasteering</Link></MenuItem>
+            <MenuItem color={theme.primaryLight} ><Link to="/activities/hiking">hiking</Link></MenuItem>
+            <MenuItem color={theme.primaryLight} main><Link to="/about">about</Link></MenuItem>
+            <MenuItem color={theme.primaryLight} main><Link to="/faq">FAQ</Link></MenuItem>
+
+        </Menu>
+
+
+    );
 
     useEffect(() => {
         const handleScroll = () => {
@@ -307,18 +311,7 @@ function Navbar({ handleVisibility, theme }) {
         <Container background={theme.primary} hasBackground={hasBackground}>
 
             <Content>
-                <AnimationContainer animateIn="fadeInDown" offset={0}>
-                    <MenuButton onClick={() => setVisible(!visible)}>
-                        <img
 
-                            src={visible ?
-                                "/image/navbar/close.svg" :
-                                "/image/navbar/menu.svg"
-                            }
-                            alt="menu"
-                        />
-                    </MenuButton>
-                </AnimationContainer>
 
 
                 <FlexItem className='navbar-hidden-links'>
@@ -371,7 +364,7 @@ function Navbar({ handleVisibility, theme }) {
                     </AnimationContainer>
                 </FlexItem>
 
-                <FlexItem>
+                <FlexItem className='navbar-hidden-links'>
 
                     <OrderButton onClick={() => handleVisibility(true)} color={themeContext.inverseText} background={themeContext.primary} backgroundHover={themeContext.primaryHover}>
                         <AnimationContainer animateIn="fadeInDown" offset={0}>
@@ -382,30 +375,18 @@ function Navbar({ handleVisibility, theme }) {
 
                 </FlexItem>
 
-            </Content>
-            <CustomDrawer
-                background={theme.primary}
-                style={{ zIndex: "15" }}
-                placement="right"
-                height={"100%"}
-                width={"100%"}
-                onClose={() => setVisible(0)}
-                visible={visible}
-                closable={false}
-            >
-                <div>
-                    <ul style={{ padding: "0px" }}>
-                        <li><MenuLink onClick={() => setVisible(0)} to="/">home</MenuLink></li>
-                        <li><MenuLink onClick={() => setVisible(0)} to="/about">about</MenuLink></li>
-                        <li><MenuLink onClick={() => setVisible(0)} to="/contact">contact</MenuLink></li>
-                        <li><MenuLink onClick={() => setVisible(0)} to="/activities/canyoning">canyoning</MenuLink></li>
-                        <li><MenuLink onClick={() => setVisible(0)} to="/activities/biking">biking</MenuLink></li>
-                        <li><MenuLink onClick={() => setVisible(0)} to="/activities/coasteering">coasteering</MenuLink></li>
-                        <li><MenuLink onClick={() => setVisible(0)} to="/activities/hiking">hiking</MenuLink></li>
-                    </ul>
+                <AnimationContainer animateIn="fadeInDown" offset={0}>
+                    <Dropdown overlayClassName="menu-dropdown" overlay={menu} placement="bottom">
+                        <MenuButton>
+                            <img
+                                src="/image/navbar/menu.svg"
+                                alt="menu"
+                            />
+                        </MenuButton>
+                    </Dropdown>
+                </AnimationContainer>
 
-                </div>
-            </CustomDrawer>
+            </Content>
 
         </Container >
     )

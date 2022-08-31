@@ -4,7 +4,8 @@ export const light = {
     inverseText: '#ffffff',
     background: '#ffffff',
     primary: "#232E19",
-    primaryHover: "#29361d"
+    primaryHover: "#29361d",
+    primaryLight: "#1d530c"
 }
 
 export const dark = {

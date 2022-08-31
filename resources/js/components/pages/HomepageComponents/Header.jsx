@@ -75,7 +75,7 @@ const TitleContainer = styled.div`
   position: relative;
 
   h1, h2 {
-    width: 40%;
+    width: 50%;
     margin: auto;
     color: inherit;
     text-align: center;
@@ -95,6 +95,7 @@ const TitleContainer = styled.div`
 
     @media(max-width: ${dimensions.md}) {
       font-size: 55px;
+      line-height: 2.9rem;
     }
 
     @media(max-width: ${dimensions.sm}) {
