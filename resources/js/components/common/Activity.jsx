@@ -1,7 +1,9 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { withTheme } from 'styled-components'
 import { dimensions, maxWidth } from '../../helper';
 import SectionTitle from './SectionTitle';
+import { Row } from 'antd'
+import { Link } from 'react-router-dom';
 
 const IntroContainer = styled.section`
     display: flex;
@@ -96,6 +98,9 @@ const Gallery = styled.section`
     div {
         width: 33%;
 
+        @media (max-width: ${dimensions.md}) {
+            width: 100%;
+        }
 
         img {
             width: 100%;
@@ -150,26 +155,36 @@ const DetailsContainer = styled.section`
 
 const StepsContainer = styled.div`
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
     flex-wrap: wrap;
     max-width: ${maxWidth};
     width: 100%;
-    margin: auto;
+    margin: 50px auto 0px auto;
 `;
 
 const Step = styled.div`
     width: 33%;
-    padding: 10px;
+    padding: 50px 15px;
     box-sizing: border-box;
 
     @media (max-width: ${dimensions.lg}) {
-        width: 50%;
         padding: 10px;
+        width: 50%;
     }
 
     @media (max-width: ${dimensions.md}) {
         width: 100%;
+        margin: 30px 0px;
+    }
+
+    img {
+        width: 100%;
+        max-height: 230px;
+        object-fit: cover;
+        margin-bottom: 20px;
+
+        @media (max-width: ${dimensions.md}) {
+            max-height: 500px;
+        }
     }
 
     h4, h5 {
@@ -178,7 +193,7 @@ const Step = styled.div`
     }
 
     h4 {
-        font-size: 39px;
+        font-size: 40px;
         font-style: italic;
         font-weight: 900;
         letter-spacing: -0.08px;
@@ -189,7 +204,7 @@ const Step = styled.div`
     }
 
     h5 {
-        font-size: 31px;
+        font-size: 22px;
         font-weight: 300;
         letter-spacing: -0.06px;
 
@@ -199,18 +214,39 @@ const Step = styled.div`
     }
 
     p {
+        font-size: 16px;
+        font-weight: 300;
         @media (max-width: ${dimensions.md}) {
             font-size: 16px;
         }
     }
 
-    ul {
-        padding-left: 10px;
-        box-sizing: border-box;
-    }
 `;
 
-function Activity({ content, levels }) {
+const OrderButton = styled.div`
+    box-sizing: border-box;
+    cursor: pointer;
+    background: ${props => props.background};
+    padding: 10px 30px 10px 30px;
+    font-size: 15px;
+    transition: .4s;
+    border-radius: 4px;
+    background-size: 110%;
+    text-transform: capitalize;
+    color: ${props => props.color};
+    font-weight: bold;
+    margin-top: 10px;
+
+    &:hover {
+        background: ${props => props.backgroundHover};
+
+        @media(max-width: ${dimensions.md}) {
+            background: transparent;
+        }
+    } 
+`;
+
+function Activity({ content, theme }) {
     return (
         <div>
             <IntroContainer>
@@ -230,70 +266,60 @@ function Activity({ content, levels }) {
                     ))}
                 </div>
             </IntroContainer>
+            {!content.levels &&
+                <DetailsContainer>
+                    <div>
+                        <h4>{content.section}</h4>
 
-            <DetailsContainer>
-                <div>
-                    <h4>{content.section}</h4>
+                    </div>
+                    <div>
+                        <h2>Includes</h2>
 
-                </div>
-                <div>
-                    <h2>Includes</h2>
+                        <ul>
+                            {content.includes.map((element, index) => (
+                                <li key={index}>{element}</li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div>
+                        <h2>{content.activities.title}</h2>
 
-                    <ul>
-                        {content.includes.map((element, index) => (
-                            <li key={index}>{element}</li>
-                        ))}
-                    </ul>
-                </div>
-                <div>
-                    <h2>{content.activities.title}</h2>
-
-                    <ul>
-                        {content.activities.items.map((element, index) => (
-                            <li key={index}>{element}</li>
-                        ))}
-                    </ul>
-                </div>
-            </DetailsContainer>
-
+                        <ul>
+                            {content.activities.items.map((element, index) => (
+                                <li key={index}>{element}</li>
+                            ))}
+                        </ul>
+                    </div>
+                </DetailsContainer>
+            }
             {content.levels &&
                 <>
+                    <SectionTitle title={content.levels.subtitle} subtitle={content.levels.title} />
+
                     <StepsContainer>
 
-                        <Step>
-
-                            <h5>{content.levels.title} 1</h5>
-                            <h4>{content.levels.subtitles[0]}</h4>
-                            <p>{content.levels.items[0]}</p>
-
-                            <ul>
-                                {content.levels.details[0].map((element, index) => (
-                                    <li key={index}>{element}</li>
+                        {content.levels.items.map((level, index) => (
+                            <Step key={"level-" + index}>
+                                <img src={"/image/activities/levels/" + level.images[0] + ".jpg"} />
+                                <h5>{level.title}</h5>
+                                <h4>{level.subtitle}</h4>
+                                {level.paragraphs.map((paragraph, pIndex) => (
+                                    <p key={"paragraph-" + index + pIndex}>{paragraph}</p>
                                 ))}
-                            </ul>
-                        </Step>
-                        <Step>
-                            <h5>{content.levels.title} 2</h5>
-                            <h4>{content.levels.subtitles[1]}</h4>
-                            <p>{content.levels.items[1]}</p>
+                                <Row type="flex">
+                                    <Link to={"/activities/canyoning/" + index}>
+                                        <OrderButton
+                                            onClick={() => handleForm(true)}
+                                            color={theme.inverseText}
+                                            background={theme.primary}
+                                            backgroundHover={theme.primaryHover}>
+                                            {localStorage.getItem('language') == "en" ? "See more" : "Saber mais"}
+                                        </OrderButton>
+                                    </Link>
+                                </Row>
+                            </Step>
+                        ))}
 
-                            <ul>
-                                {content.levels.details[1].map((element, index) => (
-                                    <li key={index}>{element}</li>
-                                ))}
-                            </ul>
-                        </Step>
-                        <Step>
-                            <h5>{content.levels.title} 3</h5>
-                            <h4>{content.levels.subtitles[2]}</h4>
-                            <p>{content.levels.items[2]}</p>
-
-                            <ul>
-                                {content.levels.details[2].map((element, index) => (
-                                    <li key={index}>{element}</li>
-                                ))}
-                            </ul>
-                        </Step>
                     </StepsContainer>
 
                 </>
@@ -321,4 +347,4 @@ function Activity({ content, levels }) {
     )
 }
 
-export default Activity
+export default withTheme(Activity)

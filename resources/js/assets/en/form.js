@@ -4,6 +4,8 @@ export const text = {
         {
             title: "Explore our activities and book your Madeira Island experience right here!",
             warning: "Private canyoning, hiking, biking, and coasteering prices are 120€.",
+            discount: "All reservations made online will apply a 10% discount on checkout.",
+            family: "All reservations with 4 or more participants will apply a 15% family discount on checkout.",
             form: {
                 name: {
                     placeholder: "Name *"

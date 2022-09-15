@@ -6,7 +6,6 @@ import { connect } from "react-redux";
 import OrderForm from "./pages/OrderForm";
 import { handleForm } from "../redux/application/actions";
 import ThemeContainer from "./ThemeContainer";
-import AnimationContainer from "./common/AnimationContainer";
 
 const Container = styled.div`
     width: 100%;

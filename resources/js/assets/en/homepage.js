@@ -27,12 +27,11 @@ export const text = {
     },
     about: {
         videoError: "Your browser does not support the video tag.",
-        titles: ["who is be local", "welcome to the be local adventure"],
+        titles: ["Who is be local", "The best professionals for the task", "Your experience starts now"],
         description: [
             "We are a local company that promotes adventure and experiences with nature in Madeira Island through.",
-            "We offer a range of mind-blowing experiences that will allow you to enjoy unique moments in fascinating places.",
             "We have dedicated and certified professionals in Canyoning, Coasteering, Biking and Hiking. This way you will be accompanied at all times.",
-            "Join us and you will live moments that you will remember forever!"
+            "We offer a range of mind-blowing experiences that will allow you to enjoy unique moments in fascinating places. Join us and you will live moments that you will remember forever!"
         ],
     },
     services: {
@@ -63,8 +62,17 @@ export const text = {
     },
     activities: {
         title: "Activities",
-        subtitle: (<>Get a glimpse of what you can <span>experience</span></>),
+        subtitle: (<>Welcome to the be local <span>adventure</span></>),
         items: ['canyoning', "biking", "coasteering", "hiking"]
+    },
+    discount: {
+        title: "Reservation opportunity",
+        paragraph: "Unmissable discounts on all activities booked online",
+        button: "Book now"
+    },
+    family: {
+        paragraph: "Take advantage of our family pack for all bookings of more than 4 participants and create unforgettable memories for everyone",
+        button: "Book now"
     },
     feedback: {
         title: "Feedback",
@@ -92,4 +100,42 @@ export const text = {
                 </LinkContainer>
             </>),
     },
+    faq: {
+        title: "Frequently asked questions",
+        subtitle: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat accusantium vel alias tempora soluta possimus repellat, corporis accusamus. Quod reprehenderit quia sed. Aliquam quo eos ipsum id placeat fugiat ad.",
+        questions: [
+            {
+                question: "What is included in the tours?",
+                answer: [
+                    "The price includes the activity, transport between the accommodation and the place of the activity, Personal and Liability Accident Insurance (according to Portuguese legislation) and all material individually and collectively.",
+                    "In the case of Canyoning and Coasteering, customers must bring (towel, bathing suit)",
+                    "It also includes photos and videos of the activity!"
+                ]
+            },
+            {
+                question: "What is the minimum and maximum age to participate in a Canyoning or Coasteering activity?",
+                answer: [
+                    "For Canyoning or Coasteering activities, the minimum age is 7 years. The maximum age is 75 years.",
+                ]
+            },
+            {
+                question: "What if I don't feel comfortable jumping?",
+                answer: [
+                    "Jumps are not mandatory and we always have alternatives (we can put a rope down to rappel or sometimes we have an alternative path along the watercourse where we can see others jumping without having to do so."
+                ]
+            },
+            {
+                question: "What happens in case of bad weather?",
+                answer: [
+                    "In case of bad weather, the activity may be canceled or scheduled for another specific date. Regarding the cancellation due to weather, it is always decided and evaluated by our team."
+                ]
+            },
+            {
+                question: "How can I cancel an activity?",
+                answer: [
+                    "In order to cancel an activity, prior notice must be given, either by email or telephone. To be refunded, cancellation must be made within 24 hours."
+                ]
+            },
+        ],
+    }
 } 

@@ -20,6 +20,7 @@ import DashboardPainel from "./components/dashboard/pages/Painel";
 import Confirmation from "./components/pages/Confirmation";
 import ActivitiesContainer from "./components/pages/ActivitiesContainer";
 import ScrollToTop from "./components/common/ScrollToTop";
+import Level from "./components/pages/Activities/Level";
 export const history = createBrowserHistory();
 
 function Router() {
@@ -27,6 +28,7 @@ function Router() {
         <BrowserRouter history={history}>
             <ScrollToTop>
                 <Routes>
+                    <Route exact path="/activities/canyoning/:index" element={<Layout><Level /></Layout>} />
                     <Route exact path="/activities/canyoning" element={<Layout><Canyoning /></Layout>} />
                     <Route exact path="/activities/hiking" element={<Layout><Hiking /></Layout>} />
                     <Route exact path="/activities/coasteering" element={<Layout><Coasteering /></Layout>} />

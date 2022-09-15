@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from "styled-components";
+import { dimensions } from '../../helper';
 
 const Overlay = styled.div`
   z-index: 1;
@@ -18,11 +19,19 @@ const Header = styled.div`
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-bottom: 200px;
+    margin-bottom: 150px;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media (max-width: ${dimensions.lg}) {
+        margin-bottom: 80px;
+    }
+
+    @media (max-width: ${dimensions.md}) {
+        margin-bottom: 50px;
+    }
 
     div {
         z-index: 1;
@@ -31,12 +40,22 @@ const Header = styled.div`
             font-size: 60px;
             color: white;
             text-align: center;
+
+            @media (max-width: ${dimensions.md}) {
+                font-size: 40px;
+            }
+
         }
 
         p {
             font-size: 18px;
             color: white;
             text-align: center;
+
+            @media (max-width: ${dimensions.md}) {
+                font-size: 16px;
+            }
+
         }
     }
 `;

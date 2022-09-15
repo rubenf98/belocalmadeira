@@ -9,10 +9,11 @@ import styled from "styled-components";
 
 const Warning = styled.div`
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    margin-bottom: 20px;
 
     img {
-        width: 30px;
+        width: 20px;
         margin-right: 10px;
     }
 
@@ -21,6 +22,10 @@ const Warning = styled.div`
         color: white;
         font-size: 14px;
         opacity: .6;
+
+        p {
+            margin: 0px;
+        }
     }
     
 `;
@@ -152,6 +157,13 @@ function Information({ fetchActivities, data, text }) {
                         <Warning>
                             <img src="/icon/warning.svg" alt="warning" />
                             <div>{text.warning}</div>
+                        </Warning>
+                        <Warning>
+                            <img src="/icon/discount.svg" alt="discount" />
+                            <div>
+                                <p>{text.discount}</p>
+                                <p>{text.family}</p>
+                            </div>
                         </Warning>
                     </Col>
 

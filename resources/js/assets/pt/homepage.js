@@ -27,13 +27,21 @@ export const text = {
     },
     about: {
         videoError: "O teu browser não suporta a tag de vídeo",
-        titles: ["quem é a be local", "bem vindo à aventura be local"],
+        titles: ["Quem é a be local", "Os melhores profisisonais para a tarefa", "A sua experiência começa agora"],
         description: [
             "Somos uma empresa local que promove aventura e experiências com a natureza na Ilha da Madeira.",
-            "Oferecemos uma panóplia de experiências alucinantes que te irão permitir desfrutar de momentos únicos por locais fascinantes.",
             "Temos profissionais dedicados e certificados em Canyoning, Coasteering, passeios de bicicleta e caminhadas. Desta forma irá ser acompanhado em todos os momentos.",
-            "Junte-se a nós e irá viver momentos que recordará para sempre!"
+            "Oferecemos uma panóplia de experiências alucinantes que te irão permitir desfrutar de momentos únicos por locais fascinantes. Junte-se a nós e irá viver momentos que recordará para sempre!"
         ],
+    },
+    family: {
+        paragraph: "Aproveita o nosso pack família para todas as reservas superiores a 4 paticipantes e cria memórias inesquecíveis para todos",
+        button: "Reservar agora"
+    },
+    discount: {
+        title: "Oportunidade de reserva",
+        paragraph: "Descontos imperdíveis em todas as atividades reservadas online",
+        button: "Reservar agora"
     },
     services: {
         title: "serviços",
@@ -79,7 +87,7 @@ export const text = {
     },
     activities: {
         title: "Atividades",
-        subtitle: (<>Recebe uma amostra do que podes <span>experienciar</span></>),
+        subtitle: (<>Bem vindo à <span>aventura</span> be local</>),
         items: ['canyoning', "bicicleta", "coasteering", "caminhada"]
     },
     socials: {
@@ -92,4 +100,42 @@ export const text = {
                 </LinkContainer>
             </>),
     },
+    faq: {
+        title: "Perguntas frequentes",
+        subtitle: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat accusantium vel alias tempora soluta possimus repellat, corporis accusamus. Quod reprehenderit quia sed. Aliquam quo eos ipsum id placeat fugiat ad.",
+        questions: [
+            {
+                question: "O que está incluído nos tours?",
+                answer: [
+                    "O preço inclui a atividade, o transporte entre o alojamento e o local da atividade, o Seguro de Acidentes Pessoais e de responsabilidade (de acordo com a legislação portuguesa) e todo o material individual e coletivamente.",
+                    "No caso do Canyoning e do Coasteering os clientes deverão trazer (toalha, fato de banho)",
+                    "Esta incluído ainda as fotografias e vídeos da atividade!"
+                ]
+            },
+            {
+                question: "Qual é a idade mínima e a máxima para participar numa atividade de Canyoning ou Coasteering?",
+                answer: [
+                    "Para as atividades de Canyoning ou Coasteering, a idade mínima é de 7 anos. A idade máxima é de 75 anos.",
+                ]
+            },
+            {
+                question: "E se eu não me sentir confortável para saltar?",
+                answer: [
+                    "Os saltos não são obrigatórios e temos sempre alternativas (podemos colocar uma corda para descer em rapel ou então por vezes temos um caminho alternativo ao longo do curso de água onde podemos ver os outros a saltar sem ter de o fazer."
+                ]
+            },
+            {
+                question: "O que acontece em caso de mau tempo?",
+                answer: [
+                    "Em caso de mau tempo, a atividade poderá ser cancelada ou agendada para outra data em concreto. Relativamente ao cancelamento por questões meteorológicas é sempre decidido e avaliado pela nossa equipa."
+                ]
+            },
+            {
+                question: "Como posso cancelar uma atividade?",
+                answer: [
+                    "Para o cancelamento de uma atividade é necessário que exista um aviso prévio, quer por e-mail ou telefone. Para ser reembolsado, o cancelamento deve ser feito em um período superior a 24 horas."
+                ]
+            },
+        ],
+    }
 } 

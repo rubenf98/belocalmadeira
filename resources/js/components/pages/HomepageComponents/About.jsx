@@ -5,52 +5,38 @@ import AnimationContainer from '../../common/AnimationContainer';
 
 const Container = styled.section`
     position: relative;
-`;
-
-const Separator = styled.div`
-    height: 200px;
-    width: 50%;
-    border-right: 1px solid lightgray;
-
-    @media (max-width: ${dimensions.md}) {
-        border: 0px;
-    }
-`;
-
-
-const Section = styled.div`
     display: flex;
     justify-content: center;
-    box-sizing: border-box;
-    width: 100%;
-    padding: 0px 10px;
-    box-sizing: border-box;
     max-width: ${maxWidth};
     margin: auto;
+    padding: 100px 0px;
+    box-sizing: border-box;
     align-items: center;
     flex-wrap: wrap;
 `;
 
-const ImageContainer = styled.div`
+const Column = styled.div`
+    box-sizing: border-box;
     width: 50%;
-    order: ${props => props.reverseOrder ? 2 : 1};
-    position: relative;
+    padding: 0px 50px;
+    box-sizing: border-box;
 
     @media (max-width: ${dimensions.md}) {
         width: 100%;
-        border: 0px;
-        order: 2;
+        padding: 0px 0px;
     }
+`;
 
-    .fixed-height {
-        max-width: 400px;
-    }
+const ImageContainer = styled.div`
+    width: 100%;
+    order: ${props => props.reverseOrder ? 2 : 1};
+    position: relative;
 
     video {
         width: 100%;
-        height: 100%;
+        height: auto;
+        max-height: 700px;
         object-fit: cover;
-        border-left: 1px solid lightgray;
         
 
         @media (max-width: ${dimensions.md}) {
@@ -67,32 +53,38 @@ const ImageContainer = styled.div`
 `;
 
 const InfoContainer = styled.div`
-    width: 50%;
-    padding: 0px 50px;
-    box-sizing: border-box;
-    order: ${props => props.reverseOrder ? 1 : 2};
+    width: 100%;
+    margin-bottom: 50px;
+    margin-top: 100px;
 
-    @media (max-width: ${dimensions.md}) {
-        width: 100%;
-        border: 0px;
-        order: 1;
-        padding: 0px;
-
-        h2, p {
-            text-align: center;
-        }
-    }
+    
 
     h2 {
-        font-size: 50px;
+        font-size: 40px;
         font-weight: bold;
-        text-transform: uppercase;
+        font-family: 'Playfair Display', serif;
+        line-height: 47px;
         
     }
 
     p {
-        font-size: 22px;
-        color: ${props => props.lightText};
+        font-size: 16px;
+        font-family: 'Playfair Display', serif;
+        margin-bottom: 5px;
+    }
+
+    @media (max-width: ${dimensions.md}) {
+        padding: 0px 20px;
+        margin-top: 50px;
+
+        h2 {
+            font-size: 24px;
+            line-height: 30px;
+        }
+
+        p {
+            font-size: 14px;
+        }
     }
 `;
 
@@ -109,44 +101,58 @@ const Overlay = styled.div`
 function About({ text }) {
     const themeContext = useContext(ThemeContext);
 
+    const Section = ({ video, thumbnail, title, descriptions }) => (
+        <>
+            <InfoContainer lightText={themeContext.lightText}>
+                <AnimationContainer animateIn="fadeInRight">
+                    <h2>{text.titles[title]}</h2>
+                    {descriptions.map((index) => (
+                        <p key={index}>{text.description[index]}</p>
+                    ))}
+
+
+                </AnimationContainer>
+            </InfoContainer>
+            <ImageContainer>
+                <Overlay />
+                <video preload='auto' playsInline poster={"/image/homepage/" + thumbnail + ".jpg"} muted loop autoPlay controls={false}>
+                    <source src={"/image/homepage/" + video + ".webm"} type="video/webm" />
+                    <source src={"/image/homepage/" + video + ".mp4"} type="video/mp4" />
+                    {text.videoError}
+                </video>
+            </ImageContainer>
+        </>
+    )
+
     return (
         <Container id="homepage-about-container">
-            <Separator />
-            <Section>
-                <ImageContainer>
-                    <Overlay />
-                    <video preload='auto' playsInline poster="/image/homepage/about_thumbnail.jpg" className="separator" muted loop autoPlay controls={false}>
-                        <source src="/image/homepage/walking.webm" type="video/webm" />
-                        <source src="/image/homepage/walking.mp4" type="video/mp4" />
-                        {text.videoError}
-                    </video>
-                </ImageContainer>
-                <InfoContainer lightText={themeContext.lightText}>
-                    <AnimationContainer animateIn="fadeInRight">
-                        <h2>{text.titles[0]}</h2>
-                        <p>{text.description[0]}</p>
-                        <p>{text.description[1]}</p>
-                    </AnimationContainer>
-                </InfoContainer>
-            </Section>
-            <Separator />
-            <Section>
-                <ImageContainer reverseOrder>
-                    <video preload='auto' playsInline poster="/image/homepage/about2_thumbnail.jpg" muted loop autoPlay className='fixed-height separator' controls={false}>
-                        <source src="/image/homepage/about2.webm" type="video/webm" />
-                        <source src="/image/homepage/timelapse.mp4" type="video/mp4" />
-                        {text.videoError}
-                    </video>
-                </ImageContainer>
-                <InfoContainer lightText={themeContext.lightText} reverseOrder>
-                    <AnimationContainer animateIn="fadeInLeft">
-                        <h2>{text.titles[1]}</h2>
-                        <p>{text.description[2]}</p>
-                        <p>{text.description[3]}</p>
-                    </AnimationContainer>
-                </InfoContainer>
-            </Section>
-            <Separator />
+            <Column >
+
+                <Section
+                    video="about"
+                    thumbnail="timelapse_thumbnail"
+                    title={0}
+                    descriptions={[0]}
+                />
+                <Section
+                    video="walking"
+                    thumbnail="about_thumbnail"
+                    title={2}
+                    descriptions={[2]}
+                />
+
+            </Column>
+            <Column className='last-section'>
+                <Section
+                    video="timelapse"
+                    thumbnail="timelapse_thumbnail"
+                    title={1}
+                    descriptions={[1]}
+                />
+            </Column>
+
+
+            <br />
         </Container>
     )
 }

@@ -38,11 +38,6 @@ const CarouselContainer = styled(Row)`
 
 const CarouselItem = styled.div`
     margin-bottom: 50px;
-
-    @media (max-width: ${dimensions.md}) {
-        text-align: center;
-        
-    }
     
     h3 {
         font-weight: bold;
@@ -72,13 +67,14 @@ const ButtonContainer = styled.div`
 
 const MainImage = styled.img`
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
     float: right;
 
     @media (max-width: ${dimensions.md}) {
         margin: auto;
         display: block;
         float: none;
+        max-width: 800px;
     }
     
 `;
@@ -94,8 +90,7 @@ const ViewMore = styled.div`
     left: 16px;
 
     @media (max-width: ${dimensions.md}) {
-        left: 50%;
-        transform: translate(-50%, 0);
+        bottom: 10px;
     }
 
     a {

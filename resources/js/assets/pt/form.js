@@ -4,6 +4,8 @@ export const text = {
         {
             title: "Explora as nossas atividades e reserva a tua experiência na Ilha da Madeira!",
             warning: "Atividades privadas de canyoning, caminhadas, passeios de bicicleta e coasteering são 120€",
+            discount: "Todas as reservas online possuem um desconto de 10% no final da reserva.",
+            family: "Todas as reservas com 4 ou mais participantes possuem um desconto familiar de 15% no final da reserva.",
             form: {
                 name: {
                     placeholder: "Nome *"

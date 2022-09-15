@@ -10,9 +10,10 @@ const Container = styled.section`
     position: relative;
     background: ${props => props.background};
     box-sizing: border-box;
+    padding: 0px 0px 100px 0px;
 
     @media (max-width: ${dimensions.md}) {
-        padding: 0px 20px;
+        padding: 20px;
     }
 `;
 
@@ -34,6 +35,7 @@ const Info = styled.div`
 
     @media (max-width: ${dimensions.md}) {
         width: 100%;
+        padding: 20px 0px;
     }
 
     h2 {
@@ -43,7 +45,7 @@ const Info = styled.div`
 
     p {
         font-size: 16px;
-        color: #707070;
+        opacity: .7;
     }
 `;
 
@@ -55,7 +57,9 @@ const Accordion = styled(Collapse)`
 
     @media (max-width: ${dimensions.md}) {
         width: 100%;
+        padding: 20px 0px;
     }
+
     .ant-collapse-item, .ant-collapse-item:last-child {
         background-color: white;
         margin-bottom: 10px;
@@ -73,12 +77,14 @@ const Accordion = styled(Collapse)`
 
         @media (max-width: ${dimensions.md}) {
             font-size: 12px;
+            padding: 0px;
         }
     }
 
     .ant-collapse-content-box {
         p {
             font-size: 12px;
+            text-align: justify;
 
             @media (max-width: ${dimensions.md}) {
                 font-size: 12px;
@@ -89,27 +95,19 @@ const Accordion = styled(Collapse)`
     
 `;
 
-const items = [
-    { q: "O que está incluído nos tours?", a: ["O preço inclui a atividade, o transporte entre o alojamento e o local da atividade, o Seguro de Acidentes Pessoais e de responsabilidade (de acordo com a legislação portuguesa) e todo o material individual e coletivamente.", "No caso do Canyoning e do Coasteering os clientes deverão trazer (toalha, fato de banho)", "Esta incluído ainda as fotografias e vídeos da atividade!"] },
-    { q: "Qual é a idade mínima e a máxima para participar numa atividade de Canyoning ou Coasteering?", a: ["Para as atividades de Canyoning ou Coasteering, a idade mínima é de 7 anos. A idade máxima é de 75 anos."] },
-    { q: "E se eu não me sentir confortável para saltar?", a: ["Os saltos não são obrigatórios e temos sempre alternativas (podemos colocar uma corda para descer em rapel ou então por vezes temos um caminho alternativo ao longo do curso de água onde podemos ver os outros a saltar sem ter de o fazer."] },
-    { q: "O que acontece em caso de mau tempo?", a: ["Em caso de mau tempo, a atividade poderá ser cancelada ou agendada para outra data em concreto. Relativamente ao cancelamento por questões meteorológicas é sempre decidido e avaliado pela nossa equipa."] },
-    { q: "Como posso cancelar uma atividade?", a: ["Para o cancelamento de uma atividade é necessário que exista um aviso prévio, quer por e-mail ou telefone. Para ser reembolsado, o cancelamento deve ser feito em um período superior a 24 horas."] },
-]
-
-function Faq({ theme }) {
+function Faq({ theme, text, hasBackground = true }) {
     return (
-        <Container background={theme.primaryBackground}>
+        <Container background={hasBackground && theme.primaryBackground}>
             <Content>
                 <Info>
-                    <h2>Frequently asked questions</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat accusantium vel alias tempora soluta possimus repellat, corporis accusamus. Quod reprehenderit quia sed. Aliquam quo eos ipsum id placeat fugiat ad.</p>
+                    <h2>{text.title}</h2>
+                    <p>{text.subtitle}</p>
                 </Info>
 
                 <Accordion ghost>
-                    {items.map((item, iIndex) => (
-                        <Panel header={item.q} key={iIndex}>
-                            {item.a.map((answer, aIndex) => (
+                    {text.questions.map((item, iIndex) => (
+                        <Panel header={item.question} key={iIndex}>
+                            {item.answer.map((answer, aIndex) => (
                                 <p key={"answer-" + "iIndex-" + aIndex}>{answer}</p>
                             ))}
                         </Panel>

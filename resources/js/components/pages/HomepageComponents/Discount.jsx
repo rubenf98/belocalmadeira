@@ -2,82 +2,98 @@ import { Row } from 'antd';
 import React from 'react'
 import styled, { withTheme } from "styled-components";
 import { dimensions, maxWidth } from '../../../helper';
+import { handleForm } from "../../../redux/application/actions";
+import { connect } from "react-redux";
 
 const Container = styled.section`
-    width: 100%;
+    width: 100vw;
+    min-height: calc(100vh - 100px);
     position: relative;
-    background: ${props => props.background};
-`;
-
-const Content = styled.div`
-    width: 100%;
-    box-sizing: border-box;
-    padding: 0px 0px 100px 0px;
-    box-sizing: border-box;
-    max-width: ${maxWidth};
-    margin: auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
 
-    @media (max-width: ${dimensions.md}) {
-        padding: 0px 20px 100px 20px;
+    @media(max-width: ${dimensions.md}) {
+        min-height: calc(100vh - 70px);
     }
 `;
 
-const OffsetBackground = styled.div`
-    background: ${props => props.background};
-    position: absolute;
+
+const BlurredBackground = styled.img`
     width: 100%;
-    height: 100px;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
     top: 0;
+    left: 0;
+    z-index: -1;
+    filter: brightness(.6) blur(4px);
+    transform: scale(1.1); 
+
+    @media(max-width: ${dimensions.md}) {
+        display: none;
+    }
 `;
 
 const InfoContainer = styled.div`
-    width: 50%;
-    padding-right: 20px;
-    box-sizing: border-box;
+    width: 100%;
+    max-width: ${maxWidth};
+    height: 60vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    @media (max-width: ${dimensions.md}) {
-        width: 100%;
-        order: 2;
+    @media(max-width: ${dimensions.md}) {
+        padding: 100px 20px;
+        min-height: calc(100vh - 70px);
+        height: 100%;
     }
-    
-    h2 {
+
+    h2, h3, p {
+        color: white;
+        text-align: center;
+        font-family: 'Playfair Display', serif;
+    }
+
+    h2, h3 {
+        font-size: 70px;
+        font-weight: bold;
+        margin-bottom: 0px;
+
+        @media(max-width: ${dimensions.md}) {
+            font-size: 42px;
+        }
+    }
+
+    p {
+        font-size: 32px;
+        width: 70%;
         margin: 0px auto;
-        font-size: 40px;
-        text-transform: capitalize;
-        
-        @media (max-width: ${dimensions.md}) {
-            font-size: 30px;
-            width: 100%;
-            text-align: center;
-            margin: 30px 0px;
-        }
 
-        @media (max-width: ${dimensions.sm}) {
-            font-size: 26px;
-            width: 100%;
+        @media(max-width: ${dimensions.md}) {
+            font-size: 16px;
         }
+    }
 
-        span {
-            font-weight: bold;
-            font-family: 'Merienda One', cursive;;
-        }
+    h3 {
+        padding: 0px 20px;
+        box-sizing: border-box;
     }
     
 `;
 
-const Image = styled.img`
-    width: 50%;
-    z-index:2 ;
-
-    @media (max-width: ${dimensions.md}) {
-        width: 100%;
-        order: 1;
-    }
+const Background = styled.img`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: none;
+    filter: brightness(.6);
+    z-index: -1;
 `;
+
 
 const OrderButton = styled.div`
     box-sizing: border-box;
@@ -103,23 +119,55 @@ const OrderButton = styled.div`
     
 `;
 
-function Discount({ theme }) {
+const Line = styled.div`
+    flex: 1;
+    height: 3px;
+    background-color: white;
+`;
+
+
+function Discount({ theme, text, handleForm }) {
     return (
         <Container background={theme.primaryBackground}>
-            <OffsetBackground background={theme.primary} />
-            <Content >
-                <InfoContainer>
-                    <h2>Book your activity now and get <span>5%</span> exclusive online discount, or enjoy our <span>10%</span> offer for families!</h2>
-                    <Row type="flex">
-                        <OrderButton color={theme.inverseText} background={theme.primary} backgroundHover={theme.primaryHover}>Book now</OrderButton>
+            <BlurredBackground src="/image/homepage/discount_background.jpg" />
+            <InfoContainer>
+                <div>
+                    <h2>{text.title}</h2>
+                    <p>{text.paragraph}</p>
+                    <Row type="flex" justify="center" align='middle'>
+                        <Line />
+                        <h3>-10%</h3>
+                        <Line />
                     </Row>
 
-                </InfoContainer>
-                <Image src="/image/homepage/family.jpg" />
-            </Content>
+                    <Row type="flex" justify='center'>
+                        <OrderButton
+                            color={theme.inverseText}
+                            background={theme.primary}
+                            backgroundHover={theme.primaryHover}
+                            onClick={() => handleForm(true)}
+                        >
+                            {text.button}
+                        </OrderButton>
+                    </Row>
+                </div>
+
+                <Background src="/image/homepage/discount_background.jpg" />
+            </InfoContainer>
+
 
         </Container>
     )
 }
 
-export default withTheme(Discount)
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        handleForm: (visibility) => dispatch(handleForm(visibility)),
+    };
+};
+
+export default connect(
+    null,
+    mapDispatchToProps
+)(withTheme(Discount));

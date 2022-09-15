@@ -20,9 +20,16 @@ const Detail = styled.div`
     font-weight: bold;
     color: white;
 
-    span {
+    .fieldname {
         display: block;
         font-weight: 300;
+    }
+
+    .old-price {
+        font-size: 16px;
+        text-decoration: line-through;
+        opacity: .6;
+        margin-left: 10px;
     }
 `;
 
@@ -43,6 +50,7 @@ const Feedback = styled.h3`
 function Summary({ text, data, activities }) {
     const [activityName, setActivityName] = useState("");
     const [activityPrice, setActivityPrice] = useState(0);
+    const [discount, setDiscount] = useState(.9);
 
     useEffect(() => {
 
@@ -54,6 +62,7 @@ function Summary({ text, data, activities }) {
                         setActivityName(activity.label);
                         var price = data.private ? activity.private_price : activity.price;
                         setActivityPrice(price * data.participants);
+
                     }
                 })
             }
@@ -65,20 +74,25 @@ function Summary({ text, data, activities }) {
                 };
             }
         })
-    }, [data])
 
+        if (data.participants >= 4) {
+            setDiscount(.85)
+        }
+
+    }, [data])
+    console.log(discount)
     return (
         <div>
             <Flex type="flex" justify="flex-start">
 
-                <Detail><span>{text.details.name} </span> {data.name} </Detail>
-                <Detail><span>{text.details.email} </span> {data.email} </Detail>
-                <Detail><span>{text.details.phone} </span> {data.phone.code}{data.phone.phone} </Detail>
-                <Detail><span>{text.details.address} </span> {data.address} </Detail>
-                <Detail><span>{text.details.private} </span> {data.private ? "Yes" : "No"} </Detail>
-                <Detail><span>{text.details.activity} </span> {activityName} </Detail>
-                <Detail><span>{text.details.price} </span> {activityPrice}€ </Detail>
-                <Detail><span>{text.details.date} </span> {data.date}</Detail>
+                <Detail><span className="fieldname">{text.details.name} </span> {data.name} </Detail>
+                <Detail><span className="fieldname">{text.details.email} </span> {data.email} </Detail>
+                <Detail><span className="fieldname">{text.details.phone} </span> {data.phone.code}{data.phone.phone} </Detail>
+                <Detail><span className="fieldname">{text.details.address} </span> {data.address} </Detail>
+                <Detail><span className="fieldname">{text.details.private} </span> {data.private ? "Yes" : "No"} </Detail>
+                <Detail><span className="fieldname">{text.details.activity} </span> {activityName} </Detail>
+                <Detail><span className="fieldname">{text.details.price} </span>  {activityPrice * discount}€ <span className="old-price">{activityPrice}€</span> </Detail>
+                <Detail><span className="fieldname">{text.details.date} </span> {data.date}</Detail>
             </Flex>
             <Feedback>{text.participantsTitle}</Feedback>
             <Flex type="flex" justify="flex-start">
