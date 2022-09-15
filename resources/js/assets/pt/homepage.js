@@ -102,7 +102,7 @@ export const text = {
     },
     faq: {
         title: "Perguntas frequentes",
-        subtitle: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat accusantium vel alias tempora soluta possimus repellat, corporis accusamus. Quod reprehenderit quia sed. Aliquam quo eos ipsum id placeat fugiat ad.",
+        subtitle: "Estas são as dúvidas que a maioria das pessoas têm relativamente à Be Local. Caso nenhuma lhe interesse, contacte-nos para informação adicional.",
         questions: [
             {
                 question: "O que está incluído nos tours?",
