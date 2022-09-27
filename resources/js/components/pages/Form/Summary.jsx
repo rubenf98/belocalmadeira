@@ -50,7 +50,7 @@ const Feedback = styled.h3`
 function Summary({ text, data, activities }) {
     const [activityName, setActivityName] = useState("");
     const [activityPrice, setActivityPrice] = useState(0);
-    const [discount, setDiscount] = useState(.9);
+    const [discount, setDiscount] = useState(1);
 
     useEffect(() => {
 
@@ -76,11 +76,10 @@ function Summary({ text, data, activities }) {
         })
 
         if (data.participants >= 4) {
-            setDiscount(.85)
+            setDiscount(.9)
         }
 
     }, [data])
-    console.log(discount)
     return (
         <div>
             <Flex type="flex" justify="flex-start">
@@ -91,7 +90,7 @@ function Summary({ text, data, activities }) {
                 <Detail><span className="fieldname">{text.details.address} </span> {data.address} </Detail>
                 <Detail><span className="fieldname">{text.details.private} </span> {data.private ? "Yes" : "No"} </Detail>
                 <Detail><span className="fieldname">{text.details.activity} </span> {activityName} </Detail>
-                <Detail><span className="fieldname">{text.details.price} </span>  {activityPrice * discount}€ <span className="old-price">{activityPrice}€</span> </Detail>
+                <Detail><span className="fieldname">{text.details.price} </span>  {activityPrice * discount}€ {discount != 1 && <span className="old-price">{activityPrice}€</span>}  </Detail>
                 <Detail><span className="fieldname">{text.details.date} </span> {data.date}</Detail>
             </Flex>
             <Feedback>{text.participantsTitle}</Feedback>

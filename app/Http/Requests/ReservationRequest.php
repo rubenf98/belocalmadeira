@@ -37,8 +37,8 @@ class ReservationRequest extends FormRequest
         }
 
         if ($this->participants >= 4) {
-            $price = $price * .85;
-        } else $price = $price * .9;
+            $price = $price * .9;
+        }
 
         $phone = null;
         if (array_key_exists("code", $this->phone) && array_key_exists("phone", $this->phone)) {

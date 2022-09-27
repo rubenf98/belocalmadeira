@@ -160,10 +160,7 @@ function Information({ fetchActivities, data, text }) {
                         </Warning>
                         <Warning>
                             <img src="/icon/discount.svg" alt="discount" />
-                            <div>
-                                <p>{text.discount}</p>
-                                <p>{text.family}</p>
-                            </div>
+                            <div>{text.family}</div>
                         </Warning>
                     </Col>
 

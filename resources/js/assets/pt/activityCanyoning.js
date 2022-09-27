@@ -9,7 +9,7 @@ export const text = {
     section: "Todas as informações necessárias relativas ao Canyoning",
     includes: [
         "Transferes",
-        "Equipamento completo de canyoning de alta qualidade (incluindo capacete, roupa de neoprene, meias de neoprene, arnês, sapatos ESPECIAIS ADIDAS)",
+        "Equipamento completo de canyoning de alta qualidade (incluindo capacete, roupa de neoprene, meias de neoprene, arnês, sapatos ESPECIAIS)",
 
     ],
     activities: {
@@ -26,13 +26,13 @@ export const text = {
         title: "atividades",
         subtitle: (<>As nossas <span>experiências</span> na Ilha da Madeira</>),
         items: [
-            { title: "Iniciante", subtitle: "Pacote Família", paragraphs: ["Proporcionamos-lhe uma das melhores aventuras em família que a Madeira pode oferecer. Levamos a sua família para se divertir e saltar nas belas cascatas, piscinas verdes e entreter toda a família."], from: 60, images: ["family_01", "family_02", "family_03"] },
+            { index: 1, price: "70", title: "Iniciante", subtitle: "Pacote Família", paragraphs: ["Proporcionamos-lhe uma das melhores aventuras em família que a Madeira pode oferecer. Levamos a sua família para se divertir e saltar nas belas cascatas, piscinas verdes e entreter toda a família."], from: 60, images: ["family_01", "family_02", "family_03"] },
             // { title: "Iniciante", subtitle: "Ribeiro Frio", paragraphs: ["Vamos levá-lo a este local bonito cercado por uma paisagem impressionante, muitos escorregas naturais, pequenas passagens de natação e alguns saltos esperam por si. Mas não se preocupe, todos os saltos também podem ser feitos de rapel."], from: 60, image: "ribeiro_frio_01" },
-            { title: "Iniciante", subtitle: "Ribeira das Cales", paragraphs: ["Este canyoning destina-se a quem pretende ter o primeiro contacto com a atividade. É um percurso fácil e acessível para todas as idades (acima de 10 anos)."], from: 60, images: ["cales_01", "cales_02", "cales_03"] },
-            { title: "Intermédio", subtitle: "Curral das Freiras", paragraphs: ["Rodeado por montanhas escarpadas, este desfiladeiro situa-se no meio da ilha, no vale para onde fugiram as freiras do convento de Santa Clara quando o Funchal foi atacado por piratas em 1566."], from: 80, images: ["curral_01", "curral_02", "curral_03"] },
-            { title: "Intermédio", subtitle: "Ribeiro Frio", paragraphs: ["Canyoning Ribeiro Frio é um canyon no lado norte da Ilha da Madeira e consiste em 8 rapeis ao longo do caminho. O Canyon está inserido na Floresta Laurissilva que é património mundial da UNESCO desde 1999 e uma das sete maravilhas de Portugal."], from: 80, images: ["ribeiro_frio_01", "ribeiro_frio_02", "ribeiro_frio_03"] },
+            { index: 1, price: "70", title: "Iniciante", subtitle: "Ribeira das Cales", paragraphs: ["Este canyoning destina-se a quem pretende ter o primeiro contacto com a atividade. É um percurso fácil e acessível para todas as idades (acima de 7 anos)."], from: 60, images: ["cales_01", "cales_02", "cales_03"] },
+            { index: 2, price: "80", title: "Intermédio", subtitle: "Curral das Freiras", paragraphs: ["Rodeado por montanhas escarpadas, este desfiladeiro situa-se no meio da ilha, no vale para onde fugiram as freiras do convento de Santa Clara quando o Funchal foi atacado por piratas em 1566."], from: 80, images: ["curral_01", "curral_02", "curral_03"] },
+            { index: 2, price: "80", title: "Intermédio", subtitle: "Ribeiro Frio", paragraphs: ["Canyoning Ribeiro Frio é um canyon no lado norte da Ilha da Madeira e consiste em 8 rapeis ao longo do caminho. O Canyon está inserido na Floresta Laurissilva que é património mundial da UNESCO desde 1999 e uma das sete maravilhas de Portugal."], from: 80, images: ["ribeiro_frio_01", "ribeiro_frio_02", "ribeiro_frio_03"] },
             // { title: "Intermédio", subtitle: "Lajeado", paragraphs: ["Este Canyoning começa no Paúl da Serra, que literalmente significa pântano das montanhas. O Paúl da Serra é o ponto de partida para muitos belos canyons que descem a ilha a partir deste planalto."], from: 100, image: "family" },
-            { title: "Avançado", subtitle: "Ribeira Funda", paragraphs: ["Canyoning Avançado na Ilha da Madeira distingue-se pelas suas grandes verticais e elevado nível técnico, oferecendo finais épicos junto ao mar do Norte."], from: 120, images: ["funda_01", "funda_02", "funda_03"] },
+            { index: 3, price: "120", title: "Avançado", subtitle: "Ribeira Funda", paragraphs: ["Canyoning Avançado na Ilha da Madeira distingue-se pelas suas grandes verticais e elevado nível técnico, oferecendo finais épicos junto ao mar do Norte."], from: 120, images: ["funda_01", "funda_02", "funda_03"] },
         ],
         descriptions: [
             "O primeiro nível não requer nenhuma experiência e é perfeito para quem quer dar o primeiro passo nesta atividade maravilhosa! É um percurso fácil e acessível para todas as idades (acima de 7 anos). Tem uma altura máxima de 10-15 metros com vários saltos opcionais.",

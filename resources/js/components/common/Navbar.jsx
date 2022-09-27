@@ -4,7 +4,7 @@ import {
     Link
 } from "react-router-dom";
 import { dimensions } from '../../helper';
-import { Select, Drawer, Dropdown, Menu } from 'antd';
+import { Select, Drawer, Dropdown, Menu, Row } from 'antd';
 import AnimationContainer from './AnimationContainer';
 
 const Container = styled.div`
@@ -44,6 +44,12 @@ const Content = styled.div`
 
     .navbar-hidden-links {
         @media(max-width: ${dimensions.md}) {
+            display: none;
+        }
+    }
+
+    .navbar-hidden-menu {
+        @media(min-width: ${dimensions.md}) {
             display: none;
         }
     }
@@ -101,34 +107,23 @@ const OrderButton = styled.div`
     text-transform: capitalize;
     color: ${props => props.color};
     font-weight: bold;
-
     @media(max-width: ${dimensions.md}) {
-        padding: 0px;
-        background: transparent;
+        font-size: 14px;
+        padding: 8px 16px 8px 16px;
+        margin-right: 10px;
     }
+    
 
     &:hover {
         background: ${props => props.backgroundHover};
 
         @media(max-width: ${dimensions.md}) {
-            background: transparent;
-        }
-    }
-
-    span {
-        @media (max-width: ${dimensions.md}) {
-            display: none;
+            /* background: transparent; */
         }
     }
 
     img {
         display: none;
-
-        @media (max-width: ${dimensions.md}) {
-            display: block;
-            margin: auto;
-            height: 20px;
-        }
     }
     
 `;
@@ -139,7 +134,7 @@ const MenuButton = styled.div`
     flex: 1;
 
     @media (max-width: ${dimensions.md}) {
-        display: block;  
+        display: block; 
     }
 
     img {
@@ -376,14 +371,22 @@ function Navbar({ handleVisibility, theme }) {
                 </FlexItem>
 
                 <AnimationContainer animateIn="fadeInDown" offset={0}>
-                    <Dropdown overlayClassName="menu-dropdown" overlay={menu} placement="bottom">
-                        <MenuButton>
-                            <img
-                                src="/image/navbar/menu.svg"
-                                alt="menu"
-                            />
-                        </MenuButton>
-                    </Dropdown>
+                    <Row type="flex" align='middle' className='navbar-hidden-menu'>
+                        <OrderButton onClick={() => handleVisibility(true)} color={themeContext.inverseText} background={themeContext.primary} backgroundHover={themeContext.primaryHover}>
+                            <AnimationContainer animateIn="fadeInDown" offset={0}>
+                                <span>{text.button}</span>
+                                <img src="/image/navbar/order.svg" alt="create reservation" />
+                            </AnimationContainer>
+                        </OrderButton>
+                        <Dropdown overlayClassName="menu-dropdown" overlay={menu} placement="bottom">
+                            <MenuButton>
+                                <img
+                                    src="/image/navbar/menu.svg"
+                                    alt="menu"
+                                />
+                            </MenuButton>
+                        </Dropdown>
+                    </Row>
                 </AnimationContainer>
 
             </Content>

@@ -8,22 +8,21 @@ export const text = {
     ],
     section: "Quick information about the activity",
     includes: [
-        "Schedule: everyday, all year round",
-        "Duration: approximately 3 to 4 hours",
-        "Important to bring:  swimming clothes & towel"
+        "Tranfers",
+        "Complete high-quality canyoning equipment (incl. helmet, wetsuit, neoprene socks, harness, SPECIAL shoes)",
     ],
     levels: {
         titles: ['Details', "Summary"],
         title: "activities",
         subtitle: (<>Our canyoning <span>experiences</span> in Madeira Island</>),
         items: [
-            { title: "Beginner", subtitle: "Family Pack", paragraphs: ["We provide you one of the best family adventures that Madeira can offer. We take your family to enjoy splashing and jumping in the beautiful waterfalls, green pools and to entertain the whole family."], from: 60, images: ["family_01", "family_02", "family_03"] },
+            { index: 1, price: "70", title: "Beginner", subtitle: "Family Pack", paragraphs: ["We provide you one of the best family adventures that Madeira can offer. We take your family to enjoy splashing and jumping in the beautiful waterfalls, green pools and to entertain the whole family."], from: 60, images: ["family_01", "family_02", "family_03"] },
             // { title: "Beginner", subtitle: "Ribeiro Frio", paragraphs: ["We will take you to this beautiful places, surrounded by impressive landscape a lot of slides, short swimming passages and a couple of jumps await you. But don’t worry, all of the jumps can also be abseiled."], from: 60, image: "ribeiro_frio_01" },
-            { title: "Beginner", subtitle: "Ribeira das Cales", paragraphs: ["This canyoning is intended for those who wish to have the first contact with the activity. It is a easy and accessible route for all ages (over 10 years old)."], from: 60, images: ["cales_01", "cales_02", "cales_03"] },
-            { title: "Intermediate", subtitle: "Nuns Valley", paragraphs: ["Surrounded by steep mountains, this canyon lies in the middle of the island, in the valley that the Nuns from Santa Clara convent fled to when Funchal was attacked by pirates in 1566."], from: 80, images: ["curral_01", "curral_02", "curral_03"] },
-            { title: "Intermediate", subtitle: "Ribeiro Frio", paragraphs: ["Canyoning Ribeiro Frio is a canyon in the north side of Madeira Island and consists in 8 rappels along the way. The Canyon is located within the Laurissilva Forest that is a UNESCO world heritage site since 1999 and one of the seven wonders of Portugal."], from: 80, images: ["ribeiro_frio_01", "ribeiro_frio_02", "ribeiro_frio_03"] },
+            { index: 1, price: "70", title: "Beginner", subtitle: "Ribeira das Cales", paragraphs: ["This canyoning is intended for those who wish to have the first contact with the activity. It is a easy and accessible route for all ages (over 7 years old)."], from: 60, images: ["cales_01", "cales_02", "cales_03"] },
+            { index: 2, price: "80", title: "Intermediate", subtitle: "Nuns Valley", paragraphs: ["Surrounded by steep mountains, this canyon lies in the middle of the island, in the valley that the Nuns from Santa Clara convent fled to when Funchal was attacked by pirates in 1566."], from: 80, images: ["curral_01", "curral_02", "curral_03"] },
+            { index: 2, price: "80", title: "Intermediate", subtitle: "Ribeiro Frio", paragraphs: ["Canyoning Ribeiro Frio is a canyon in the north side of Madeira Island and consists in 8 rappels along the way. The Canyon is located within the Laurissilva Forest that is a UNESCO world heritage site since 1999 and one of the seven wonders of Portugal."], from: 80, images: ["ribeiro_frio_01", "ribeiro_frio_02", "ribeiro_frio_03"] },
             // { title: "Intermediate", subtitle: "Lajeado", paragraphs: ["This Canyoning start on Paúl da Serra, which literally means swamp of the mountains. Paúl da Serra is starting point for many beautiful canyons that run down the island from this plateau."], from: 100, image: "family" },
-            { title: "Advanced", subtitle: "Ribeira Funda", paragraphs: ["Advanced Canyoning on Madeira Island distinguished by its great verticals and high technical level, offering epic endings by the north sea."], from: 120, images: ["funda_01", "funda_02", "funda_03"] },
+            { index: 3, price: "120", title: "Advanced", subtitle: "Ribeira Funda", paragraphs: ["Advanced Canyoning on Madeira Island distinguished by its great verticals and high technical level, offering epic endings by the north sea."], from: 120, images: ["funda_01", "funda_02", "funda_03"] },
         ],
         descriptions: [
             "The first level does not require any experience and is perfect for those who want to take their first step in this wonderful activity! It is a easy and accessible route for all ages (over 7 years old). It has a maximum height of 10-15 meters with several optional jumps.",
@@ -70,8 +69,9 @@ export const text = {
     activities: {
         title: (<span style={{ opacity: 0 }}>.</span >),
         items: [
-            "Included: (Transfer, insurance, photos of the tour, individual equipment, water and a chocolat and 2 certified guides)",
-            "No experience required",
+            "Photos + snack/water",
+            "Certified canyoning guides",
+            "Insurance (personal accidents and civil liability)",
         ],
     },
     gallery: {

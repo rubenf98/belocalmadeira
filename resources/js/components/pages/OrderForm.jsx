@@ -8,6 +8,7 @@ import { createReservation } from '../../redux/reservation/actions';
 import { connect } from "react-redux";
 import Summary from './Form/Summary';
 import moment from 'moment';
+import { dimensions } from '../../helper';
 
 const rotate = keyframes`
   from {
@@ -28,6 +29,10 @@ const Content = styled(Drawer)`
         background: ${props => props.background};
         padding: 50px;
         box-sizing: border-box;
+
+        @media (max-width: ${dimensions.md}) {
+            padding: 10px;
+        }
         
     }
 
@@ -60,6 +65,10 @@ const Title = styled.h2`
     font-family: 'Playfair Display', serif;
     color: white;
     margin: 50px 0px;
+
+    @media (max-width: ${dimensions.md}) {
+        font-size: 26px;
+    }
 `;
 
 const Next = styled.div`
@@ -118,7 +127,7 @@ const FlexContainer = styled.div`
 `;
 
 
-const OrderForm = ({ visible, handleVisibility, createReservation, loading }) => {
+const OrderForm = ({ visible, handleVisibility, createReservation, loading, activityInitialValue }) => {
     const { text } = require('../../assets/' + localStorage.getItem('language') + "/form");
     const [formData, setFormData] = useState({})
     const [step, setStep] = useState(0);
@@ -237,7 +246,8 @@ const OrderForm = ({ visible, handleVisibility, createReservation, loading }) =>
                 name="order"
                 requiredMark={false}
                 initialValues={{
-                    date: moment().add(1, 'days')
+                    date: moment().add(1, 'days'),
+                    activity: activityInitialValue
                 }}
             >
                 {steps[step].content}
@@ -272,6 +282,7 @@ const mapStateToProps = (state) => {
     return {
         loading: state.reservation.loading,
         calendarMetadata: state.reservation.calendarMetadata,
+        activityInitialValue: state.application.activityInitialValue,
     };
 };
 

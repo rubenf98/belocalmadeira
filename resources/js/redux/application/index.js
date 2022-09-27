@@ -4,6 +4,7 @@ export const initialState = {
     theme: "light",
     menuVisible: false,
     formVisible: false,
+    activityInitialValue: [],
 }
 
 export default (state = initialState, action = {}) => {
@@ -24,7 +25,8 @@ export default (state = initialState, action = {}) => {
         case `${types.HANDLE_FORM}`:
             return {
                 ...state,
-                formVisible: action.payload,
+                formVisible: action.payload[0],
+                activityInitialValue: action.payload[1],
             };
         default:
             return state

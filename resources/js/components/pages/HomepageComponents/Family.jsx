@@ -107,10 +107,6 @@ const OrderButton = styled.div`
 
     &:hover {
         background: ${props => props.backgroundHover};
-
-        @media(max-width: ${dimensions.md}) {
-            background: transparent;
-        }
     } 
 `;
 

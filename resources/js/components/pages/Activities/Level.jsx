@@ -5,6 +5,8 @@ import styled, { withTheme } from 'styled-components'
 import { dimensions, maxWidth } from '../../../helper';
 import Faq from '../HomepageComponents/Faq';
 import { Col, Row } from 'antd';
+import { connect } from "react-redux";
+import { handleForm } from "../../../redux/application/actions";
 
 const Image = styled.img`
     max-width: 720px;
@@ -130,8 +132,27 @@ const ParagraphContainer = styled.div`
 
 `;
 
+const OrderButton = styled.div`
+    box-sizing: border-box;
+    cursor: pointer;
+    background: ${props => props.background};
+    padding: 10px 30px 10px 30px;
+    font-size: 15px;
+    transition: .4s;
+    border-radius: 4px;
+    background-size: 110%;
+    text-transform: capitalize;
+    color: ${props => props.color};
+    font-weight: bold;
+    margin-top: 0px;
 
-function Level() {
+    &:hover {
+        background: ${props => props.backgroundHover};
+    } 
+`;
+
+
+function Level({ handleForm, theme }) {
     const { text } = require('../../../assets/' + localStorage.getItem('language') + "/activityCanyoning");
     const faqText = require('../../../assets/' + localStorage.getItem('language') + "/homepage");
     var { index } = useParams();
@@ -153,6 +174,7 @@ function Level() {
                         ))}
                     </Row>
                 </ParagraphContainer>
+
                 <DetailsContainer>
                     <div>
                         <h4>{text.section}</h4>
@@ -185,6 +207,15 @@ function Level() {
                     {text.levels.summary[index].map((summaryItem) => (
                         <p>{summaryItem}</p>
                     ))}
+                    <Row type="flex" >
+                        <OrderButton
+                            onClick={() => handleForm(true, [1, text.levels.items[index].index])}
+                            color={theme.inverseText}
+                            background={theme.primary}
+                            backgroundHover={theme.primaryHover}>
+                            {localStorage.getItem('language') == "en" ? "Book now" : "Reservar já"}
+                        </OrderButton>
+                    </Row>
                 </ParagraphContainer>
 
                 <Row type="flex">
@@ -203,4 +234,13 @@ function Level() {
     )
 }
 
-export default Level
+const mapDispatchToProps = (dispatch) => {
+    return {
+        handleForm: (visibility, activity) => dispatch(handleForm(visibility, activity)),
+    };
+};
+
+export default connect(
+    null,
+    mapDispatchToProps
+)(withTheme(Level));

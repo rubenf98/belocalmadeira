@@ -19,7 +19,7 @@ function Homepage() {
             <Services text={text.services} />
             <Family text={text.family} />
             <Faq text={text.faq} />
-            <Discount text={text.discount} />
+            {/* <Discount text={text.discount} /> */}
             <About text={text.about} />
             <Feedback text={text.feedback} />
             <Instagram text={text.socials} />

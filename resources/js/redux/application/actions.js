@@ -18,9 +18,9 @@ export function handleMenu(state) {
     };
 }
 
-export function handleForm(state) {
+export function handleForm(state, activity = []) {
     return {
-        type: types.HANDLE_FORM, payload: state
+        type: types.HANDLE_FORM, payload: [state, activity]
     };
 }
 

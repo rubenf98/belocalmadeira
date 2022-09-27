@@ -2,8 +2,10 @@ import React from 'react'
 import styled, { withTheme } from 'styled-components'
 import { dimensions, maxWidth } from '../../helper';
 import SectionTitle from './SectionTitle';
+import { handleForm } from "../../redux/application/actions";
 import { Row } from 'antd'
 import { Link } from 'react-router-dom';
+import { connect } from "react-redux";
 
 const IntroContainer = styled.section`
     display: flex;
@@ -221,12 +223,18 @@ const Step = styled.div`
         }
     }
 
+    .price {
+        font-size: 16px;
+        font-weight: 300;
+    }
+
 `;
 
 const OrderButton = styled.div`
     box-sizing: border-box;
     cursor: pointer;
     background: ${props => props.background};
+    border: ${props => "1px solid " + props.border};
     padding: 10px 30px 10px 30px;
     font-size: 15px;
     transition: .4s;
@@ -236,17 +244,14 @@ const OrderButton = styled.div`
     color: ${props => props.color};
     font-weight: bold;
     margin-top: 10px;
+    margin-left: ${props => props.marginLeft ? "10px" : "0px"};
 
     &:hover {
         background: ${props => props.backgroundHover};
-
-        @media(max-width: ${dimensions.md}) {
-            background: transparent;
-        }
     } 
 `;
 
-function Activity({ content, theme }) {
+function Activity({ content, theme, handleForm }) {
     return (
         <div>
             <IntroContainer>
@@ -301,21 +306,34 @@ function Activity({ content, theme }) {
                         {content.levels.items.map((level, index) => (
                             <Step key={"level-" + index}>
                                 <img src={"/image/activities/levels/" + level.images[0] + ".jpg"} />
-                                <h5>{level.title}</h5>
+                                <Row type="flex" align='middle' justify='space-between'>
+                                    <h5>{level.title}</h5>
+                                    <div className='price'>{level.price} €</div>
+                                </Row>
                                 <h4>{level.subtitle}</h4>
                                 {level.paragraphs.map((paragraph, pIndex) => (
                                     <p key={"paragraph-" + index + pIndex}>{paragraph}</p>
                                 ))}
-                                <Row type="flex">
+                                <Row type="flex" align='bottom'>
+                                    <OrderButton
+                                        onClick={() => handleForm(true, [1, level.index])}
+                                        color={theme.inverseText}
+                                        border={theme.primary}
+                                        background={theme.primary}
+                                        backgroundHover={theme.primaryHover}>
+                                        {localStorage.getItem('language') == "en" ? "Book" : "Reservar"}
+                                    </OrderButton>
                                     <Link to={"/activities/canyoning/" + index}>
                                         <OrderButton
-                                            onClick={() => handleForm(true)}
-                                            color={theme.inverseText}
-                                            background={theme.primary}
-                                            backgroundHover={theme.primaryHover}>
+                                            marginLeft
+                                            color={theme.primary}
+                                            border={theme.primary}
+                                            background={theme.inverseText}
+                                            backgroundHover={theme.inverseText}>
                                             {localStorage.getItem('language') == "en" ? "See more" : "Saber mais"}
                                         </OrderButton>
                                     </Link>
+
                                 </Row>
                             </Step>
                         ))}
@@ -347,4 +365,13 @@ function Activity({ content, theme }) {
     )
 }
 
-export default withTheme(Activity)
+const mapDispatchToProps = (dispatch) => {
+    return {
+        handleForm: (visibility, activity) => dispatch(handleForm(visibility, activity)),
+    };
+};
+
+export default connect(
+    null,
+    mapDispatchToProps
+)(withTheme(Activity));
