@@ -7,6 +7,7 @@ import headerJpg1920 from '/image/background_1920.jpg';
 import headerWebp3000 from '/image/background_3000.webp';
 import headerJpg3000 from '/image/background_3000.jpg';
 import AnimationContainer from '../../common/AnimationContainer';
+import Flyer from '../../common/Flyer';
 
 
 const Container = styled.section`
@@ -230,6 +231,7 @@ function Header({ text }) {
     return (
         <Container color={themeContext.inverseText} id="header-container">
             <Overlay />
+            <Flyer />
             <BackgroundContainer background={themeContext.primary} positionOffset={positionOffset}>
                 <picture>
                     <source media="(max-width: 1920px)" srcSet={headerWebp1920} />

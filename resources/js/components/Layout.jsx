@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import OrderForm from "./pages/OrderForm";
 import { handleForm } from "../redux/application/actions";
 import ThemeContainer from "./ThemeContainer";
+import Flyer from "./common/Flyer";
 
 const Container = styled.div`
     width: 100%;
@@ -34,7 +35,7 @@ class Layout extends Component {
 
                     <div> {this.props.children} </div>
 
-
+                    
                     <Footer />
                 </Container>
             </ThemeContainer>

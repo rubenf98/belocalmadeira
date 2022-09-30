@@ -41,6 +41,7 @@ const Container = styled.div`
     display: flex;
     justify-content: space-around;
     margin-bottom: 30px;
+    flex-wrap: wrap;
 
     div {
         border: 1px solid white;
@@ -52,6 +53,19 @@ const Container = styled.div`
         opacity: .5;
         transition: opacity .3s ease;
         cursor: pointer;
+
+        @media (max-width: ${dimensions.lg}) {
+            width: 45%;
+        }
+
+        @media (max-width: ${dimensions.md}) {
+            width: 80%;
+            margin: 20px 0px;
+        }
+
+        @media (max-width: ${dimensions.sm}) {
+            width: 90%;
+        }
 
         &:hover{
             opacity: 1;
