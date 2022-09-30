@@ -30,10 +30,10 @@ class ReservationRequest extends FormRequest
         $experienceable_type = $this->polymorphic_classes[$helper_size - 1];
         if ($experienceable_type == 'App\Models\Activity') {
             $activity = Activity::find($this->activity[0]);
-            $price = ($this->private ? $activity->private_price : $activity->price) * count($this->person);
+            $price = ($this->private ? $activity->private_price : $activity->price) * $this->participants;
         } else {
             $experience = Experience::find($this->activity[1]);
-            $price = ($this->private ? $experience->private_price : $experience->price) * count($this->person);
+            $price = ($this->private ? $experience->private_price : $experience->price) * $this->participants;
         }
 
         if ($this->participants >= 4) {
@@ -45,10 +45,15 @@ class ReservationRequest extends FormRequest
             $phone = $this->phone["code"] . $this->phone["phone"];
         }
 
+        if ($this->date) {
+            $this->merge([
+                'date' => new Carbon($this->date)
+            ]);
+        }
 
         $this->merge([
-            'date' => new Carbon($this->date),
             'price' => $price,
+            'source' => $this->type == 1 ? "website" : "voucher",
             'phone' =>  $phone,
             'private' => $this->private && true,
             'confirmation_token' => uniqid(),
@@ -65,8 +70,10 @@ class ReservationRequest extends FormRequest
     public function rules()
     {
         return [
-            'date' => 'required|date|after:today',
-            'address' => 'required|string',
+            'date' => 'required_if:source,website|date|after:today',
+            'recipient' => 'required_if:source,voucher|string',
+            'source' => 'required|string',
+            'address' => 'required_if:source,website|string',
             'experienceable_type' => 'required|string',
             'experienceable_id' => 'required|integer|exists:' . ($this->experienceable_type == 'App\Models\Activity' ? "activities" : "experiences") . ',id',
             'confirmation_token' => 'required',
@@ -74,9 +81,9 @@ class ReservationRequest extends FormRequest
             'price' => 'required',
             'name' => 'required|string',
             'participants' => 'required|integer|min:1|max:15',
-            'private' => 'required|boolean',
-            'phone' => 'nullable|numeric',
-            'person' => 'required|size:' . $this->participants,
+            'private' => 'required_if:source,website|boolean',
+            'phone' => 'required|numeric',
+            'person' => 'required_if:source,website|size:' . $this->participants,
             'person.*.birthday' => 'required|date',
             'person.*.gender' => 'required|string',
             'person.*.height' => 'required',

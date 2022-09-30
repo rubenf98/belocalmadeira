@@ -119,7 +119,7 @@ function Family({ theme, text, handleForm }) {
                     <img style={{ width: "100%" }} src="/image/homepage/family/1.jpg" />
                     <InfoContainer>
                         <p>{text.paragraph}</p>
-                        <div>15<span>%</span></div>
+                        <div>10<span>%</span></div>
                     </InfoContainer>
                     <Row type="flex">
                         <OrderButton onClick={() => handleForm(true)} color={theme.inverseText} background={theme.primary} backgroundHover={theme.primaryHover}>{text.button}</OrderButton>

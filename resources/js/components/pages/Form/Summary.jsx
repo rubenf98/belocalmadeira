@@ -47,7 +47,7 @@ const Feedback = styled.h3`
 `;
 
 
-function Summary({ text, data, activities }) {
+function Summary({ text, data, activities, type }) {
     const [activityName, setActivityName] = useState("");
     const [activityPrice, setActivityPrice] = useState(0);
     const [discount, setDiscount] = useState(1);
@@ -87,21 +87,23 @@ function Summary({ text, data, activities }) {
                 <Detail><span className="fieldname">{text.details.name} </span> {data.name} </Detail>
                 <Detail><span className="fieldname">{text.details.email} </span> {data.email} </Detail>
                 <Detail><span className="fieldname">{text.details.phone} </span> {data.phone.code}{data.phone.phone} </Detail>
-                <Detail><span className="fieldname">{text.details.address} </span> {data.address} </Detail>
-                <Detail><span className="fieldname">{text.details.private} </span> {data.private ? "Yes" : "No"} </Detail>
+                {type != 1 && <Detail><span className="fieldname">{text.details.recipient} </span> {data.recipient} </Detail>}
+                {type == 1 && <Detail><span className="fieldname">{text.details.address} </span> {data.address} </Detail>}
+                {type == 1 && <Detail><span className="fieldname">{text.details.private} </span> {data.private ? "Yes" : "No"} </Detail>}
                 <Detail><span className="fieldname">{text.details.activity} </span> {activityName} </Detail>
                 <Detail><span className="fieldname">{text.details.price} </span>  {activityPrice * discount}€ {discount != 1 && <span className="old-price">{activityPrice}€</span>}  </Detail>
-                <Detail><span className="fieldname">{text.details.date} </span> {data.date}</Detail>
+                {type == 1 && <Detail><span className="fieldname">{text.details.date} </span> {data.date}</Detail>}
             </Flex>
-            <Feedback>{text.participantsTitle}</Feedback>
+            {type == 1 && <Feedback>{text.participantsTitle}</Feedback>}
+
             <Flex type="flex" justify="flex-start">
-                {data.person.map((participant, index) => (
+                {type == 1 && data.person && data.person.map((participant, index) => (
                     <Participant key={index}>
                         <span>{text.details.participant} {index + 1} </span> {moment(participant.birthday).format("YYYY-MM-DD")} /  {participant.gender} /  {participant.weight}kg / {participant.height}cm /  {participant.shoe} EU
                     </Participant>
                 ))}
             </Flex>
-        </div>
+        </div >
     )
 }
 

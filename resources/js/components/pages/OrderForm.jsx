@@ -9,6 +9,8 @@ import { connect } from "react-redux";
 import Summary from './Form/Summary';
 import moment from 'moment';
 import { dimensions } from '../../helper';
+import Type from './Form/Type';
+import Voucher from './Form/Voucher';
 
 const rotate = keyframes`
   from {
@@ -131,6 +133,8 @@ const OrderForm = ({ visible, handleVisibility, createReservation, loading, acti
     const { text } = require('../../assets/' + localStorage.getItem('language') + "/form");
     const [formData, setFormData] = useState({})
     const [step, setStep] = useState(0);
+    const [stepOrder, setStepOrder] = useState([]);
+    const [active, setActive] = useState(undefined)
     const [nParticipants, setNParticipants] = useState(3);
     const [drawerWidth, setDrawerWidth] = useState(720);
     const [form] = Form.useForm();
@@ -139,14 +143,26 @@ const OrderForm = ({ visible, handleVisibility, createReservation, loading, acti
     useEffect(() => {
         if (visible)
             handleReset(true);
-
     }, [visible])
 
     useEffect(() => {
         setDrawerWidth(window.innerWidth > 720 ? 720 : window.innerWidth);
     }, [window.innerWidth])
 
+    const setBookingType = (type) => {
+        form.setFieldsValue({ type: type });
+        setActive(type);
+    }
+
     const steps = [
+        {
+            title: text.pages[4].title,
+            content: <Type active={active} setActive={setActive} text={text.pages[4]} type={form.getFieldValue('type')} setBookingType={setBookingType} />
+        },
+        {
+            title: text.pages[5].title,
+            content: <Voucher text={text.pages[5]} />
+        },
         {
             title: text.pages[0].title,
             content: <Information text={text.pages[0]} />
@@ -161,28 +177,46 @@ const OrderForm = ({ visible, handleVisibility, createReservation, loading, acti
         },
         {
             title: text.pages[3].title,
-            content: <Summary text={text.pages[3]} data={{ ...formData, date: moment(formData.date).format("YYYY-MM-DD") }} />
+            content: <Summary type={form.getFieldValue('type')} text={text.pages[3]} data={{ ...formData, date: moment(formData.date).format("YYYY-MM-DD") }} />
         }
     ]
+
 
 
     const nextStep = () => {
         form.validateFields().then((currentStepData) => {
             setFormData({ ...formData, ...currentStepData });
-            if (step == 1) {
+            if (step == 2) {
                 setNParticipants(form.getFieldValue('participants'));
             }
-            setStep(step == (steps.length - 1) ? step : step + 1);
+            var nextStep = 0;
+            if (step == 0) {
+                nextStep = form.getFieldValue('type') == 1 ? 2 : 1
+
+            } else if (step == 1) {
+                setNParticipants(form.getFieldValue('participants'));
+                nextStep = 5;
+            } else {
+                nextStep = step == (steps.length - 1) ? step : step + 1
+            }
+            setStepOrder([step, ...stepOrder])
+            setStep(nextStep);
+
+
         })
 
     }
 
     const previousStep = () => {
-        setStep(step > 0 ? step - 1 : 0);
+        var newOrder = [...stepOrder];
+        newOrder.splice(0, 1)
+        setStep(stepOrder[0]);
+        setStepOrder(newOrder)
     }
 
     const handleReset = (close = true) => {
         setStep(0);
+        setStepOrder([])
         form.resetFields();
         setFormData({});
         handleVisibility(close);
@@ -247,13 +281,13 @@ const OrderForm = ({ visible, handleVisibility, createReservation, loading, acti
                 requiredMark={false}
                 initialValues={{
                     date: moment().add(1, 'days'),
-                    activity: activityInitialValue
+                    activity: activityInitialValue,
                 }}
             >
                 {steps[step].content}
             </Form>
             {
-                step != 3 ?
+                step != 5 ?
                     <Next onClick={nextStep}>
                         <img src="/icon/next.svg" alt='next' />
                     </Next> :

@@ -23,11 +23,12 @@ class CreateReservationsTable extends Migration
             $table->string('name')->nullable();
             $table->string('email')->nullable();
             $table->string('address')->nullable();
+            $table->string('recipient')->nullable();
             $table->integer('participants');
             $table->string('source')->default("website");
             $table->integer('price')->default(0);
             $table->string('phone')->nullable();
-            $table->date('date');
+            $table->date('date')->nullable();
             $table->time('time')->default("08:00:00");
             $table->timestamps();
         });

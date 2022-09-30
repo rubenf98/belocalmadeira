@@ -9,6 +9,8 @@ use App\Jobs\ConfirmationEmail;
 use App\Jobs\ModificationEmail;
 use App\Jobs\NotificationEmail;
 use App\Mail\ConfirmationMail;
+use App\Models\Activity;
+use App\Models\Experience;
 use App\Models\Reservation;
 use App\QueryFilters\ReservationFilter;
 use Illuminate\Http\Request;
@@ -72,8 +74,25 @@ class ReservationController extends Controller
             $record->storeParticipants($validator['person']);
         }
         DB::commit();
+        $voucherName = null;
+        if ($validator['source'] == 'voucher') {
+            $voucherName = uniqid() . ".pdf";
 
-        ConfirmationEmail::dispatch($record->email, $record->confirmation_token)->delay(now()->addSecond());
+            if ($validator['experienceable_type'] == "App\Models\Experience") {
+                $experience = Experience::find($validator['experienceable_id']);
+                $activity = Activity::find($experience->activity_id);
+
+                $activityName = $activity->name . " ( " . $experience->name . " )";
+            } else if ($validator['experienceable_type'] == "App\Models\Activity") {
+                $experience = Activity::find($validator['experienceable_id']);
+                $activityName = $experience->name;
+            }
+
+            Reservation::process($voucherName, $validator['name'], $validator['recipient'], $activityName);
+        }
+
+
+        ConfirmationEmail::dispatch($record->email, $record->confirmation_token, $voucherName)->delay(now()->addSecond());
 
         return new ReservationResource($record);
     }

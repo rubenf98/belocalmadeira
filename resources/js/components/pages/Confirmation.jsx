@@ -217,12 +217,14 @@ function Confirmation({ match }) {
                                 <Detail><span>{text.details.email} </span> {data.email} </Detail>
                                 <Detail><span>{text.details.price} </span> {data.price}€ </Detail>
                                 <Detail><span>{text.details.phone} </span> {data.phone} </Detail>
-                                <Detail><span>{text.details.address} </span> {data.address} </Detail>
-                                <Detail><span>{text.details.private} </span> {text.details.privateAnswer[data.private]} </Detail>
-                                <Detail><span>{text.details.date} </span> {data.date} {data.time}</Detail>
+                                {data.source == "voucher" && <Detail><span>{text.details.recipient} </span> {data.recipient} </Detail>}
+                                {data.source == "website" && <Detail><span>{text.details.address} </span> {data.address} </Detail>}
+                                {data.source == "website" && <Detail><span>{text.details.private} </span> {text.details.privateAnswer[data.private]} </Detail>}
+                                {data.source == "website" && <Detail><span>{text.details.date} </span> {data.date} {data.time}</Detail>}
                                 <Detail><span>{text.details.created_at} </span> {data.created_at} </Detail>
                             </Summary>
-                            <Feedback>{text.participantsTitle}</Feedback>
+                            {data.source == "website" && <Feedback>{text.participantsTitle}</Feedback>}
+                            
                             <Summary type="flex" justify="flex-start">
                                 {data.reservationRarticipants.map((participant, index) => (
                                     <Participant><span>{text.details.participant} {index + 1} </span> {participant.birthday} /  {participant.gender} /  {participant.weight} / {participant.height}cm /  {participant.shoe} EU </Participant>

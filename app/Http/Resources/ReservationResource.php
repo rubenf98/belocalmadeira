@@ -19,6 +19,7 @@ class ReservationResource extends JsonResource
             'experienceable' =>  $this->experienceable,
             'name' =>   $this->name,
             'email' =>   $this->email,
+            'recipient' =>   $this->recipient,
             'price' =>   $this->price,
             'address' =>   $this->address,
             'phone' =>   $this->phone,

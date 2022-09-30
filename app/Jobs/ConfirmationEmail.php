@@ -18,15 +18,17 @@ class ConfirmationEmail implements ShouldQueue
 
     protected $email;
     protected $token;
+    protected $voucherName;
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($aEmail, $aToken)
+    public function __construct($aEmail, $aToken, $aVoucherName)
     {
         $this->email = $aEmail;
         $this->token = $aToken;
+        $this->voucherName = $aVoucherName;
     }
 
     /**
@@ -36,6 +38,6 @@ class ConfirmationEmail implements ShouldQueue
      */
     public function handle()
     {
-        Mail::to($this->email)->queue(new ConfirmationMail($this->token));
+        Mail::to($this->email)->queue(new ConfirmationMail($this->token, $this->voucherName));
     }
 }

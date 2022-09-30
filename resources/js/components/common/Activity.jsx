@@ -226,6 +226,13 @@ const Step = styled.div`
     .price {
         font-size: 16px;
         font-weight: 300;
+
+        span {
+            font-size: 12px;
+            text-decoration: line-through;
+            opacity: .6;
+            margin-left: 10px;
+        }
     }
 
 `;
@@ -308,7 +315,7 @@ function Activity({ content, theme, handleForm }) {
                                 <img src={"/image/activities/levels/" + level.images[0] + ".jpg"} />
                                 <Row type="flex" align='middle' justify='space-between'>
                                     <h5>{level.title}</h5>
-                                    <div className='price'>{level.price} €</div>
+                                    <div className='price'>{level.price} </div>
                                 </Row>
                                 <h4>{level.subtitle}</h4>
                                 {level.paragraphs.map((paragraph, pIndex) => (

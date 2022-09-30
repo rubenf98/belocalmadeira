@@ -6,6 +6,8 @@ use Carbon\Carbon;
 use App\Models\Activity;
 use Illuminate\Database\Eloquent\Model;
 use Cerbero\QueryFilters\FiltersRecords;
+use Illuminate\Support\Facades\Storage;
+use setasign\Fpdi\Fpdi;
 
 class Reservation extends Model
 {
@@ -13,7 +15,7 @@ class Reservation extends Model
 
     protected $fillable = [
         'private', 'experienceable_id',
-        'experienceable_type', 'source', 'price', 'participants', 'notes', 'name',
+        'experienceable_type', 'source', 'price', 'participants', 'notes', 'name', 'recipient',
         'email', 'address', 'phone', 'date', 'experience_id', "confirmation_token", "confirmation"
     ];
 
@@ -65,5 +67,37 @@ class Reservation extends Model
         }
 
         return ["dates" => $dates, "disabled" => $disabled];
+    }
+
+    public function process($filename, $from, $to, $activity)
+    {
+        // download sample file.
+        //Storage::disk('local')->put('test.pdf', file_get_contents(storage_path("/app/voucher.pdf")));
+
+        $outputFile = Storage::disk('local')->path($filename);
+        // fill data
+        self::fillPDF(Storage::disk('local')->path('voucher.pdf'), $outputFile, $from, $to, $activity);
+        //output to browser
+        return response()->file($outputFile);
+    }
+
+    public static function fillPDF($file, $outputFile, $from, $to, $activity)
+    {
+        $fpdi = new FPDI;
+        // merger operations
+        $count = $fpdi->setSourceFile($file);
+        for ($i = 1; $i <= $count; $i++) {
+            $template   = $fpdi->importPage($i);
+            $size       = $fpdi->getTemplateSize($template);
+            $fpdi->AddPage($size['orientation'], array($size['width'], $size['height']));
+            $fpdi->useTemplate($template);
+
+            $fpdi->SetFont("helvetica", "", 12);
+            $fpdi->SetTextColor(10, 10, 10);
+            $fpdi->Text(35, 97, $from);
+            $fpdi->Text(35, 107, $to);
+            $fpdi->Text(35, 119, $activity);
+        }
+        return $fpdi->Output($outputFile, 'F');
     }
 }

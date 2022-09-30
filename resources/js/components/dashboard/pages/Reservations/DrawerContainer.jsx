@@ -103,12 +103,14 @@ function DrawerContainer({ visible, onClose, record }) {
                     <div>
                         <h1>Resumo de Reserva</h1>
                         <ul>
+                            <li className="details"><span >Tipo de reserva</span> {record.source}</li>
                             <li className="details"><span >Nome</span> {record.name}</li>
                             <li className="details"><span>Email</span> {record.email}</li>
                             <li className="details"><span>Telemóvel</span> {record.phone}</li>
-                            <li className="details"><span>Morada</span> {record.address}</li>
-                            <li className="details"><span>Privado</span> {record.private ? "Sim" : "Não"}</li>
-                            <li className="details"><span>Data</span> {record.date}</li>
+                            {record.source == "voucher" && <li className="details"><span>Recetor</span> {record.recipient}</li>}
+                            {record.source == "website" && <li className="details"><span>Morada</span> {record.address}</li>}
+                            {record.source == "website" && <li className="details"><span>Privado</span> {record.private ? "Sim" : "Não"}</li>}
+                            {record.source == "website" && <li className="details"><span>Data</span> {record.date}</li>}
                             <li className="details"><span>Atividade</span> {getActivityField()}</li>
                         </ul>
                         <h2>Participantes: {record.people}</h2>

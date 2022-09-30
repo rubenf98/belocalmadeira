@@ -22,7 +22,7 @@ Route::post('login', 'App\Http\Controllers\AuthController@login');
 Route::post('logout', 'AuthController@logout');
 Route::post('refresh', 'AuthController@refresh');
 Route::post('me', 'AuthController@me');
-
+Route::get('/fill-data-pdfs', [\App\Http\Controllers\FillVoucherController::class, 'process']);
 Route::post('/external-reservation', ExternalReservationController::class);
 
 Route::get('reservation/disabledDate', 'App\Http\Controllers\ReservationController@disabledDates');

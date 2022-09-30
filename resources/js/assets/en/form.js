@@ -70,6 +70,7 @@ export const text = {
                 email: "Email",
                 phone: "Phone number",
                 address: "Pickup address",
+                recipient: "Recipient name",
                 private: "Private experience",
                 privateAnswer: ['No', 'Yes'],
                 date: "Date of activity",
@@ -78,7 +79,39 @@ export const text = {
                 participants: "Number of participants",
                 price: "Price"
             },
-        }
+        },
+        {
+            title: "Are you booking for yourself or are you gifting someone a be local voucher?",
+            options: ["I'm booking for myself", "I'm gifting someone else"]
+        },
+        {
+            title: "Explore our activities and gift your Madeira Island experience right here!",
+            family: "All reservations with 4 or more participants will apply a 10% family discount on checkout.",
+            warning: "We will contact you after the reservation regarding the date of the activity",
+            form: {
+                name: {
+                    placeholder: "Your name *"
+                },
+                email: {
+                    placeholder: "Your email *"
+                },
+                phone: {
+                    placeholder: "Your phone number *"
+                },
+                indicative: {
+                    placeholder: "+351"
+                },
+                address: {
+                    placeholder: "Recipient name *"
+                },
+                activity: {
+                    placeholder: "Activity *"
+                },
+                participants: {
+                    placeholder: "Number of participants *",
+                },
+            },
+        },
     ],
     submit: "CHECKOUT",
     success: {

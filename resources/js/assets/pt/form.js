@@ -78,7 +78,39 @@ export const text = {
                 participants: "Nº de participantes",
                 price: "Preço"
             },
-        }
+        },
+        {
+            title: "Está a reservar para si ou está a reservar um voucher be local para outra pessoa?",
+            options: ["Estou a reservar para mim", "Estou a oferecer um voucher"]
+        },
+        {
+            title: "Explora as nossas atividades e oferece uma experiência na Ilha da Madeira!",
+            warning: "Iremos entrar em contacto após a reserva para decidir a data da atividade",
+            family: "Todas as reservas com 4 ou mais participantes possuem um desconto familiar de 10% no final da reserva.",
+            form: {
+                name: {
+                    placeholder: "Nome *"
+                },
+                email: {
+                    placeholder: "Email *"
+                },
+                phone: {
+                    placeholder: "Número telemóvel *"
+                },
+                indicative: {
+                    placeholder: "+351"
+                },
+                address: {
+                    placeholder: "Nome do recetor *"
+                },
+                activity: {
+                    placeholder: "Atividade *"
+                },
+                participants: {
+                    placeholder: "Número de participantes *",
+                },
+            },
+        },
     ],
     submit: "RESERVAR",
     success: {

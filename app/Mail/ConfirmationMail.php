@@ -12,15 +12,17 @@ class ConfirmationMail extends Mailable
     use Queueable, SerializesModels;
 
     public $token;
+    protected $voucherName;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($token)
+    public function __construct($token, $voucherName)
     {
         $this->token = $token;
+        $this->voucherName = $voucherName;
     }
 
     /**
@@ -30,6 +32,10 @@ class ConfirmationMail extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.confirmation')->subject('Finaliza a tua reserva connosco!');
+        $response = $this->view('emails.confirmation')->subject('Finaliza a tua reserva connosco!');
+        if ($this->voucherName) {
+            $response->attach(storage_path("/app/" . $this->voucherName));
+        }
+        return $response;
     }
 }

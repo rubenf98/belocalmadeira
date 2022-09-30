@@ -7,6 +7,7 @@ export const text = {
         email: "Email",
         phone: "Phone number",
         address: "Pickup address",
+        recipient: "Recipient",
         private: "Private experience",
         privateAnswer: ['No', 'Yes'],
         date: "Date of activity",
