@@ -15,6 +15,7 @@ import Biking from "./components/pages/Activities/Biking";
 import ThemeContainer from "./components/ThemeContainer";
 import PainelLayout from "./components/dashboard/PainelLayout";
 import DashboardContact from "./components/dashboard/pages/Contact/Contact";
+import Blocked from "./components/dashboard/pages/Blocked/Blocked";
 import DashboardReservations from "./components/dashboard/pages/Reservations/Reservations";
 import DashboardPainel from "./components/dashboard/pages/Painel";
 import Confirmation from "./components/pages/Confirmation";
@@ -40,6 +41,8 @@ function Router() {
 
                     <Route exact path="/confirmation/:token" element={<Layout><Confirmation /></Layout>} />
 
+
+                    <Route exact path="/painel/bloqueado" element={<PainelLayout><Blocked /></PainelLayout>} />
                     <Route exact path="/painel/contacto" element={<PainelLayout><DashboardContact /></PainelLayout>} />
                     <Route exact path="/painel/reservas" element={<PainelLayout><DashboardReservations /></PainelLayout>} />
                     <Route exact path="/painel" element={<PainelLayout><DashboardPainel /></PainelLayout>} />

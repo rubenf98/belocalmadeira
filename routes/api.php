@@ -28,6 +28,7 @@ Route::post('/external-reservation', ExternalReservationController::class);
 Route::get('reservation/disabledDate', 'App\Http\Controllers\ReservationController@disabledDates');
 Route::get('reservation/showFromToken', 'App\Http\Controllers\ReservationController@showFromToken');
 
+Route::apiResource('reservation/blockDate', 'App\Http\Controllers\BlockReservationDateController');
 Route::apiResource('contact', 'App\Http\Controllers\ContactController');
 Route::apiResource('feedback', 'App\Http\Controllers\FeedbackController');
 Route::apiResource('reservation', 'App\Http\Controllers\ReservationController');

@@ -120,6 +120,7 @@ function NavBar({ theme }) {
                     <li>
                         <NavBarItem color={theme.primary} item="reservas" name="reservas" />
                         <NavBarItem color={theme.primary} item="contacto" name="contacto" />
+                        <NavBarItem color={theme.primary} item="bloqueado" name="bloqueado" />
                     </li>
                 </TabList>
 
