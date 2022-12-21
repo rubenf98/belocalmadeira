@@ -82,7 +82,7 @@ function About({ theme }) {
             </InfoContainer>
 
             <PartnerContainer type="flex" justify="space-around" align="middle">
-                <img loading="lazy" src="/image/about/fastrope.png" alt="fastrope" />
+                {/* <img loading="lazy" src="/image/about/fastrope.png" alt="fastrope" /> */}
                 <img loading="lazy" src="/image/about/tripadvisor.png" alt="tripadvisor" />
                 <img loading="lazy" src="/image/about/movigo.svg" alt="movigo" />
                 <img loading="lazy" src="/image/about/espacomilenio.png" alt="espacomilenio" />
