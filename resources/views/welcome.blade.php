@@ -461,7 +461,7 @@
 
 <script>
     var script = document.createElement('script');
-    script.src = "{{mix('js/app10032023.js')}}";
+    script.src = "{{mix('js/app24032023.js')}}";
     setTimeout(() => {
         document.getElementById('index').append(script);
     }, 4300);
