@@ -36,8 +36,15 @@ const BackgroundContainer = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
+  video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    display: none;
+  }
   
-  picture {
+  picture  {
     width: 100vw;
     height: 100vh;
     display: block;
@@ -58,6 +65,15 @@ const BackgroundContainer = styled.div`
       object-fit: cover;
     }
   }
+
+    @media(max-width: ${dimensions.md}) {
+        picture {
+            display: none;
+        }
+        video {
+            display: block;
+        }
+    }
 `;
 
 const Overlay = styled.div`
@@ -241,6 +257,12 @@ function Header({ text }) {
 
                     <img src={headerWebp1920} alt="profile" loading="eager" />
                 </picture>
+
+                <video preload='auto' playsInline muted loop autoPlay controls={false}>
+                    <source src="/image/homepage/header.webm" type="video/webm" />
+                    <source src="/image/homepage/header.mp4" type="video/mp4" />
+
+                </video>
 
             </BackgroundContainer>
 

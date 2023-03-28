@@ -129,7 +129,7 @@ function About({ text }) {
             <Column >
 
                 <Section
-                    video="about"
+                    video="header"
                     thumbnail="timelapse_thumbnail"
                     title={0}
                     descriptions={[0]}
