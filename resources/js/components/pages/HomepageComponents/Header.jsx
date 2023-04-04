@@ -259,11 +259,9 @@ function Header({ text }) {
                 </picture>
 
                 <video preload='auto' playsInline muted loop autoPlay controls={false}>
-                    <source src="/image/homepage/header.webm" type="video/webm" />
                     <source src="/image/homepage/header.mp4" type="video/mp4" />
-
+                    <source src="/image/homepage/header.webm" type="video/webm" />
                 </video>
-
             </BackgroundContainer>
 
 

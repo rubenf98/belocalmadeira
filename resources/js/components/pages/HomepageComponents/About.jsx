@@ -116,8 +116,8 @@ function About({ text }) {
             <ImageContainer>
                 <Overlay />
                 <video preload='auto' playsInline poster={"/image/homepage/" + thumbnail + ".jpg"} muted loop autoPlay controls={false}>
-                    <source src={"/image/homepage/" + video + ".webm"} type="video/webm" />
                     <source src={"/image/homepage/" + video + ".mp4"} type="video/mp4" />
+                    <source src={"/image/homepage/" + video + ".webm"} type="video/webm" />
                     {text.videoError}
                 </video>
             </ImageContainer>

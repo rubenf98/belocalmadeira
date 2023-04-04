@@ -142,7 +142,7 @@ function Instagram({ text }) {
                     <Item key={index} width={item.width} height={item.height}>
                         <AnimationContainer animateIn="fadeIn">
                             <a href="https://www.instagram.com/belocalmadeira/" target="_blank" rel="noreferrer">
-                                <picture>
+                                <picture loading='lazy'>
                                     <source srcSet={"/image/instagram/" + item.src + ".jpg"} />
 
                                     <img
