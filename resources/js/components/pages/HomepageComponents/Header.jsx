@@ -258,7 +258,7 @@ function Header({ text }) {
                     <img src={headerWebp1920} alt="profile" loading="eager" />
                 </picture>
 
-                <video preload='auto' playsInline muted loop autoPlay controls={false}>
+                <video poster="/image/background_1920.jpg" preload='auto' playsInline muted loop autoPlay controls={false}>
                     <source src="/image/homepage/header.mp4" type="video/mp4" />
                     <source src="/image/homepage/header.webm" type="video/webm" />
                 </video>
