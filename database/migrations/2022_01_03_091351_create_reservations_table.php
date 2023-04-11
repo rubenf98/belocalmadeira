@@ -29,7 +29,7 @@ class CreateReservationsTable extends Migration
             $table->integer('price')->default(0);
             $table->string('phone')->nullable();
             $table->date('date')->nullable();
-            $table->time('time')->default("08:00:00");
+            $table->time('time')->default("09:00:00");
             $table->timestamps();
         });
     }

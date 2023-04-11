@@ -68,6 +68,11 @@ const Detail = styled.div`
         display: block;
         font-weight: 300;
     }
+
+    @media (max-width: ${dimensions.md}) {
+        width: 50%;
+        font-size: 16px;
+    }
 `;
 
 const Participant = styled(Detail)`
@@ -224,7 +229,7 @@ function Confirmation({ match }) {
                                 <Detail><span>{text.details.created_at} </span> {data.created_at} </Detail>
                             </Summary>
                             {data.source == "website" && <Feedback>{text.participantsTitle}</Feedback>}
-                            
+
                             <Summary type="flex" justify="flex-start">
                                 {data.reservationRarticipants.map((participant, index) => (
                                     <Participant><span>{text.details.participant} {index + 1} </span> {participant.birthday} /  {participant.gender} /  {participant.weight} / {participant.height}cm /  {participant.shoe} EU </Participant>
