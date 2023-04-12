@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react'
-import About from './HomepageComponents/About';
+import React, { lazy, Suspense } from 'react'
 import Activities from './HomepageComponents/Activities';
 import Discount from './HomepageComponents/Discount';
 import Family from './HomepageComponents/Family';
@@ -11,6 +10,7 @@ import Services from './HomepageComponents/Services';
 
 function Homepage() {
     const { text } = require('../../assets/' + localStorage.getItem('language') + "/homepage");
+    const About = React.lazy(() => import('./HomepageComponents/About'));
 
     return (
         < >
@@ -20,7 +20,10 @@ function Homepage() {
             <Family text={text.family} />
             <Faq text={text.faq} />
             {/* <Discount text={text.discount} /> */}
-            <About text={text.about} />
+            <Suspense fallback={<div></div>}>
+                <About text={text.about} />
+            </Suspense>
+
             <Feedback text={text.feedback} />
             <Instagram text={text.socials} />
         </>

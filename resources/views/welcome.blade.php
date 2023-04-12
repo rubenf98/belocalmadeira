@@ -15,7 +15,6 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
-    <link rel="preload" type="video/mp4" href="/image/homepage/header.mp4">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#00a300">
@@ -462,7 +461,7 @@
 
 <script>
     var script = document.createElement('script');
-    script.src = "{{mix('js/app24032023.js')}}";
+    script.src = "{{mix('js/app12042023.js')}}";
     setTimeout(() => {
         document.getElementById('index').append(script);
     }, 4300);

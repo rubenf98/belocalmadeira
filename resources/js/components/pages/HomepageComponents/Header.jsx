@@ -53,7 +53,7 @@ const BackgroundContainer = styled.div`
     scale: 1.05;
     transform: ${props => "rotateX(" + Math.floor(props.positionOffset.x) + "deg) rotateY(" + Math.floor(props.positionOffset.y) + "deg)"};
     
-    @media(max-width: ${dimensions.md}) {
+    @media(max-width: ${dimensions.sm}) {
       transform: none;
       scale: 1;
       object-fit: fill;
@@ -66,7 +66,7 @@ const BackgroundContainer = styled.div`
     }
   }
 
-    @media(max-width: ${dimensions.md}) {
+    @media(max-width: ${dimensions.sm}) {
         picture {
             display: none;
         }
@@ -258,10 +258,9 @@ function Header({ text }) {
                     <img src={headerWebp1920} alt="profile" loading="eager" />
                 </picture>
 
-                <video playsInline poster="/image/background_1920.jpg" muted loop autoPlay controls={false}>
-                    <source src="/image/homepage/header.mp4" type="video/mp4" />
-                    <source src="/image/homepage/header.webm" type="video/webm" />
-
+                <video playsInline poster="/image/background_960.jpg" muted loop autoPlay controls={false}>
+                    <source src="/image/homepage/mobile_header.mp4" type="video/mp4" />
+                    <source src="/image/homepage/mobile_header.webm" type="video/webm" />
                 </video>
 
 
