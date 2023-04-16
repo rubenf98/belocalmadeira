@@ -41,22 +41,22 @@ export const text = {
             form: {
                 person: {
                     bday: {
-                        placeholder: "Aniversário"
+                        placeholder: "Birthday"
                     },
                     gender: {
-                        placeholder: "Sexo",
+                        placeholder: "Gender",
                         options: [
                             "male", "female"
                         ],
                     },
                     height: {
-                        placeholder: "Altura"
+                        placeholder: "Height"
                     },
                     weight: {
-                        placeholder: "Peso"
+                        placeholder: "Weight"
                     },
                     shoe: {
-                        placeholder: "Tamanho sapato"
+                        placeholder: "Show size"
                     },
                 },
             },
