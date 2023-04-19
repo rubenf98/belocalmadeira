@@ -35,6 +35,15 @@
         rel="stylesheet">
 
     <title>Be Local Madeira</title>
+
+    <script type="application/ld+json">
+        {"@context" : "http://schema.org",
+         "@type" : "Organization",  
+          "name" : "Be Local Madeira",
+          "url" : "https://belocalmadeira.com/", 
+          "logo": "https://belocalmadeira.com/images/background_1920.webp" }
+    </script>
+
 </head>
 
 <style>
