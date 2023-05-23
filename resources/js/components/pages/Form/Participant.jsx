@@ -20,6 +20,12 @@ const Title = styled.h3`
 
 
 const rules = {
+    name: [
+        {
+            required: true,
+            message: 'Please input the name of all participants',
+        },
+    ],
     bday: [
         {
             required: true,
@@ -58,12 +64,17 @@ function Participant({ text, nParticipant }) {
             <Title>{text.subtitle} {nParticipant}</Title>
 
             <PersonForm gutter={32} key={index}>
-                <Col xs={24} md={12}>
+                <Col xs={24} md={8}>
+                    <Form.Item name="name" rules={rules.name}>
+                        <CustomInput placeholder={text.form.person.name.placeholder} style={{ width: "100%" }} />
+                    </Form.Item>
+                </Col>
+                <Col xs={24} md={8}>
                     <Form.Item name="birthday" rules={rules.bday}>
                         <CustomDatePicker picker="month" placeholder={text.form.person.bday.placeholder} style={{ width: "100%" }} />
                     </Form.Item>
                 </Col>
-                <Col xs={24} md={12}>
+                <Col xs={24} md={8}>
                     <Form.Item name="shoe" rules={rules.shoe}>
                         <CustomSelect
                             dropdownRender={menu => (

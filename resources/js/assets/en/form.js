@@ -40,6 +40,9 @@ export const text = {
             subtitle: "Participant",
             form: {
                 person: {
+                    name: {
+                        placeholder: "Name",
+                    },
                     bday: {
                         placeholder: "Birthday"
                     },

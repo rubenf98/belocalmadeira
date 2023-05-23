@@ -51,21 +51,27 @@ const Participant = styled.div`
     align-items: center;
 
     .details-container{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
+        
         flex: 1;
 
-        div {
-            width: 25%;
-
-            img {
-                width: 20px;
-                margin-right: 8px;
-            }
+        .details {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
             
+            div {
+                width: 25%;
+
+                img {
+                    width: 20px;
+                    margin-right: 8px;
+                }
+                
+            }
         }
+
+        
     }
 
     .number{
@@ -120,18 +126,24 @@ function DrawerContainer({ visible, onClose, record }) {
                                 <Participant key={key}>
                                     <div className='number'>{key < 10 && "0"}{key + 1}</div>
                                     <img className='gender' src={"/icon/" + participant.gender + ".svg"} />
+
                                     <div className='details-container'>
-                                        <div>
-                                            <img src="/icon/dashboard/age.svg" alt="age" />{moment().diff(participant.birthday, 'years', false)}anos
-                                        </div>
-                                        <div>
-                                            <img src="/icon/dashboard/height.svg" alt="height" />{participant.height}cm
-                                        </div>
-                                        <div>
-                                            <img src="/icon/dashboard/weight.svg" alt="weight" />{participant.weight}kg
-                                        </div>
-                                        <div>
-                                            <img src="/icon/dashboard/shoe.svg" alt="shoe" />{participant.shoe}EU
+                                        <p>
+                                            {participant.name}
+                                        </p>
+                                        <div className='details'>
+                                            <div>
+                                                <img src="/icon/dashboard/age.svg" alt="age" />{moment().diff(participant.birthday, 'years', false)}anos
+                                            </div>
+                                            <div>
+                                                <img src="/icon/dashboard/height.svg" alt="height" />{participant.height}cm
+                                            </div>
+                                            <div>
+                                                <img src="/icon/dashboard/weight.svg" alt="weight" />{participant.weight}kg
+                                            </div>
+                                            <div>
+                                                <img src="/icon/dashboard/shoe.svg" alt="shoe" />{participant.shoe}EU
+                                            </div>
                                         </div>
                                     </div>
                                 </Participant>

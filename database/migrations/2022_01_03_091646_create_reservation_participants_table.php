@@ -17,6 +17,7 @@ class CreateReservationParticipantsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('reservation_id');
             $table->date('birthday');
+            $table->string('name');
             $table->string('gender');
             $table->string('height');
             $table->string('weight');

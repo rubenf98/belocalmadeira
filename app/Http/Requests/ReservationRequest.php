@@ -84,6 +84,7 @@ class ReservationRequest extends FormRequest
             'private' => 'required_if:source,website|boolean',
             'phone' => 'required|numeric',
             'person' => 'required_if:source,website|size:' . $this->participants,
+            'person.*.name' => 'required|string',
             'person.*.birthday' => 'required|date',
             'person.*.gender' => 'required|string',
             'person.*.height' => 'required',

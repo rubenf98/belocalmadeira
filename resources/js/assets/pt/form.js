@@ -40,6 +40,9 @@ export const text = {
             subtitle: "Participante",
             form: {
                 person: {
+                    name: {
+                        placeholder: "Nome",
+                    },
                     bday: {
                         placeholder: "Aniversário *"
                     },
@@ -88,6 +91,7 @@ export const text = {
             warning: "Iremos entrar em contacto após a reserva para decidir a data da atividade",
             family: "Todas as reservas com 4 ou mais participantes possuem um desconto familiar de 10% no final da reserva.",
             form: {
+                
                 name: {
                     placeholder: "Nome *"
                 },
