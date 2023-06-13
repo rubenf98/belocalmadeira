@@ -31,8 +31,8 @@ class ExperienceSeeder extends Seeder
 
         Experience::create([
             'name' => ['en' => "Level 3", 'pt' => "Nível 3"],
-            'price' => 120,
-            'private_price' => 120,
+            'price' => 150,
+            'private_price' => 150,
             'activity_id' => 1,
         ]);
 

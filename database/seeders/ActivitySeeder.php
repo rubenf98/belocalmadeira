@@ -26,13 +26,13 @@ class ActivitySeeder extends Seeder
         Activity::create([
             'name' => ['en' => "Biking", 'pt' => "Bicicleta"],
             'price' => 95,
-            'private_price' => 120,
+            'private_price' => 150,
         ]);
 
         Activity::create([
             'name' => ['en' => "Coasteering", 'pt' => "Coasteering"],
             'price' => 60,
-            'private_price' => 120,
+            'private_price' => 150,
         ]);
     }
 }
