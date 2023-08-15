@@ -91,7 +91,7 @@ export const text = {
             warning: "Iremos entrar em contacto após a reserva para decidir a data da atividade",
             family: "Todas as reservas com 4 ou mais participantes possuem um desconto familiar de 10% no final da reserva.",
             form: {
-                
+
                 name: {
                     placeholder: "Nome *"
                 },
@@ -123,5 +123,10 @@ export const text = {
     },
     error: {
         message: "Ocorreu um erro inesperado",
+    },
+    popconfirm: {
+        yes: "OK",
+        no: "Cancelar",
+        message: "Tem a certeza que pretende cancelar? Existem campos preenchidos e todo o progresso irá se perder."
     }
 } 

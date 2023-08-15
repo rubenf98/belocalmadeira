@@ -123,5 +123,10 @@ export const text = {
     },
     error: {
         message: "Something unexpected happened",
+    },
+    popconfirm: {
+        yes: "OK",
+        no: "Cancel",
+        message: "Are you sure you want to cancel? You have unsaved changes that will be lost."
     }
 } 

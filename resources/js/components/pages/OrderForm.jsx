@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { Form, Drawer, Button, Row, notification } from 'antd';
+import { Form, Drawer, Button, Row, notification, Popconfirm } from 'antd';
 import styled, { ThemeContext, keyframes } from "styled-components";
 import Information from './Form/Information';
 import Date from './Form/Date';
@@ -169,7 +169,7 @@ const OrderForm = ({ visible, handleVisibility, createReservation, loading, acti
         },
         {
             title: text.pages[1].title,
-            content: <Date text={text.pages[1]} participants={form.getFieldValue('participants')} />
+            content: <Date form={form} text={text.pages[1]} participants={form.getFieldValue('participants')} />
         },
         {
             title: text.pages[2].title,
@@ -267,8 +267,15 @@ const OrderForm = ({ visible, handleVisibility, createReservation, loading, acti
         >
             <FlexContainer>
                 <Previous visible={step != 0} onClick={previousStep} src='/icon/previous.svg' alt="previous step" />
-                <CloseContainer onClick={() => handleVisibility(false)}>
-                    <span>{text.close}</span> <img src="/icon/close.svg" alt="close icon" />
+                <CloseContainer>
+                    <Popconfirm
+                        title={text.popconfirm.message}
+                        onConfirm={() => handleVisibility(false)}
+                        okText={text.popconfirm.yes}
+                        cancelText={text.popconfirm.no}
+                    >
+                        <span>{text.close}</span> <img src="/icon/close.svg" alt="close icon" />
+                    </Popconfirm>
                 </CloseContainer>
             </FlexContainer>
 
@@ -280,7 +287,6 @@ const OrderForm = ({ visible, handleVisibility, createReservation, loading, acti
                 name="order"
                 requiredMark={false}
                 initialValues={{
-                    date: moment().add(1, 'days'),
                     activity: activityInitialValue,
                 }}
             >
