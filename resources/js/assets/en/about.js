@@ -4,9 +4,9 @@ export const text = {
     section: {
         title: "Get to know Madeira Island from the perspective of a local.",
         items: [
-            "We aim to provide the most dynamic and genuine experiences the Island has to offer.",
-            "Madeira Island is considered one of the best locations to practice sports activities related to nature.",
-            "With us you will experience nature at its most stunning, creating adventures that will stay with you forever!"
+            "BE LOCAL is a dynamic local company promoting adventure and nature-based tourism on the Island of Madeira.",
+            "We create adventure sports activities promoting full contact with nature. Being equally at home in the water or in the mountains, we offer a huge variety of mind-blowing experiences that will also give you unique and fascinating local insights and memories to last a lifetime.",
+            "License: RNAAT 05/2022."
         ],
     },
 } 

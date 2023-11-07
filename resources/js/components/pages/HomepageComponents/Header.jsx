@@ -11,62 +11,51 @@ import Flyer from '../../common/Flyer';
 
 
 const Container = styled.section`
-  width: 100%;
-  height: 101vh;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  flex-wrap: wrap;
-  color: ${props => props.color};
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    flex-wrap: wrap;
+    color: ${props => props.color};
 `;
 
 const BackgroundContainer = styled.div`
-  width: 100vw;
-  height: 100vh;
-  display: inline-block;
-  perspective: 100vw;
-  overflow: hidden;
-  scale: 1.05;
-  top: 0;bottom:0;left:0;right: 0;
-  position: absolute;
-  z-index: -2;
-  background: url("/image/background_blur.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  video {
+    position: absolute;
+    z-index: -2;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: flex-end;
     width: 100vw;
     height: 100vh;
-    object-fit: cover;
-    display: none;
-  }
+    background-color: ${({ theme }) => theme.primary};
+
+    video {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        display: none;
+    }
   
-  picture  {
-    width: 100vw;
-    height: 100vh;
-    display: block;
-    object-fit: cover;
-    transition: transform .3s linear;
-    scale: 1.05;
-    transform: ${props => "rotateX(" + Math.floor(props.positionOffset.x) + "deg) rotateY(" + Math.floor(props.positionOffset.y) + "deg)"};
-    
-    @media(max-width: ${dimensions.sm}) {
-      transform: none;
-      scale: 1;
-      object-fit: fill;
+    picture  {
+        width: 50%;
+        height: 100%;
+        display: block;
+        
+
+        img {
+            width: 100%;
+            height: 100%;
+            border-top-left-radius: 20%;
+            object-fit: cover;
+        }
     }
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
-
     @media(max-width: ${dimensions.sm}) {
+        width: 100vw;
+
         picture {
             display: none;
         }
@@ -77,58 +66,48 @@ const BackgroundContainer = styled.div`
 `;
 
 const Overlay = styled.div`
-  z-index: -1;
+  /* z-index: -1;
   top: 0;bottom:0;left:0;right: 0;
   position: absolute;
   background: rgb(0,0,0);
   background: linear-gradient(180deg, #000 0%, #38383830 100%);
-  opacity: 0.7;
+  opacity: 0.7; */
 `;
 
 const TitleContainer = styled.div`
-  width: 100%;
-  
-  display: block;
-  position: relative;
-
-  h1, h2 {
-    width: 50%;
+    width: 90%;
+    display: block;
     margin: auto;
-    color: inherit;
-    text-align: center;
 
-    @media(max-width: ${dimensions.lg}) {
-      width: 70%;
+    h1, h2 {
+        color: white;
+        width: 50%;
+        padding-right: 30px;
+        box-sizing: border-box;
+        line-height: 100%;
     }
 
-    @media(max-width: ${dimensions.md}) {
-      width: 90%;
-    }
-  }
-  h1 {
-    font-size: 70px;
-    line-height: 4.375rem;
-    font-family: 'Playfair Display', serif;
-
-    @media(max-width: ${dimensions.md}) {
-      font-size: 55px;
-      line-height: 2.9rem;
+    h1 {
+        font-size: clamp(40px, 4vw, 100px);
+        font-family: 'Playfair Display', serif;
     }
 
-    @media(max-width: ${dimensions.sm}) {
-      font-size: 40px;
+    h2 {
+        font-size: clamp(20px, 2vw, 22px);
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        font-weight: bold;
     }
-  }
 
-  h2 {
-    font-size: 24px;
-    text-transform: uppercase;
-    margin-bottom: 30px;
+    @media (max-width: ${dimensions.sm}) {
+        width: 100%;
 
-    @media(max-width: ${dimensions.sm}) {
-      font-size: 22px;
+        h1, h2 {
+            width: 100%;
+            padding: 0px 20px;
+            text-align: center;
+        }
     }
-  }
 `;
 
 const Scroll = styled.div`
@@ -161,15 +140,15 @@ const Scroll = styled.div`
 `;
 
 const LanguageContainer = styled.div`
-  margin: auto;
-  position: absolute;
-  right: 100px;
-  bottom: 30px;
-  color: inherit;
+    margin: auto;
+    position: absolute;
+    right: 100px;
+    bottom: 30px;
+    color: inherit;
 
-  @media (max-width: ${dimensions.md}) {
-    right: 30px;
-  }
+    @media (max-width: ${dimensions.md}) {
+        right: 30px;
+    }
 `;
 
 const LanguageIndicator = styled.span`
@@ -180,25 +159,31 @@ const LanguageIndicator = styled.span`
     font-weight: bold;
 
     &:nth-child(2) {
-      margin-left: 13px;
+        margin-left: 13px;
     }
 `;
 
 const Instagram = styled.div`
-  margin: auto;
-  position: absolute;
-  left: 100px;
-  bottom: 30px;
-  color: inherit;
+    margin: auto;
+    position: absolute;
+    left: 100px;
+    bottom: 30px;
+    color: inherit;
+    
+    .animated {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
 
-  @media (max-width: ${dimensions.md}) {
-    left: 30px;
-  }
+    @media (max-width: ${dimensions.md}) {
+        left: 30px;
+    }
 
-  img {
-    width: 30px;
-    height: 30px;
-  }
+    img {
+        width: 30px;
+        height: 30px;
+    }
 `;
 
 const ScrollDownIndicator = () => (
@@ -246,7 +231,7 @@ function Header({ text }) {
 
     return (
         <Container color={themeContext.inverseText} id="header-container">
-            <Overlay />
+            {/* <Overlay /> */}
             <Flyer />
             <BackgroundContainer background={themeContext.primary} positionOffset={positionOffset}>
                 <picture>
@@ -262,9 +247,6 @@ function Header({ text }) {
                     <source src="/image/homepage/mobile_header.mp4" type="video/mp4" />
                     <source src="/image/homepage/mobile_header.webm" type="video/webm" />
                 </video>
-
-
-
             </BackgroundContainer>
 
 
@@ -280,6 +262,9 @@ function Header({ text }) {
                 <AnimationContainer animateIn="fadeInUp" offset={0}>
                     <a href="https://www.instagram.com/belocalmadeira/" target="_blank" >
                         <img src="/icon/instagram.png" alt="instagram link" />
+                    </a>
+                    <a href="https://www.tiktok.com/@belocalmadeira" target="_blank" >
+                        <img src="/icon/tiktok.svg" alt="tiktok link" />
                     </a>
                 </AnimationContainer>
             </Instagram>

@@ -83,21 +83,19 @@ function Summary({ text, data, activities, type }) {
     return (
         <div>
             <Flex type="flex" justify="flex-start">
-
                 <Detail><span className="fieldname">{text.details.name} </span> {data.name} </Detail>
                 <Detail><span className="fieldname">{text.details.email} </span> {data.email} </Detail>
                 <Detail><span className="fieldname">{text.details.phone} </span> {data.phone.code}{data.phone.phone} </Detail>
-                {type != 1 && <Detail><span className="fieldname">{text.details.recipient} </span> {data.recipient} </Detail>}
-                {type == 1 && <Detail><span className="fieldname">{text.details.address} </span> {data.address} </Detail>}
-                {type == 1 && <Detail><span className="fieldname">{text.details.private} </span> {data.private ? "Yes" : "No"} </Detail>}
+                <Detail><span className="fieldname">{text.details.address} </span> {data.address} </Detail>
+                <Detail><span className="fieldname">{text.details.private} </span> {data.private ? "Yes" : "No"} </Detail>
                 <Detail><span className="fieldname">{text.details.activity} </span> {activityName} </Detail>
                 <Detail><span className="fieldname">{text.details.price} </span>  {activityPrice * discount}€ {discount != 1 && <span className="old-price">{activityPrice}€</span>}  </Detail>
-                {type == 1 && <Detail><span className="fieldname">{text.details.date} </span> {data.date}</Detail>}
+                <Detail><span className="fieldname">{text.details.date} </span> {data.date}</Detail>
             </Flex>
-            {type == 1 && <Feedback>{text.participantsTitle}</Feedback>}
+            <Feedback>{text.participantsTitle}</Feedback>
 
             <Flex type="flex" justify="flex-start">
-                {type == 1 && data.person && data.person.map((participant, index) => (
+                {data.person && data.person.map((participant, index) => (
                     <Participant key={index}>
                         <span>{text.details.participant} {index + 1} </span> {moment(participant.birthday).format("YYYY-MM-DD")} /  {participant.gender} /  {participant.weight}kg / {participant.height}cm /  {participant.shoe} EU
                     </Participant>

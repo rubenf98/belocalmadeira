@@ -17,7 +17,7 @@ function Homepage() {
             <Header text={text.header} />
             <Activities text={text.activities} />
             <Services text={text.services} />
-            <Family text={text.family} />
+            {/* <Family text={text.family} /> */}
             <Faq text={text.faq} />
             {/* <Discount text={text.discount} /> */}
             <Suspense fallback={<div></div>}>

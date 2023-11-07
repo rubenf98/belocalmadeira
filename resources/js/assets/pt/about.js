@@ -4,9 +4,9 @@ export const text = {
     section: {
         title: "Conhece a Ilha da Madeira na perspetiva de um local.",
         items: [
-            "Temos como objetivo proporcionar as experiências mais dinâmicas e genuínas que a Ilha tem para oferecer.",
-            "A Ilha da Madeira é considerada uma das melhores localizações para a prática de atividades desportivas relativas à natureza.",
-            "Connosco irá experienciar a natureza no seu estado mais deslumbrante, criando aventuras que ficarão consigo para sempre!"
+            "BE LOCAL é uma empresa que promove e dinamiza o turismo de aventura e natureza na Ilha da Madeira através da realização de inúmeras atividades.",
+            "Desenvolvemos atividades de desporto aventura promovendo o contacto com a natureza. Tanto em meio aquático como terrestre, oferecemos uma panóplia de atividades alucinantes que te irão permitir desfrutar de momentos únicos por locais fascinantes.",
+            "Temos o alvará RNAAT 05/2022."
         ],
     },
 } 

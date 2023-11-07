@@ -3,7 +3,7 @@ export const text = {
     pages: [
         {
             title: "Explore our activities and book your Madeira Island experience right here!",
-            warning: "Private hiking, biking, and coasteering prices are 120€.",
+            warning: "All private activities are 150€ per person.",
             family: "All reservations with 4 or more participants will apply a 10% family discount on checkout.",
             form: {
                 name: {
@@ -128,5 +128,9 @@ export const text = {
         yes: "OK",
         no: "Cancel",
         message: "Are you sure you want to cancel? You have unsaved changes that will be lost."
+    },
+    controls: {
+        next: "next",
+        submit: "submit"
     }
 } 

@@ -15,22 +15,41 @@ class ExperienceSeeder extends Seeder
     public function run()
     {
         Experience::create([
-            'name' => ['en' => "Level 1", 'pt' => "Nível 1"],
+            'name' => ['en' => "Family Pack", 'pt' => "Pacote Família"],
+            'level' => 1,
             'price' => 60,
-            'private_price' => 120,
+            'private_price' => 150,
             'activity_id' => 1,
         ]);
 
         Experience::create([
-            'name' => ['en' => "Level 2", 'pt' => "Nível 2"],
+            'name' => ['en' => "Ribeira das Cales", 'pt' => "Ribeira das Cales"],
+            'level' => 1,
+            'price' => 60,
+            'private_price' => 150,
+            'activity_id' => 1,
+        ]);
+
+        Experience::create([
+            'name' => ['en' => "Nuns Valley (Summer Canyoning)", 'pt' => "Curral das Freiras (Canyoning Verão)"],
+            'level' => 2,
             'price' => 80,
-            'private_price' => 120,
+            'private_price' => 150,
+            'activity_id' => 1,
+        ]);
+
+        Experience::create([
+            'name' => ['en' => "Ribeiro Frio (Winter Canyoning)", 'pt' => "Ribeiro Frio (Canyoning Inverno)"],
+            'level' => 2,
+            'price' => 80,
+            'private_price' => 150,
             'activity_id' => 1,
         ]);
 
 
         Experience::create([
-            'name' => ['en' => "Level 3", 'pt' => "Nível 3"],
+            'name' => ['en' => "Ribeira Funda", 'pt' => "Ribeira Funda"],
+            'level' => 3,
             'price' => 150,
             'private_price' => 150,
             'activity_id' => 1,

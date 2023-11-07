@@ -10,7 +10,7 @@ const Container = styled.section`
     position: relative;
     background: ${props => props.background};
     box-sizing: border-box;
-    padding: 0px 0px 100px 0px;
+    padding: 100px 0px 100px 0px;
 
     @media (max-width: ${dimensions.md}) {
         padding: 20px;

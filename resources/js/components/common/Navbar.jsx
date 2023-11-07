@@ -29,6 +29,7 @@ const Content = styled.div`
     background: transparent;
     margin: auto;
     display: flex;
+    justify-content: space-between;
     width: 90%;
     margin: auto;
     transition: .5s ease-in-out;
@@ -56,9 +57,9 @@ const Content = styled.div`
 `;
 
 const FlexItem = styled.div`
-    flex: 1;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
+    gap: 20px;
 
     @media(max-width: ${dimensions.md}) {
         flex: none;
@@ -67,11 +68,9 @@ const FlexItem = styled.div`
 
 const Logo = styled(Link)`
     margin: auto;
-    display: flex;
     color: white;
     text-decoration: none;
     font-weight: bold;
-    justify-content: center;
 
 
     img {
@@ -261,6 +260,14 @@ const MenuItem = styled(Menu.Item)`
     } 
 `;
 
+const MobileContainer = styled.div`
+    display: none;
+
+    @media(max-width: ${dimensions.md}) {
+        display: flex;
+    }
+`;
+
 
 
 function Navbar({ handleVisibility, theme }) {
@@ -307,7 +314,11 @@ function Navbar({ handleVisibility, theme }) {
 
             <Content>
 
-
+                <AnimationContainer animateIn="fadeInDown" offset={0}>
+                    <Logo to="/">
+                        <img src="/image/logo_white.png" alt="be local madeira white logo" />
+                    </Logo>
+                </AnimationContainer>
 
                 <FlexItem className='navbar-hidden-links'>
 
@@ -346,49 +357,41 @@ function Navbar({ handleVisibility, theme }) {
                                     <SelectLink to="/activities/coasteering">{text.links[6]}</SelectLink>
                                 </Select.Option>
                             </CustomSelect><div />
+
+
+
                         </AnimationContainer>
-                    </MenuContainer>
 
-                </FlexItem>
-
-                <FlexItem>
-                    <AnimationContainer animateIn="fadeInDown" offset={0}>
-                        <Logo to="/">
-                            <img src="/image/logo_white.png" alt="be local madeira white logo" />
-                        </Logo>
-                    </AnimationContainer>
-                </FlexItem>
-
-                <FlexItem className='navbar-hidden-links'>
-
-                    <OrderButton onClick={() => handleVisibility(true)} color={themeContext.inverseText} background={themeContext.primary} backgroundHover={themeContext.primaryHover}>
-                        <AnimationContainer animateIn="fadeInDown" offset={0}>
-                            <span>{text.button}</span>
-                            <img src="/image/navbar/order.svg" alt="create reservation" />
-                        </AnimationContainer>
-                    </OrderButton>
-
-                </FlexItem>
-
-                <AnimationContainer animateIn="fadeInDown" offset={0}>
-                    <Row type="flex" align='middle' className='navbar-hidden-menu'>
                         <OrderButton onClick={() => handleVisibility(true)} color={themeContext.inverseText} background={themeContext.primary} backgroundHover={themeContext.primaryHover}>
                             <AnimationContainer animateIn="fadeInDown" offset={0}>
                                 <span>{text.button}</span>
                                 <img src="/image/navbar/order.svg" alt="create reservation" />
                             </AnimationContainer>
                         </OrderButton>
-                        <Dropdown overlayClassName="menu-dropdown" overlay={menu} placement="bottom">
-                            <MenuButton>
-                                <img
-                                    src="/image/navbar/menu.svg"
-                                    alt="menu"
-                                />
-                            </MenuButton>
-                        </Dropdown>
-                    </Row>
-                </AnimationContainer>
+                    </MenuContainer>
 
+                </FlexItem>
+
+                <MobileContainer>
+                    <AnimationContainer animateIn="fadeInDown" offset={0}>
+                        <Row type="flex" align='middle' className='navbar-hidden-menu'>
+                            <OrderButton onClick={() => handleVisibility(true)} color={themeContext.inverseText} background={themeContext.primary} backgroundHover={themeContext.primaryHover}>
+                                <AnimationContainer animateIn="fadeInDown" offset={0}>
+                                    <span>{text.button}</span>
+                                    <img src="/image/navbar/order.svg" alt="create reservation" />
+                                </AnimationContainer>
+                            </OrderButton>
+                            <Dropdown overlayClassName="menu-dropdown" overlay={menu} placement="bottom">
+                                <MenuButton>
+                                    <img
+                                        src="/image/navbar/menu.svg"
+                                        alt="menu"
+                                    />
+                                </MenuButton>
+                            </Dropdown>
+                        </Row>
+                    </AnimationContainer>
+                </MobileContainer>
             </Content>
 
         </Container >

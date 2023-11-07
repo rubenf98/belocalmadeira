@@ -73,16 +73,16 @@ const Title = styled.h2`
     }
 `;
 
-const Next = styled.div`
+const Next = styled.button`
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    margin: 20px 0px;
-
-    img {
-        width: 50px;
-    }
+    margin: 20px 0px 20px auto;
+    padding: 10px 22px;
+    background-color: ${({ theme }) => theme.primary};
+    font-size: 18px;
+    border: 1px solid white;
 `;
 
 const Submit = styled(Button)`
@@ -92,18 +92,13 @@ const Submit = styled(Button)`
     background-color: transparent;
     border: none;
     box-shadow: 0px;
-    
+    color: white;
 
     &:focus,
     &:active, &:hover {
         background-color: transparent;
         border: none;
         box-shadow: 0px;
-    }
-
-    img {
-        opacity: ${props => props.isloading ? 0 : 1};
-        width: 50px;
     }
 `;
 
@@ -149,27 +144,14 @@ const OrderForm = ({ visible, handleVisibility, createReservation, loading, acti
         setDrawerWidth(window.innerWidth > 720 ? 720 : window.innerWidth);
     }, [window.innerWidth])
 
-    const setBookingType = (type) => {
-        form.setFieldsValue({ type: type });
-        setActive(type);
-    }
-
     const steps = [
         {
-            title: text.pages[4].title,
-            content: <Type active={active} setActive={setActive} text={text.pages[4]} type={form.getFieldValue('type')} setBookingType={setBookingType} />
-        },
-        {
-            title: text.pages[5].title,
-            content: <Voucher text={text.pages[5]} />
+            title: text.pages[1].title,
+            content: <Date form={form} text={text.pages[1]} />
         },
         {
             title: text.pages[0].title,
             content: <Information text={text.pages[0]} />
-        },
-        {
-            title: text.pages[1].title,
-            content: <Date form={form} text={text.pages[1]} participants={form.getFieldValue('participants')} />
         },
         {
             title: text.pages[2].title,
@@ -177,7 +159,7 @@ const OrderForm = ({ visible, handleVisibility, createReservation, loading, acti
         },
         {
             title: text.pages[3].title,
-            content: <Summary type={form.getFieldValue('type')} text={text.pages[3]} data={{ ...formData, date: moment(formData.date).format("YYYY-MM-DD") }} />
+            content: <Summary text={text.pages[3]} data={{ ...formData, date: moment(formData.date).format("YYYY-MM-DD") }} />
         }
     ]
 
@@ -186,19 +168,12 @@ const OrderForm = ({ visible, handleVisibility, createReservation, loading, acti
     const nextStep = () => {
         form.validateFields().then((currentStepData) => {
             setFormData({ ...formData, ...currentStepData });
-            if (step == 2) {
+            if (step == 1) {
                 setNParticipants(form.getFieldValue('participants'));
             }
-            var nextStep = 0;
-            if (step == 0) {
-                nextStep = form.getFieldValue('type') == 1 ? 2 : 1
 
-            } else if (step == 1) {
-                setNParticipants(form.getFieldValue('participants'));
-                nextStep = 5;
-            } else {
-                nextStep = step == (steps.length - 1) ? step : step + 1
-            }
+            var nextStep = (step == (steps.length - 1)) ? step : step + 1
+
             setStepOrder([step, ...stepOrder])
             setStep(nextStep);
 
@@ -293,14 +268,14 @@ const OrderForm = ({ visible, handleVisibility, createReservation, loading, acti
                 {steps[step].content}
             </Form>
             {
-                step != 5 ?
+                step != 3 ?
                     <Next onClick={nextStep}>
-                        <img src="/icon/next.svg" alt='next' />
+                        <span> {text.controls.next} </span>
                     </Next> :
                     <Row type="flex" justify='end'>
                         <Submit isloading={loading ? 1 : 0} onClick={handleFinish} type='primary' htmlType="submit">
                             <Loading isloading={loading ? 1 : 0} src="/image/navbar/loading.svg" alt='loading' />
-                            <img src="/image/navbar/order.svg" alt='book now' />
+                            <span> {text.controls.submit} </span>
                         </Submit>
                     </Row>
 

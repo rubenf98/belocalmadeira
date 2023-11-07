@@ -65,11 +65,11 @@ const CustomSelect = styled(Select)`
 `;
 
 
-function Date({ fetchDisabledDates, calendarMetadata, loading, participants, form }) {
+function Date({ fetchDisabledDates, calendarMetadata, loading, form }) {
 
     useEffect(() => {
-        fetchDisabledDates(participants);
-    }, [participants]);
+        fetchDisabledDates(1);
+    }, []);
 
 
     useEffect(() => {

@@ -3,7 +3,7 @@ export const text = {
     pages: [
         {
             title: "Explora as nossas atividades e reserva a tua experiência na Ilha da Madeira!",
-            warning: "Atividades privadas de caminhadas, passeios de bicicleta e coasteering são 120€",
+            warning: "Todas as atividades privadas são 150€ por pessoa",
             family: "Todas as reservas com 4 ou mais participantes possuem um desconto familiar de 10% no final da reserva.",
             form: {
                 name: {
@@ -128,5 +128,9 @@ export const text = {
         yes: "OK",
         no: "Cancelar",
         message: "Tem a certeza que pretende cancelar? Existem campos preenchidos e todo o progresso irá se perder."
+    },
+    controls: {
+        next: "seguinte",
+        submit: "submeter"
     }
 } 
