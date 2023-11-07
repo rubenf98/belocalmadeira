@@ -53,7 +53,7 @@ class ReservationRequest extends FormRequest
 
         $this->merge([
             'price' => $price,
-            'source' => $this->type == 1 ? "website" : "voucher",
+            'source' => "website",
             'phone' =>  $phone,
             'private' => $this->private && true,
             'confirmation_token' => uniqid(),
@@ -71,7 +71,6 @@ class ReservationRequest extends FormRequest
     {
         return [
             'date' => 'required_if:source,website|date|after:today',
-            'recipient' => 'required_if:source,voucher|string',
             'source' => 'required|string',
             'address' => 'required_if:source,website|string',
             'experienceable_type' => 'required|string',

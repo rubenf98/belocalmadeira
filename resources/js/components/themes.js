@@ -6,7 +6,8 @@ export const light = {
     primary: "#232E19",
     primaryHover: "#29361d",
     primaryLight: "#1d530c",
-    primaryBackground: "#EEF2E9"
+    primaryBackground: "#EEF2E9",
+    accent: '#BD9B5E',
 }
 
 export const dark = {
