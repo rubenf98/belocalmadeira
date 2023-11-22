@@ -87,6 +87,11 @@ const FormContainer = styled.div`
         box-sizing: border-box;
         color: white;
         background-color: ${({ theme }) => theme.primary};
+
+        span {
+            font-size: clamp(24px, 2.5vw, 50px);
+            margin-left: 5px;
+        }
     }
 
     .form {
@@ -230,7 +235,7 @@ function Level({ handleForm, fetchDisabledDates, calendarMetadata, loading }) {
                     </InfoContainer>
                     <FormContainer xs={24} md={10}>
                         <div className='price-container'>
-                            from 60€
+                            from <span>60€</span>
                         </div>
                         <div className='form'>
                             <Form
