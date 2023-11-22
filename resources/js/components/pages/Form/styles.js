@@ -161,12 +161,16 @@ export const CustomDatePicker = styled(DatePicker)`
 export const CustomInput = styled(Input)`
     ${baseInputStyles}
 
+    color: ${props => props.light ? "black" : "white"};
+
     
 `;
 
 
 export const CustomTextArea = styled(Input.TextArea)`
     ${baseInputStyles}
+
+    color: ${props => props.light ? "black" : "white"};
 
     .ant-input {
         border: 0px;
@@ -177,6 +181,8 @@ export const CustomTextArea = styled(Input.TextArea)`
 
 export const CustomInputNumber = styled(InputNumber)`
     ${baseInputStyles}    
+
+    color: ${props => props.light ? "black" : "white"};
 
     .ant-input-number-focused {
         border: 0px;

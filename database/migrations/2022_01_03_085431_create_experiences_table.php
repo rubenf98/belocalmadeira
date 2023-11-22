@@ -17,6 +17,7 @@ class CreateExperiencesTable extends Migration
             $table->id();
             $table->string('name');
             $table->decimal('price', 5, 2);
+            $table->integer('level')->nullable();
             $table->decimal('private_price', 5, 2)->nullable();
             $table->unsignedBigInteger('activity_id');
             $table->timestamps();

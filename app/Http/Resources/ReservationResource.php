@@ -21,6 +21,7 @@ class ReservationResource extends JsonResource
             'email' =>   $this->email,
             'recipient' =>   $this->recipient,
             'price' =>   $this->price,
+            'seen' =>   $this->seen,
             'address' =>   $this->address,
             'phone' =>   $this->phone,
             'source' =>   $this->source,

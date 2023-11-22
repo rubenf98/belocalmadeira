@@ -26,13 +26,13 @@ export const text = {
         title: "atividades",
         subtitle: (<>As nossas <span>experiências</span> na Ilha da Madeira</>),
         items: [
-            { index: 1, price: (<p>63€ <span>70€</span></p>), title: "Iniciante", subtitle: "Pacote Família", paragraphs: ["Proporcionamos-lhe uma das melhores aventuras em família que a Madeira pode oferecer. Levamos a sua família para se divertir e saltar nas belas cascatas, piscinas verdes e entreter toda a família."], from: 60, images: ["family_01", "family_02", "family_03"] },
+            { index: 1, price: "63€", title: "Iniciante", subtitle: "Pacote Família", paragraphs: ["Proporcionamos-lhe uma das melhores aventuras em família que a Madeira pode oferecer. Levamos a sua família para se divertir e saltar nas belas cascatas, piscinas verdes e entreter toda a família."], from: 60, images: ["family_01", "family_02", "family_03"] },
             // { title: "Iniciante", subtitle: "Ribeiro Frio", paragraphs: ["Vamos levá-lo a este local bonito cercado por uma paisagem impressionante, muitos escorregas naturais, pequenas passagens de natação e alguns saltos esperam por si. Mas não se preocupe, todos os saltos também podem ser feitos de rapel."], from: 60, image: "ribeiro_frio_01" },
-            { index: 1, price: "70€", title: "Iniciante", subtitle: "Ribeira das Cales", paragraphs: ["Este canyoning destina-se a quem pretende ter o primeiro contacto com a atividade. É um percurso fácil e acessível para todas as idades (acima de 7 anos)."], from: 60, images: ["cales_01", "cales_02", "cales_03"] },
-            { index: 2, price: "80€", title: "Intermédio", subtitle: "Curral das Freiras", paragraphs: ["Rodeado por montanhas escarpadas, este desfiladeiro situa-se no meio da ilha, no vale para onde fugiram as freiras do convento de Santa Clara quando o Funchal foi atacado por piratas em 1566."], from: 80, images: ["curral_01", "curral_02", "curral_03"] },
-            { index: 2, price: "80€", title: "Intermédio", subtitle: "Ribeiro Frio", paragraphs: ["Canyoning Ribeiro Frio é um canyon no lado norte da Ilha da Madeira e consiste em 8 rapeis ao longo do caminho. O Canyon está inserido na Floresta Laurissilva que é património mundial da UNESCO desde 1999 e uma das sete maravilhas de Portugal."], from: 80, images: ["ribeiro_frio_01", "ribeiro_frio_02", "ribeiro_frio_03"] },
+            { index: 2, price: "70€", title: "Iniciante", subtitle: "Ribeira das Cales", paragraphs: ["Este canyoning destina-se a quem pretende ter o primeiro contacto com a atividade. É um percurso fácil e acessível para todas as idades (acima de 7 anos)."], from: 60, images: ["cales_01", "cales_02", "cales_03"] },
+            { index: 3, price: "80€", title: "Intermédio", subtitle: "Curral das Freiras", paragraphs: ["Rodeado por montanhas escarpadas, este desfiladeiro situa-se no meio da ilha, no vale para onde fugiram as freiras do convento de Santa Clara quando o Funchal foi atacado por piratas em 1566."], from: 80, images: ["curral_01", "curral_02", "curral_03"] },
+            { index: 4, price: "80€", title: "Intermédio", subtitle: "Ribeiro Frio", paragraphs: ["Canyoning Ribeiro Frio é um canyon no lado norte da Ilha da Madeira e consiste em 8 rapeis ao longo do caminho. O Canyon está inserido na Floresta Laurissilva que é património mundial da UNESCO desde 1999 e uma das sete maravilhas de Portugal."], from: 80, images: ["ribeiro_frio_01", "ribeiro_frio_02", "ribeiro_frio_03"] },
             // { title: "Intermédio", subtitle: "Lajeado", paragraphs: ["Este Canyoning começa no Paúl da Serra, que literalmente significa pântano das montanhas. O Paúl da Serra é o ponto de partida para muitos belos canyons que descem a ilha a partir deste planalto."], from: 100, image: "family" },
-            { index: 3, price: "150€", title: "Avançado", subtitle: "Ribeira Funda", paragraphs: ["Canyoning Avançado na Ilha da Madeira distingue-se pelas suas grandes verticais e elevado nível técnico, oferecendo finais épicos junto ao mar do Norte."], from: 150, images: ["funda_011", "funda_022", "funda_033"] },
+            { index: 5, price: "150€", title: "Avançado", subtitle: "Ribeira Funda", paragraphs: ["Canyoning Avançado na Ilha da Madeira distingue-se pelas suas grandes verticais e elevado nível técnico, oferecendo finais épicos junto ao mar do Norte."], from: 150, images: ["funda_011", "funda_022", "funda_033"] },
         ],
         descriptions: [
             "O primeiro nível não requer nenhuma experiência e é perfeito para quem quer dar o primeiro passo nesta atividade maravilhosa! É um percurso fácil e acessível para todas as idades (acima de 7 anos). Tem uma altura máxima de 10-15 metros com vários saltos opcionais.",
@@ -52,21 +52,46 @@ export const text = {
             // ["The Canyoning is inserted in a full Laurisilva forest (world heritage by UNESCO since 1999).", "The access to the canyon is along the path of the levada do Alecrim. After more or less half an hour walking we reach the beginning of the canyon.", "Inside the Canyoning we find various rappels along waterfalls with possibilities to jump, stunning landscapes, beautiful lakes and a lot of action, this canyoning is just an amazing experience."],
             ["A Ribeira Funda é um excelente canyoning para quem procura os primeiros contactos com grandes cascatas. Além da espetacular cascata com 60 metros de altura, este percurso também tem alguns saltos incríveis.", "A nossa viagem começa numa aldeia quase deserta à norte da Ilha. Os últimos metros de carro são uma aventura! Faremos um rapel para aquecer, antes de chegarmos a uma queda de 60 metros que nos leva a um dos mais belos canhões da Madeira.", "Ao longo no nosso caminho faremos 8 rapeis no total e 2 saltos de 6 e 8 metros de altura antes de conseguirmos avistar o Oceano Atlântico no lado norte da Madeira.", "O canyon termina com um último rappel através de uma queda de água perto de reconhecível estrada antiga para o mar. Com vistas sobre a costa norte caminhamos em poucos minutos de volta à estrada.", "Se procura uma boa experiência mas não quer perder tempo em grandes aproximações e saídas, esta é a o Canyon da Madeira mais adequado para si."],
         ],
-        details: [
-            [],
-            // ["Ribeiro Frio", "3hrs", "2:30hrs", "12m", "5m"],
-            ["Parque Ecológico", "3hrs", "2:30hrs", "15m", "5m"],
-            ["Curral das Freiras", "4hrs", "3:30hrs", "15m", "7m"],
-            ["Ribeiro Frio", "3hrs", "2:30hrs", "15m", "6m"],
-            // ["Rabaçal", "5hrs", "4:30hrs", "25m", "12m"],
-            ["Seixal", "3:30hrs", "3hrs", "55m", "8m"],
+        details: {
+            titles: ["SENSAÇÃO", "DIFICULDADE", "DURAÇÃO TOTAL", "ALTURA DOS SALTOS (OPCIONAIS)", "PONTO DE ENCONTRO", "RAPEL MÁXIMO"],
+            items: [
+                ["Iniciante", "Desportivo", "3-4hrs", "7m", "Pestana CR7", "10/12m"],
+                ["Iniciante", "Desportivo", "3-4hrs", "7m", "Pestana CR7", "10/12m"],
+                ["Aventureiro", "Desportivo", "3-4hrs", "7m", "Pestana CR7", "20m"],
+                ["Aventureiro", "Desportivo", "3-4hrs", "7m", "Pestana CR7", "20m"],
+                ["Experiente", "Desportivo", "3-4hrs", "7m", "Pestana CR7", "55m"],
+            ],
+        },
+        itinerary: [
+            ["09:00 - Ponto de encontro", "Preparação e detalhes de atividade", "Aproximação: 10 - 20 mins", "Rota: 3 - 4 horas", "Saltos: Opcionais", "Rappel: Vários rappels (4x)", "Cascata mais elevada: Até 10/12 metros", "Escorregas (2x)", "Retorno (5 - 25 mins)", "14:00 - Fim"],
+            ["09:00 - Ponto de encontro", "Preparação e detalhes de atividade", "Aproximação: 10 - 20 mins", "Rota: 3 - 4 horas", "Saltos: Opcionais", "Rappel: Vários rappels (4x)", "Cascata mais elevada: Até 10/12 metros", "Escorregas (2x)", "Retorno (5 - 25 mins)", "14:00 - Fim"],
+            ["09:00 - Ponto de encontro", "Preparação e detalhes de atividade", "Aproximação: 10 - 20 mins", "Rota: 3 - 4 horas", "Saltos: Opcionais", "Rappel: Vários rappels (6x)", "Cascata mais elevada: Até 20 metros", "Retorno (5 - 25 mins)", "14:00 - Fim"],
+            ["09:00 - Ponto de encontro", "Preparação e detalhes de atividade", "Aproximação: 10 - 20 mins", "Rota: 3 - 4 horas", "Saltos: Opcionais", "Rappel: Vários rappels (6x)", "Cascata mais elevada: Até 20 metros", "Retorno (5 - 25 mins)", "14:00 - Fim"],
+            ["08:30 - Ponto de encontro", "Preparação e detalhes de atividade", "Aproximação: 10 mins", "Rota: 3 - 4 horas", "Saltos: Opcionais", "Rappel: Vários rappels (10x)", "Cascata mais elevada: Até 55 metros", "Retorno (10 - 15 mins)", "14:00 - Fim"],
         ],
         fields: [
-            "LOcalização", "Duração total", "Tempo na atividade", "Altura do rapel", "Altura dos saltos (opcionais)"
+            "Localização", "Duração total", "Tempo na atividade", "Altura do rapel", "Altura dos saltos (opcionais)"
         ]
     },
     gallery: {
         subtitle: "galeria",
         title: (<><span>Aventuras</span> fantásticas que não irás esquecer</>),
-    }
+    },
+    form: {
+        name: {
+            label: "Nome *"
+        },
+        email: {
+            label: "Email *"
+        },
+        phone: {
+            label: "Número telemóvel *"
+        },
+        address: {
+            label: "Morada de recolha *"
+        },
+        participants: {
+            label: "Nº de participantes *",
+        },
+    },
 } 

@@ -2,7 +2,7 @@ export const text = {
     close: "cancelar",
     pages: [
         {
-            title: "Explora as nossas atividades e reserva a tua experiência na Ilha da Madeira!",
+            title: "Reserva a tua experiência na Ilha da Madeira!",
             warning: "Todas as atividades privadas são 150€ por pessoa",
             family: "Todas as reservas com 4 ou mais participantes possuem um desconto familiar de 10% no final da reserva.",
             form: {
@@ -33,10 +33,10 @@ export const text = {
             },
         },
         {
-            title: "Seleciona a data para a tua atividade das que estão disponíveis no calendário"
+            title: "Selecione a data para a tua atividade"
         },
         {
-            title: "Preencha os detalhes de todos os que irão participar na atividade",
+            title: "Preencha os detalhes dos participantes",
             subtitle: "Participante",
             form: {
                 person: {

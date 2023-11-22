@@ -1,23 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from "react-router-dom";
 import PageHeader from '../../common/PageHeader';
-import styled, { withTheme } from 'styled-components'
+import styled from 'styled-components'
 import { dimensions, maxWidth } from '../../../helper';
-import Faq from '../HomepageComponents/Faq';
-import { Col, Row } from 'antd';
+import { Calendar, Col, Form, Input, Row } from 'antd';
 import { connect } from "react-redux";
+import { fetchDisabledDates } from "../../../redux/reservation/actions";
 import { handleForm } from "../../../redux/application/actions";
+import SimplifiedFaq from '../HomepageComponents/SimplifiedFaq';
+import { CustomInput, CustomInputNumber, CustomPhoneSelect } from '../Form/styles';
+import moment from "moment";
 
-const Image = styled.img`
-    max-width: 720px;
-    width: 100%;
-    margin: 50px auto;
-    display: block;
-    padding: 0px 20px;
-    box-sizing: border-box;
-    max-height: ${props => props.height + "px"};
-    object-fit: cover;
-`;
 
 
 const Container = styled.div`
@@ -26,67 +19,31 @@ const Container = styled.div`
     margin: auto;
     padding: 0px 20px 50px 20px;
     box-sizing: border-box;
+
+    h3 {
+        font-size: clamp(28px, 3vw, 36px);
+        font-family: 'Playfair Display', serif;
+        font-weight: bold;
+    }
     
     @media (max-width: ${dimensions.md}) {
         padding: 0px 0px 50px 0px;
     }
 `;
 
-const DetailsContainer = styled.section`
-    display: flex;
-    flex-wrap: wrap;
-    margin: 50px auto;
-    width: 90%;
-    justify-content: space-around;
-    align-items: flex-start;
+const DetailsContainer = styled(Row)`
+    width: 100%;
+    margin-bottom: 50px;
 
-    @media (max-width: ${dimensions.md}) {
-        width: 100%;
-        padding: 0px 20px;
+    h4 {
+        text-transform: uppercase;
+        margin-bottom: 0px;
     }
 
-    div {
-        width: 33%;
-        padding: 0px 10px;
-        box-sizing: border-box;
-        
-        
-        @media (max-width: ${dimensions.md}) {
-            &:first-child {
-                width: 100%;
-            }
-
-            &:nth-child(2), &:nth-child(3) {
-                width: 50%;
-            }
-            span {
-                display: none;
-            }
-        }
-
-        @media (max-width: ${dimensions.sm}) {
-            &:nth-child(2), &:nth-child(3) {
-                width: 100%;
-            }
-        }
-
-        h4 {
-            font-size: 28px;
-
-            @media (max-width: ${dimensions.md}) {
-                width: 100%;
-            }
-        }
-
-        ul {
-            margin: 0px;
-        }
-
-        li {
-            opacity: .7;
-            font-size: 16px;
-        }
-    } 
+    p {
+        opacity: .7;
+        margin: 0px 0px 10px 0px;
+    }
 `;
 
 const ParagraphContainer = styled.div`
@@ -96,138 +53,281 @@ const ParagraphContainer = styled.div`
 
     h2 {
         font-size: 40px;
-        font-family: 'Playfair Display', serif;
+        
     }
 
     p {
         font-size: 16px;
         opacity: .7;
     }
+`;
 
-    h3 {
-        font-size: 24px;
-        text-align: center;
-        margin: 0px;
-    }
-
-    h4 {
-        opacity: .7;
-        font-size: 14px;
-        text-align: center;
-        margin: 0px;
-    }
+const Content = styled.div`
+    margin: auto;
+    display: flex;
+    align-items: flex-start;
 
     @media (max-width: ${dimensions.md}) {
+        box-sizing: border-box;
         padding: 0px 20px;
+    }
+`;
 
-        h3 {
-            font-size: 18px;
-            text-align: left;
-        }
+const FormContainer = styled.div`
+    width: 40%;
+    padding-left: 15px;
+    box-sizing: border-box;
+    
 
-        h4 {
-            text-align: left;
-        }
+    .price-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 0px;
+        box-sizing: border-box;
+        color: white;
+        background-color: ${({ theme }) => theme.primary};
     }
 
+    .form {
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    
+`;
+
+
+const InfoContainer = styled.div`
+    width: 60%;
+`;
+
+
+
+const ImageContainer = styled.section`
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 100px;
+
+    .m1 {
+        width: 60%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .vertical-container {
+        width: 40%;
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+
+        img {
+            width: 50%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
 `;
 
 const OrderButton = styled.div`
     box-sizing: border-box;
     cursor: pointer;
-    background: ${props => props.background};
-    padding: 10px 30px 10px 30px;
-    font-size: 15px;
+    background: ${({ theme }) => theme.primary};
+    padding: 20px 30px;
     transition: .4s;
     border-radius: 4px;
     background-size: 110%;
     text-transform: capitalize;
-    color: ${props => props.color};
+    color: white;
     font-weight: bold;
-    margin-top: 0px;
-
-    &:hover {
-        background: ${props => props.backgroundHover};
-    } 
+    margin-top: 20px;
+    text-align: center;
 `;
 
+function Level({ handleForm, fetchDisabledDates, calendarMetadata, loading }) {
+    // const [form, setForm] = useState({ name: undefined, email: undefined, phone: undefined, address: undefined, participants: undefined, date: undefined })
 
-function Level({ handleForm, theme }) {
-    const { text } = require('../../../assets/' + localStorage.getItem('language') + "/activityCanyoning");
-    const faqText = require('../../../assets/' + localStorage.getItem('language') + "/homepage");
     var { index } = useParams();
+    const { text } = require('../../../assets/' + localStorage.getItem('language') + "/activityCanyoning");
+    // const faqText = require('../../../assets/' + localStorage.getItem('language') + "/homepage");
+    const [form] = Form.useForm();
+    useEffect(() => {
+        fetchDisabledDates();
+    }, []);
+
+
+    useEffect(() => {
+        var init = moment().add(1, 'days');
+        var condition = true;
+        while (condition) {
+            if (!calendarMetadata.disabled.includes(moment(init).format("YYYY-MM-DD"))) {
+                condition = false;
+            } else {
+                init.add(1, 'days');
+            }
+        }
+
+        form.setFieldsValue({ date: init });
+
+
+    }, [calendarMetadata])
+
+
+
+    const onPanelChange = (value, mode) => {
+        form.setFieldsValue({ date: value });
+    };
+
+    const handleSubmit = () => {
+        form.validateFields().then((data) => {
+            handleForm(true, { activity: [1, text.levels.items[index].index], ...data });
+        })
+    };
 
     return (
         <div>
             <PageHeader title={"Canyoning - " + text.levels.items[index].subtitle} subtitle={text.levels.subtitle} />
             <Container>
-                <ParagraphContainer>
-                    <h2>{text.levels.titles[0]} - {text.levels.items[index].subtitle}</h2>
-                    <p>{text.levels.descriptions[index]}</p>
-                    <p>{text.levels.items[index].paragraphs[0]}</p>
-                    <Row style={{ margin: "20px 0px 40px 0px" }} type="flex" justify='space-between'>
-                        {text.levels.details[index].map((detail, detailIndex) => (
-                            <Col xs={12} md={12} lg={4} >
-                                <h3>{detail}</h3>
-                                <h4>{text.levels.fields[detailIndex]}</h4>
-                            </Col>
-                        ))}
-                    </Row>
-                </ParagraphContainer>
-
-                <DetailsContainer>
-                    <div>
-                        <h4>{text.section}</h4>
-
+                <h2>{text.levels.items[index].subtitle}</h2>
+                <ImageContainer>
+                    <img className='m1' src={"/image/activities/levels/" + text.levels.items[index].images[0] + ".jpg"} />
+                    <div className='vertical-container'>
+                        <img className='v1' src={"/image/activities/levels/" + text.levels.items[index].images[1] + ".jpg"} />
+                        <img className='v2' src={"/image/activities/levels/" + text.levels.items[index].images[2] + ".jpg"} />
                     </div>
-                    <div>
+                </ImageContainer>
 
-                        <ul>
-                            {text.includes.map((element, index) => (
-                                <li key={index}>{element}</li>
+
+                <Content>
+                    <InfoContainer>
+
+                        <h3>{text.levels.titles[0]}</h3>
+                        <DetailsContainer type="flex" justify='space-between'>
+                            {text.levels.details.items[index].map((detail, detailIndex) => (
+                                <Col xs={12} md={12}>
+                                    <h4>{text.levels.details.titles[detailIndex]}</h4>
+                                    <p>{detail}</p>
+
+                                </Col>
                             ))}
-                        </ul>
-                    </div>
-                    <div>
+                        </DetailsContainer>
 
-                        <ul>
-                            {text.activities.items.map((element, index) => (
-                                <li key={index}>{element}</li>
+                        <h3>{text.levels.titles[1]}</h3>
+                        <ParagraphContainer>
+
+                            <p>{text.levels.descriptions[index]}</p>
+                            <p>{text.levels.items[index].paragraphs[0]}</p>
+
+                            {text.levels.summary[index].map((summaryItem) => (
+                                <p>{summaryItem}</p>
                             ))}
-                        </ul>
-                    </div>
-                </DetailsContainer>
+                        </ParagraphContainer>
 
 
-                <Image height={500} src={"/image/activities/levels/" + text.levels.items[index].images[0] + ".jpg"} />
+                        {/* <SimplifiedFaq hasBackground={false} text={faqText.text.faq} /> */}
 
-                <ParagraphContainer>
-                    <h2>{text.levels.titles[1]}</h2>
+                    </InfoContainer>
+                    <FormContainer xs={24} md={10}>
+                        <div className='price-container'>
+                            from 60€
+                        </div>
+                        <div className='form'>
+                            <Form
+                                name="basic"
+                                layout='vertical'
+                                form={form}
+                            >
+                                <Row gutter={16}>
 
-                    {text.levels.summary[index].map((summaryItem) => (
-                        <p>{summaryItem}</p>
-                    ))}
-                    <Row type="flex" >
-                        <OrderButton
-                            onClick={() => handleForm(true, [1, text.levels.items[index].index])}
-                            color={theme.inverseText}
-                            background={theme.primary}
-                            backgroundHover={theme.primaryHover}>
-                            {localStorage.getItem('language') == "en" ? "Book now" : "Reservar já"}
-                        </OrderButton>
-                    </Row>
-                </ParagraphContainer>
+                                    <Col xs={24} md={24}>
+                                        <Form.Item
+                                            label={text.form.name.label}
+                                            name="name"
+                                        >
+                                            <CustomInput
+                                                light
+                                                size='large'
+                                                placeholder={text.form.name.placeholder}
+                                            />
+                                        </Form.Item>
+                                    </Col>
+                                    <Col xs={24} md={24}>
+                                        <Form.Item
+                                            label={text.form.email.label}
+                                            name="email"
+                                        >
+                                            <CustomInput light size='large' placeholder={text.form.email.placeholder} />
+                                        </Form.Item>
+                                    </Col>
+                                    <Col xs={24} md={12}>
+                                        <Form.Item
+                                            label={text.form.phone.label}
+                                            name="phone"
+                                        >
+                                            <CustomInputNumber
+                                                light
+                                                size="large"
+                                                placeholder={text.form.phone.placeholder}
+                                            />
+                                        </Form.Item>
+                                    </Col>
 
-                <Row type="flex">
-                    <Col xs={24} md={12}>
-                        <Image height={700} src={"/image/activities/levels/" + text.levels.items[index].images[1] + ".jpg"} />
-                    </Col>
-                    <Col xs={0} md={12}>
-                        <Image height={700} src={"/image/activities/levels/" + text.levels.items[index].images[2] + ".jpg"} />
-                    </Col>
-                </Row>
+                                    <Col xs={24} md={12}>
+                                        <Form.Item
+                                            label={text.form.participants.label}
+                                            name="participants"
+                                        >
+                                            <CustomInputNumber light max={15} min={1} controls={false} size='large' placeholder={text.form.participants.placeholder} />
+                                        </Form.Item>
+                                    </Col>
 
-                <Faq hasBackground={false} text={faqText.text.faq} />
+                                    <Col xs={24} md={24}>
+                                        <Form.Item
+                                            label={text.form.address.label}
+                                            name="address"
+                                        >
+                                            <CustomInput light size='large' placeholder={text.form.address.placeholder} />
+                                        </Form.Item>
+                                    </Col>
+
+                                    <Col xs={24} md={24}>
+                                        <Form.Item
+                                            name="date"
+                                        >
+                                            <Input style={{ display: "none" }} />
+                                        </Form.Item>
+                                    </Col>
+
+                                    <br />
+
+                                    <Col xs={24} md={24}>
+                                        <Calendar
+                                            disabledDate={(currentDate) => {
+                                                return currentDate && (
+                                                    (currentDate < moment())
+                                                    || (calendarMetadata.disabled.includes(moment(currentDate).format("YYYY-MM-DD"))));
+                                            }}
+                                            fullscreen={false}
+                                            onPanelChange={onPanelChange}
+                                        />
+                                        {/* <CustomInput size='large' placeholder="{text.form.address.placeholder}" /> */}
+                                    </Col>
+
+                                    <Col xs={24} md={24}>
+                                        <OrderButton
+                                            onClick={handleSubmit}
+                                        >
+                                            {localStorage.getItem('language') == "en" ? "Book now" : "Reservar já"}
+                                        </OrderButton>
+                                    </Col>
+
+                                </Row>
+                            </Form>
+                        </div>
+
+                    </FormContainer>
+                </Content>
 
             </Container>
         </div>
@@ -237,10 +337,18 @@ function Level({ handleForm, theme }) {
 const mapDispatchToProps = (dispatch) => {
     return {
         handleForm: (visibility, activity) => dispatch(handleForm(visibility, activity)),
+        fetchDisabledDates: (participants) => dispatch(fetchDisabledDates(participants)),
+    };
+};
+
+const mapStateToProps = (state) => {
+    return {
+        loading: state.reservation.loading,
+        calendarMetadata: state.reservation.calendarMetadata,
     };
 };
 
 export default connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
-)(withTheme(Level));
+)(Level);

@@ -16,7 +16,7 @@ export const text = {
         title: "activities",
         subtitle: (<>Our canyoning <span>experiences</span> in Madeira Island</>),
         items: [
-            { index: 1, price: (<p>63€ <span>70€</span></p>), title: "Beginner", subtitle: "Family Pack", paragraphs: ["We provide you one of the best family adventures that Madeira can offer. We take your family to enjoy splashing and jumping in the beautiful waterfalls, green pools and to entertain the whole family."], from: 60, images: ["family_01", "family_02", "family_03"] },
+            { index: 1, price: "63€", title: "Beginner", subtitle: "Family Pack", paragraphs: ["We provide you one of the best family adventures that Madeira can offer. We take your family to enjoy splashing and jumping in the beautiful waterfalls, green pools and to entertain the whole family."], from: 60, images: ["family_01", "family_02", "family_03"] },
             // { title: "Beginner", subtitle: "Ribeiro Frio", paragraphs: ["We will take you to this beautiful places, surrounded by impressive landscape a lot of slides, short swimming passages and a couple of jumps await you. But don’t worry, all of the jumps can also be abseiled."], from: 60, image: "ribeiro_frio_01" },
             { index: 1, price: "70€", title: "Beginner", subtitle: "Ribeira das Cales", paragraphs: ["This canyoning is intended for those who wish to have the first contact with the activity. It is a easy and accessible route for all ages (over 7 years old)."], from: 60, images: ["cales_01", "cales_02", "cales_03"] },
             { index: 2, price: "80€", title: "Intermediate", subtitle: "Nuns Valley", paragraphs: ["Surrounded by steep mountains, this canyon lies in the middle of the island, in the valley that the Nuns from Santa Clara convent fled to when Funchal was attacked by pirates in 1566."], from: 80, images: ["curral_01", "curral_02", "curral_03"] },
@@ -42,14 +42,22 @@ export const text = {
             // ["The Canyoning is inserted in a full Laurisilva forest (world heritage by UNESCO since 1999).", "The access to the canyon is along the path of the levada do Alecrim. After more or less half an hour walking we reach the beginning of the canyon.", "Inside the Canyoning we find various rappels along waterfalls with possibilities to jump, stunning landscapes, beautiful lakes and a lot of action, this canyoning is just an amazing experience."],
             ["The Canyoning Ribeira Funda is an excellent canyoning for people looking for the first contacts with large waterfalls. Besides the spectacular waterfall with 60 meters high, this route also has some amazing jumps.", "Our journey starts in an almost desolated village at the north side of the Island. The last meters by car are an adventure! We will do one rappel to warm up, before we reach a 60 meter drop that brings us down into one of the most beautiful canyons of Madeira.", "Along our way we will do 8 rappels in total and 2 jumps of 6 and 8 meters high before we will get view on the Atlantic Ocean at the north side of Madeira. ", "The canyon ends with a last rappel trough a waterfall by a hardly recognizable old road to the sea. With views over the north coast we walk in a few minutes back to the road.", "If you are searching for a good experience but do not want to waste time in major approaches and exits, this is the most suitable Canyon in Madeira for you."],
         ],
-        details: [
-            [],
-            // ["Ribeiro Frio", "3hrs", "2:30hrs", "12m", "5m"],
-            ["Ecological Park", "3hrs", "2:30hrs", "15m", "5m"],
-            ["Nuns Valley", "4hrs", "3:30hrs", "15m", "7m"],
-            ["Ribeiro Frio", "3hrs", "2:30hrs", "15m", "6m"],
-            // ["Rabaçal", "5hrs", "4:30hrs", "25m", "12m"],
-            ["Seixal", "3:30hrs", "3hrs", "55m", "8m"],
+        details: {
+            titles: ["SENSATION LEVEL", "FITNESS LEVEL", "TOTAL DURATION", "JUMP HEIGHT (OPTIONAL)", "MEETING POINT", "ABSEILING HEIGHT"],
+            items: [
+                ["Iniciante", "Desportivo", "3-4hrs", "7m", "Pestana CR7", "10/12m"],
+                ["Iniciante", "Desportivo", "3-4hrs", "7m", "Pestana CR7", "10/12m"],
+                ["Aventureiro", "Desportivo", "3-4hrs", "7m", "Pestana CR7", "20m"],
+                ["Aventureiro", "Desportivo", "3-4hrs", "7m", "Pestana CR7", "20m"],
+                ["Experiente", "Desportivo", "3-4hrs", "7m", "Pestana CR7", "55m"],
+            ],
+        },
+        itinerary: [
+            ["09:00 - Meeting Point", "Gear up and briefing", "Approximation: 10 - 20 mins", "Route: 3 - 4 hours", "Jumps: Optional", "Rappel: Several rappels (4x)", "Highest waterfall: Up to 10/12 meters", "Waterslides (2x)", "Return (5 - 25 mins)", "14:00 - End"],
+            ["09:00 - Meeting Point", "Gear up and briefing", "Approximation: 10 - 20 mins", "Route: 3 - 4 hours", "Jumps: Optional", "Rappel: Several rappels (4x)", "Highest waterfall: Up to 10/12 meters", "Waterslides (2x)", "Return (5 - 25 mins)", "14:00 - End"],
+            ["09:00 - Meeting Point", "Gear up and briefing", "Approximation: 10 - 20 mins", "Route: 3 - 4 hours", "Jumps: Optional", "Rappel: Several rappels (6x)", "Highest waterfall: Up to 20 meters", "Return (5 - 25 mins)", "14:00 - End"],
+            ["09:00 - Meeting Point", "Gear up and briefing", "Approximation: 10 - 20 mins", "Route: 3 - 4 hours", "Jumps: Optional", "Rappel: Several rappels (6x)", "Highest waterfall: Up to 20 meters", "Return (5 - 25 mins)", "14:00 - End"],
+            ["08:30 - Meeting Point", "Gear up and briefing", "Approximation: 10 mins", "Route: 3 - 4 hours", "Jumps: Optional", "Rappel: Several rappels (10x)", "Highest waterfall: Up to 55 meters", "Return (10 - 15 mins)", "14:00 - End"],
         ],
         fields: [
             "Location", "Total duration", "Time in the canyon", "Abseiling height", "Jump height (optional)"
@@ -77,5 +85,23 @@ export const text = {
     gallery: {
         subtitle: "gallery",
         title: (<>Amazing <span>adventures</span> that you'll never forget</>),
-    }
+    },
+    form: {
+        name: {
+            label: "Name *",
+
+        },
+        email: {
+            label: "Email *"
+        },
+        phone: {
+            label: "Phone Number *"
+        },
+        address: {
+            label: "Pickup Address *"
+        },
+        participants: {
+            label: "Nº of participants *",
+        },
+    },
 } 

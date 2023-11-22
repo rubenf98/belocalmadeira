@@ -70,7 +70,7 @@ function Participant({ text, nParticipant }) {
                     </Form.Item>
                 </Col>
                 <Col xs={24} md={8}>
-                    <Form.Item name="age" rules={rules.bday}>
+                    <Form.Item name="birthday" rules={rules.bday}>
                         <CustomDatePicker picker="month" placeholder={text.form.person.bday.placeholder} style={{ width: "100%" }} />
                     </Form.Item>
                 </Col>

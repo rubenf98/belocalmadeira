@@ -11,6 +11,7 @@ import moment from 'moment';
 import { dimensions } from '../../helper';
 import Type from './Form/Type';
 import Voucher from './Form/Voucher';
+import { fetchActivities } from '../../redux/activity/actions';
 
 const rotate = keyframes`
   from {
@@ -124,12 +125,12 @@ const FlexContainer = styled.div`
 `;
 
 
-const OrderForm = ({ visible, handleVisibility, createReservation, loading, activityInitialValue }) => {
+const OrderForm = ({ visible, handleVisibility, createReservation, loading, activityInitialValue, fetchActivities }) => {
     const { text } = require('../../assets/' + localStorage.getItem('language') + "/form");
     const [formData, setFormData] = useState({})
     const [step, setStep] = useState(0);
     const [stepOrder, setStepOrder] = useState([]);
-    const [active, setActive] = useState(undefined)
+    const [active, setActive] = useState(undefined);
     const [nParticipants, setNParticipants] = useState(3);
     const [drawerWidth, setDrawerWidth] = useState(720);
     const [form] = Form.useForm();
@@ -138,6 +139,12 @@ const OrderForm = ({ visible, handleVisibility, createReservation, loading, acti
     useEffect(() => {
         if (visible)
             handleReset(true);
+        if (activityInitialValue.name) {
+            setNParticipants(activityInitialValue.participants)
+            setFormData({ ...activityInitialValue })
+            fetchActivities({ language: localStorage.getItem('language') });
+            setStep(2)
+        }
     }, [visible])
 
     useEffect(() => {
@@ -194,7 +201,6 @@ const OrderForm = ({ visible, handleVisibility, createReservation, loading, acti
         setStepOrder([])
         form.resetFields();
         setFormData({});
-        handleVisibility(close);
     }
 
     const handleFinish = () => {
@@ -206,6 +212,7 @@ const OrderForm = ({ visible, handleVisibility, createReservation, loading, acti
                         description: text.success.description,
                     })
                     handleReset(false);
+                    handleVisibility(false);
                 }
             }).catch((error) => {
                 let messages = [];
@@ -245,6 +252,7 @@ const OrderForm = ({ visible, handleVisibility, createReservation, loading, acti
                 <CloseContainer>
                     <Popconfirm
                         title={text.popconfirm.message}
+                        placement="bottomLeft"
                         onConfirm={() => handleVisibility(false)}
                         okText={text.popconfirm.yes}
                         cancelText={text.popconfirm.no}
@@ -262,7 +270,7 @@ const OrderForm = ({ visible, handleVisibility, createReservation, loading, acti
                 name="order"
                 requiredMark={false}
                 initialValues={{
-                    activity: activityInitialValue,
+                    ...activityInitialValue,
                 }}
             >
                 {steps[step].content}
@@ -290,6 +298,7 @@ const OrderForm = ({ visible, handleVisibility, createReservation, loading, acti
 const mapDispatchToProps = (dispatch) => {
     return {
         createReservation: (data) => dispatch(createReservation(data)),
+        fetchActivities: (filters) => dispatch(fetchActivities(filters)),
     };
 };
 

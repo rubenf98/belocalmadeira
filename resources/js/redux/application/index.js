@@ -4,7 +4,7 @@ export const initialState = {
     theme: "light",
     menuVisible: false,
     formVisible: false,
-    activityInitialValue: [],
+    activityInitialValue: {},
 }
 
 export default (state = initialState, action = {}) => {

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ExternalReservationController;
+use App\Http\Controllers\ReservationVisibilityController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +25,8 @@ Route::post('refresh', 'AuthController@refresh');
 Route::post('me', 'AuthController@me');
 Route::get('/fill-data-pdfs', [\App\Http\Controllers\FillVoucherController::class, 'process']);
 Route::post('/external-reservation', ExternalReservationController::class);
+
+Route::put('/visibility/{reservation}', ReservationVisibilityController::class);
 
 Route::get('reservation/disabledDate', 'App\Http\Controllers\ReservationController@disabledDates');
 Route::get('reservation/showFromToken', 'App\Http\Controllers\ReservationController@showFromToken');

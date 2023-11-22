@@ -80,12 +80,13 @@ function Summary({ text, data, activities, type }) {
         }
 
     }, [data])
+
     return (
         <div>
             <Flex type="flex" justify="flex-start">
                 <Detail><span className="fieldname">{text.details.name} </span> {data.name} </Detail>
                 <Detail><span className="fieldname">{text.details.email} </span> {data.email} </Detail>
-                <Detail><span className="fieldname">{text.details.phone} </span> {data.phone.code}{data.phone.phone} </Detail>
+                <Detail><span className="fieldname">{text.details.phone} </span> {data.phone?.code ? data.phone?.code + "" + data.phone?.phone : data?.phone} </Detail>
                 <Detail><span className="fieldname">{text.details.address} </span> {data.address} </Detail>
                 <Detail><span className="fieldname">{text.details.private} </span> {data.private ? "Yes" : "No"} </Detail>
                 <Detail><span className="fieldname">{text.details.activity} </span> {activityName} </Detail>

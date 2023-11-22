@@ -19,6 +19,7 @@ class CreateReservationsTable extends Migration
             $table->string('experienceable_type');
             $table->boolean('private')->default(false);
             $table->boolean('confirmation')->default(false);
+            $table->boolean('seen')->default(false);
             $table->string('confirmation_token')->unique();
             $table->string('name')->nullable();
             $table->string('email')->nullable();

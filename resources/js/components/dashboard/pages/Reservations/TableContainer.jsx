@@ -7,7 +7,7 @@ import Table from "../../../common/TableContainer";
 import RowOperation from "../../RowOperation";
 import StopPropagation from "../../StopPropagation";
 import FormContainer from "./FormContainer";
-import { updateReservation, createExternalReservation,blockReservationDate } from "../../../../redux/reservation/actions";
+import { updateReservation, createExternalReservation, blockReservationDate, updateVisibility } from "../../../../redux/reservation/actions";
 import { fetchActivities } from "../../../../redux/activity/actions";
 import { connect } from "react-redux";
 import { colors } from "../../../../helper";
@@ -22,10 +22,21 @@ const Container = styled.div`
 `;
 
 const Indicator = styled.div`
-    width: 20px;
-    height: 20px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     background: ${props => props.background};
+`;
+
+const IndicatorButton = styled.button`
+    border-radius: 6px;
+    color: white;
+    background: ${props => props.background};
+    box-shadow: 0px;
+    border: 0px;
+    padding: 6px 8px;
+    box-sizing: border-box;
+    cursor: pointer;
 `;
 
 const AddButton = styled.div`
@@ -49,7 +60,7 @@ const AddButton = styled.div`
     }
 `;
 
-function TableContainer({ theme, blockReservationDate, fetchActivities, loading, data, meta, handlePageChange, onRowClick, onDelete, updateReservation, setFilters, createExternalReservation }) {
+function TableContainer({ theme, blockReservationDate, fetchActivities, loading, data, meta, handlePageChange, onRowClick, updateVisibility, onDelete, updateReservation, setFilters, createExternalReservation }) {
     const [visibility, setVisibility] = useState(false);
     const [reservationVisibility, setReservationVisibility] = useState(false);
     const [blockVisibility, setBlockVisibility] = useState(false);
@@ -98,6 +109,11 @@ function TableContainer({ theme, blockReservationDate, fetchActivities, loading,
             title: 'Preço',
             dataIndex: 'price',
             render: (price) => (<span>{price + "€"}</span>),
+        },
+        {
+            title: '',
+            dataIndex: 'seen',
+            render: (seen, row) => <StopPropagation> <IndicatorButton background={seen != 0 ? "#008d09" : "#df0000"} onClick={() => updateVisibility(row.id)}>{seen ? <span>Desmarcar como visto</span> : <span>Marcar como visto</span>}</IndicatorButton></StopPropagation>,
         },
         {
             title: "",
@@ -217,6 +233,7 @@ const mapDispatchToProps = (dispatch) => {
         updateReservation: (id, data) => dispatch(updateReservation(id, data)),
         fetchActivities: (filters) => dispatch(fetchActivities(filters)),
         blockReservationDate: (data) => dispatch(blockReservationDate(data)),
+        updateVisibility: (id) => dispatch(updateVisibility(id)),
     };
 };
 

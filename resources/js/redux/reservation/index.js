@@ -21,6 +21,7 @@ export default (state = initialState, action = {}) => {
         case `${types.FETCH_RESERVATIONS}_PENDING`:
         case `${types.FETCH_RESERVATION}_PENDING`:
         case `${types.FETCH_DISABLED_DATES}_PENDING`:
+        case `${types.UPDATE_VISIBILITY}_PENDING`:
             return {
                 ...state,
                 loading: true,
@@ -31,6 +32,7 @@ export default (state = initialState, action = {}) => {
         case `${types.DELETE_RESERVATION}_REJECTED`:
         case `${types.FETCH_DISABLED_DATES}_REJECTED`:
         case `${types.CREATE_RESERVATION}_REJECTED`:
+        case `${types.UPDATE_VISIBILITY}_REJECTED`:
             return {
                 ...state,
                 loading: false,
@@ -61,6 +63,7 @@ export default (state = initialState, action = {}) => {
             };
 
         case `${types.UPDATE_RESERVATION}_FULFILLED`:
+        case `${types.UPDATE_VISIBILITY}_FULFILLED`:
             return {
                 ...state,
                 loading: false,
