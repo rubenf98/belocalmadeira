@@ -70,6 +70,7 @@ const Content = styled.div`
     @media (max-width: ${dimensions.md}) {
         box-sizing: border-box;
         padding: 0px 20px;
+        flex-wrap: wrap;
     }
 `;
 
@@ -78,6 +79,9 @@ const FormContainer = styled.div`
     padding-left: 15px;
     box-sizing: border-box;
     
+    @media (max-width: ${dimensions.md}) {
+        width: 100%;
+    }
 
     .price-container {
         display: flex;
@@ -105,6 +109,10 @@ const FormContainer = styled.div`
 
 const InfoContainer = styled.div`
     width: 60%;
+
+    @media (max-width: ${dimensions.md}) {
+        width: 100%;
+    }
 `;
 
 
