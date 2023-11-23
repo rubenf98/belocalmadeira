@@ -106,10 +106,12 @@ const OrderButton = styled.div`
     text-transform: capitalize;
     color: ${props => props.color};
     font-weight: bold;
+
     @media(max-width: ${dimensions.md}) {
         font-size: 14px;
         padding: 8px 16px 8px 16px;
         margin-right: 10px;
+        border: 1px solid white;
     }
     
 
@@ -123,6 +125,13 @@ const OrderButton = styled.div`
 
     img {
         display: none;
+    }
+
+    @media(max-width: ${dimensions.md}) {
+        font-size: 14px;
+        padding: 8px 16px 8px 16px;
+        margin-right: 10px;
+        border-color: 1px solid white;
     }
     
 `;

@@ -19,6 +19,12 @@ const Container = styled.section`
     overflow: hidden;
     flex-wrap: wrap;
     color: ${props => props.color};
+
+    @media(max-width: ${dimensions.sm}) {
+        flex-direction: column;
+        background-color: ${({ theme }) => theme.primary};
+        gap: 40px;
+    }
 `;
 
 const BackgroundContainer = styled.div`
@@ -31,13 +37,6 @@ const BackgroundContainer = styled.div`
     width: 100vw;
     height: 100vh;
     background-color: ${({ theme }) => theme.primary};
-
-    video {
-        width: 100vw;
-        height: 100vh;
-        object-fit: cover;
-        display: none;
-    }
   
     picture  {
         width: 50%;
@@ -54,13 +53,16 @@ const BackgroundContainer = styled.div`
     }
 
     @media(max-width: ${dimensions.sm}) {
-        width: 100vw;
+        width: 100%;
+        height: 100%;
+        flex: 1;
+        z-index: 0;
+        position: relative;
 
         picture {
-            display: none;
-        }
-        video {
-            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     }
 `;
@@ -101,6 +103,8 @@ const TitleContainer = styled.div`
 
     @media (max-width: ${dimensions.sm}) {
         width: 100%;
+        padding: 120px 0px 30px 0px;
+        box-sizing: border-box;
 
         h1, h2 {
             width: 100%;
@@ -233,6 +237,14 @@ function Header({ text }) {
         <Container color={themeContext.inverseText} id="header-container">
             {/* <Overlay /> */}
             <Flyer />
+
+            <TitleContainer >
+                <AnimationContainer animateIn="fadeIn" offset={0}>
+                    <h2>{text.title}</h2>
+                    <h1>{text.subtitle}</h1>
+                </AnimationContainer>
+            </TitleContainer>
+
             <BackgroundContainer background={themeContext.primary} positionOffset={positionOffset}>
                 <picture>
                     <source media="(max-width: 1920px)" srcSet={headerWebp1920} />
@@ -242,20 +254,15 @@ function Header({ text }) {
 
                     <img src={headerWebp1920} alt="profile" loading="eager" />
                 </picture>
-
+                {/* 
                 <video playsInline poster="/image/background_960.jpg" muted loop autoPlay controls={false}>
                     <source src="/image/homepage/mobile_header.mp4" type="video/mp4" />
                     <source src="/image/homepage/mobile_header.webm" type="video/webm" />
-                </video>
+                </video> */}
             </BackgroundContainer>
 
 
-            <TitleContainer >
-                <AnimationContainer animateIn="fadeIn" offset={0}>
-                    <h2>{text.title}</h2>
-                    <h1>{text.subtitle}</h1>
-                </AnimationContainer>
-            </TitleContainer>
+
 
 
             <Instagram>
