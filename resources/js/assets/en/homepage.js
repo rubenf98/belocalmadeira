@@ -107,7 +107,7 @@ export const text = {
             {
                 question: "What is included in the tours?",
                 answer: [
-                    "The price includes the activity, transport between the accommodation and the place of the activity, Personal and Liability Accident Insurance (according to Portuguese legislation) and all material individually and collectively.",
+                    "The price includes the activity, transport from Funchal and the place of the activity, energy bar / chocolate, Personal and Liability Accident Insurance (according to Portuguese legislation) and all material individually and collectively.",
                     "In the case of Canyoning and Coasteering, it includes complete high-quality canyoning equipment (incl. helmet, wetsuit, neoprene socks, harness, SPECIAL shoes), however customers must bring (towel, bathing suit)",
                     "It also includes photos and videos of the activity!"
                 ]

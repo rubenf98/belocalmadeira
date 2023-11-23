@@ -220,7 +220,8 @@ function Level({ handleForm, fetchDisabledDates, calendarMetadata, loading }) {
                             {text.levels.details.items[index].map((detail, detailIndex) => (
                                 <Col xs={12} md={12}>
                                     <h4>{text.levels.details.titles[detailIndex]}</h4>
-                                    <p>{detail}</p>
+                                    {detailIndex == 4 ? <a href='https://maps.app.goo.gl/QGif4UZZpUGJGnph7' target='__blank'>{detail}</a> : <p>{detail}</p>}
+
 
                                 </Col>
                             ))}

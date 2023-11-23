@@ -1,6 +1,6 @@
 export const text = {
     title: "canyoning",
-    subtitle: (<>Conheça a <span>ilha</span> com entusiasmo</>),
+    subtitle: (<>Explora a <span>ilha</span> com entusiasmo</>),
     information: [
         "Canyoning é uma atividade que consiste na exploração progressiva de uma ribeira no caso da Madeira, transpondo obstáculos verticais através de diversas técnicas e equipamentos.",
         "A Ilha da Madeira é considerada um dos melhores locais do mundo para a prática do Canyoning, onde é possível a pratica todo o ano. Esta atividade de água e montanha promove um contacto puro e lúdico com a NATUREZA, permitindo ao participante a possibilidade de descobrir paisagens e lugares com que os outros apenas sonham.",
@@ -26,7 +26,7 @@ export const text = {
         title: "atividades",
         subtitle: (<>As nossas <span>experiências</span> na Ilha da Madeira</>),
         items: [
-            { index: 1, price: "63€", title: "Iniciante", subtitle: "Pacote Família", paragraphs: ["Proporcionamos-lhe uma das melhores aventuras em família que a Madeira pode oferecer. Levamos a sua família para se divertir e saltar nas belas cascatas, piscinas verdes e entreter toda a família."], from: 60, images: ["family_01", "family_02", "family_03"] },
+            { index: 1, price: "63€", title: "", subtitle: "Pacote Família", paragraphs: ["Proporcionamos-lhe uma das melhores aventuras em família que a Madeira pode oferecer. Aproveite 10% desconto para famílias em todas as atividades com 4 ou mais participantes! Levamos a sua família para se divertir e saltar nas belas cascatas, piscinas verdes e entreter toda a família."], from: 60, images: ["family_01", "family_02", "family_03"] },
             // { title: "Iniciante", subtitle: "Ribeiro Frio", paragraphs: ["Vamos levá-lo a este local bonito cercado por uma paisagem impressionante, muitos escorregas naturais, pequenas passagens de natação e alguns saltos esperam por si. Mas não se preocupe, todos os saltos também podem ser feitos de rapel."], from: 60, image: "ribeiro_frio_01" },
             { index: 2, price: "70€", title: "Iniciante", subtitle: "Ribeira das Cales", paragraphs: ["Este canyoning destina-se a quem pretende ter o primeiro contacto com a atividade. É um percurso fácil e acessível para todas as idades (acima de 7 anos)."], from: 60, images: ["cales_01", "cales_02", "cales_03"] },
             { index: 3, price: "80€", title: "Intermédio", subtitle: "Curral das Freiras (Canyoning Verão)", paragraphs: ["Rodeado por montanhas escarpadas, este desfiladeiro situa-se no meio da ilha, no vale para onde fugiram as freiras do convento de Santa Clara quando o Funchal foi atacado por piratas em 1566."], from: 80, images: ["curral_01", "curral_02", "curral_03"] },
@@ -55,11 +55,11 @@ export const text = {
         details: {
             titles: ["SENSAÇÃO", "DIFICULDADE", "DURAÇÃO TOTAL", "ALTURA DOS SALTOS (OPCIONAIS)", "PONTO DE ENCONTRO", "RAPEL MÁXIMO"],
             items: [
-                ["Iniciante", "Desportivo", "3-4hrs", "7m", "Pestana CR7", "10/12m"],
-                ["Iniciante", "Desportivo", "3-4hrs", "7m", "Pestana CR7", "10/12m"],
-                ["Aventureiro", "Desportivo", "3-4hrs", "7m", "Pestana CR7", "20m"],
-                ["Aventureiro", "Desportivo", "3-4hrs", "7m", "Pestana CR7", "20m"],
-                ["Experiente", "Desportivo", "3-4hrs", "7m", "Pestana CR7", "55m"],
+                ["Iniciante", "Pessoa ativa", "3-4hrs", "7m", "Funchal, Pestana CR7 Hotel", "15m"],
+                ["Iniciante", "Pessoa ativa", "3-4hrs", "7m", "Funchal, Pestana CR7 Hotel", "15m"],
+                ["Aventureiro", "Boa forma", "3-4hrs", "7m", "Funchal, Pestana CR7 Hotel", "20m"],
+                ["Aventureiro", "Boa forma", "3-4hrs", "7m", "Funchal, Pestana CR7 Hotel", "20m"],
+                ["Experiente", "Alto nível", "3-4hrs", "7m", "Funchal, Pestana CR7 Hotel", "55m"],
             ],
         },
         itinerary: [

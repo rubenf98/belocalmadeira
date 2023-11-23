@@ -107,7 +107,7 @@ export const text = {
             {
                 question: "O que está incluído nos tours?",
                 answer: [
-                    "O preço inclui a atividade, o transporte entre o alojamento e o local da atividade, o Seguro de Acidentes Pessoais e de responsabilidade (de acordo com a legislação portuguesa) e todo o material individual e coletivamente.",
+                    "O preço inclui a atividade, o transporte entre o Funchal e o local da atividade, barra energético / chocolate, o Seguro de Acidentes Pessoais e de responsabilidade (de acordo com a legislação portuguesa) e todo o material individual e coletivamente.",
                     "No caso do Canyoning e do Coasteering, inclui equipamento completo de canyoning de alta qualidade (incluindo capacete, roupa de neoprene, meias de neoprene, arnês, sapatos ESPECIAIS), no entanto os clientes deverão trazer (toalha, fato de banho)",
                     "Esta incluído ainda as fotografias e vídeos da atividade!"
                 ]

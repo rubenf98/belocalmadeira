@@ -1,6 +1,6 @@
 export const text = {
     title: "canyoning",
-    subtitle: (<>Meet the <span>island</span> with excitement</>),
+    subtitle: (<>Explore the <span>island</span> with excitement</>),
     information: [
         "Canyoning is an activity that consists of the progressive exploration of a stream in the case of Madeira, overcoming vertical obstacles through various techniques and equipment.",
         "Madeira Island is considered one of the best places in the world to practice Canyoning, where it is possible to practice it all year round. This water and mountain activity promotes pure and playful contact with NATURE, allowing the participant to discover landscapes and places that others only dream of.",
@@ -16,7 +16,7 @@ export const text = {
         title: "activities",
         subtitle: (<>Our canyoning <span>experiences</span> in Madeira Island</>),
         items: [
-            { index: 1, price: "63€", title: "Beginner", subtitle: "Family Pack", paragraphs: ["We provide you one of the best family adventures that Madeira can offer. We take your family to enjoy splashing and jumping in the beautiful waterfalls, green pools and to entertain the whole family."], from: 60, images: ["family_01", "family_02", "family_03"] },
+            { index: 1, price: "63€", title: "", subtitle: "Family Pack", paragraphs: ["We provide you one of the best family adventures that Madeira can offer. Enjoy 10% OFF for families on all tours with 4 or more participants! We take your family to enjoy splashing and jumping in the beautiful waterfalls, green pools and to entertain the whole family."], from: 60, images: ["family_01", "family_02", "family_03"] },
             // { title: "Beginner", subtitle: "Ribeiro Frio", paragraphs: ["We will take you to this beautiful places, surrounded by impressive landscape a lot of slides, short swimming passages and a couple of jumps await you. But don’t worry, all of the jumps can also be abseiled."], from: 60, image: "ribeiro_frio_01" },
             { index: 1, price: "70€", title: "Beginner", subtitle: "Ribeira das Cales", paragraphs: ["This canyoning is intended for those who wish to have the first contact with the activity. It is a easy and accessible route for all ages (over 7 years old)."], from: 60, images: ["cales_01", "cales_02", "cales_03"] },
             { index: 2, price: "80€", title: "Intermediate", subtitle: "Nuns Valley (Summer Canyoning)", paragraphs: ["Surrounded by steep mountains, this canyon lies in the middle of the island, in the valley that the Nuns from Santa Clara convent fled to when Funchal was attacked by pirates in 1566."], from: 80, images: ["curral_01", "curral_02", "curral_03"] },
@@ -45,11 +45,11 @@ export const text = {
         details: {
             titles: ["SENSATION LEVEL", "FITNESS LEVEL", "TOTAL DURATION", "JUMP HEIGHT (OPTIONAL)", "MEETING POINT", "ABSEILING HEIGHT"],
             items: [
-                ["Iniciante", "Desportivo", "3-4hrs", "7m", "Pestana CR7", "10/12m"],
-                ["Iniciante", "Desportivo", "3-4hrs", "7m", "Pestana CR7", "10/12m"],
-                ["Aventureiro", "Desportivo", "3-4hrs", "7m", "Pestana CR7", "20m"],
-                ["Aventureiro", "Desportivo", "3-4hrs", "7m", "Pestana CR7", "20m"],
-                ["Experiente", "Desportivo", "3-4hrs", "7m", "Pestana CR7", "55m"],
+                ["Begginer", "Active person", "3-4hrs", "7m", "Funchal, Pestana CR7 Hotel", "15m"],
+                ["Begginer", "Active person", "3-4hrs", "7m", "Funchal, Pestana CR7 Hotel", "15m"],
+                ["Intermediate", "Fit individual", "3-4hrs", "7m", "Funchal, Pestana CR7 Hotel", "20m"],
+                ["Intermediate", "Fit individual", "3-4hrs", "7m", "Funchal, Pestana CR7 Hotel", "20m"],
+                ["Advanced", "High Fitness", "3-4hrs", "7m", "Funchal, Pestana CR7 Hotel", "55m"],
             ],
         },
         itinerary: [
