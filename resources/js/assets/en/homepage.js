@@ -107,9 +107,18 @@ export const text = {
             {
                 question: "What is included in the tours?",
                 answer: [
-                    "The price includes the activity, transport from Funchal and the place of the activity, energy bar / chocolate, Personal and Liability Accident Insurance (according to Portuguese legislation) and all material individually and collectively.",
-                    "In the case of Canyoning and Coasteering, it includes complete high-quality canyoning equipment (incl. helmet, wetsuit, neoprene socks, harness, SPECIAL shoes), however customers must bring (towel, bathing suit)",
-                    "It also includes photos and videos of the activity!"
+                    (<ul>
+                        <li>Full Experience</li>
+                        <li>Safety Insurance (According to Portuguese legislation).</li>
+                        <li>Free Photos and Videos of the Activity</li>
+                        <li>All the gear (Certified Technical Gear: Neoprene suit; Canyoning Shoes; Neoprene socks; Helmet; Harness and lifejacket if necessary).</li>
+                        <li>Certificate Guides</li>
+                        <li>Snack (Chocolate)</li>
+                        <li>Transfer from/to Hotel Funchal (other areas on request, an extra charge may apply)</li>
+                        <li>In case you don’t need a pickup, you can get a 10% Discount. (We send the coordinates from the place to go directly to the meeting point.)</li>
+                    </ul>),
+                    "If you need help or need further information, please feel free to contact us on WhatsApp.",
+                    "Reservations department: WhatsApp: (+ 351) 935124260"
                 ]
             },
             {

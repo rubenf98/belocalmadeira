@@ -107,9 +107,18 @@ export const text = {
             {
                 question: "O que está incluído nos tours?",
                 answer: [
-                    "O preço inclui a atividade, o transporte entre o Funchal e o local da atividade, barra energético / chocolate, o Seguro de Acidentes Pessoais e de responsabilidade (de acordo com a legislação portuguesa) e todo o material individual e coletivamente.",
-                    "No caso do Canyoning e do Coasteering, inclui equipamento completo de canyoning de alta qualidade (incluindo capacete, roupa de neoprene, meias de neoprene, arnês, sapatos ESPECIAIS), no entanto os clientes deverão trazer (toalha, fato de banho)",
-                    "Esta incluído ainda as fotografias e vídeos da atividade!"
+                    (<ul>
+                        <li>Experiência completa</li>
+                        <li>Seguro de Segurança (De acordo com a legislação portuguesa).</li>
+                        <li>Fotos e vídeos gratuitos da atividade</li>
+                        <li>Todo o equipamento (Equipamento Técnico Certificado: Fato de Neoprene; Sapatos de Canyoning; Meias de Neoprene; Capacete; Arnês e colete salva-vidas se necessário).</li>
+                        <li>Guias certificados</li>
+                        <li>Snack (Chocolate)</li>
+                        <li>Transfer de/para o Hotel Funchal (outras zonas mediante pedido, poderá ser aplicado um custo adicional)</li>
+                        <li>Caso não precise de transporte, pode obter um desconto de 10%. (Enviamos as coordenadas do local para ir diretamente ao ponto de encontro.)</li>
+                    </ul>),
+                    "Se precisar de ajuda ou de mais informações, sinta-se à vontade para entrar em contato conosco pelo WhatsApp.",
+                    "Departamento de reservas: WhatsApp: (+351) 935124260"
                 ]
             },
             {
