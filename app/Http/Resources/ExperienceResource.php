@@ -17,6 +17,7 @@ class ExperienceResource extends JsonResource
         return [
             'id' => $this->id,
             'activity_id' =>  $this->act,
+            'visible' =>   $this->visible,
             'name' =>  $this->getTranslations('name'),
             'price' => $this->price,
             'private_price' => $this->private_price,

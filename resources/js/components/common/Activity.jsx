@@ -386,16 +386,18 @@ function Activity({ content, theme, handleForm }) {
                                                 backgroundHover={theme.primaryHover}>
                                                 {localStorage.getItem('language') == "en" ? "Book now" : "Reservar"}
                                             </OrderButton>
-                                            <Link to={"/activities/canyoning/" + index}>
-                                                <OrderButton
-                                                    marginLeft
-                                                    color={theme.primary}
-                                                    border={theme.primary}
-                                                    background={theme.inverseText}
-                                                    backgroundHover={theme.inverseText}>
-                                                    {localStorage.getItem('language') == "en" ? "See more" : "Saber mais"}
-                                                </OrderButton>
-                                            </Link>
+                                            {level.visible ?
+                                                <Link to={"/activities/canyoning/" + index}>
+                                                    <OrderButton
+                                                        marginLeft
+                                                        color={theme.primary}
+                                                        border={theme.primary}
+                                                        background={theme.inverseText}
+                                                        backgroundHover={theme.inverseText}>
+                                                        {localStorage.getItem('language') == "en" ? "See more" : "Saber mais"}
+                                                    </OrderButton>
+                                                </Link> : <div></div>
+                                            }
 
                                         </Row>
                                     </div>

@@ -15,6 +15,11 @@ class Experience extends Model
         'name',
     ];
 
+    protected $casts = [
+        'visible' => 'integer',
+    ];
+
+
     protected $with = ['activity'];
 
     public function activity()
