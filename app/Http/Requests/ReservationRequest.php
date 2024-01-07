@@ -33,7 +33,11 @@ class ReservationRequest extends FormRequest
             $price = ($this->private ? $activity->private_price : $activity->price) * $this->participants;
         } else {
             $experience = Experience::find($this->activity[1]);
-            $price = ($this->private ? $experience->private_price : $experience->price) * $this->participants;
+            if ($experience->visible) {
+                $price = ($this->private ? $experience->private_price : $experience->price) * $this->participants;
+            } else {
+                $price = 120;
+            }
         }
 
         if ($this->participants >= 4) {
@@ -63,7 +67,7 @@ class ReservationRequest extends FormRequest
             'phone' =>  $phone,
             'private' => $this->private && true,
             'confirmation_token' => uniqid(),
-            'experienceable_type' => $this->polymorphic_classes[$helper_size - 1],
+            'experienceable_type' => $experienceable_type,
             'experienceable_id' =>  $helper_size == 2 ? $this->activity[1] : $this->activity[0],
         ]);
     }

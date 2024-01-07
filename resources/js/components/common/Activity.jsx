@@ -379,7 +379,7 @@ function Activity({ content, theme, handleForm }) {
 
                                         <Row type="flex" align='bottom' justify='space-between'>
                                             <OrderButton
-                                                onClick={() => handleForm(true, { activity_id: [1, level.index] })}
+                                                onClick={() => handleForm(true, { activity_id: [1, level.index + 1] })}
                                                 color={theme.inverseText}
                                                 border={theme.primary}
                                                 background={theme.primary}

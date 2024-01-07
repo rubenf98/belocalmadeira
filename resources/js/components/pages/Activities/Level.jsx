@@ -194,7 +194,7 @@ function Level({ handleForm, fetchDisabledDates, calendarMetadata, loading }) {
 
     const handleSubmit = () => {
         form.validateFields().then((data) => {
-            handleForm(true, { activity: [1, text.levels.items[index].index], ...data });
+            handleForm(true, { activity: [1, text.levels.items[index].index + 1], ...data });
         })
     };
 
@@ -317,6 +317,7 @@ function Level({ handleForm, fetchDisabledDates, calendarMetadata, loading }) {
 
                                     <Col xs={24} md={24}>
                                         <Calendar
+                                            defaultValue={moment().add(1, "day")}
                                             disabledDate={(currentDate) => {
                                                 return currentDate && (
                                                     (currentDate < moment())
