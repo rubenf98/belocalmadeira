@@ -244,7 +244,7 @@ function Level({ handleForm, fetchDisabledDates, calendarMetadata, loading }) {
                     </InfoContainer>
                     <FormContainer xs={24} md={10}>
                         <div className='price-container'>
-                            from <span>60€</span>
+                            from <span>{text.levels.items[index].price}</span>
                         </div>
                         <div className='form'>
                             <Form
