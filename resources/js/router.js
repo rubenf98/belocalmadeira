@@ -22,6 +22,7 @@ import Confirmation from "./components/pages/Confirmation";
 import ActivitiesContainer from "./components/pages/ActivitiesContainer";
 import ScrollToTop from "./components/common/ScrollToTop";
 import Level from "./components/pages/Activities/Level";
+import Visit from "./components/pages/Visit";
 export const history = createBrowserHistory();
 
 function Router() {
@@ -38,6 +39,8 @@ function Router() {
                     <Route exact path="/about" element={<Layout><About /></Layout>} />
                     <Route exact path="/contact" element={<Layout><Contact /></Layout>} />
                     <Route exact path="/login" element={<ThemeContainer><Login /></ThemeContainer>} />
+                    <Route exact path="/visit" element={<ThemeContainer><Visit /></ThemeContainer>} />
+
 
                     <Route exact path="/confirmation/:token" element={<Layout><Confirmation /></Layout>} />
 

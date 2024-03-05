@@ -31,7 +31,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
-        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;500;700&family=Merienda+One&family=Playfair+Display:ital,wght@0,500;1,900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;500;700&family=Russo+One&display=swap&family=Merienda+One&family=Playfair+Display:ital,wght@0,500;1,900&display=swap"
         rel="stylesheet">
 
     <title>Be Local Madeira</title>
