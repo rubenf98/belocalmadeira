@@ -12,7 +12,6 @@ const Container = styled.section`
     height: 100vh;
     position: relative;
     display: flex;
-    flex-wrap: wrap;
     color: ${props => props.color};
     background-color: ${({ theme }) => theme.primary};
 
