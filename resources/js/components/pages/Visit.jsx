@@ -16,7 +16,10 @@ const Container = styled.section`
     color: ${props => props.color};
     background-color: ${({ theme }) => theme.primary};
 
-    
+    @media(max-width: ${dimensions.md}) {
+        flex-direction: column;
+        gap: 40px;
+    }
 `;
 
 const Content = styled.div`
@@ -28,7 +31,6 @@ const Content = styled.div`
 
     @media(max-width: ${dimensions.md}) {
         width: 100%;
-        height: 60vh;
         padding: 20px;
     }
 `;
@@ -48,7 +50,7 @@ const BackgroundContainer = styled.div`
 
     @media(max-width: ${dimensions.md}) {
         width: 100%;
-        height: 40vh;
+        flex: 1;
     }
 `;
 
@@ -79,8 +81,14 @@ const TitleContainer = styled.div`
 
     @media (max-width: ${dimensions.md}) {
         justify-content: center;
+        flex: 0;
+
         h1, h2 {
             text-align: center;
+        }
+
+        h2 {
+            padding-bottom: 20px;
         }
     }
 `;
@@ -118,6 +126,8 @@ const SocialContainer = styled.div`
  
     @media (max-width: ${dimensions.md}) {
         justify-content: center;
+        margin-bottom: 30px;
+
 
         img {
             width: 30px;
@@ -132,18 +142,16 @@ const Logo = styled(Link)`
 
 
     img {
-        height: 90px;
-
-        
+        height: 90px; 
     }
 
     @media(max-width: ${dimensions.md}) {
-margin: auto;
+        margin: auto auto 30px auto;
+
         img {
             height: 40px;
-        }
-            
-        }
+        }   
+    }
 `;
 
 function Visit({ text }) {
