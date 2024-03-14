@@ -3,21 +3,18 @@ import styled, { ThemeContext } from "styled-components";
 import { dimensions } from '../../helper';
 import { Link } from 'react-router-dom';
 
-
-
-
-
 const Container = styled.section`
     width: 100%;
     height: 100vh;
     position: relative;
     display: flex;
+    overflow: hidden;
     color: ${props => props.color};
     background-color: ${({ theme }) => theme.primary};
 
     @media(max-width: ${dimensions.md}) {
         flex-direction: column;
-        gap: 40px;
+        gap: 0px;
     }
 `;
 
@@ -189,12 +186,8 @@ function Visit({ text }) {
                 </LinkContainer>
             </Content>
             <BackgroundContainer background={themeContext.primary}>
-                <picture>
-                    <source media="(max-width: 768px)" srcSet="/image/visit_mobile.jpg" />
-                    <source media="(min-width: 769px)" srcSet="/image/visit.jpg" />
+                <img src="/image/visit.jpg" alt="profile" />
 
-                    <img src="/image/visit.jpg" alt="profile" loading="eager" />
-                </picture>
                 {/* <img src="/image/visit.jpg" alt="profile" loading="eager" /> */}
 
                 {/* 
