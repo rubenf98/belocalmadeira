@@ -47,7 +47,7 @@ class ReservationRequest extends FormRequest
         $phone = null;
         if (is_array($this->phone)) {
             if (array_key_exists("code", $this->phone) && array_key_exists("phone", $this->phone)) {
-                $phone = $this->phone["code"] . $this->phone["phone"];
+                $phone = $this->phone["code"] . " " . $this->phone["phone"];
             }
         } else {
             $phone = $this->phone;
