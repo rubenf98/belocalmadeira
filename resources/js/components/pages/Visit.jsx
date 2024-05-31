@@ -180,6 +180,8 @@ function Visit({ text }) {
 
 
                 <LinkContainer>
+                    <a className='website' target="__blank" href="https://g.page/r/CfLM1KF54nGeEBM/review">Feedback - https://g.page/r/CfLM1KF54nGeEBM/review</a>
+
                     <Link className='website' to="/">Visit us at Belocalmadeira.com</Link>
                     <a target="__blank" href="mailto:belocalmadeira@gmail.com">Belocalmadeira@gmail.com</a>
                     <a target="__blank" href="https://api.whatsapp.com/send?l=en&phone=351935124260">+351 935 124 260</a>
