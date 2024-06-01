@@ -180,7 +180,7 @@ function Visit({ text }) {
 
 
                 <LinkContainer>
-                    <a className='website' target="__blank" href="https://g.page/r/CfLM1KF54nGeEBM/review">Feedback - https://g.page/r/CfLM1KF54nGeEBM/review</a>
+                    <a className='website' target="__blank" href="https://g.page/r/CfLM1KF54nGeEBM/review">Feedback</a>
 
                     <Link className='website' to="/">Visit us at Belocalmadeira.com</Link>
                     <a target="__blank" href="mailto:belocalmadeira@gmail.com">Belocalmadeira@gmail.com</a>
