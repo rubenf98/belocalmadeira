@@ -4,6 +4,7 @@ export const initialState = {
     theme: "light",
     menuVisible: false,
     formVisible: false,
+    formTransferVisible: false,
     activityInitialValue: {},
 }
 
@@ -28,6 +29,13 @@ export default (state = initialState, action = {}) => {
                 formVisible: action.payload[0],
                 activityInitialValue: action.payload[1],
             };
+
+        case `${types.HANDLE_TRANSFER_FORM}`:
+            return {
+                ...state,
+                formTransferVisible: action.payload[0],
+            };
+
         default:
             return state
     }

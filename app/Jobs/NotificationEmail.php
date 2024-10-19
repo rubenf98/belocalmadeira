@@ -16,14 +16,16 @@ class NotificationEmail implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     protected $reservation;
+    protected $type;
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($aReservation)
+    public function __construct($aReservation, $aType)
     {
         $this->reservation = $aReservation;
+        $this->type = $aType;
     }
 
     /**
@@ -33,6 +35,6 @@ class NotificationEmail implements ShouldQueue
      */
     public function handle()
     {
-        Mail::to("belocalmadeira@gmail.com")->queue(new MailNotificationEmail($this->reservation));
+        Mail::to("belocalmadeira@gmail.com")->queue(new MailNotificationEmail($this->reservation, $this->type));
     }
 }

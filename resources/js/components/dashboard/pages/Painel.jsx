@@ -96,23 +96,30 @@ function Painel() {
     return (
         <Container>
             <SubContainer>
-                <h1> Bem vindo de volta ao painel de controlo</h1>
+                <h1>Bem vindo de volta ao painel de controlo</h1>
                 <Content type="flex" align="middle" justify="space-around">
-                    <Col md={7} sm={24}>
+                    <Col md={5} sm={24}>
                         <CardContainer
                             img="/icon/dashboard/reservation.svg"
                             text="Listagem de reservas"
                             to="/painel/reservas"
                         />
                     </Col>
-                    <Col md={7} sm={24}>
+                    <Col md={5} sm={24}>
+                        <CardContainer
+                            img="/icon/dashboard/transfer.svg"
+                            text="Transfers e Tours"
+                            to="/painel/transfers"
+                        />
+                    </Col>
+                    <Col md={5} sm={24}>
                         <CardContainer
                             img="/icon/dashboard/contact.svg"
                             text="Mensagens de clientes"
                             to="/painel/contacto"
                         />
                     </Col>
-                    <Col md={7} sm={24}>
+                    <Col md={5} sm={24}>
                         <CardContainer
                             img="/icon/dashboard/block.svg"
                             text="Datas bloqueadas"

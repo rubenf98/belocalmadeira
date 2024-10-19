@@ -29,13 +29,13 @@ class AuthController extends Controller
 
         $user = User::where('email', $credentials['email'])->first();
 
-        
+
 
         if (!$user->password) {
             $user->password = bcrypt($credentials['password']);
             $user->save();
         }
-        
+
         if (!$token = auth()->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }

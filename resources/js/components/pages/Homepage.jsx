@@ -7,6 +7,7 @@ import Feedback from './HomepageComponents/Feedback';
 import Header from './HomepageComponents/Header';
 import Instagram from './HomepageComponents/Instagram';
 import Services from './HomepageComponents/Services';
+import Tours from './HomepageComponents/Tours';
 
 function Homepage() {
     const { text } = require('../../assets/' + localStorage.getItem('language') + "/homepage");
@@ -16,6 +17,7 @@ function Homepage() {
         < >
             <Header text={text.header} />
             <Activities text={text.activities} />
+            <Tours text={text.activities} />
             <Services text={text.services} />
             {/* <Family text={text.family} /> */}
             <Faq text={text.faq} />

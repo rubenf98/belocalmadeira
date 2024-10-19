@@ -11,10 +11,12 @@ export const text = {
         private: "Experiência privada",
         privateAnswer: ['Não', 'Sim'],
         date: "Data da atividade",
+        return_date: "Data de retorno",
         created_at: "Data da reserva",
         participant: "Participante",
         participants: "Nº de participantes",
-        price: "Preço"
+        price: "Preço",
+        trajectory: "Trajetória",
     },
     participantsTitle: "Detalhes dos participantes",
     total: "Sob-Orçamento",

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\ActivityResource;
 use App\Models\Activity;
+use App\QueryFilters\ActivityFilters;
 use Illuminate\Http\Request;
 
 class ActivityController extends Controller
@@ -13,9 +14,9 @@ class ActivityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(ActivityFilters $filters)
     {
-        return ActivityResource::collection(Activity::all());
+        return ActivityResource::collection(Activity::filterBy($filters)->where("visible", 1)->get());
     }
 
     /**

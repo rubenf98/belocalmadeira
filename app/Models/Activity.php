@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use Cerbero\QueryFilters\FiltersRecords;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
 class Activity extends Model
 {
-    use HasTranslations;
+    use HasTranslations, FiltersRecords;
 
     public $translatable = [
         'name'

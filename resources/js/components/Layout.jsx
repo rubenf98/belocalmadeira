@@ -4,9 +4,10 @@ import Footer from "./common/Footer";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import OrderForm from "./pages/OrderForm";
-import { handleForm } from "../redux/application/actions";
+import { handleForm, handleTransferForm } from "../redux/application/actions";
 import ThemeContainer from "./ThemeContainer";
 import Flyer from "./common/Flyer";
+import TransferForm from "./pages/TransferForm";
 
 const Container = styled.div`
     width: 100%;
@@ -31,6 +32,7 @@ class Layout extends Component {
 
                     <Navbar onOrder={this.openForm} handleVisibility={this.props.handleForm} />
 
+                    <TransferForm visible={this.props.formTransferVisible} handleVisibility={this.props.handleTransferForm} />
                     <OrderForm visible={this.props.formVisible} handleVisibility={this.props.handleForm} />
 
                     <div> {this.props.children} </div>
@@ -46,13 +48,15 @@ class Layout extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        formVisible: state.application.formVisible
+        formVisible: state.application.formVisible,
+        formTransferVisible: state.application.formTransferVisible
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
         handleForm: (visibility) => dispatch(handleForm(visibility)),
+        handleTransferForm: (visibility) => dispatch(handleTransferForm(visibility)),
     };
 };
 

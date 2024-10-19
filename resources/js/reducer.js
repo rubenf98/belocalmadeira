@@ -6,6 +6,8 @@ import feedback from './redux/feedback'
 import contact from './redux/contact'
 import activity from './redux/activity'
 import application from './redux/application'
+import tour from './redux/tour'
+import transfer from './redux/transfer'
 import date from './redux/date'
 
 const reducer = combineReducers({
@@ -15,7 +17,9 @@ const reducer = combineReducers({
     contact,
     activity,
     application,
-    date
+    date,
+    tour,
+    transfer
 })
 
 export default reducer

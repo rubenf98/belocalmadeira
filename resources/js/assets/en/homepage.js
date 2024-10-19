@@ -63,6 +63,7 @@ export const text = {
     activities: {
         title: "Activities",
         subtitle: (<>Welcome to the be local <span>adventure</span></>),
+        button: "Book transfer",
         items: ['canyoning', "biking", "coasteering", "hiking"]
     },
     discount: {

@@ -48,5 +48,5 @@ export const blockReservationDate = (data) => ({
 
 export const updateVisibility = (id) => ({
     type: types.UPDATE_VISIBILITY,
-    payload: axios.put(`${window.location.origin}/api/visibility/${id}`),
+    payload: axios.put(`${window.location.origin}/api/reservation/visibility/${id}`),
 });

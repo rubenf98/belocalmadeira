@@ -10,15 +10,16 @@ use Illuminate\Queue\SerializesModels;
 class NotificationEmail extends Mailable
 {
     public $reservation;
-
+    public $type;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($reservation)
+    public function __construct($reservation, $aType)
     {
         $this->reservation = $reservation;
+        $this->type = $aType;
     }
 
     /**

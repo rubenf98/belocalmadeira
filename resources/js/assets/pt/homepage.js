@@ -88,6 +88,7 @@ export const text = {
     activities: {
         title: "Atividades",
         subtitle: (<>Bem vindo à <span>aventura</span> be local</>),
+        button: "Reservar transfer",
         items: ['canyoning', "bicicleta", "coasteering", "caminhada"]
     },
     socials: {

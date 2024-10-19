@@ -1,0 +1,7 @@
+export const types = {
+    FETCH_TOURS: 'FETCH_TOURS',
+    FETCH_TOUR: 'FETCH_TOUR',
+    DELETE_TOUR: 'DELETE_TOUR',
+    UPDATE_TOUR: 'UPDATE_TOUR',
+    CREATE_TOUR: 'CREATE_TOUR',
+};

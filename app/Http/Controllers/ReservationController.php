@@ -48,7 +48,7 @@ class ReservationController extends Controller
         $reservation = Reservation::where("confirmation_token", $request->token)->first();
 
         if (!$reservation->confirmation) {
-            NotificationEmail::dispatch($reservation)->delay(now()->addSecond());
+            NotificationEmail::dispatch($reservation, "uma nova reserva")->delay(now()->addSecond());
             $reservation->confirmation = true;
             $reservation->save();
         }

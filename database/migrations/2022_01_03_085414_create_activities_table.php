@@ -16,6 +16,7 @@ class CreateActivitiesTable extends Migration
         Schema::create('activities', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->boolean('visible')->default(true);
             $table->decimal('price', 5, 2)->nullable();
             $table->decimal('private_price', 5, 2)->nullable();
             $table->timestamps();

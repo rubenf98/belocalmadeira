@@ -19,10 +19,14 @@ import Blocked from "./components/dashboard/pages/Blocked/Blocked";
 import DashboardReservations from "./components/dashboard/pages/Reservations/Reservations";
 import DashboardPainel from "./components/dashboard/pages/Painel";
 import Confirmation from "./components/pages/Confirmation";
+import ConfirmationTour from "./components/pages/ConfirmationTour";
+
 import ActivitiesContainer from "./components/pages/ActivitiesContainer";
 import ScrollToTop from "./components/common/ScrollToTop";
 import Level from "./components/pages/Activities/Level";
 import Visit from "./components/pages/Visit";
+import Transfers from "./components/dashboard/pages/Transfer/Transfers";
+
 export const history = createBrowserHistory();
 
 function Router() {
@@ -41,9 +45,10 @@ function Router() {
                     <Route exact path="/login" element={<ThemeContainer><Login /></ThemeContainer>} />
                     <Route exact path="/visit" element={<ThemeContainer><Visit /></ThemeContainer>} />
 
-
+                    <Route exact path="/confirmationTransfer/:token" element={<Layout><ConfirmationTour /></Layout>} />
                     <Route exact path="/confirmation/:token" element={<Layout><Confirmation /></Layout>} />
 
+                    <Route exact path="/painel/transfers" element={<PainelLayout><Transfers /></PainelLayout>} />
 
                     <Route exact path="/painel/bloqueado" element={<PainelLayout><Blocked /></PainelLayout>} />
                     <Route exact path="/painel/contacto" element={<PainelLayout><DashboardContact /></PainelLayout>} />

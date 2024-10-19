@@ -1,5 +1,5 @@
 
-import { Input, Checkbox, Select, InputNumber, DatePicker, Cascader } from 'antd';
+import { Input, Checkbox, Select, InputNumber, DatePicker, Cascader, Radio } from 'antd';
 import styled, { css } from "styled-components";
 import CountryPhoneInput from 'antd-country-phone-input';
 
@@ -218,5 +218,21 @@ export const CustomCheckbox = styled(Checkbox)`
             border-color: white;
         }
         
+    }
+`;
+
+
+export const CustomRadio = styled(Radio.Group)`
+    /* ${baseInputStyles}     */
+
+    /* color: ${props => props.light ? "black" : "white"}; */
+
+    label {
+        border: 0px;
+    }
+
+    .ant-radio-button-checked {
+        background-color: #1d530c;
+        border-color: #1d530c;
     }
 `;

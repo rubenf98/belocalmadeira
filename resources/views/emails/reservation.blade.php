@@ -277,7 +277,7 @@
                                                                 <p style="font-size: 14px; line-height: 140%;">
                                                                     <strong><span
                                                                             style="font-size: 18px; line-height: 25.2px; color: #666666;">Foi
-                                                                            registada uma nova reserva na plataforma,
+                                                                            registada {{$type}} na plataforma,
                                                                             verifique o painel de controlo para mais
                                                                             detalhes.</span></strong>
                                                                 </p>

@@ -24,3 +24,8 @@ export function handleForm(state, data = {}) {
     };
 }
 
+export function handleTransferForm(state, data = {}) {
+    return {
+        type: types.HANDLE_TRANSFER_FORM, payload: [state, data]
+    };
+}
