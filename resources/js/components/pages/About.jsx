@@ -81,13 +81,13 @@ function About({ theme }) {
                 </Column>
             </InfoContainer>
 
-            <PartnerContainer type="flex" justify="space-around" align="middle">
-                {/* <img loading="lazy" src="/image/about/fastrope.png" alt="fastrope" /> */}
+            {/* <PartnerContainer type="flex" justify="space-around" align="middle">
+                <img loading="lazy" src="/image/about/fastrope.png" alt="fastrope" />
                 <img loading="lazy" src="/image/about/tripadvisor.png" alt="tripadvisor" />
                 <img loading="lazy" src="/image/about/movigo.svg" alt="movigo" />
                 <img loading="lazy" src="/image/about/espacomilenio.png" alt="espacomilenio" />
                 <img style={{ filter: "contrast(1) grayscale(1)" }} loading="lazy" src="/image/about/liveinmadeira.png" alt="liveinmadeira" />
-            </PartnerContainer>
+            </PartnerContainer> */}
         </Container>
     )
 }
