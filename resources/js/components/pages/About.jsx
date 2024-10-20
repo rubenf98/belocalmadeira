@@ -36,7 +36,7 @@ const PartnerContainer = styled(Row)`
 const InfoContainer = styled(Row)`
     width: 100%;
     max-width: ${maxWidth};
-    margin: auto;
+    margin: auto auto 200px auto;
     display: flex;
     align-items: center;
 
