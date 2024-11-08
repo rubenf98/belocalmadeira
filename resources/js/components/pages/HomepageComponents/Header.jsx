@@ -2,6 +2,8 @@ import React, { useEffect, useState, useContext } from 'react'
 import styled, { ThemeContext } from "styled-components";
 import { dimensions } from '../../../helper';
 
+import headerWebp1200 from '/image/background_1200.webp';
+import headerJpg1200 from '/image/background_1200.jpg';
 import headerWebp1920 from '/image/background_1920.webp';
 import headerJpg1920 from '/image/background_1920.jpg';
 import headerWebp3000 from '/image/background_3000.webp';
@@ -17,7 +19,7 @@ const Container = styled.section`
     display: flex;
     align-items: center;
     overflow: hidden;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     color: ${props => props.color};
 
     @media(max-width: ${dimensions.sm}) {
@@ -42,7 +44,6 @@ const BackgroundContainer = styled.div`
         width: 50%;
         height: 100%;
         display: block;
-        
 
         img {
             width: 100%;
@@ -55,13 +56,12 @@ const BackgroundContainer = styled.div`
     @media(max-width: ${dimensions.sm}) {
         width: 100%;
         height: 100%;
-        flex: 1;
+        flex: 1 1 0;
         z-index: 0;
         position: relative;
 
         picture {
             width: 100%;
-            height: 100%;
             object-fit: cover;
         }
     }
@@ -105,6 +105,7 @@ const TitleContainer = styled.div`
         width: 100%;
         padding: 120px 0px 30px 0px;
         box-sizing: border-box;
+        margin: auto;
 
         h1, h2 {
             width: 100%;
@@ -247,8 +248,10 @@ function Header({ text }) {
 
             <BackgroundContainer background={themeContext.primary} positionOffset={positionOffset}>
                 <picture>
+                    <source media="(max-width: 580px)" srcSet={headerWebp1200} />
                     <source media="(max-width: 1920px)" srcSet={headerWebp1920} />
                     <source media="(min-width: 1921px)" srcSet={headerWebp3000} />
+                    <source media="(max-width: 580px)" srcSet={headerJpg1200} />
                     <source media="(max-width: 1920px)" srcSet={headerJpg1920} />
                     <source media="(min-width: 1921px)" srcSet={headerJpg3000} />
 

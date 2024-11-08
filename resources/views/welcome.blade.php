@@ -41,7 +41,7 @@
          "@type" : "Organization",  
           "name" : "Be Local Madeira",
           "url" : "https://belocalmadeira.com/", 
-          "logo": "https://belocalmadeira.com/images/background_1920.webp" }
+          "logo": "https://belocalmadeira.com/images/new_background_1920.webp" }
     </script>
 
 </head>
@@ -62,7 +62,7 @@
         height: 100vh;
         width: 100vw;
         background: #344A35;
-        background: url("/image/background_blur.jpg");
+        background: url("/image/new_background_blur.jpg");
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
