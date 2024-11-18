@@ -10,7 +10,20 @@ import { handleForm } from "../../../redux/application/actions";
 import SimplifiedFaq from '../HomepageComponents/SimplifiedFaq';
 import { CustomInput, CustomInputNumber, CustomPhoneSelect } from '../Form/styles';
 import moment from "moment";
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
+const responsive = {
+    desktop: {
+        // the naming can be any, depends on you.
+        breakpoint: { max: 4000, min: 3000 },
+        items: 1
+    },
+    mobile: {
+        breakpoint: { max: 3000, min: 0 },
+        items: 1
+    }
+};
 
 
 const Container = styled.div`
@@ -25,9 +38,16 @@ const Container = styled.div`
         font-family: 'Playfair Display', serif;
         font-weight: bold;
     }
+
+    
     
     @media (max-width: ${dimensions.md}) {
         padding: 0px 0px 50px 0px;
+
+        h2 {
+            padding-left: 20px;
+            box-sizing: border-box;
+        }
     }
 `;
 
@@ -141,6 +161,39 @@ const ImageContainer = styled.section`
             object-fit: cover;
         }
     }
+
+    @media (max-width: ${dimensions.md}) {
+        display: none;
+    }
+`;
+
+const CarouselContainer = styled(Row)`
+    display: none;
+    width: 100%;
+    margin: auto !important; 
+    max-width: ${maxWidth};
+    padding: 0px 20px;
+    box-sizing: border-box;
+
+    
+
+    @media (max-width: ${dimensions.md}) {
+        display: block;
+    }
+
+    .carousel-item {
+        width: 100%;
+        height: 300px;
+
+        img {
+            width: 100%;
+        height: 300px;
+            object-fit: cover;
+        }
+    
+    }
+
+    
 `;
 
 const OrderButton = styled.div`
@@ -202,15 +255,25 @@ function Level({ handleForm, fetchDisabledDates, calendarMetadata, loading }) {
         <div>
             <PageHeader title={"Canyoning - " + text.levels.items[index].subtitle} subtitle={text.levels.subtitle} />
             <Container>
-                <h2>{text.levels.items[index].subtitle}</h2>
+                <h2 className="subtitle">{text.levels.items[index].subtitle}</h2>
                 <ImageContainer>
                     <img className='m1' src={"/image/activities/levels/" + text.levels.items[index].images[0] + ".jpg"} />
                     <div className='vertical-container'>
                         <img className='v1' src={"/image/activities/levels/" + text.levels.items[index].images[1] + ".jpg"} />
                         <img className='v2' src={"/image/activities/levels/" + text.levels.items[index].images[2] + ".jpg"} />
                     </div>
-                </ImageContainer>
 
+                </ImageContainer>
+                <CarouselContainer>
+
+                    <Carousel showDots infinite responsive={responsive}>
+                        {text.levels.items[index].images.map((image) => (
+                            <div className="carousel-item">
+                                <img src={"/image/activities/levels/" + image + ".jpg"} />
+                            </div>
+                        ))}
+                    </Carousel>
+                </CarouselContainer>
 
                 <Content>
                     <InfoContainer>
