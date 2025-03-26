@@ -202,13 +202,18 @@ const OrderButton = styled.div`
     text-align: center;
 `;
 
-function Level({ handleForm, fetchDisabledDates, calendarMetadata, loading }) {
+function HikingLevel({
+    handleForm,
+    fetchDisabledDates,
+    calendarMetadata,
+    loading,
+}) {
     // const [form, setForm] = useState({ name: undefined, email: undefined, phone: undefined, address: undefined, participants: undefined, date: undefined })
 
     var { index } = useParams();
     const { text } = require("../../../assets/" +
         localStorage.getItem("language") +
-        "/activityCanyoning");
+        "/activityHiking");
     // const faqText = require('../../../assets/' + localStorage.getItem('language') + "/homepage");
     const [form] = Form.useForm();
     useEffect(() => {
@@ -240,7 +245,7 @@ function Level({ handleForm, fetchDisabledDates, calendarMetadata, loading }) {
     const handleSubmit = () => {
         form.validateFields().then((data) => {
             handleForm(true, {
-                activity: [1, text.levels.items[index].index + 1],
+                activity: [2, text.levels.items[index].index + 1],
                 ...data,
             });
         });
@@ -249,7 +254,7 @@ function Level({ handleForm, fetchDisabledDates, calendarMetadata, loading }) {
     return (
         <div>
             <PageHeader
-                title={"Canyoning - " + text.levels.items[index].subtitle}
+                title={"Hiking - " + text.levels.items[index].subtitle}
                 subtitle={text.levels.subtitle}
             />
             <Container>
@@ -314,7 +319,7 @@ function Level({ handleForm, fetchDisabledDates, calendarMetadata, loading }) {
                                                 ]
                                             }
                                         </h4>
-                                        {detailIndex == 4 ? (
+                                        {detailIndex == 5 ? (
                                             <a
                                                 href="https://maps.app.goo.gl/QGif4UZZpUGJGnph7"
                                                 target="__blank"
@@ -331,8 +336,8 @@ function Level({ handleForm, fetchDisabledDates, calendarMetadata, loading }) {
 
                         <h3>{text.levels.titles[1]}</h3>
                         <ParagraphContainer>
-                            <p>{text.levels.descriptions[index]}</p>
                             <p>{text.levels.items[index].paragraphs[0]}</p>
+                            <p>{text.levels.descriptions[index]}</p>
 
                             {text.levels.summary[index].map((summaryItem) => (
                                 <p>{summaryItem}</p>
@@ -495,4 +500,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Level);
+export default connect(mapStateToProps, mapDispatchToProps)(HikingLevel);

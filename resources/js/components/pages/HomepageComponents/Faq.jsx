@@ -1,14 +1,15 @@
-import { Collapse } from 'antd';
-import React from 'react'
+import { Collapse } from "antd";
+import React from "react";
 import styled, { withTheme } from "styled-components";
-import { dimensions, maxWidth } from '../../../helper';
+import { dimensions, maxWidth } from "../../../helper";
+import { Link } from "react-router-dom";
 
 const { Panel } = Collapse;
 
 const Container = styled.section`
     width: 100%;
     position: relative;
-    background: ${props => props.background};
+    background: ${(props) => props.background};
     box-sizing: border-box;
     padding: 100px 0px 100px 0px;
 
@@ -27,7 +28,6 @@ const Content = styled.div`
     flex-wrap: wrap;
 `;
 
-
 const Info = styled.div`
     width: 50%;
     padding: 20px;
@@ -40,15 +40,14 @@ const Info = styled.div`
 
     h2 {
         font-size: 40px;
-        font-family: 'Playfair Display', serif;
+        font-family: "Playfair Display", serif;
     }
 
     p {
         font-size: 16px;
-        opacity: .7;
+        opacity: 0.7;
     }
 `;
-
 
 const Accordion = styled(Collapse)`
     width: 50%;
@@ -60,7 +59,8 @@ const Accordion = styled(Collapse)`
         padding: 20px 0px;
     }
 
-    .ant-collapse-item, .ant-collapse-item:last-child {
+    .ant-collapse-item,
+    .ant-collapse-item:last-child {
         background-color: white;
         margin-bottom: 10px;
 
@@ -70,7 +70,6 @@ const Accordion = styled(Collapse)`
         }
     }
     .ant-collapse-header {
-        
         font-size: 14px;
         padding: 10px;
         box-sizing: border-box;
@@ -91,8 +90,6 @@ const Accordion = styled(Collapse)`
             }
         }
     }
-
-    
 `;
 
 function Faq({ theme, text, hasBackground = true }) {
@@ -102,20 +99,24 @@ function Faq({ theme, text, hasBackground = true }) {
                 <Info>
                     <h2>{text.title}</h2>
                     <p>{text.subtitle}</p>
+
+                    <p>{text.terms}</p>
                 </Info>
 
                 <Accordion ghost>
                     {text.questions.map((item, iIndex) => (
                         <Panel header={item.question} key={iIndex}>
                             {item.answer.map((answer, aIndex) => (
-                                <p key={"answer-" + "iIndex-" + aIndex}>{answer}</p>
+                                <p key={"answer-" + "iIndex-" + aIndex}>
+                                    {answer}
+                                </p>
                             ))}
                         </Panel>
                     ))}
                 </Accordion>
             </Content>
         </Container>
-    )
+    );
 }
 
-export default withTheme(Faq)
+export default withTheme(Faq);

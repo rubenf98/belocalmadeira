@@ -1,9 +1,10 @@
 export const text = {
     title: "coasteering",
-    subtitle: (<>Conheça a <span>ilha</span> com entusiasmo</>),
+    subtitle: (<>Um mar de <span>emoções</span></>),
     information: [
-        "Com os nossos passeios de Coasteering, pode explorar a bela costa da ilha da Madeira e algumas das suas várias baías e grutas, utilizando vários métodos (entre os quais: emocionantes saltos de falésias notáveis, alguns momentos de escalada controlada, mergulhos e uma mergulho refrescante diretamente no oceano).",
-        "NOTA: Se você se sente desconfortável em pular, saiba que existem alternativas.",
+        "Caminhada, natação, escalada, rapel e saltos para a água: tudo isto numa só atividade, o coasteering na Madeira que, entre muita aventura e adrenalina, lhe mostrará as maravilhas naturais da ilha.",
+        "Esta atividade é feita na Ponta de São Lourenço, uma das mais belas paisagens da Madeira com recantos incríveis.",
+        "NOTA: Se se sente desconfortável em saltar, saiba que existem alternativas."
     ],
     section: "Todas as informações necessárias relativas ao Coasteering",
     includes: [

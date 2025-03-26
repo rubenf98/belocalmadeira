@@ -1,9 +1,10 @@
 export const text = {
     title: "coasteering",
-    subtitle: (<>Meet the <span>island</span> with excitement</>),
+    subtitle: (<>A sea of <span>emotions</span></>),
     information: [
-        "With our Coasteering tours, you can explore the beautiful coastline of the island of Madeira l and some of its various bays and caves, using various methods (among which: exciting jumps from remarkable cliffs, some moments of controlled climbing, dives, and a refreshing swim directly in the ocean).",
-        "NOTE: If you are uncomfortable about jumping, know that there are alternatives.",
+        "Walking, swimming, climbing, rappelling and jumping into water: all this in a single activity, coasteering in Madeira which, amid lots of adventure and adrenalin, will show you the natural wonders of the island.",
+        "This activity is done in Ponta de São Lourenço, of the most beautifull landscapes of Madeira with incredible spots.",
+        "NOTE: If you are uncomfortable about jumping, know that there are alternatives."
     ],
     section: "All necessary information regarding Coasteering",
     includes: [

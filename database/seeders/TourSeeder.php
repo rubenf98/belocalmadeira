@@ -25,16 +25,18 @@ class TourSeeder extends Seeder
                 'pt' => "A sua solução de transporte no Aeroporto da Madeira"
             ],
             'description' => [
-                'en' => "Experience the ultimate in convenience with our 24/7 airport transfer service. We’re ready whenever you are, ensuring timely transportation to your hotel or departure flight",
-                'pt' => "Experimente o nosso serviço de transporte do aeroporto 24 horas por dia, 7 dias por semana. Estamos prontos sempre que estiver, garantindo transporte oportuno para o seu hotel ou voo de partida"
+                'en' => "Book an airport transfer with us for a quick, comfortable, and hassle-free journey to your destination, offering a seamless experience with simple online booking, 24/7 customer service, flight tracking, no hidden fees, and a professional, friendly driver who will be waiting for you at the airport, ensuring peace of mind and a smooth onward journey to your final destination.",
+                'pt' => "Reserve um transfer do aeroporto connosco para uma viagem rápida, confortável e sem complicações até ao seu destino, oferecendo uma experiência perfeita com reserva simples online, serviço de apoio ao cliente 24/7, monitorização de voos, sem taxas ocultas, e um motorista profissional e simpático que o aguardará no aeroporto, garantindo total tranquilidade e uma viagem suave até ao seu destino final."
             ],
             'image' => "/image/homepage/airport.jpg",
-            'price' => 45,
+            'price' => 35,
+            'maxprice' => 55,
         ]);
 
         Tour::create([
             'name' => ['en' => "Transfer Picos", 'pt' => "Transfer Picos"],
             'price' => 50,
+            'maxprice' => 50,
             'subtitle' => [
                 'en' => "High-Altitude Fun",
                 'pt' => "Diversão em alta altitude"

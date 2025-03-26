@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 
 const LinkContainer = styled.a`
@@ -11,7 +12,7 @@ color: black;
     color: black;
 }
 `;
-const Link = styled.img`
+const LinkImg = styled.img`
     position: absolute;
     bottom: -25px;
     right: -30px;
@@ -23,7 +24,7 @@ const Link = styled.img`
 export const text = {
     header: {
         title: "Be Local Madeira",
-        subtitle: "Get to know Madeira Island from a local’s perspective."
+        subtitle: "Explore the best Outdoor Experiences in Madeira Island."
     },
     about: {
         videoError: "Your browser does not support the video tag.",
@@ -58,6 +59,33 @@ export const text = {
                 title: "Certified Guides",
                 description: "Our guides are certified for every activity we offer, providing the amazing adventure you seek."
             },
+        ]
+    },
+    canyoning: {
+        title: "Canyoning - Explore with excitement",
+        paragraphs: [
+            "The island of Madeira is now considered one of the best places for Canyoning on the World.",
+            "On breathtaking tours through the crystal clear waters of Madeira's numerous rivers, you can explore the pristine and unspoilt interior of the island.",
+            "The challenge consists of crossing mountain streams, abundant along canyoning trails in Madeira, overcoming the various obstacles encountered during the descent.",
+            "No previous experience required.",
+            "RNAAT 1093"
+        ],
+        buttons: [
+            "Book now",
+            "+351 935 124 260"
+        ]
+    },
+    coasteering: {
+        title: "Coasteering - A Sea of Emotions",
+        paragraphs: [
+            "Coasteering is an emerging activity in Madeira Island. This activity consists in following a path along the coast line, swimming, climbing, walking and jumping into the water.",
+            "This activity is done in Ponta de São Lourenço, of the most beautifull landscapes of Madeira with incredible spots.",
+            "From here it goes to the eastern tip of the Island, exploring the impressively coast on different ways: swimming, climbing, walking, jumping into the water.",
+            "The tour is accompanied by experienced guides, the necessary equipment is provided."
+        ],
+        buttons: [
+            "Book now",
+            "+351 935 124 260"
         ]
     },
     activities: {
@@ -97,11 +125,13 @@ export const text = {
             <>follow us on
                 <LinkContainer href="https://www.instagram.com/belocalmadeira/" target="_blank">
                     <span>Instagram</span>
-                    <Link src='/image/homepage/instagram_arrow.svg' />
+                    <LinkImg src='/image/homepage/instagram_arrow.svg' />
                 </LinkContainer>
             </>),
     },
     faq: {
+        terms: (<>Do you have further questions? Check our
+            <Link to="/terms"> terms and conditions</Link></>),
         title: "Frequently asked questions",
         subtitle: "Here are the questions most people ask regarding Be Local. If none of these interest you, contact us for additional information",
         questions: [

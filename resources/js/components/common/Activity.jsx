@@ -1,10 +1,10 @@
-import React from 'react'
-import styled, { withTheme } from 'styled-components'
-import { dimensions, maxWidth } from '../../helper';
-import SectionTitle from './SectionTitle';
+import React from "react";
+import styled, { withTheme } from "styled-components";
+import { dimensions, maxWidth } from "../../helper";
+import SectionTitle from "./SectionTitle";
 import { handleForm } from "../../redux/application/actions";
-import { Row } from 'antd'
-import { Link } from 'react-router-dom';
+import { Row } from "antd";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 const IntroContainer = styled.section`
@@ -14,8 +14,6 @@ const IntroContainer = styled.section`
     max-width: ${maxWidth};
     justify-content: space-around;
     align-items: flex-start;
-
-    
 
     div {
         width: 50%;
@@ -29,7 +27,7 @@ const IntroContainer = styled.section`
             display: block;
         }
 
-        p   {
+        p {
             width: 90%;
         }
 
@@ -41,12 +39,12 @@ const IntroContainer = styled.section`
         h3 {
             font-size: 60px;
             line-height: 60px;
-            font-family: 'Playfair Display', serif;
+            font-family: "Playfair Display", serif;
             margin-bottom: 50px;
 
             span {
                 font-weight: bold;
-                font-family: 'Merienda One', cursive;;
+                font-family: "Merienda One", cursive;
             }
         }
 
@@ -54,7 +52,7 @@ const IntroContainer = styled.section`
             font-size: 18px;
             font-weight: 300;
         }
-    } 
+    }
 
     @media (max-width: ${dimensions.md}) {
         div {
@@ -72,7 +70,8 @@ const IntroContainer = styled.section`
                 width: 100%;
             }
 
-            h2, h3 {
+            h2,
+            h3 {
                 text-align: center;
             }
 
@@ -109,7 +108,7 @@ const Gallery = styled.section`
             padding: 10px;
             box-sizing: border-box;
         }
-    } 
+    }
 `;
 
 const DetailsContainer = styled.section`
@@ -130,7 +129,8 @@ const DetailsContainer = styled.section`
                 width: 100%;
             }
 
-            &:nth-child(2), &:nth-child(3) {
+            &:nth-child(2),
+            &:nth-child(3) {
                 width: 50%;
             }
             span {
@@ -139,7 +139,8 @@ const DetailsContainer = styled.section`
         }
 
         @media (max-width: ${dimensions.sm}) {
-            &:nth-child(2), &:nth-child(3) {
+            &:nth-child(2),
+            &:nth-child(3) {
                 width: 100%;
             }
         }
@@ -152,7 +153,7 @@ const DetailsContainer = styled.section`
                 width: 100%;
             }
         }
-    } 
+    }
 `;
 
 const StepsContainer = styled.div`
@@ -168,9 +169,9 @@ const Step = styled.div`
     width: 33%;
     padding: 50px 15px;
     box-sizing: border-box;
-   
+
     .content {
-        box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.25); 
+        box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.25);
         height: 100%;
         display: flex;
         flex-direction: column;
@@ -179,7 +180,11 @@ const Step = styled.div`
     .step-header {
         position: relative;
         //background-color: rgba(0,0,0,.2);
-        background: linear-gradient(0deg, rgba(0,0,0,0.4) 0%, rgba(255,255,255,0) 30%);
+        background: linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.4) 0%,
+            rgba(255, 255, 255, 0) 30%
+        );
 
         img {
             width: 100%;
@@ -227,7 +232,8 @@ const Step = styled.div`
             gap: 15px;
             margin-bottom: 20px;
 
-            h3, .price {
+            h3,
+            .price {
                 font-size: clamp(22px, 3vw, 32px);
                 font-weight: bold;
                 margin: 0px;
@@ -242,8 +248,6 @@ const Step = styled.div`
                 font-style: italic;
             }
         }
-
-        
     }
 
     @media (max-width: ${dimensions.lg}) {
@@ -256,16 +260,10 @@ const Step = styled.div`
         margin: 30px 0px;
     }
 
-    
-
-    
-
-    h4, h5 {
+    h4,
+    h5 {
         margin: 0px;
-        
     }
-
-    
 
     h5 {
         font-size: 22px;
@@ -276,33 +274,28 @@ const Step = styled.div`
             font-size: 20px;
         }
     }
-
-    
-
-    
-
 `;
 
 const OrderButton = styled.div`
     box-sizing: border-box;
     cursor: pointer;
-    background: ${props => props.background};
-    border: ${props => "1px solid " + props.border};
+    background: ${(props) => props.background};
+    border: ${(props) => "1px solid " + props.border};
     padding: 10px 30px 10px 30px;
     font-size: 15px;
-    transition: .4s;
+    transition: 0.4s;
     border-radius: 4px;
     background-size: 110%;
     text-transform: capitalize;
-    color: ${props => props.color};
+    color: ${(props) => props.color};
     font-weight: bold;
     margin-top: 10px;
     min-width: 100px;
     text-transform: uppercase;
 
     &:hover {
-        background: ${props => props.backgroundHover};
-    } 
+        background: ${(props) => props.backgroundHover};
+    }
 `;
 
 function Activity({ content, theme, handleForm }) {
@@ -311,10 +304,10 @@ function Activity({ content, theme, handleForm }) {
             <IntroContainer>
                 <div>
                     <img
-                        className='main-image'
+                        className="main-image"
                         src={"/image/activities/" + content.images[0]}
                         alt="canyoning"
-                        loading='eager'
+                        loading="eager"
                     />
                 </div>
                 <div>
@@ -325,11 +318,10 @@ function Activity({ content, theme, handleForm }) {
                     ))}
                 </div>
             </IntroContainer>
-            {!content.levels &&
+            {!content.levels && (
                 <DetailsContainer>
                     <div>
                         <h4>{content.section}</h4>
-
                     </div>
                     <div>
                         <h2>Includes</h2>
@@ -350,95 +342,161 @@ function Activity({ content, theme, handleForm }) {
                         </ul>
                     </div>
                 </DetailsContainer>
-            }
-            {content.levels &&
+            )}
+            {content.levels && (
                 <>
-                    <SectionTitle title={content.levels.subtitle} subtitle={content.levels.title} />
+                    <SectionTitle
+                        title={content.levels.subtitle}
+                        subtitle={content.levels.title}
+                    />
 
                     <StepsContainer>
-
                         {content.levels.items.map((level, index) => (
                             <Step key={"level-" + index}>
-                                <div className='content'>
-
-                                    <div className='step-header'>
-                                        <img src={"/image/activities/levels/" + level.images[0] + ".jpg"} />
+                                <div className="content">
+                                    <div className="step-header">
+                                        <img
+                                            src={
+                                                "/image/activities/levels/" +
+                                                level.images[0] +
+                                                ".jpg"
+                                            }
+                                        />
                                         <p>{level.title}</p>
                                     </div>
 
-                                    <div className='step-content'>
-                                        <div className='title'>
+                                    <div className="step-content">
+                                        <div className="title">
                                             <h3>{level.subtitle}</h3>
-                                            <div className='price'>{level.price}<span>/p</span></div>
+                                            <div className="price">
+                                                {level.price}
+                                                <span>/p</span>
+                                            </div>
                                         </div>
 
+                                        {level.paragraphs.map(
+                                            (paragraph, pIndex) => (
+                                                <p
+                                                    style={{ flex: 1 }}
+                                                    key={
+                                                        "paragraph-" +
+                                                        index +
+                                                        pIndex
+                                                    }
+                                                >
+                                                    {paragraph}
+                                                </p>
+                                            )
+                                        )}
 
-                                        {level.paragraphs.map((paragraph, pIndex) => (
-                                            <p style={{ flex: 1 }} key={"paragraph-" + index + pIndex}>{paragraph}</p>
-                                        ))}
-
-                                        <Row type="flex" align='bottom' justify='space-between'>
+                                        <Row
+                                            type="flex"
+                                            align="bottom"
+                                            justify="space-between"
+                                        >
                                             <OrderButton
-                                                onClick={() => handleForm(true, { activity_id: [1, level.index + 1] })}
+                                                onClick={() =>
+                                                    handleForm(true, {
+                                                        activity_id: [
+                                                            1,
+                                                            level.index + 1,
+                                                        ],
+                                                    })
+                                                }
                                                 color={theme.inverseText}
                                                 border={theme.primary}
                                                 background={theme.primary}
-                                                backgroundHover={theme.primaryHover}>
-                                                {localStorage.getItem('language') == "en" ? "Book now" : "Reservar"}
+                                                backgroundHover={
+                                                    theme.primaryHover
+                                                }
+                                            >
+                                                {localStorage.getItem(
+                                                    "language"
+                                                ) == "en"
+                                                    ? "Book now"
+                                                    : "Reservar"}
                                             </OrderButton>
-                                            {level.visible ?
-                                                <Link to={"/activities/canyoning/" + index}>
+                                            {level.visible ? (
+                                                <Link
+                                                    to={
+                                                        "/activities/" +
+                                                        content.linkto +
+                                                        "/" +
+                                                        index
+                                                    }
+                                                >
                                                     <OrderButton
                                                         marginLeft
                                                         color={theme.primary}
                                                         border={theme.primary}
-                                                        background={theme.inverseText}
-                                                        backgroundHover={theme.inverseText}>
-                                                        {localStorage.getItem('language') == "en" ? "See more" : "Saber mais"}
+                                                        background={
+                                                            theme.inverseText
+                                                        }
+                                                        backgroundHover={
+                                                            theme.inverseText
+                                                        }
+                                                    >
+                                                        {localStorage.getItem(
+                                                            "language"
+                                                        ) == "en"
+                                                            ? "See more"
+                                                            : "Saber mais"}
                                                     </OrderButton>
-                                                </Link> : <div></div>
-                                            }
-
+                                                </Link>
+                                            ) : (
+                                                <div></div>
+                                            )}
                                         </Row>
                                     </div>
                                 </div>
                             </Step>
                         ))}
-
                     </StepsContainer>
-
                 </>
+            )}
 
-            }
-
-
-            <SectionTitle title={content.gallery.title} subtitle={content.gallery.subtitle} />
+            <SectionTitle
+                title={content.gallery.title}
+                subtitle={content.gallery.subtitle}
+            />
 
             <Gallery>
                 {content.gallery.images.map((column) => (
                     <div>
                         {column.map((image, index) => (
                             <picture key={index}>
-                                <source srcSet={"/image/activities/gallery/" + image + ".jpg"} type="image/jpg" />
-                                <img alt="gallery image" className='profile' src={"/image/activities/gallery/" + image + ".webp"} loading="lazy" />
+                                <source
+                                    srcSet={
+                                        "/image/activities/gallery/" +
+                                        image +
+                                        ".jpg"
+                                    }
+                                    type="image/jpg"
+                                />
+                                <img
+                                    alt="gallery image"
+                                    className="profile"
+                                    src={
+                                        "/image/activities/gallery/" +
+                                        image +
+                                        ".webp"
+                                    }
+                                    loading="lazy"
+                                />
                             </picture>
-
                         ))}
                     </div>
                 ))}
             </Gallery>
-
-        </div >
-    )
+        </div>
+    );
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        handleForm: (visibility, activity) => dispatch(handleForm(visibility, activity)),
+        handleForm: (visibility, activity) =>
+            dispatch(handleForm(visibility, activity)),
     };
 };
 
-export default connect(
-    null,
-    mapDispatchToProps
-)(withTheme(Activity));
+export default connect(null, mapDispatchToProps)(withTheme(Activity));

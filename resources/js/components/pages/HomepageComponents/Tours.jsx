@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react'
-import SectionTitle from '../../common/SectionTitle'
+import React, { useEffect } from "react";
+import SectionTitle from "../../common/SectionTitle";
 import styled, { ThemeContext } from "styled-components";
-import { dimensions, maxWidth } from '../../../helper';
-import { Link } from 'react-router-dom';
-import { handleTransferForm } from '../../../redux/application/actions';
-import { connect } from 'react-redux';
-import { fetchTours } from '../../../redux/tour/actions';
-import { Row } from 'antd';
+import { dimensions, maxWidth } from "../../../helper";
+import { Link } from "react-router-dom";
+import { handleTransferForm } from "../../../redux/application/actions";
+import { connect } from "react-redux";
+import { fetchTours } from "../../../redux/tour/actions";
+import { Row } from "antd";
 
 const Container = styled.section`
     width: 100%;
@@ -26,7 +26,7 @@ const AirportTour = styled.div`
     position: relative;
 
     img {
-        order: ${(props) => props.index % 2 ? 1 : 0};
+        order: ${(props) => (props.index % 2 ? 1 : 0)};
         width: 50%;
     }
 
@@ -56,14 +56,13 @@ const AirportTour = styled.div`
             background: ${({ theme }) => theme.primary};
             box-shadow: 0px;
             padding: 10px 30px 10px 30px;
-            transition: .4s;    
+            transition: 0.4s;
             border-radius: 4px;
             position: relative;
             background-size: 110%;
             text-transform: capitalize;
             color: white;
             font-weight: bold;
-            
         }
 
         p {
@@ -97,17 +96,14 @@ const AirportTour = styled.div`
 
         .background {
             height: 100%;
-        } 
-
-        
+        }
     }
 `;
 
 function Tours(props) {
-
     useEffect(() => {
         props.fetchTours();
-    }, [])
+    }, []);
 
     const { text } = props;
     return (
@@ -116,23 +112,31 @@ function Tours(props) {
 
             {props.tours.map((tour, index) => (
                 <AirportTour index={index} key={tour.id}>
-                    <div className='background' />
+                    <div className="background" />
                     <img src={tour.image} alt="airport" />
-                    <div className='content'>
-                        <h3>{tour.subtitle[localStorage.getItem('language')]}</h3>
-                        <h2>{tour.title[localStorage.getItem('language')]}</h2>
-                        <p>{tour.description[localStorage.getItem('language')]}</p>
+                    <div className="content">
+                        <h3>
+                            {tour.subtitle[localStorage.getItem("language")]}
+                        </h3>
+                        <h2>{tour.title[localStorage.getItem("language")]}</h2>
+                        <p>
+                            {tour.description[localStorage.getItem("language")]}
+                        </p>
                         <br />
                         <p>{tour.trajectory}</p>
-                        <div className='button-container'>
-                            <button onClick={() => props.handleTransferForm(tour)}>{text.button}</button>
+                        <div className="button-container">
+                            <button
+                                onClick={() => props.handleTransferForm(tour)}
+                            >
+                                {text.button}
+                            </button>
                             <p>{tour.price}€/p</p>
                         </div>
                     </div>
                 </AirportTour>
             ))}
         </Container>
-    )
+    );
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -148,9 +152,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Tours);
+export default connect(mapStateToProps, mapDispatchToProps)(Tours);

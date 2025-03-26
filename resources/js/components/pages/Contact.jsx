@@ -1,14 +1,14 @@
-import React from 'react'
+import React from "react";
 import styled, { withTheme } from "styled-components";
-import Row from "antd/es/row"
-import Form from "antd/es/form"
-import Button from "antd/es/button"
-import Col from "antd/es/col"
+import Row from "antd/es/row";
+import Form from "antd/es/form";
+import Button from "antd/es/button";
+import Col from "antd/es/col";
 import { dimensions } from "../../helper";
 import axios from "axios";
 import { CustomInput, CustomTextArea } from "./Form/styles";
-import PageHeader from '../common/PageHeader';
-
+import PageHeader from "../common/PageHeader";
+import Faq from "./HomepageComponents/Faq";
 
 const Container = styled.div`
     display: flex;
@@ -46,8 +46,9 @@ const FormContainer = styled.div`
         width: 100%;
     }
 
-    h2, h3 {
-        font-family: 'Playfair Display', serif;
+    h2,
+    h3 {
+        font-family: "Playfair Display", serif;
     }
 
     h2 {
@@ -57,12 +58,15 @@ const FormContainer = styled.div`
     h3 {
         font-size: 22px;
     }
-    
-    h2, h3, p, a {
-        color: ${props => props.color};
+
+    h2,
+    h3,
+    p,
+    a {
+        color: ${(props) => props.color};
 
         &:hover {
-            color: ${props => props.color};
+            color: ${(props) => props.color};
         }
     }
 `;
@@ -71,7 +75,7 @@ const Sentence = styled.div`
     font-size: 82px;
     line-height: 70px;
     width: 80%;
-    color: ${props => props.color};
+    color: ${(props) => props.color};
 
     @media (max-width: ${dimensions.lg}) {
         font-size: 70px;
@@ -83,15 +87,16 @@ const Submit = styled(Button)`
     border: none;
     padding: 10px 15px;
     text-transform: uppercase;
-    background-color: ${props => props.text};
-    transition: box-shadow .3s ease;
+    background-color: ${(props) => props.text};
+    transition: box-shadow 0.3s ease;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         color: white;
-        background-color: ${props => props.text};
-        box-shadow: 0px 0px 15px 0px rgba(0,0,0,.3);
+        background-color: ${(props) => props.text};
+        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
     }
-    @media (max-width: ${dimensions.md}){
+    @media (max-width: ${dimensions.md}) {
         margin: auto;
     }
 `;
@@ -100,13 +105,13 @@ const rules = {
     name: [
         {
             required: true,
-            message: 'Please input your name!',
+            message: "Please input your name!",
         },
     ],
     email: [
         {
             required: true,
-            message: 'Please input your email!',
+            message: "Please input your email!",
         },
         {
             type: "email",
@@ -115,16 +120,20 @@ const rules = {
     message: [
         {
             required: true,
-            message: 'Please input your message!',
+            message: "Please input your message!",
         },
-    ]
-}
+    ],
+};
 
 function Contact({ theme }) {
     const [form] = Form.useForm();
 
-    const { text } = require('../../assets/' + localStorage.getItem('language') + "/contact");
-
+    const { text } = require("../../assets/" +
+        localStorage.getItem("language") +
+        "/contact");
+    const homepageText = require("../../assets/" +
+        localStorage.getItem("language") +
+        "/homepage");
 
     const onFinish = (values) => {
         axios.post(`${window.location.origin}/api/contact`, values);
@@ -133,21 +142,14 @@ function Contact({ theme }) {
             form.resetFields();
             //setSubmitted(true);
         }, 300);
-
     };
-
-
 
     return (
         <div>
             <PageHeader title={text.title} subtitle={text.subtitle} />
             <Container>
-                <SectionContainer className='hide'>
-                    <Sentence color={theme.primary}>
-                        {text.sentence}
-                    </Sentence>
-
-
+                <SectionContainer className="hide">
+                    <Sentence color={theme.primary}>{text.sentence}</Sentence>
                 </SectionContainer>
                 <SectionContainer>
                     <FormContainer color={theme.primary}>
@@ -161,39 +163,49 @@ function Contact({ theme }) {
                         >
                             <Row gutter={16}>
                                 <Col md={24} lg={24}>
-                                    <Form.Item
-                                        name="name"
-                                        rules={rules.name}
-                                    >
-                                        <CustomInput colored placeholder={text.form.items[0]} size="large" />
+                                    <Form.Item name="name" rules={rules.name}>
+                                        <CustomInput
+                                            colored
+                                            placeholder={text.form.items[0]}
+                                            size="large"
+                                        />
                                     </Form.Item>
                                 </Col>
                                 <Col md={24} lg={24}>
-                                    <Form.Item
-                                        name="email"
-                                        rules={rules.email}
-                                    >
-                                        <CustomInput colored placeholder={text.form.items[1]} size="large" />
+                                    <Form.Item name="email" rules={rules.email}>
+                                        <CustomInput
+                                            colored
+                                            placeholder={text.form.items[1]}
+                                            size="large"
+                                        />
                                     </Form.Item>
                                 </Col>
                             </Row>
-                            <Form.Item
-
-                                name="message"
-                                rules={rules.message}
-                            >
-                                <CustomTextArea colored placeholder={text.form.items[2]} size="large" maxLength={180} />
+                            <Form.Item name="message" rules={rules.message}>
+                                <CustomTextArea
+                                    colored
+                                    placeholder={text.form.items[2]}
+                                    size="large"
+                                    maxLength={180}
+                                />
                             </Form.Item>
 
                             <Form.Item>
-                                <Submit size="large" type="primary" htmlType="submit" text={theme.primary}>
+                                <Submit
+                                    size="large"
+                                    type="primary"
+                                    htmlType="submit"
+                                    text={theme.primary}
+                                >
                                     {text.form.submit}
                                 </Submit>
                             </Form.Item>
                         </ContactForm>
                         <h3>{text.contact}</h3>
                         <Row type="flex">
-                            <p style={{ marginRight: "20px" }}>+351 935 124 260</p>
+                            <p style={{ marginRight: "20px" }}>
+                                +351 935 124 260
+                            </p>
 
                             <p>
                                 <a href="mailto:belocalmadeira@gmail.com">
@@ -202,14 +214,11 @@ function Contact({ theme }) {
                             </p>
                         </Row>
                     </FormContainer>
-
-
                 </SectionContainer>
-
-
             </Container>
+            <Faq text={homepageText.text.faq} />
         </div>
-    )
+    );
 }
 
-export default withTheme(Contact)
+export default withTheme(Contact);

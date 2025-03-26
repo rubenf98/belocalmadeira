@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom';
 
 const LinkContainer = styled.a`
     display: inline;
@@ -12,18 +13,19 @@ const LinkContainer = styled.a`
     }
 `;
 
-const Link = styled.img`
+const LinkImg = styled.img`
     position: absolute;
     bottom: -25px;
     right: -30px;
     height: 35px;
-    width: auto;   
+    width: auto;
+    
 `;
 
 export const text = {
     header: {
         title: "Be Local Madeira",
-        subtitle: "Conhece a Ilha da Madeira na perspetiva de um local."
+        subtitle: "Explora as melhores experiências ao ar livre na Ilha da Madeira."
     },
     about: {
         videoError: "O teu browser não suporta a tag de vídeo",
@@ -69,6 +71,33 @@ export const text = {
             }
         ]
     },
+    canyoning: {
+        title: "Canyoning - Explore com excitação",
+        paragraphs: [
+            "A Ilha da Madeira é hoje considerada um dos melhores locais para Canyoning do Mundo.",
+            "Em passeios de cortar a respiração pelas águas cristalinas dos inúmeros rios da Madeira, poderá explorar o interior intocado e intocado da ilha.",
+            "O desafio consiste em atravessar ribeiros de montanha, abundantes ao longo dos trilhos de canyoning na Madeira, ultrapassando os vários obstáculos encontrados durante a descida.",
+            "Não é necessária experiência prévia.",
+            "RNAAT 1093"
+        ],
+        buttons: [
+            "Reservar",
+            "+351 935 124 260"
+        ]
+    },
+    coasteering: {
+        title: "Coasteering - Um Mar de Emoções",
+        paragraphs: [
+            "Coasteering é uma atividade emergente na Ilha da Madeira. Esta atividade consiste em seguir um caminho ao longo da linha da costa, nadar, escalar, caminhar e saltar para a água.",
+            "Esta atividade é feita na Ponta de São Lourenço, uma das mais belas paisagens da Madeira com recantos incríveis.",
+            "Daqui segue para a ponta oriental da Ilha, explorando a costa impressionante de diferentes formas: nadar, escalar, caminhar, saltar para a água.",
+            "O passeio é acompanhado por guias experientes, sendo fornecido o equipamento necessário."
+        ],
+        buttons: [
+            "Reservar",
+            "+351 935 124 260"
+        ]
+    },
     feedback: {
         title: "Feedback",
         subtitle: (<>O que estão as <span>pessoas</span> a dizer sobre nós?</>),
@@ -97,11 +126,13 @@ export const text = {
             <>segue-nos no
                 <LinkContainer href="https://www.instagram.com/belocalmadeira/" target="_blank">
                     <span>Instagram</span>
-                    <Link src='/image/homepage/instagram_arrow.svg' />
+                    <LinkImg src='/image/homepage/instagram_arrow.svg' />
                 </LinkContainer>
             </>),
     },
     faq: {
+        terms: (<>Tem outras questões? Consulte os nossos
+            <Link to="/terms"> termos e condições</Link></>),
         title: "Perguntas frequentes",
         subtitle: "Estas são as dúvidas que a maioria das pessoas têm relativamente à Be Local. Caso nenhuma lhe interesse, contacte-nos para informação adicional.",
         questions: [

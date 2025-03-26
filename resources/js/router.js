@@ -26,6 +26,8 @@ import ScrollToTop from "./components/common/ScrollToTop";
 import Level from "./components/pages/Activities/Level";
 import Visit from "./components/pages/Visit";
 import Transfers from "./components/dashboard/pages/Transfer/Transfers";
+import HikingLevel from "./components/pages/Activities/HikingLevel";
+import Terms from "./components/common/Terms";
 
 export const history = createBrowserHistory();
 
@@ -34,12 +36,15 @@ function Router() {
         <BrowserRouter history={history}>
             <ScrollToTop>
                 <Routes>
+                    <Route exact path="/activities/hiking/:index" element={<Layout><HikingLevel /></Layout>} />
                     <Route exact path="/activities/canyoning/:index" element={<Layout><Level /></Layout>} />
                     <Route exact path="/activities/canyoning" element={<Layout><Canyoning /></Layout>} />
                     <Route exact path="/activities/hiking" element={<Layout><Hiking /></Layout>} />
                     <Route exact path="/activities/coasteering" element={<Layout><Coasteering /></Layout>} />
                     <Route exact path="/activities/biking" element={<Layout><Biking /></Layout>} />
                     <Route exact path="/activities" element={<Layout><ActivitiesContainer /></Layout>} />
+                    <Route exact path="/terms" element={<Layout><Terms /></Layout>} />
+
                     <Route exact path="/about" element={<Layout><About /></Layout>} />
                     <Route exact path="/contact" element={<Layout><Contact /></Layout>} />
                     <Route exact path="/login" element={<ThemeContainer><Login /></ThemeContainer>} />

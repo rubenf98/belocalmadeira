@@ -1,14 +1,15 @@
-import React from 'react'
+import React from "react";
 import styled from "styled-components";
-import { dimensions } from '../../helper';
-import AnimationContainer from './AnimationContainer';
+import { dimensions } from "../../helper";
+import AnimationContainer from "./AnimationContainer";
 
 const Container = styled.div`
     margin: 50px auto 100px auto;
     width: 100%;
 
-    h2 ,h3 {
-        font-family: 'Playfair Display', serif;
+    h2,
+    h3 {
+        font-family: "Playfair Display", serif;
     }
 `;
 
@@ -36,7 +37,7 @@ const Title = styled.h2`
 
     span {
         font-weight: bold;
-        font-family: 'Merienda One', cursive;;
+        font-family: "Merienda One", cursive;
     }
 `;
 
@@ -56,18 +57,14 @@ const SubTitle = styled.h3`
 const SectionTitle = ({ title, subtitle }) => {
     return (
         <Container>
-            <SubTitle>
-                {subtitle}
-            </SubTitle>
+            <SubTitle>{subtitle}</SubTitle>
             <Title>
                 <AnimationContainer animateIn="fadeIn">
                     {title}
                 </AnimationContainer>
             </Title>
-
         </Container>
+    );
+};
 
-    )
-}
-
-export default SectionTitle
+export default SectionTitle;

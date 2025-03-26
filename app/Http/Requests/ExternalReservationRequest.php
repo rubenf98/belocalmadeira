@@ -10,6 +10,8 @@ use Illuminate\Contracts\Validation\Validator;
 
 class ExternalReservationRequest extends FormRequest
 {
+    private $polymorphic_classes = ['App\Models\Activity', 'App\Models\Experience'];
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -22,11 +24,17 @@ class ExternalReservationRequest extends FormRequest
 
     protected function prepareForValidation()
     {
+        $helper_size = count($this->experience);
+        $experienceable_type = $this->polymorphic_classes[$helper_size - 1];
+
         $this->merge([
             'date' => new Carbon($this->date),
             'confirmation_token' => uniqid(),
             'experience_id' => $this->experience[1],
             'confirmation' => 1,
+            'participants' => $this->people,
+            'experienceable_type' => $experienceable_type,
+            'experienceable_id' =>  $helper_size == 2 ? $this->experience[1] : $this->experience[0],
         ]);
     }
 
@@ -45,8 +53,9 @@ class ExternalReservationRequest extends FormRequest
             'email' => 'required|email',
             'name' => 'required|string',
             'price' => 'required',
-            'people' => 'required|integer|min:2|max:15',
-            'experience_id' => 'required|exists:experiences,id',
+            'participants' => 'required|integer|min:2|max:15',
+            'experienceable_type' => 'required|string',
+            'experienceable_id' => 'required|integer|exists:' . ($this->experienceable_type == 'App\Models\Activity' ? "activities" : "experiences") . ',id',
         ];
     }
 

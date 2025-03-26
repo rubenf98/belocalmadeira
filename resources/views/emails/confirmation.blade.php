@@ -400,9 +400,42 @@
                         </div>
                     </div>
 
+                    <div class="u-row-container" style="padding: 0px; font-family:'Open Sans',sans-serif;">
+                        <table class="u-row" style="background-color: #f9f9f9; min-width: 320px;max-width: 600px; padding: 20px; border-radius: 8px; margin:
+                            auto;">
+                            <tr>
+                                <td style="width: 30%; text-align: center; vertical-align: middle;">
+                                    <img src="https://www.belocalmadeira.com/image/logo.png" alt="Be Local Madeira Logo"
+                                        style="max-width: 150px; margin-bottom: 20px;" />
+                                </td>
+                                <td
+                                    style="width: 70%; padding-left: 20px; padding-right: 20px; vertical-align: middle;">
+                                    <div style="font-size: 24px; color: #232e19; font-weight: bold;">BE LOCAL MADEIRA
+                                    </div>
+                                    <div style="font-size: 16px; color: #232e19; margin-top: 10px;">
+                                        <p style="text-align: justify">Get to know Madeira Island from a local’s
+                                            perspective. Local Experiences</p>
+                                        <br />
+                                        <p><strong>Phone:</strong> <span>+351
+                                                935
+                                                124 260</span></p>
+                                        <p><strong>Email:</strong><span>belocalmadeira@gmail.com</span>
+                                        </p>
+                                        <p><a href="https://www.belocalmadeira.com"
+                                                style="color: #232e19; text-decoration: none;">www.belocalmadeira.com</a>
+                                        </p>
+                                        <p>RNAAT 1093</p>
+                                    </div>
+                                </td>
 
+                            </tr>
+                        </table>
+                        <div style="margin-top: 20px; font-size: 14px; color: #777;">&copy; {{ date('Y') }}Be
+                            Local
+                            Madeira. All rights reserved</div>
+                    </div>
 
-                    <div class="u-row-container" style="padding: 0px;background-color: transparent">
+                    {{-- <div class="u-row-container" style="padding: 0px;background-color: transparent">
                         <div class="u-row"
                             style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #232e19;">
                             <div
@@ -557,7 +590,7 @@
                                 <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
 
                     <!--[if (mso)|(IE)]></td></tr></table><![endif]-->

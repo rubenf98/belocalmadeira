@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ExternalReservationRequest;
 use App\Http\Resources\ReservationResource;
+use App\Jobs\ConfirmationEmail;
 use App\Models\Reservation;
 use Illuminate\Support\Facades\DB;
 
@@ -22,6 +23,7 @@ class ExternalReservationController extends Controller
         $record = Reservation::create($validator);
         DB::commit();
 
+        ConfirmationEmail::dispatch($record->email, $record->confirmation_token, null);
         return new ReservationResource($record);
     }
 }

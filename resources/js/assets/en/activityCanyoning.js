@@ -2,9 +2,11 @@ export const text = {
     title: "canyoning",
     subtitle: (<>Explore the <span>island</span> with excitement</>),
     information: [
-        "Canyoning is an activity that consists of the progressive exploration of a stream in the case of Madeira, overcoming vertical obstacles through various techniques and equipment.",
-        "Madeira Island is considered one of the best places in the world to practice Canyoning, where it is possible to practice it all year round. This water and mountain activity promotes pure and playful contact with NATURE, allowing the participant to discover landscapes and places that others only dream of.",
-        "Although there are various levels of difficulty, this activity is within everyone's reach, taking into account individual skills, knowledge of the activity and safety requirements."
+        "The island of Madeira is now considered one of the best places for Canyoning on the World. On breathtaking tours through the crystal clear waters of Madeira's numerous rivers, you can explore the pristine and unspoilt interior of the island. ",
+        "The challenge consists of crossing mountain streams, abundant along canyoning trails in Madeira, overcoming the various obstacles encountered during the descent.",
+        "No previous experience required.",
+        "Book now: +351 935124260",
+        "RNAAT 1093"
     ],
     section: "Quick information about the activity",
     includes: [

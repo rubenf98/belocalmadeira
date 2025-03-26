@@ -1,16 +1,15 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useEffect, useState, useContext } from "react";
 import styled, { ThemeContext } from "styled-components";
-import { dimensions } from '../../../helper';
+import { dimensions } from "../../../helper";
 
-import headerWebp1200 from '/image/background_1200.webp';
-import headerJpg1200 from '/image/background_1200.jpg';
-import headerWebp1920 from '/image/background_1920.webp';
-import headerJpg1920 from '/image/background_1920.jpg';
-import headerWebp3000 from '/image/background_3000.webp';
-import headerJpg3000 from '/image/background_3000.jpg';
-import AnimationContainer from '../../common/AnimationContainer';
-import Flyer from '../../common/Flyer';
-
+import headerWebp1200 from "/image/background_1200.webp";
+import headerJpg1200 from "/image/background_1200.jpg";
+import headerWebp1920 from "/image/background_1920.webp";
+import headerJpg1920 from "/image/background_1920.jpg";
+import headerWebp3000 from "/image/background_3000.webp";
+import headerJpg3000 from "/image/background_3000.jpg";
+import AnimationContainer from "../../common/AnimationContainer";
+import Flyer from "../../common/Flyer";
 
 const Container = styled.section`
     width: 100%;
@@ -20,9 +19,9 @@ const Container = styled.section`
     align-items: center;
     overflow: hidden;
     /* flex-wrap: wrap; */
-    color: ${props => props.color};
+    color: ${(props) => props.color};
 
-    @media(max-width: ${dimensions.sm}) {
+    @media (max-width: ${dimensions.sm}) {
         flex-direction: column;
         background-color: ${({ theme }) => theme.primary};
         gap: 40px;
@@ -39,8 +38,8 @@ const BackgroundContainer = styled.div`
     width: 100vw;
     height: 100vh;
     background-color: ${({ theme }) => theme.primary};
-  
-    picture  {
+
+    picture {
         width: 50%;
         height: 100%;
         display: block;
@@ -53,7 +52,7 @@ const BackgroundContainer = styled.div`
         }
     }
 
-    @media(max-width: ${dimensions.sm}) {
+    @media (max-width: ${dimensions.sm}) {
         width: 100%;
         height: 100%;
         flex: 1 1 0;
@@ -68,7 +67,7 @@ const BackgroundContainer = styled.div`
 `;
 
 const Overlay = styled.div`
-  /* z-index: -1;
+    /* z-index: -1;
   top: 0;bottom:0;left:0;right: 0;
   position: absolute;
   background: rgb(0,0,0);
@@ -81,7 +80,8 @@ const TitleContainer = styled.div`
     display: block;
     margin: auto;
 
-    h1, h2 {
+    h1,
+    h2 {
         color: white;
         width: 50%;
         padding-right: 30px;
@@ -91,7 +91,7 @@ const TitleContainer = styled.div`
 
     h1 {
         font-size: clamp(40px, 4vw, 100px);
-        font-family: 'Playfair Display', serif;
+        font-family: "Playfair Display", serif;
     }
 
     h2 {
@@ -107,7 +107,8 @@ const TitleContainer = styled.div`
         box-sizing: border-box;
         margin: auto;
 
-        h1, h2 {
+        h1,
+        h2 {
             width: 100%;
             padding: 0px 20px;
             text-align: center;
@@ -116,32 +117,32 @@ const TitleContainer = styled.div`
 `;
 
 const Scroll = styled.div`
-  margin: auto;
-  position: absolute;
-  left: 50%;
-  bottom: 30px;
-  transform: translate(-50%, 0);
-  display: flex;
-  color: inherit;
+    margin: auto;
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
+    transform: translate(-50%, 0);
+    display: flex;
+    color: inherit;
 
-  @media (max-width: ${dimensions.md}) {
-    display: none;
-  }
-
-  img {
-    width: 15px;
-    margin-left: 10px;
-  }
-
-  p {
-    margin: 0px 5px;
-    line-height: 15px;
-    text-transform: uppercase;
-
-    &:nth-child(2) {
-      letter-spacing: 2px;
+    @media (max-width: ${dimensions.md}) {
+        display: none;
     }
-  }
+
+    img {
+        width: 15px;
+        margin-left: 10px;
+    }
+
+    p {
+        margin: 0px 5px;
+        line-height: 15px;
+        text-transform: uppercase;
+
+        &:nth-child(2) {
+            letter-spacing: 2px;
+        }
+    }
 `;
 
 const LanguageContainer = styled.div`
@@ -157,7 +158,7 @@ const LanguageContainer = styled.div`
 `;
 
 const LanguageIndicator = styled.span`
-    filter: ${props => props.active ? "opacity(1)" : "opacity(.4)"};
+    filter: ${(props) => (props.active ? "opacity(1)" : "opacity(.4)")};
     z-index: 100;
     cursor: pointer;
     font-size: 22px;
@@ -174,7 +175,7 @@ const Instagram = styled.div`
     left: 100px;
     bottom: 30px;
     color: inherit;
-    
+
     .animated {
         display: flex;
         align-items: center;
@@ -193,13 +194,18 @@ const Instagram = styled.div`
 
 const ScrollDownIndicator = () => (
     <Scroll>
-        <div><p>scroll</p> <p>down</p></div>
+        <div>
+            <p>scroll</p> <p>down</p>
+        </div>
     </Scroll>
-)
+);
 
 function Header({ text }) {
-    const [positionOffset, setPositionOffset] = useState({ x: undefined, y: undefined });
-    const [active, setActive] = useState("en")
+    const [positionOffset, setPositionOffset] = useState({
+        x: undefined,
+        y: undefined,
+    });
+    const [active, setActive] = useState("en");
     const themeContext = useContext(ThemeContext);
 
     useEffect(() => {
@@ -207,53 +213,69 @@ function Header({ text }) {
         const DOM = document.getElementById("header-container");
 
         const setFromEvent = (e) => {
-            var yOffset = e.pageY - (window.innerHeight / 2);
-            var xOffset = e.pageX - (window.innerWidth / 2);
+            var yOffset = e.pageY - window.innerHeight / 2;
+            var xOffset = e.pageX - window.innerWidth / 2;
 
             var maxXOffset = window.innerWidth / 2;
             var maxYOffset = window.innerHeight / 2;
 
             setPositionOffset({
-                x: (((xOffset - (-maxXOffset)) * 10) / (maxXOffset * 2)) - 5,
-                y: (((yOffset - (-maxYOffset)) * 10) / (maxYOffset * 2)) - 5
+                x: ((xOffset - -maxXOffset) * 10) / (maxXOffset * 2) - 5,
+                y: ((yOffset - -maxYOffset) * 10) / (maxYOffset * 2) - 5,
             });
-        }
+        };
 
         DOM.addEventListener("mousemove", setFromEvent);
 
         return () => {
             DOM.removeEventListener("mousemove", setFromEvent);
         };
-
     }, []);
 
     function handleLanguageClick(language) {
         localStorage.setItem("language", language);
-        setActive(language)
+        setActive(language);
         location.reload();
     }
-
 
     return (
         <Container color={themeContext.inverseText} id="header-container">
             {/* <Overlay /> */}
             <Flyer />
 
-            <TitleContainer >
+            <TitleContainer>
                 <AnimationContainer animateIn="fadeIn" offset={0}>
                     <h2>{text.title}</h2>
                     <h1>{text.subtitle}</h1>
                 </AnimationContainer>
             </TitleContainer>
 
-            <BackgroundContainer background={themeContext.primary} positionOffset={positionOffset}>
+            <BackgroundContainer
+                background={themeContext.primary}
+                positionOffset={positionOffset}
+            >
                 <picture>
-                    <source media="(max-width: 580px)" srcSet={headerWebp1200} />
-                    <source media="(max-width: 1920px)" srcSet={headerWebp1920} />
-                    <source media="(min-width: 1921px)" srcSet={headerWebp3000} />
+                    <source
+                        media="(max-width: 580px)"
+                        srcSet={headerWebp1200}
+                    />
+                    <source
+                        media="(max-width: 1920px)"
+                        srcSet={headerWebp1920}
+                    />
+                    <source
+                        media="(min-width: 1921px)"
+                        srcSet={headerWebp3000}
+                    />
                     <source media="(max-width: 580px)" srcSet={headerJpg1200} />
-                    <source media="(max-width: 1920px)" srcSet={headerJpg1920} />
-                    <source media="(min-width: 1921px)" srcSet={headerJpg3000} />
+                    <source
+                        media="(max-width: 1920px)"
+                        srcSet={headerJpg1920}
+                    />
+                    <source
+                        media="(min-width: 1921px)"
+                        srcSet={headerJpg3000}
+                    />
 
                     <img src={headerWebp1920} alt="profile" loading="eager" />
                 </picture>
@@ -264,16 +286,18 @@ function Header({ text }) {
                 </video> */}
             </BackgroundContainer>
 
-
-
-
-
             <Instagram>
                 <AnimationContainer animateIn="fadeInUp" offset={0}>
-                    <a href="https://www.instagram.com/belocalmadeira/" target="_blank" >
+                    <a
+                        href="https://www.instagram.com/belocalmadeira/"
+                        target="_blank"
+                    >
                         <img src="/icon/instagram.png" alt="instagram link" />
                     </a>
-                    <a href="https://www.tiktok.com/@belocalmadeira" target="_blank" >
+                    <a
+                        href="https://www.tiktok.com/@belocalmadeira"
+                        target="_blank"
+                    >
                         <img src="/icon/tiktok.svg" alt="tiktok link" />
                     </a>
                 </AnimationContainer>
@@ -281,14 +305,24 @@ function Header({ text }) {
 
             <LanguageContainer>
                 <AnimationContainer animateIn="fadeInUp" offset={0}>
-                    <LanguageIndicator active={active == "pt"} onClick={() => handleLanguageClick("pt")}>pt</LanguageIndicator>
-                    <LanguageIndicator active={active == "en"} onClick={() => handleLanguageClick("en")}>en</LanguageIndicator>
+                    <LanguageIndicator
+                        active={active == "pt"}
+                        onClick={() => handleLanguageClick("pt")}
+                    >
+                        pt
+                    </LanguageIndicator>
+                    <LanguageIndicator
+                        active={active == "en"}
+                        onClick={() => handleLanguageClick("en")}
+                    >
+                        en
+                    </LanguageIndicator>
                 </AnimationContainer>
             </LanguageContainer>
 
             <ScrollDownIndicator />
         </Container>
-    )
+    );
 }
 
-export default Header
+export default Header;
