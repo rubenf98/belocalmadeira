@@ -16,6 +16,9 @@ class Tour extends Model
         'subtitle',
         'title',
         'description',
+        'description2',
+        'description3',
+        'description4',
         'image',
         'trajectory'
     ];
@@ -24,7 +27,10 @@ class Tour extends Model
         'name',
         'subtitle',
         'title',
-        'description'
+        'description',
+        'description2',
+        'description3',
+        'description4',
     ];
 
     public function transfers()

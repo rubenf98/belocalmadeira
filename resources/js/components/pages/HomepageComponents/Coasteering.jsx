@@ -42,7 +42,7 @@ const ImageContainer = styled.div`
             width: 100%;
 
             img {
-                max-height: calc(60vh / 4);
+                max-height: calc(60vh / 5);
                 width: 100%;
                 object-fit: cover;
             }
@@ -151,6 +151,7 @@ const images = [
     "/image/activities/02_coasteering.jpg",
     "/image/activities/03_coasteering.jpg",
     "/image/activities/04_coasteering.jpg",
+    "/image/activities/06_coasteering.jpg",
 ];
 function Coasteering({ text }) {
     return (
@@ -181,7 +182,7 @@ function Coasteering({ text }) {
 
                 <br />
 
-                <Link to="/activities/canyoning">
+                <Link to="/activities/coasteering">
                     <button className="primary_button">
                         {text.buttons[0]}
                     </button>

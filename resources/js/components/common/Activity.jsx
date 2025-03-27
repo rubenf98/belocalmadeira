@@ -3,7 +3,7 @@ import styled, { withTheme } from "styled-components";
 import { dimensions, maxWidth } from "../../helper";
 import SectionTitle from "./SectionTitle";
 import { handleForm } from "../../redux/application/actions";
-import { Row } from "antd";
+import { Carousel, Image, Row } from "antd";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -13,7 +13,6 @@ const IntroContainer = styled.section`
     margin: 10px auto;
     max-width: ${maxWidth};
     justify-content: space-around;
-    align-items: flex-start;
 
     div {
         width: 50%;
@@ -298,18 +297,124 @@ const OrderButton = styled.div`
     }
 `;
 
+const GalleryContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+
+    .images {
+        display: flex;
+        justify-content: space-between;
+        width: 20%;
+        flex-direction: column;
+        gap: 20px;
+        padding: 0px 20px;
+        box-sizing: border-box;
+
+        .ant-image {
+            width: 100%;
+
+            img {
+                max-height: calc(60vh / 5);
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .ant-image-mask {
+            width: 100%;
+        }
+    }
+
+    .main_gallery_image {
+        width: 80%;
+
+        .ant-image {
+            width: 100%;
+
+            img {
+                max-height: 80vh;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .ant-image-mask {
+            width: 100%;
+        }
+    }
+
+    .ant-carousel {
+        display: none;
+    }
+
+    @media (max-width: ${dimensions.md}) {
+        width: 100%;
+        margin-bottom: 20px;
+        order: 1;
+
+        .ant-carousel {
+            display: block;
+        }
+
+        .images,
+        .main_gallery_image {
+            display: none;
+        }
+    }
+`;
+
+const MobileCarousel = styled(Carousel)`
+    width: 0px;
+    height: 0px;
+
+    @media (max-width: ${dimensions.md}) {
+        width: 100vw;
+        height: 50vh;
+
+        img {
+            width: 100%;
+            height: 50vh;
+            object-fit: cover;
+        }
+    }
+`;
+
 function Activity({ content, theme, handleForm }) {
     return (
         <div>
             <IntroContainer>
-                <div>
-                    <img
-                        className="main-image"
-                        src={"/image/activities/" + content.images[0]}
-                        alt="canyoning"
-                        loading="eager"
-                    />
-                </div>
+                {content.hasGallery ? (
+                    <GalleryContainer>
+                        <div className="images">
+                            {content.galleryImages.map((image, index) => (
+                                <Image key={index} src={image} />
+                            ))}
+                        </div>
+                        <div className="main_gallery_image">
+                            <Image src="/image/activities/01_coasteering.jpg" />
+                        </div>
+
+                        <MobileCarousel autoplay showDots infinite>
+                            <img src="/image/activities/01_coasteering.jpg" />
+
+                            {content.galleryImages.map((image, index) => (
+                                <img key={index} src={image} />
+                            ))}
+                        </MobileCarousel>
+                    </GalleryContainer>
+                ) : (
+                    <div>
+                        <img
+                            className="main-image"
+                            src={"/image/activities/" + content.images[0]}
+                            alt="canyoning"
+                            loading="eager"
+                        />
+                    </div>
+                )}
                 <div>
                     <h2>{content.title}</h2>
                     <h3>{content.subtitle}</h3>

@@ -1,17 +1,18 @@
-import React, { useContext, useState, useEffect } from 'react';
-import { Form, Drawer, Button, Row, notification, Popconfirm } from 'antd';
+import React, { useContext, useState, useEffect } from "react";
+import { Form, Drawer, Button, Row, notification, Popconfirm } from "antd";
 import styled, { ThemeContext, keyframes } from "styled-components";
-import Information from './Form/Information';
-import Date from './Form/Date';
-import Participants from './Form/Participants';
-import { createReservation } from '../../redux/reservation/actions';
+import Information from "./Form/Information";
+import Date from "./Form/Date";
+import Participants from "./Form/Participants";
+import { createReservation } from "../../redux/reservation/actions";
 import { connect } from "react-redux";
-import Summary from './Form/Summary';
-import moment from 'moment';
-import { dimensions } from '../../helper';
-import Type from './Form/Type';
-import Voucher from './Form/Voucher';
-import { fetchActivities } from '../../redux/activity/actions';
+import Summary from "./Form/Summary";
+import moment from "moment";
+import { dimensions } from "../../helper";
+import Type from "./Form/Type";
+import Voucher from "./Form/Voucher";
+import { fetchActivities } from "../../redux/activity/actions";
+import { resetCoupon } from "../../redux/coupon/actions";
 
 const rotate = keyframes`
   from {
@@ -23,31 +24,27 @@ const rotate = keyframes`
   }
 `;
 
-
 const Content = styled(Drawer)`
     color: white;
-    
 
     .ant-drawer-wrapper-body {
-        background: ${props => props.background};
+        background: ${(props) => props.background};
         padding: 50px;
         box-sizing: border-box;
 
         @media (max-width: ${dimensions.md}) {
             padding: 10px;
         }
-        
     }
 
     .ant-drawer-body {
-        -ms-overflow-style: none;  /* Internet Explorer 10+ */
-        scrollbar-width: none;  /* Firefox */
+        -ms-overflow-style: none; /* Internet Explorer 10+ */
+        scrollbar-width: none; /* Firefox */
 
-        &:-webkit-scrollbar { 
-            display: none;  /* Safari and Chrome */
+        &:-webkit-scrollbar {
+            display: none; /* Safari and Chrome */
         }
     }
-    
 `;
 
 const CloseContainer = styled.div`
@@ -65,7 +62,7 @@ const CloseContainer = styled.div`
 
 const Title = styled.h2`
     font-size: 36px;
-    font-family: 'Playfair Display', serif;
+    font-family: "Playfair Display", serif;
     color: white;
     margin: 50px 0px;
 
@@ -88,7 +85,7 @@ const Next = styled.button`
 
 const Submit = styled(Button)`
     cursor: pointer;
-    cursor: ${props => props.isloading ? "loading" : "pointer"};
+    cursor: ${(props) => (props.isloading ? "loading" : "pointer")};
     margin: 20px 0px;
     background-color: transparent;
     border: none;
@@ -96,7 +93,8 @@ const Submit = styled(Button)`
     color: white;
 
     &:focus,
-    &:active, &:hover {
+    &:active,
+    &:hover {
         background-color: transparent;
         border: none;
         box-shadow: 0px;
@@ -105,29 +103,36 @@ const Submit = styled(Button)`
 
 const Loading = styled.img`
     width: 50px;
-    animation: ${rotate} 2s linear infinite;  
-    opacity: ${props => props.isloading ? "1 !important" : "0 !important"};
+    animation: ${rotate} 2s linear infinite;
+    opacity: ${(props) => (props.isloading ? "1 !important" : "0 !important")};
 `;
 
 const Previous = styled.img`
     cursor: pointer;
     width: 20px;
-    opacity: ${props => props.visible ? 1 : 0};
-    cursor: ${props => props.visible ? "pointer" : "default"};
-    
+    opacity: ${(props) => (props.visible ? 1 : 0)};
+    cursor: ${(props) => (props.visible ? "pointer" : "default")};
 `;
 
 const FlexContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
 `;
 
-
-const OrderForm = ({ visible, handleVisibility, createReservation, loading, activityInitialValue, fetchActivities }) => {
-    const { text } = require('../../assets/' + localStorage.getItem('language') + "/form");
-    const [formData, setFormData] = useState({})
+const OrderForm = ({
+    visible,
+    handleVisibility,
+    createReservation,
+    loading,
+    activityInitialValue,
+    fetchActivities,
+    coupon,
+}) => {
+    const { text } = require("../../assets/" +
+        localStorage.getItem("language") +
+        "/form");
+    const [formData, setFormData] = useState({});
     const [step, setStep] = useState(0);
     const [stepOrder, setStepOrder] = useState([]);
     const [active, setActive] = useState(undefined);
@@ -137,101 +142,110 @@ const OrderForm = ({ visible, handleVisibility, createReservation, loading, acti
     const themeContext = useContext(ThemeContext);
 
     useEffect(() => {
-        if (visible)
-            handleReset(true);
+        if (visible) handleReset(true);
         if (activityInitialValue.name) {
-            setNParticipants(activityInitialValue.participants)
-            setFormData({ ...activityInitialValue })
-            fetchActivities({ language: localStorage.getItem('language') });
-            setStep(2)
+            setNParticipants(activityInitialValue.participants);
+            setFormData({ ...activityInitialValue });
+            fetchActivities({ language: localStorage.getItem("language") });
+            setStep(2);
         }
-    }, [visible])
+    }, [visible]);
 
     useEffect(() => {
         setDrawerWidth(window.innerWidth > 720 ? 720 : window.innerWidth);
-    }, [window.innerWidth])
+    }, [window.innerWidth]);
 
     const steps = [
         {
             title: text.pages[1].title,
-            content: <Date form={form} text={text.pages[1]} />
+            content: <Date form={form} text={text.pages[1]} />,
         },
         {
             title: text.pages[0].title,
-            content: <Information text={text.pages[0]} />
+            content: <Information text={text.pages[0]} />,
         },
         {
             title: text.pages[2].title,
-            content: <Participants text={text.pages[2]} n={nParticipants} />
+            content: <Participants text={text.pages[2]} n={nParticipants} />,
         },
         {
             title: text.pages[3].title,
-            content: <Summary text={text.pages[3]} data={{ ...formData, date: moment(formData.date).format("YYYY-MM-DD") }} />
-        }
-    ]
-
-
+            content: (
+                <Summary
+                    text={text.pages[3]}
+                    data={{
+                        ...formData,
+                        date: moment(formData.date).format("YYYY-MM-DD"),
+                    }}
+                />
+            ),
+        },
+    ];
 
     const nextStep = () => {
         form.validateFields().then((currentStepData) => {
             setFormData({ ...formData, ...currentStepData });
             if (step == 1) {
-                setNParticipants(form.getFieldValue('participants'));
+                setNParticipants(form.getFieldValue("participants"));
             }
 
-            var nextStep = (step == (steps.length - 1)) ? step : step + 1
+            var nextStep = step == steps.length - 1 ? step : step + 1;
 
-            setStepOrder([step, ...stepOrder])
+            setStepOrder([step, ...stepOrder]);
             setStep(nextStep);
-
-
-        })
-
-    }
+        });
+    };
 
     const previousStep = () => {
         var newOrder = [...stepOrder];
-        newOrder.splice(0, 1)
+        newOrder.splice(0, 1);
         setStep(stepOrder[0]);
-        setStepOrder(newOrder)
-    }
+        setStepOrder(newOrder);
+    };
 
     const handleReset = (close = true) => {
         setStep(0);
-        setStepOrder([])
+        resetCoupon();
+        setStepOrder([]);
         form.resetFields();
         setFormData({});
-    }
+    };
 
     const handleFinish = () => {
         form.validateFields().then((currentStepData) => {
-            createReservation({ ...formData, ...currentStepData }).then((response, err) => {
-                if (!err) {
-                    openNotificationWithIcon("success", {
-                        message: text.success.message,
-                        description: text.success.description,
-                    })
-                    handleReset(false);
-                    handleVisibility(false);
-                }
-            }).catch((error) => {
-                let messages = [];
-
-                Object.values(error.response.data.errors).map(function (message) {
-                    messages.push(message[0])
+            createReservation({
+                ...formData,
+                ...currentStepData,
+                coupon_id: coupon.id,
+            })
+                .then((response, err) => {
+                    if (!err) {
+                        openNotificationWithIcon("success", {
+                            message: text.success.message,
+                            description: text.success.description,
+                        });
+                        handleReset(false);
+                        handleVisibility(false);
+                    }
                 })
+                .catch((error) => {
+                    let messages = [];
 
-                openNotificationWithIcon("error", {
-                    message: text.error.message,
-                    description: messages.map((description, index) => (
-                        <p key={index}>{description}</p>
-                    ))
+                    Object.values(error.response.data.errors).map(function (
+                        message
+                    ) {
+                        messages.push(message[0]);
+                    });
 
-                })
-
-            });
-        })
-    }
+                    openNotificationWithIcon("error", {
+                        message: text.error.message,
+                        description: messages.map((description, index) => (
+                            <p key={index}>{description}</p>
+                        )),
+                    });
+                });
+        });
+    };
 
     const openNotificationWithIcon = (type, content) => {
         notification[type](content);
@@ -248,7 +262,12 @@ const OrderForm = ({ visible, handleVisibility, createReservation, loading, acti
             visible={visible}
         >
             <FlexContainer>
-                <Previous visible={step != 0} onClick={previousStep} src='/icon/previous.svg' alt="previous step" />
+                <Previous
+                    visible={step != 0}
+                    onClick={previousStep}
+                    src="/icon/previous.svg"
+                    alt="previous step"
+                />
                 <CloseContainer>
                     <Popconfirm
                         title={text.popconfirm.message}
@@ -257,7 +276,8 @@ const OrderForm = ({ visible, handleVisibility, createReservation, loading, acti
                         okText={text.popconfirm.yes}
                         cancelText={text.popconfirm.no}
                     >
-                        <span>{text.close}</span> <img src="/icon/close.svg" alt="close icon" />
+                        <span>{text.close}</span>{" "}
+                        <img src="/icon/close.svg" alt="close icon" />
                     </Popconfirm>
                 </CloseContainer>
             </FlexContainer>
@@ -275,29 +295,35 @@ const OrderForm = ({ visible, handleVisibility, createReservation, loading, acti
             >
                 {steps[step].content}
             </Form>
-            {
-                step != 3 ?
-                    <Next onClick={nextStep}>
-                        <span> {text.controls.next} </span>
-                    </Next> :
-                    <Row type="flex" justify='end'>
-                        <Submit isloading={loading ? 1 : 0} onClick={handleFinish} type='primary' htmlType="submit">
-                            <Loading isloading={loading ? 1 : 0} src="/image/navbar/loading.svg" alt='loading' />
-                            <span> {text.controls.submit} </span>
-                        </Submit>
-                    </Row>
-
-            }
-
-        </Content >
-
+            {step != 3 ? (
+                <Next onClick={nextStep}>
+                    <span> {text.controls.next} </span>
+                </Next>
+            ) : (
+                <Row type="flex" justify="end">
+                    <Submit
+                        isloading={loading ? 1 : 0}
+                        onClick={handleFinish}
+                        type="primary"
+                        htmlType="submit"
+                    >
+                        <Loading
+                            isloading={loading ? 1 : 0}
+                            src="/image/navbar/loading.svg"
+                            alt="loading"
+                        />
+                        <span> {text.controls.submit} </span>
+                    </Submit>
+                </Row>
+            )}
+        </Content>
     );
 };
-
 
 const mapDispatchToProps = (dispatch) => {
     return {
         createReservation: (data) => dispatch(createReservation(data)),
+        resetCoupon: () => dispatch(resetCoupon()),
         fetchActivities: (filters) => dispatch(fetchActivities(filters)),
     };
 };
@@ -307,10 +333,8 @@ const mapStateToProps = (state) => {
         loading: state.reservation.loading,
         calendarMetadata: state.reservation.calendarMetadata,
         activityInitialValue: state.application.activityInitialValue,
+        coupon: state.coupon.current,
     };
 };
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(OrderForm);
+export default connect(mapStateToProps, mapDispatchToProps)(OrderForm);

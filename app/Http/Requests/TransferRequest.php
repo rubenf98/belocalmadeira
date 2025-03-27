@@ -29,13 +29,15 @@ class TransferRequest extends FormRequest
         $tour = Tour::find($this->tour);
         $price =  $tour->price * $this->participants;
 
+        if ($this->participants > 4) {
+            $price = $price + 20;
+        }
+
         if ($this->return) {
             $price = $price * 2;
         }
 
-        if ($this->participants >= 4) {
-            $price = $price * .9;
-        }
+
 
         $phone = null;
         if (is_array($this->phone)) {

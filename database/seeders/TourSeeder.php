@@ -25,18 +25,24 @@ class TourSeeder extends Seeder
                 'pt' => "A sua solução de transporte no Aeroporto da Madeira"
             ],
             'description' => [
-                'en' => "Book an airport transfer with us for a quick, comfortable, and hassle-free journey to your destination, offering a seamless experience with simple online booking, 24/7 customer service, flight tracking, no hidden fees, and a professional, friendly driver who will be waiting for you at the airport, ensuring peace of mind and a smooth onward journey to your final destination.",
-                'pt' => "Reserve um transfer do aeroporto connosco para uma viagem rápida, confortável e sem complicações até ao seu destino, oferecendo uma experiência perfeita com reserva simples online, serviço de apoio ao cliente 24/7, monitorização de voos, sem taxas ocultas, e um motorista profissional e simpático que o aguardará no aeroporto, garantindo total tranquilidade e uma viagem suave até ao seu destino final."
+                'en' => "If you're planning a trip to Madeira whether for business or pleasure, book an airport transfer with us for a quick, comfortable onward journey to your final destination. ",
+                'pt' => "Se está planeando uma viagem para a Madeira, seja a negócios ou lazer, reserve um transfer do aeroporto connosco para uma viagem rápida e confortável até seu destino final."
+            ],
+            'description2' => [
+                'en' => "Booking with us is simple and can be done entirely online. We offer a great value door to door service, 24/7 customer service, and no hidden fees. ",
+                'pt' => "A reserva connosco é simples e pode ser feita inteiramente online. Oferecemos um serviço porta a porta de grande valor, atendimento ao cliente 24 horas por dia, 7 dias por semana e sem taxas ocultas."
+            ],
+            'description3' => [
+                'en' => "Our drivers track the progress of your flight, meaning there will always be someone waiting to transfer you from the airport on to your final destination. For complete peace of mind book an airport transfer from Madeira airport.",
+                'pt' => "Os nossos motoristas acompanham o progresso do seu voo, o que significa que haverá sempre alguém à espera para o transferir do aeroporto até ao destino final. Para total tranquilidade reserve um transfer do aeroporto da Madeira."
             ],
             'image' => "/image/homepage/airport.jpg",
             'price' => 35,
-            'maxprice' => 55,
         ]);
 
         Tour::create([
             'name' => ['en' => "Transfer Picos", 'pt' => "Transfer Picos"],
             'price' => 50,
-            'maxprice' => 50,
             'subtitle' => [
                 'en' => "High-Altitude Fun",
                 'pt' => "Diversão em alta altitude"

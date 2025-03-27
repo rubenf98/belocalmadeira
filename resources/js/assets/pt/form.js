@@ -30,6 +30,9 @@ export const text = {
                 participants: {
                     placeholder: "Número de participantes *",
                 },
+                coupon: {
+                    placeholder: "Promo Code"
+                },
             },
         },
         {

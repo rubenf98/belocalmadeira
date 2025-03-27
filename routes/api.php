@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CouponController;
 use App\Http\Controllers\ExternalReservationController;
 use App\Http\Controllers\HandleTransferVisibilityTransfer;
 use App\Http\Controllers\ReservationVisibilityController;
@@ -45,3 +46,4 @@ Route::apiResource('transfers', 'App\Http\Controllers\TransferController');
 
 Route::apiResource('activity', 'App\Http\Controllers\ActivityController');
 Route::apiResource('experience', 'App\Http\Controllers\ExperienceController');
+Route::apiResource('coupons', CouponController::class);

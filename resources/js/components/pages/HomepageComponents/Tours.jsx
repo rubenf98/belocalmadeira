@@ -63,10 +63,11 @@ const AirportTour = styled.div`
             text-transform: capitalize;
             color: white;
             font-weight: bold;
+            border: 0px;
         }
 
         p {
-            margin: 0px;
+            margin: 10px 0px;
         }
     }
 
@@ -77,7 +78,7 @@ const AirportTour = styled.div`
         position: absolute;
         left: 0;
         top: 50px;
-        height: calc(100% - 120px);
+        height: calc(100% - 100px);
     }
 
     @media (max-width: ${dimensions.md}) {
@@ -120,8 +121,31 @@ function Tours(props) {
                         </h3>
                         <h2>{tour.title[localStorage.getItem("language")]}</h2>
                         <p>
-                            {tour.description[localStorage.getItem("language")]}
+                            {
+                                tour?.description[
+                                    localStorage.getItem("language")
+                                ]
+                            }
                         </p>
+                        <p>
+                            {tour.description2 &&
+                                tour.description2[
+                                    localStorage.getItem("language")
+                                ]}
+                        </p>
+                        <p>
+                            {tour.description3 &&
+                                tour.description3[
+                                    localStorage.getItem("language")
+                                ]}
+                        </p>
+                        <p>
+                            {tour.description4 &&
+                                tour.description4[
+                                    localStorage.getItem("language")
+                                ]}
+                        </p>
+
                         <br />
                         <p>{tour.trajectory}</p>
                         <div className="button-container">
@@ -130,7 +154,21 @@ function Tours(props) {
                             >
                                 {text.button}
                             </button>
-                            <p>{tour.price}€/p</p>
+
+                            {tour.trajectory ? (
+                                <p>{parseInt(tour.price)}€/p</p>
+                            ) : (
+                                <div>
+                                    <p>
+                                        {parseInt(tour.price)}€/p, up to 4
+                                        persons
+                                    </p>
+                                    <p>
+                                        {parseInt(tour.price) + 20}€/p, over 4
+                                        persons
+                                    </p>
+                                </div>
+                            )}
                         </div>
                     </div>
                 </AirportTour>

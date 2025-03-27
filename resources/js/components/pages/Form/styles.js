@@ -166,6 +166,26 @@ export const CustomInput = styled(Input)`
     
 `;
 
+export const CustomSearch = styled(Input.Search)`
+    ${baseInputStyles}
+
+    color: ${props => props.light ? "black" : "white"};
+    .ant-input, .ant-input-group-addon {
+        border: 0px;
+        background-color: transparent;
+        color: white;
+    }
+
+    .ant-input-search-button {
+        border: 1px solid white;
+        background-color: transparent !important;
+    }
+
+    .anticon-search {
+        color: white;
+    }
+    
+`;
 
 export const CustomTextArea = styled(Input.TextArea)`
     ${baseInputStyles}

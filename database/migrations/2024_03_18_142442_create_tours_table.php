@@ -22,6 +22,9 @@ class CreateToursTable extends Migration
             $table->text('title')->nullable();
             $table->text('subtitle')->nullable();
             $table->text('description')->nullable();
+            $table->text('description2')->nullable();
+            $table->text('description3')->nullable();
+            $table->text('description4')->nullable();
             $table->boolean('visible')->default(true);
             $table->timestamps();
         });

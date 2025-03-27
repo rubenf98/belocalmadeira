@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Models\Activity;
+use App\Models\Coupon;
 use App\Models\Experience;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
@@ -39,10 +40,18 @@ class ReservationRequest extends FormRequest
                 $price = 120;
             }
         }
+        $discount = 1;
 
         if ($this->participants >= 4) {
-            $price = $price * .9;
+            $discount = 0.9;
         }
+
+        if ($this->coupon_id) {
+            $coupon = Coupon::find($this->coupon_id);
+            $discount = $coupon->value * $discount;
+        }
+
+        $price = $price * $discount;
 
         $phone = null;
         if (is_array($this->phone)) {

@@ -9,6 +9,10 @@ const InfoContainer = styled.div`
     margin: 0px auto 50px auto;
     padding: 0 20px;
     box-sizing: border-box;
+
+    p {
+        font-weight: 400;
+    }
 `;
 
 function Terms() {
@@ -24,13 +28,31 @@ function Terms() {
                     Active Tourism.
                 </p>
                 <h3>Data of the Data Controller </h3>
-                <p>
-                    Identity:Sociedade BE LOCAL MADEIRA, UNIPESSOAL NIPC - RNAAT
-                    - 1093/2024, NIF: PT518321142, Postal Address: Avenida da
-                    Madalena 100 - Edifício Madalenas Palace Bloco D 2 AC -
-                    9020-330, TLF: +351 935124260, E-mail:
-                    BeLocalMadeira@Gmail.com
-                </p>
+                <ul>
+                    <li>Identity:Sociedade BE LOCAL</li>
+                    <li>MADEIRA, UNIPESSOAL</li>
+                    <li>NIPC - RNAAT - 1093/2024</li>
+                    <li>NIF: PT518321142</li>
+                    <li>
+                        Postal Address: Avenida da Madalena 100 - Edifício
+                        Madalenas Palace Bloco D 2 AC - 9020-330
+                    </li>
+                    <li>
+                        TLF:{" "}
+                        <a
+                            href="https://api.whatsapp.com/send?l=en&phone=351935124260"
+                            target="_blank"
+                        >
+                            +351 935124260
+                        </a>
+                    </li>
+                    <li>
+                        E-mail:{" "}
+                        <a href="mailto:belocalmadeira@gmail.com">
+                            BeLocalMadeira@Gmail.com
+                        </a>
+                    </li>
+                </ul>
                 <h3>What is included in the tours?</h3>
                 <ul>
                     <li>Full Experience</li>
@@ -55,34 +77,69 @@ function Terms() {
                         directly to the meeting point.)
                     </li>
                 </ul>
+
+                <h4>1. OPERATION:</h4>
                 <p>
-                    If you need help or need further information, please feel
-                    free to contact us on WhatsApp. Reservations department:
-                    WhatsApp: (+ 351) 935124260
+                    This information has contractual value. Each reservation is
+                    recorded and numbered by customer and day. Each reservation
+                    has an emergency plan in case of an accident, as well as
+                    Civil Liability Insurance and Accident Insurance.
+                </p>
+                <p>
+                    Therefore, each participant must be of legal age or have
+                    express written authorization from their guardians or legal
+                    representatives.
+                </p>
+                <p>
+                    All data provided previously during or after the activities
+                    must be true and written legibly. In any other way, Be Local
+                    Madeira will not be held liable.
+                </p>
+                <p>
+                    Explanations will be given in advance by technicians, guides
+                    or instructors about rules and instructions, as well as
+                    safety measures and obligations.
+                </p>
+                <p>
+                    The measures will have to be followed as a rule, complying
+                    with all safety measures, as well as any additional
+                    instructions given to me by the guides or monitors during
+                    the activity.
                 </p>
 
-                <h3>1. OPERATION:</h3>
-                <p>
-                    The present text has a contractual value. Each booking is
-                    registered and numbered by client and day. Each booking has
-                    an emergency plan in case of an accident, and Civil
-                    Liability Insurance and Accident Insurance.
-                </p>
-                <p>
-                    I am of legal age or I have the express written permission
-                    of my guardians or legal representatives. All the data
-                    provided in this form are truthful and are written legibly.
-                    In any other way I decline any responsibility on the part of
-                    Be Local Madeira company.
-                </p>
-                <p>
-                    I have received explanations from the technicians, guides or
-                    instructors regarding rules and instructions, as well as
-                    safety measures and my obligations. I understand, accept and
-                    will comply with all these rules and safety measures, as
-                    well as any additional instructions given to me by the
-                    guides or monitors during the activity.
-                </p>
+                <h4>PT</h4>
+                <div>
+                    <p>
+                        O presente texto tem valor contratual. Cada reserva é
+                        registada e numerada por cliente e dia. Cada reserva tem
+                        um plano de emergência em caso de acidente, bem como um
+                        Seguro de Responsabilidade Civil e um Seguro de
+                        Acidentes.
+                    </p>
+                    <p>
+                        Assim sendo, cada participante deverá ser maior de idade
+                        ou ter autorização expressa e por escrito dos seus
+                        encarregados de educação ou representantes legais.
+                    </p>
+                    <p>
+                        Todos os dados fornecidos previamente durante ou após as
+                        actividades deveram ser verdadeiros e estar escritos de
+                        forma legível. De qualquer outra forma alheira, irá ser
+                        declinado qualquer responsabilidade por parte da empresa
+                        Be Local Madeira.
+                    </p>
+                    <p>
+                        Previamente serão dadas explicações dos técnicos, guias
+                        ou instrutores sobre regras e instruções, bem como
+                        medidas de segurança e obrigações.
+                    </p>
+                    <p>
+                        As medidas terão que ser cumpridas a regra, cumprindo
+                        todas as medidas de segurança, bem como quaisquer
+                        instruções adicionais que me sejam dadas pelos guias ou
+                        monitores durante a atividade.
+                    </p>
+                </div>
                 <h3>2. SAFETY & DISCLAIMER OF LIABILITY:</h3>
                 <p>
                     I do not suffer from any heart disease, epilepsy or any
@@ -110,7 +167,6 @@ function Terms() {
                         activity without the option of a refund.
                     </li>
                 </ul>
-
                 <p>
                     Failure to comply with the above-mentioned points may lead
                     to the cancellation of the activity/event at any time
@@ -136,7 +192,6 @@ function Terms() {
                     substitution of the activity, so we will try to start the
                     activity in the most favourable conditions possible.
                 </p>
-
                 <h3>4 - INSURANCE:</h3>
                 <p>
                     The subscriber booking for other people certifies that all
@@ -151,10 +206,15 @@ function Terms() {
                     described in the company's insurance.
                 </p>
                 <p>
-                    ‘I DECLARE that: I do not suffer from any heart disease,
-                    epilepsy or any disease, illness or disability that would
-                    make it inadvisable for me to carry out the activity. I do
-                    not suffer from any mental disorder or disability. I am not
+                    <strong>
+                        To carry out the experiment we declare that:
+                    </strong>
+                </p>
+                <p>
+                    I do not suffer from any heart disease, epilepsy or any
+                    disease, illness or disability that would make it
+                    inadvisable for me to carry out the activity. I do not
+                    suffer from any mental disorder or disability. I am not
                     pregnant. I have not consumed drugs nor am I under the
                     influence of any narcotic substance.
                 </p>
@@ -171,19 +231,24 @@ function Terms() {
                     well as others related to the open environment;
                 </p>
                 <p>
-                    That I may be held responsible for actions taken by me or by
-                    minors for whom I am responsible that may involve risks to
-                    myself or third parties, as well as may violate
-                    Environmental Legislation;
+                    I understand such risks simply cannot be eliminated without
+                    jeopardizing the essential qualities of this outing and
+                    associated activities.
                 </p>
                 <p>
-                    I declare that I am aware of and agree with the points
-                    relating to the insurance represented by the company;
+                    If you need help or need further information, please feel
+                    free to contact us.
                 </p>
+                <p>Come and discover the Island from another perspective.</p>
+
                 <p>
-                    With nothing further to declare, and aware of the
-                    responsibilities for the statements made, I sign this
-                    document.‘
+                    Book now:{" "}
+                    <a
+                        href="https://api.whatsapp.com/send?l=en&phone=351935124260"
+                        target="_blank"
+                    >
+                        +351 935124260
+                    </a>
                 </p>
             </InfoContainer>
         </div>
