@@ -16,7 +16,7 @@ class Reservation extends Model
     protected $fillable = [
         'private', 'experienceable_id',
         'experienceable_type', 'source', 'price', 'participants', 'notes', 'name', 'recipient',
-        'email', 'address', 'phone', 'date', 'experience_id', "confirmation_token", "confirmation"
+        'email', 'address', 'phone', 'date', 'experience_id', "confirmation_token", "confirmation", "coupon_id"
     ];
 
     public function reservationRarticipants()

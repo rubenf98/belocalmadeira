@@ -45,6 +45,7 @@ class ReservationRequest extends FormRequest
         if ($this->participants >= 4) {
             $discount = 0.9;
         }
+        $coupon = null;
 
         if ($this->coupon_id) {
             $coupon = Coupon::find($this->coupon_id);
@@ -74,6 +75,7 @@ class ReservationRequest extends FormRequest
             'price' => $price,
             'source' => "website",
             'phone' =>  $phone,
+            'coupon_id' =>  $coupon ? $coupon->id : null,
             'private' => $this->private && true,
             'confirmation_token' => uniqid(),
             'experienceable_type' => $experienceable_type,
@@ -91,6 +93,7 @@ class ReservationRequest extends FormRequest
         return [
             'date' => 'required_if:source,website|date|after:today',
             'source' => 'required|string',
+            'coupon_id' => 'nullable|integer|exists:coupons,id',
             'address' => 'required_if:source,website|string',
             'experienceable_type' => 'required|string',
             'experienceable_id' => 'required|integer|exists:' . ($this->experienceable_type == 'App\Models\Activity' ? "activities" : "experiences") . ',id',
