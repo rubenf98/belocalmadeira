@@ -156,15 +156,14 @@ function Tours(props) {
                             </button>
 
                             {tour.trajectory ? (
-                                <p>{parseInt(tour.price)}€/p</p>
+                                <p>{parseInt(tour.price)}€</p>
                             ) : (
                                 <div>
                                     <p>
-                                        {parseInt(tour.price)}€/p, up to 4
-                                        persons
+                                        {parseInt(tour.price)}€, up to 4 persons
                                     </p>
                                     <p>
-                                        {parseInt(tour.price) + 20}€/p, over 4
+                                        {parseInt(tour.price) + 20}€, over 4
                                         persons
                                     </p>
                                 </div>
