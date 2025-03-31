@@ -107,7 +107,7 @@ function Terms() {
                     the activity.
                 </p>
 
-                <h4>PT</h4>
+                {/* <h4>PT</h4>
                 <div>
                     <p>
                         O presente texto tem valor contratual. Cada reserva é
@@ -139,7 +139,7 @@ function Terms() {
                         instruções adicionais que me sejam dadas pelos guias ou
                         monitores durante a atividade.
                     </p>
-                </div>
+                </div> */}
                 <h3>2. SAFETY & DISCLAIMER OF LIABILITY:</h3>
                 <p>
                     I do not suffer from any heart disease, epilepsy or any
