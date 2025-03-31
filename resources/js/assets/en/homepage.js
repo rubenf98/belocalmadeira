@@ -24,7 +24,7 @@ const LinkImg = styled.img`
 export const text = {
     header: {
         title: "Be Local Madeira",
-        subtitle: "Explore the best Outdoor Experiences in Madeira Island."
+        subtitle: "Get to know Madeira Island from a local's perspective",
     },
     about: {
         videoError: "Your browser does not support the video tag.",
@@ -90,7 +90,7 @@ export const text = {
     },
     activities: {
         title: "Activities",
-        subtitle: (<>Welcome to the be local <span>adventure</span></>),
+        subtitle: (<>Explore the best Outdoor <span>Experiences</span> in Madeira Island </>),
         button: "Book transfer",
         items: ['canyoning', "biking", "coasteering", "hiking"]
     },

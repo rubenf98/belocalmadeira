@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import { Row, Form, Calendar, Col, Select } from 'antd';
+import React, { useEffect } from "react";
+import { Row, Form, Calendar, Col, Select } from "antd";
 import moment from "moment";
 import styled from "styled-components";
 import { fetchDisabledDates } from "../../../redux/reservation/actions";
@@ -10,6 +10,10 @@ const CustomCalendar = styled(Calendar)`
     color: white;
     margin: 10px 0px;
 
+    .ant-select-selection-item {
+        font-size: 14px;
+    }
+
     .ant-picker-body {
         padding: 30px 0px !important;
         box-sizing: border-box;
@@ -19,7 +23,8 @@ const CustomCalendar = styled(Calendar)`
         color: #7d7d7d;
     }
 
-    .ant-picker-cell-in-view, th {
+    .ant-picker-cell-in-view,
+    th {
         color: white !important;
     }
 
@@ -27,7 +32,8 @@ const CustomCalendar = styled(Calendar)`
         font-weight: bold;
     }
 
-    .ant-picker-calendar, .ant-picker-panel {
+    .ant-picker-calendar,
+    .ant-picker-panel {
         background: transparent;
     }
 
@@ -48,15 +54,18 @@ const CustomSelect = styled(Select)`
     color: white;
     font-size: 24px;
 
-    .ant-select, .ant-select-selector {
+    .ant-select,
+    .ant-select-selector {
         background-color: transparent !important;
     }
 
-
-    .ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input) .ant-select-selector, .ant-select-selector {
+    .ant-select-focused:not(.ant-select-disabled).ant-select:not(
+            .ant-select-customize-input
+        )
+        .ant-select-selector,
+    .ant-select-selector {
         border: none !important;
         box-shadow: none !important;
-        
     }
 
     svg {
@@ -64,44 +73,48 @@ const CustomSelect = styled(Select)`
     }
 `;
 
-
 function Date({ fetchDisabledDates, calendarMetadata, loading, form }) {
-
     useEffect(() => {
         fetchDisabledDates(1);
     }, []);
 
-
     useEffect(() => {
-        var init = moment().add(1, 'days');
+        var init = moment().add(1, "days");
         var condition = true;
         while (condition) {
-            if (!calendarMetadata.disabled.includes(moment(init).format("YYYY-MM-DD"))) {
+            if (
+                !calendarMetadata.disabled.includes(
+                    moment(init).format("YYYY-MM-DD")
+                )
+            ) {
                 condition = false;
             } else {
-                init.add(1, 'days');
+                init.add(1, "days");
             }
         }
 
         form.setFieldsValue({ date: init });
-
-
-    }, [calendarMetadata])
-
+    }, [calendarMetadata]);
 
     return (
         <div>
-            {!loading &&
+            {!loading && (
                 <Form.Item
                     name="date"
-                    rules={[{ required: true, message: "Please select a date" }]}
+                    rules={[
+                        { required: true, message: "Please select a date" },
+                    ]}
                 >
                     <CustomCalendar
                         fullscreen={false}
                         disabledDate={(currentDate) => {
-                            return currentDate && (
-                                (currentDate < moment())
-                                || (calendarMetadata.disabled.includes(moment(currentDate).format("YYYY-MM-DD"))));
+                            return (
+                                currentDate &&
+                                (currentDate < moment() ||
+                                    calendarMetadata.disabled.includes(
+                                        moment(currentDate).format("YYYY-MM-DD")
+                                    ))
+                            );
                         }}
                         headerRender={({ value, onChange }) => {
                             const currentDate = moment();
@@ -121,9 +134,12 @@ function Date({ fetchDisabledDates, calendarMetadata, loading, form }) {
 
                             for (let index = 0; index < 12; index++) {
                                 monthOptions.push(
-                                    <Select.Option style={{ width: "100px" }} key={index}>
+                                    <Select.Option
+                                        style={{ width: "100px" }}
+                                        key={index}
+                                    >
                                         {months[index]}
-                                    </Select.Option>,
+                                    </Select.Option>
                                 );
                             }
 
@@ -132,7 +148,7 @@ function Date({ fetchDisabledDates, calendarMetadata, loading, form }) {
                                 options.push(
                                     <Select.Option key={i} value={i}>
                                         {i}
-                                    </Select.Option>,
+                                    </Select.Option>
                                 );
                             }
                             return (
@@ -143,14 +159,16 @@ function Date({ fetchDisabledDates, calendarMetadata, loading, form }) {
                                                 style={{ width: "100%" }}
                                                 size="large"
                                                 dropdownMatchSelectWidth={false}
-                                                onChange={newYear => {
-                                                    const now = value.clone().year(newYear);
+                                                onChange={(newYear) => {
+                                                    const now = value
+                                                        .clone()
+                                                        .year(newYear);
                                                     onChange(now);
                                                 }}
-                                                dropdownRender={menu => (
-                                                    <div className='colored-dropdown'>
+                                                dropdownRender={(menu) => (
+                                                    <div className="colored-dropdown">
                                                         {menu}
-                                                    </div >
+                                                    </div>
                                                 )}
                                                 value={String(year)}
                                             >
@@ -163,15 +181,21 @@ function Date({ fetchDisabledDates, calendarMetadata, loading, form }) {
                                                 size="large"
                                                 dropdownMatchSelectWidth={false}
                                                 value={String(month)}
-                                                onChange={selectedMonth => {
-                                                    const newValue = value.clone();
-                                                    newValue.month(parseInt(selectedMonth, 10));
+                                                onChange={(selectedMonth) => {
+                                                    const newValue =
+                                                        value.clone();
+                                                    newValue.month(
+                                                        parseInt(
+                                                            selectedMonth,
+                                                            10
+                                                        )
+                                                    );
                                                     onChange(newValue);
                                                 }}
-                                                dropdownRender={menu => (
-                                                    <div className='colored-dropdown'>
+                                                dropdownRender={(menu) => (
+                                                    <div className="colored-dropdown">
                                                         {menu}
-                                                    </div >
+                                                    </div>
                                                 )}
                                             >
                                                 {monthOptions}
@@ -182,19 +206,15 @@ function Date({ fetchDisabledDates, calendarMetadata, loading, form }) {
                             );
                         }}
                     />
-                </Form.Item>}
-
-
-
-
-
-
+                </Form.Item>
+            )}
         </div>
-    )
+    );
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchDisabledDates: (participants) => dispatch(fetchDisabledDates(participants)),
+        fetchDisabledDates: (participants) =>
+            dispatch(fetchDisabledDates(participants)),
     };
 };
 
@@ -205,7 +225,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Date);
+export default connect(mapStateToProps, mapDispatchToProps)(Date);

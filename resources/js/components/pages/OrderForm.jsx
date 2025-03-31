@@ -36,15 +36,6 @@ const Content = styled(Drawer)`
             padding: 10px;
         }
     }
-
-    .ant-drawer-body {
-        -ms-overflow-style: none; /* Internet Explorer 10+ */
-        scrollbar-width: none; /* Firefox */
-
-        &:-webkit-scrollbar {
-            display: none; /* Safari and Chrome */
-        }
-    }
 `;
 
 const CloseContainer = styled.div`

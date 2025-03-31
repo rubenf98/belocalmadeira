@@ -25,7 +25,7 @@ const LinkImg = styled.img`
 export const text = {
     header: {
         title: "Be Local Madeira",
-        subtitle: "Explora as melhores experiências ao ar livre na Ilha da Madeira."
+        subtitle: "Conhece a Ilha da Madeira na perspetiva de um local."
     },
     about: {
         videoError: "O teu browser não suporta a tag de vídeo",
@@ -116,7 +116,7 @@ export const text = {
     },
     activities: {
         title: "Atividades",
-        subtitle: (<>Bem vindo à <span>aventura</span> be local</>),
+        subtitle: (<>Explora as melhores <span>experiências</span> ao ar livre na Ilha da Madeira.</>),
         button: "Reservar transfer",
         items: ['canyoning', "bicicleta", "coasteering", "caminhada"]
     },

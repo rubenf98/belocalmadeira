@@ -290,6 +290,7 @@ const OrderButton = styled.div`
     font-weight: bold;
     margin-top: 10px;
     min-width: 100px;
+    text-align: center;
     text-transform: uppercase;
 
     &:hover {
@@ -421,6 +422,20 @@ function Activity({ content, theme, handleForm }) {
                     {content.info.map((paragraph, index) => (
                         <p key={index}>{paragraph}</p>
                     ))}
+
+                    {content.hasbooknow && (
+                        <OrderButton
+                            color={theme.inverseText}
+                            border={theme.primary}
+                            background={theme.primary}
+                            backgroundHover={theme.primaryHover}
+                            onClick={() => handleForm(true)}
+                        >
+                            {localStorage.getItem("language") == "en"
+                                ? "Book now"
+                                : "Reservar"}
+                        </OrderButton>
+                    )}
                 </div>
             </IntroContainer>
             {!content.levels && (

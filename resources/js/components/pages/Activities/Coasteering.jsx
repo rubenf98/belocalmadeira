@@ -23,6 +23,7 @@ function Coasteering() {
                         "/image/activities/04_coasteering.jpg",
                         "/image/activities/06_coasteering.jpg",
                     ],
+                    hasbooknow: true,
                     images: ["01_coasteering.jpg"],
                     section: text.section,
                     includes: text.includes,
