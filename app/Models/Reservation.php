@@ -24,6 +24,11 @@ class Reservation extends Model
         return $this->hasMany('App\Models\ReservationParticipant');
     }
 
+    public function coupon()
+    {
+        return $this->belongsTo('App\Models\Coupon');
+    }
+
     public function experienceable()
     {
         return $this->morphTo();
