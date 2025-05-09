@@ -1,46 +1,45 @@
-import { Drawer, Row } from 'antd'
-import React from 'react'
+import { Drawer, Row } from "antd";
+import React from "react";
 import styled from "styled-components";
 import { dimensions } from "../../../../helper";
 import moment from "moment";
 
 const Container = styled(Drawer)`
-.ant-drawer-content{
-    background: rgb(255,255,255);
-    
-    ul{
-        list-style: none;
-        display: flex;
-        flex-wrap: wrap;
+    .ant-drawer-content {
+        background: rgb(255, 255, 255);
 
-        li  {
-            color: #535353;
+        ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
 
-            span {
-                font-weight: bold;
-                display: inline;
-            }        
-        }
+            li {
+                color: #535353;
 
-        .details {
-            width: 50%;
-            margin: 5px 0px;
+                span {
+                    font-weight: bold;
+                    display: inline;
+                }
+            }
 
-            span {
-                font-weight: bold;
-                display: block;
+            .details {
+                width: 50%;
+                margin: 5px 0px;
+
+                span {
+                    font-weight: bold;
+                    display: block;
+                }
             }
         }
-
-        
     }
-}`;
+`;
 
 const Participant = styled.div`
     position: relative;
     width: 100%;
     margin: 10px 0px;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,.1);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
     padding: 0px 10px;
     box-sizing: border-box;
     background: #fff;
@@ -50,8 +49,7 @@ const Participant = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    .details-container{
-        
+    .details-container {
         flex: 1;
 
         .details {
@@ -59,7 +57,7 @@ const Participant = styled.div`
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            
+
             div {
                 width: 25%;
 
@@ -67,14 +65,11 @@ const Participant = styled.div`
                     width: 20px;
                     margin-right: 8px;
                 }
-                
             }
         }
-
-        
     }
 
-    .number{
+    .number {
         color: #8a8a8a;
         font-size: 50px;
         font-weight: bold;
@@ -82,7 +77,7 @@ const Participant = styled.div`
         margin-right: 20px;
     }
 
-    .gender{
+    .gender {
         position: absolute;
         right: 10px;
         top: 10px;
@@ -91,71 +86,144 @@ const Participant = styled.div`
 `;
 
 function DrawerContainer({ visible, onClose, record }) {
-
     function getActivityField() {
         var response = null;
         if (record.experienceable.activity_id) {
-            response = record.experienceable.activity.name.pt + " (" + record.experienceable.name.pt + ")"
+            response =
+                record.experienceable.activity.name.pt +
+                " (" +
+                record.experienceable.name.pt +
+                ")";
         } else {
-            response = record.experienceable.name.pt
+            response = record.experienceable.name.pt;
         }
         return response;
     }
 
     return (
         <div>
-            <Container width={600} placement="right" onClose={onClose} visible={visible}>
-                {Object.keys(record).length &&
+            <Container
+                width={600}
+                placement="right"
+                onClose={onClose}
+                visible={visible}
+            >
+                {Object.keys(record).length && (
                     <div>
                         <h1>Resumo de Reserva</h1>
                         <ul>
-                            <li className="details"><span >Tipo de reserva</span> {record.source}</li>
-                            <li className="details"><span >Nome</span> {record.name}</li>
-                            <li className="details"><span>Email</span> {record.email}</li>
-                            <li className="details"><span>Telemóvel</span> {record.phone}</li>
-                            {record.source == "voucher" && <li className="details"><span>Recetor</span> {record.recipient}</li>}
-                            {record.source == "website" && <li className="details"><span>Morada</span> {record.address}</li>}
-                            {record.source == "website" && <li className="details"><span>Privado</span> {record.private ? "Sim" : "Não"}</li>}
-                            {record.source == "website" && <li className="details"><span>Data</span> {record.date}</li>}
-                            <li className="details"><span>Atividade</span> {getActivityField()}</li>
+                            <li className="details">
+                                <span>Tipo de reserva</span> {record.source}
+                            </li>
+                            <li className="details">
+                                <span>Nome</span> {record.name}
+                            </li>
+                            <li className="details">
+                                <span>Email</span> {record.email}
+                            </li>
+                            <li className="details">
+                                <span>Telemóvel</span> {record.phone}
+                            </li>
+                            <li className="details">
+                                <span>Voucher</span>{" "}
+                                {record.coupon ? record.coupon.code : "N/A"}
+                            </li>
+                            <li className="details">
+                                <span>Desconto</span>{" "}
+                                {record.coupon ? record.coupon.discount : "N/A"}
+                            </li>
+
+                            {record.source == "voucher" && (
+                                <li className="details">
+                                    <span>Recetor</span> {record.recipient}
+                                </li>
+                            )}
+                            {record.source == "website" && (
+                                <li className="details">
+                                    <span>Morada</span> {record.address}
+                                </li>
+                            )}
+                            {record.source == "website" && (
+                                <li className="details">
+                                    <span>Privado</span>{" "}
+                                    {record.private ? "Sim" : "Não"}
+                                </li>
+                            )}
+                            {record.source == "website" && (
+                                <li className="details">
+                                    <span>Data</span> {record.date}
+                                </li>
+                            )}
+                            <li className="details">
+                                <span>Atividade</span> {getActivityField()}
+                            </li>
                         </ul>
                         <h2>Participantes: {record.people}</h2>
 
-                        <Row type="flex" justify='space-between'>
-                            {record.reservationRarticipants.map((participant, key) => (
-                                <Participant key={key}>
-                                    <div className='number'>{key < 10 && "0"}{key + 1}</div>
-                                    <img className='gender' src={"/icon/" + participant.gender + ".svg"} />
+                        <Row type="flex" justify="space-between">
+                            {record.reservationRarticipants.map(
+                                (participant, key) => (
+                                    <Participant key={key}>
+                                        <div className="number">
+                                            {key < 10 && "0"}
+                                            {key + 1}
+                                        </div>
+                                        <img
+                                            className="gender"
+                                            src={
+                                                "/icon/" +
+                                                participant.gender +
+                                                ".svg"
+                                            }
+                                        />
 
-                                    <div className='details-container'>
-                                        <p>
-                                            {participant.name}
-                                        </p>
-                                        <div className='details'>
-                                            <div>
-                                                <img src="/icon/dashboard/age.svg" alt="age" />{moment().diff(participant.birthday, 'years', false)}anos
-                                            </div>
-                                            <div>
-                                                <img src="/icon/dashboard/height.svg" alt="height" />{participant.height}cm
-                                            </div>
-                                            <div>
-                                                <img src="/icon/dashboard/weight.svg" alt="weight" />{participant.weight}kg
-                                            </div>
-                                            <div>
-                                                <img src="/icon/dashboard/shoe.svg" alt="shoe" />{participant.shoe}EU
+                                        <div className="details-container">
+                                            <p>{participant.name}</p>
+                                            <div className="details">
+                                                <div>
+                                                    <img
+                                                        src="/icon/dashboard/age.svg"
+                                                        alt="age"
+                                                    />
+                                                    {moment().diff(
+                                                        participant.birthday,
+                                                        "years",
+                                                        false
+                                                    )}
+                                                    anos
+                                                </div>
+                                                <div>
+                                                    <img
+                                                        src="/icon/dashboard/height.svg"
+                                                        alt="height"
+                                                    />
+                                                    {participant.height}cm
+                                                </div>
+                                                <div>
+                                                    <img
+                                                        src="/icon/dashboard/weight.svg"
+                                                        alt="weight"
+                                                    />
+                                                    {participant.weight}kg
+                                                </div>
+                                                <div>
+                                                    <img
+                                                        src="/icon/dashboard/shoe.svg"
+                                                        alt="shoe"
+                                                    />
+                                                    {participant.shoe}EU
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </Participant>
-                            ))}
+                                    </Participant>
+                                )
+                            )}
                         </Row>
-
-                    </div>}
-
-
+                    </div>
+                )}
             </Container>
         </div>
-    )
+    );
 }
 
-export default DrawerContainer
+export default DrawerContainer;
