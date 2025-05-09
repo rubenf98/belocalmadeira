@@ -130,7 +130,9 @@ function DrawerContainer({ visible, onClose, record }) {
                             </li>
                             <li className="details">
                                 <span>Desconto</span>{" "}
-                                {record.coupon ? record.coupon.discount : "N/A"}
+                                {record.coupon
+                                    ? record.coupon.discount + "%t"
+                                    : "N/A"}
                             </li>
 
                             {record.source == "voucher" && (
