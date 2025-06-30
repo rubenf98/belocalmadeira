@@ -3,7 +3,7 @@ export const text = {
     pages: [
         {
             title: "Book your Madeira Island experience right here!",
-            warning: "All private activities are 150€ per person.",
+            warning: "All private activities are 175€ per person.",
             family: "All reservations with 4 or more participants will apply a 10% family discount on checkout.",
             form: {
                 name: {

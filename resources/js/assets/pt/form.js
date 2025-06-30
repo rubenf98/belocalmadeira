@@ -3,7 +3,7 @@ export const text = {
     pages: [
         {
             title: "Reserva a tua experiência na Ilha da Madeira!",
-            warning: "Todas as atividades privadas são 150€ por pessoa",
+            warning: "Todas as atividades privadas são 175€ por pessoa",
             family: "Todas as reservas com 4 ou mais participantes possuem um desconto familiar de 10% no final da reserva.",
             form: {
                 name: {
