@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ReservationParticipant extends Model
 {
-    protected $fillable = ['birthday', 'gender', 'height', 'weight', 'shoe', 'name'];
+    protected $fillable = ['birthday', 'gender', 'height', 'weight', 'shoe', 'name', 'age'];
     use HasFactory;
 
     public function reservation()

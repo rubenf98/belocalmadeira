@@ -12,7 +12,7 @@ export const baseInputStyles = css`
     color: #ffffff;
 
     .ant-input-status-error{
-        background: transparent !important;  
+        background: transparent     !important;  
     }
 
     &:focus,

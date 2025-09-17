@@ -11,10 +11,12 @@
     },
     "devDependencies": {
         "@babel/preset-react": "^7.13.13",
+        "@pmmmwh/react-refresh-webpack-plugin": "^0.5.17",
         "axios": "^0.21",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
-        "postcss": "^8.1.14"
+        "postcss": "^8.1.14",
+        "react-refresh": "^0.17.0"
     },
     "dependencies": {
         "antd": "^4.16.13",

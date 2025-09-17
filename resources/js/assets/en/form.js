@@ -47,7 +47,7 @@ export const text = {
                         placeholder: "Name",
                     },
                     bday: {
-                        placeholder: "Birthday"
+                        placeholder: "Age"
                     },
                     gender: {
                         placeholder: "Gender",

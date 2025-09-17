@@ -54,7 +54,7 @@ class ReservationRequest extends FormRequest
 
         $price = $price * $discount;
 
-        $phone = null;
+        $phone = "";
         if (is_array($this->phone)) {
             if (array_key_exists("code", $this->phone) && array_key_exists("phone", $this->phone)) {
                 $phone = $this->phone["code"] . " " . $this->phone["phone"];
@@ -106,7 +106,7 @@ class ReservationRequest extends FormRequest
             'phone' => 'required|string',
             'person' => 'required_if:source,website|size:' . $this->participants,
             'person.*.name' => 'required|string',
-            'person.*.birthday' => 'required|date',
+            'person.*.birthday' => 'required|integer',
             'person.*.gender' => 'required|string',
             'person.*.height' => 'required',
             'person.*.shoe' => 'required|string',
