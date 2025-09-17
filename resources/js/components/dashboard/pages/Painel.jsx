@@ -1,5 +1,5 @@
-import Row from "antd/es/row"
-import Col from "antd/es/col"
+import Row from "antd/es/row";
+import Col from "antd/es/col";
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
@@ -11,7 +11,6 @@ const Container = styled.div`
     min-height: 100%;
     background: rgb(245, 245, 245);
     flex: 1;
-
 `;
 
 const CardContent = styled.div`
@@ -23,9 +22,9 @@ const CardContent = styled.div`
     margin: 50px 0;
     border-radius: 6px;
     box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.2);
-    transition: .3s ease-in-out;
+    transition: 0.3s ease-in-out;
 
-    @media (max-width: ${dimensions.sm}){
+    @media (max-width: ${dimensions.sm}) {
         margin: 10px 0;
     }
 
@@ -59,7 +58,7 @@ const SubContainer = styled.div`
     margin: auto;
 
     h1 {
-        text-align:center;
+        text-align: center;
         font-size: 2em;
         text-align: center;
         padding: 50px 0;
@@ -78,9 +77,7 @@ const Footer = styled.div`
         text-align: center;
         margin: 20px auto;
     }
-
 `;
-
 
 const CardContainer = ({ img, text, to }) => (
     <CardContent>
@@ -90,7 +87,6 @@ const CardContainer = ({ img, text, to }) => (
         </Link>
     </CardContent>
 );
-
 
 function Painel() {
     return (
@@ -126,15 +122,17 @@ function Painel() {
                             to="/painel/bloqueado"
                         />
                     </Col>
-
                 </Content>
                 <Footer>
                     <img src="/image/logo.png" alt="logo" />
-                    <p>© {moment().year()} Be Local Madeira. All Rights Reserved.</p>
+                    <p>
+                        © {moment().year()} Be Local Madeira. All Rights
+                        Reserved.
+                    </p>
                 </Footer>
             </SubContainer>
         </Container>
-    )
+    );
 }
 
 export default Painel;

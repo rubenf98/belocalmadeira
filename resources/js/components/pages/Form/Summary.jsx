@@ -13,9 +13,8 @@ const Flex = styled(Row)`
 `;
 
 const Detail = styled.div`
-    font-size: 18px;
     width: 50%;
-    padding: 10px 10px;
+    padding: 10px;
     box-sizing: border-box;
     font-weight: bold;
     color: white;
@@ -33,8 +32,13 @@ const Detail = styled.div`
     }
 `;
 
-const Participant = styled(Detail)`
-    width: 50%;
+const Participant = styled.p`
+    width: 100%;
+    margin: 3px 0px;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    font-weight: bold;
+    color: white;
 `;
 
 const Feedback = styled.h3`
@@ -129,19 +133,15 @@ function Summary({ text, data, activities, coupon }) {
             </Flex>
             <Feedback>{text.participantsTitle}</Feedback>
 
-            <Flex type="flex" justify="flex-start">
-                {data.person &&
-                    data.person.map((participant, index) => (
-                        <Participant key={index}>
-                            <span>
-                                {text.details.participant} {index + 1}{" "}
-                            </span>{" "}
-                            {moment(participant.birthday).format("YYYY-MM-DD")}{" "}
-                            / {participant.gender} / {participant.weight}kg /{" "}
-                            {participant.height}cm / {participant.shoe} EU
-                        </Participant>
-                    ))}
-            </Flex>
+            {data.person &&
+                data.person.map((participant, index) => (
+                    <Participant key={index}>
+                        {text.details.participant} {index + 1}:{" "}
+                        {participant.gender} / {participant.weight}kg /{" "}
+                        {participant.height}cm / {participant.shoe} EU /{" "}
+                        {participant.birthday}
+                    </Participant>
+                ))}
         </div>
     );
 }

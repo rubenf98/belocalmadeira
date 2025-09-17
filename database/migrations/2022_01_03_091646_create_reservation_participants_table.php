@@ -16,7 +16,8 @@ class CreateReservationParticipantsTable extends Migration
         Schema::create('reservation_participants', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('reservation_id');
-            $table->date('birthday');
+            $table->date('birthday')->nullable();
+            $table->integer('age')->nullable();
             $table->string('name');
             $table->string('gender');
             $table->string('height');

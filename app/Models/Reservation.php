@@ -42,7 +42,8 @@ class Reservation extends Model
     public function storeParticipants($participants)
     {
         foreach ($participants as $participant) {
-            $participant['birthday']  = new Carbon($participant['birthday']);
+            $participant['age'] = $participant['birthday'];
+            $participant['birthday'] = null;
 
             $p = new ReservationParticipant($participant);
 

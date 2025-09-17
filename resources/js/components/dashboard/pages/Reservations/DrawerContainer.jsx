@@ -119,7 +119,10 @@ function DrawerContainer({ visible, onClose, record }) {
                                 <span>Nome</span> {record.name}
                             </li>
                             <li className="details">
-                                <span>Email</span> {record.email}
+                                <span>Email</span>{" "}
+                                <a href={`mailto:${record.email}`}>
+                                    {record.email}
+                                </a>
                             </li>
                             <li className="details">
                                 <span>Telemóvel</span> {record.phone}
@@ -187,11 +190,13 @@ function DrawerContainer({ visible, onClose, record }) {
                                                         src="/icon/dashboard/age.svg"
                                                         alt="age"
                                                     />
-                                                    {moment().diff(
-                                                        participant.birthday,
-                                                        "years",
-                                                        false
-                                                    )}
+                                                    {participant.birthday
+                                                        ? moment().diff(
+                                                              participant.birthday,
+                                                              "years",
+                                                              false
+                                                          )
+                                                        : participant.age}{" "}
                                                     anos
                                                 </div>
                                                 <div>
