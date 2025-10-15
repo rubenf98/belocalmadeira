@@ -28,4 +28,11 @@ class ReservationFilter extends QueryFilters
     {
         $this->query->where('date', $string);
     }
+
+    public function coupon($string)
+    {
+        $this->query->whereHas('coupon', function ($query) use ($string) {
+            $query->where('code', $string);
+        });
+    }
 }

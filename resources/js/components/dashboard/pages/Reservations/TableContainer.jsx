@@ -146,6 +146,7 @@ function TableContainer({
             title: "Código",
             dataIndex: "coupon",
             render: (coupon) => <span>{coupon ? coupon.code : "N/A"}</span>,
+            filterDropdown: () => getFilter("coupon"),
         },
         {
             title: "",
