@@ -32,7 +32,7 @@ class ReservationFilter extends QueryFilters
     public function coupon($string)
     {
         $this->query->whereHas('coupon', function ($query) use ($string) {
-            $query->where('code', $string);
+            $query->where('code', 'like', '%' . $string . '%');
         });
     }
 }
