@@ -16,7 +16,7 @@ const Container = styled.div`
         letter-spacing: 12px;
         color: white;
         text-align: center;
-        font-family: "Playfair Display", serif;
+        font-family: "Russo One", sans-serif;
     }
 
     @media (max-width: ${dimensions.md}) {
@@ -59,7 +59,6 @@ const Content = styled.div`
         h3 {
             text-transform: uppercase;
             color: ${({ theme }) => theme.accent};
-            font-family: "Playfair Display", serif;
             font-size: 20px;
             margin: 0px;
         }
@@ -200,18 +199,26 @@ function Footer() {
                     <Link to="/activities/hiking">{text.links[4]}</Link>
                     <Link to="/activities/biking">{text.links[5]}</Link>
                     <Link to="/activities/coasteering">{text.links[6]}</Link>
+                    <Link to="/activities/jeep">{text.links[7]}</Link>
                 </div>
                 <div className="flex-item links-container">
                     <h3>{text.titles[1]}</h3>
                     <Link to="/contact">{text.links[1]}</Link>
                     <Link to="/about">{text.links[0]}</Link>
+                    <Link to="/store">{text.links[8]}</Link>
+                    <Link to="/blog">{text.links[9]}</Link>
                 </div>
                 <div className="flex-item links-container grow">
                     <h3>{text.titles[2]}</h3>
                     <a href="mailto:belocalmadeira@gmail.com" target="__blank">
-                        belocalmadeira@gmail.com
+                        E: belocalmadeira@gmail.com
                     </a>
-                    <p>+351 935 124 260</p>
+                    <a
+                        href="https://api.whatsapp.com/send?l=en&phone=351935124260"
+                        target="_blank"
+                    >
+                        P: +351 935 124 260
+                    </a>
                 </div>
                 <div className="flex-item social-container">
                     <div className="social-links">

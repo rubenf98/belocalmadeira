@@ -1,65 +1,57 @@
-import React from "react";
-import Activity from "../../common/Activity";
-import ActivityHeader from "../../common/ActivityHeader";
+import { useEffect } from "react";
+import { fetchActivity } from "../../../redux/activity/actions";
+import { connect } from "react-redux";
+import BookingPageTemplate from "../../common/BookingPageTemplate";
 
-function Coasteering() {
+function Coasteering(props) {
     const { text } = require("../../../assets/" +
         localStorage.getItem("language") +
-        "/activityCoasteering");
+        "/activitybiking");
+
+    useEffect(() => {
+        props.fetchActivity(4);
+    }, []);
+
+    const handleSubmit = (data) => {
+        props.handleForm(true, {
+            activity: [props.activity?.id, null],
+            ...data,
+        });
+    };
 
     return (
         <div>
-            <ActivityHeader title="Coasteering" />
-            <Activity
-                content={{
-                    title: text.title,
-                    subtitle: text.subtitle,
-                    info: text.information,
-                    hasGallery: true,
-                    galleryImages: [
-                        "/image/activities/05_coasteering.jpg",
-                        "/image/activities/02_coasteering.jpg",
-                        "/image/activities/03_coasteering.jpg",
-                        "/image/activities/04_coasteering.jpg",
-                        "/image/activities/06_coasteering.jpg",
-                    ],
-                    hasbooknow: true,
-                    images: ["01_coasteering.jpg"],
-                    section: text.section,
-                    includes: text.includes,
-                    activities: text.activities,
-                    gallery: {
-                        title: text.gallery.title,
-                        subtitle: text.gallery.subtitle,
-                        images: [
-                            [
-                                "coasteering/01",
-                                "coasteering/07",
-                                "coasteering/10",
-                                "coasteering/13",
-                                "coasteering/14",
-                            ],
-                            [
-                                "coasteering/17",
-                                "coasteering/02",
-                                "coasteering/05",
-                                "coasteering/08",
-                                "coasteering/11",
-                                "coasteering/15",
-                            ],
-                            [
-                                "coasteering/03",
-                                "coasteering/06",
-                                "coasteering/09",
-                                "coasteering/12",
-                                "coasteering/16",
-                            ],
-                        ],
-                    },
-                }}
-            />
+            <div>
+                {props.activity?.id && (
+                    <BookingPageTemplate
+                        experience={{
+                            ...props.activity,
+                            id: 1,
+                            key: "coasteering",
+                            image: "/image/activities/levels/coasteering_01.jpg",
+                        }}
+                        text={text.booking}
+                        index={props.activity?.id}
+                        handleForm={handleSubmit}
+                    />
+                )}
+            </div>
         </div>
     );
 }
+const mapDispatchToProps = (dispatch) => {
+    return {
+        handleForm: (visibility, activity) =>
+            dispatch(handleForm(visibility, activity)),
+        fetchActivity: (id) => dispatch(fetchActivity(id)),
+    };
+};
 
-export default Coasteering;
+const mapStateToProps = (state) => {
+    return {
+        loading: state.activity.loading,
+        activity: state.activity.current,
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Coasteering);

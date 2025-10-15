@@ -1,193 +1,185 @@
 import { Image, Carousel } from "antd";
 import React from "react";
 import styled from "styled-components";
-import { dimensions, maxWidth } from "../../../helper";
+import { dimensions } from "../../../helper";
 import { Link } from "react-router-dom";
+import {
+    containerCommonStyle,
+    phoneButtonStyle,
+    secundaryButtonStyle,
+    Title,
+} from "../Form/styles";
 
-const Container = styled.div`
+const Container = styled.section`
+    ${containerCommonStyle}
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    width: 100%;
+
     margin: 50px auto;
-    padding: 50px;
-    box-sizing: border-box;
-    max-width: 1600px;
+
     flex-wrap: wrap;
 
-    @media (max-width: ${dimensions.md}) {
-        padding: 0px;
+    img {
+        border-radius: 20px;
     }
 `;
 
-const ImageContainer = styled.div`
+const InfoContainer = styled.div`
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-
-    width: 50%;
-
-    .images {
-        display: flex;
-        justify-content: space-between;
-        width: 20%;
-        flex-direction: column;
-        gap: 20px;
-        padding: 0px 20px;
-        box-sizing: border-box;
-
-        .ant-image {
-            width: 100%;
-
-            img {
-                width: 100%;
-                max-height: calc(60vh / 4);
-                object-fit: cover;
-            }
-        }
-    }
-
-    .main_image {
-        width: 80%;
-
-        .ant-image {
-            width: 100%;
-
-            img {
-                max-height: 70vh;
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-        }
-    }
-
-    @media (max-width: ${dimensions.md}) {
-        width: 100%;
-        margin-bottom: 20px;
-
-        .images,
-        .main_image {
-            display: none;
-        }
-    }
-`;
-
-const TextContainer = styled.div`
-    width: 50%;
-    padding: 0px 50px;
+    flex-direction: column;
+    width: 80%;
+    padding: 30px;
     box-sizing: border-box;
 
-    h2 {
-        font-weight: bold;
-        font-size: clamp(26px, 3vw, 42px);
-        line-height: 100%;
-        margin-bottom: 50px;
-    }
+    .text-container {
+        display: flex;
+        justify-content: space-between;
 
-    button {
-        box-sizing: border-box;
-        cursor: pointer;
+        .text {
+            width: 70%;
+            padding-right: 15%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
 
-        box-shadow: 0px;
-        padding: 10px 30px 10px 30px;
-        transition: 0.4s;
-        border-radius: 4px;
-        position: relative;
-        background-size: 110%;
-        text-transform: capitalize;
+            h2 {
+                font-family: "Russo One", sans-serif;
+                font-size: clamp(28px, 4vw, 46px);
+                line-height: 100%;
+                margin-bottom: 30px;
 
-        font-weight: bold;
-    }
+                span {
+                    color: ${({ theme }) => theme.primary};
+                }
+            }
 
-    .primary_button {
-        background: ${({ theme }) => theme.primary};
-        color: white;
-    }
+            p {
+                font-weight: 300;
+                font-size: clamp(16px, 2vw, 18px);
+                text-align: justify;
+            }
 
-    .secundary_button {
-        margin-left: 10px;
-        background-color: transparent;
-        border: 0px;
-        text-decoration: underline;
-        color: ${({ theme }) => theme.primary};
-    }
+            .last-paragraph {
+                flex: 1;
+            }
 
-    p {
-        /* margin: 0px; */
-    }
+            .button-container {
+                display: flex;
+                align-items: center;
+                gap: 20px;
 
-    @media (max-width: ${dimensions.md}) {
-        width: 100%;
-        padding: 0px 50px;
-    }
-`;
+                .action-button {
+                    ${secundaryButtonStyle}
+                }
 
-const MobileCarousel = styled(Carousel)`
-    display: none;
-    width: 0px;
-    height: 0px;
-
-    @media (max-width: ${dimensions.md}) {
-        display: block;
-        width: 100vw;
-        height: 50vh;
+                .phone-button {
+                    ${phoneButtonStyle}
+                }
+            }
+        }
 
         img {
-            width: 100%;
-            height: 50vh;
+            width: 30%;
             object-fit: cover;
         }
     }
+
+    .horizontal-image {
+        margin-top: 30px;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+
+        img {
+            width: 50%;
+            height: auto;
+            object-fit: cover;
+        }
+    }
+
+    @media (max-width: ${dimensions.lg}) {
+        width: 100%;
+
+        .horizontal-image > img {
+            width: 70%;
+        }
+    }
+
+    @media (max-width: ${dimensions.md}) {
+        .text-container {
+            flex-wrap: wrap;
+
+            .text {
+                width: 100%;
+                padding: 0px;
+                margin-bottom: 20px;
+            }
+        }
+
+        .text-container > img,
+        .horizontal-image > img {
+            width: 100%;
+            max-height: 300px;
+        }
+    }
 `;
-const images = [
-    "/image/activities/01_canyoning.jpg",
-    "/image/activities/04_canyoning.jpg",
-    "/image/activities/03_canyoning.jpg",
-];
+
+const VerticalImageContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 20%;
+
+    img {
+        width: 100%;
+        height: 70%;
+        object-fit: cover;
+    }
+
+    @media (max-width: ${dimensions.lg}) {
+        display: none;
+    }
+`;
+
 function Canyoning({ text }) {
     return (
         <Container>
-            <ImageContainer>
-                <div className="images">
-                    {images.map((image, index) => (
-                        <Image key={index} src={image} />
-                    ))}
-                </div>
-                <div className="main_image">
-                    <Image src="/image/activities/02_canyoning.jpg" />
+            <InfoContainer>
+                <div className="text-container">
+                    <div className="text">
+                        <Title>{text.title}</Title>
+                        <p>{text.paragraphs[0]}</p>
+                        <p className="last-paragraph">{text.paragraphs[1]}</p>
+
+                        <div className="button-container">
+                            <Link to="/activities/canyoning">
+                                <button className="action-button">
+                                    <div className="circle" /> {text.buttons[0]}
+                                </button>
+                            </Link>
+                            <a
+                                href="https://api.whatsapp.com/send?l=en&phone=351935124260"
+                                target="_blank"
+                            >
+                                <button className="phone-button">
+                                    {text.buttons[1]}
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+
+                    <img src="/image/activities/03_canyoning.jpg" />
                 </div>
 
-                <MobileCarousel autoplay showDots infinite>
+                <div className="horizontal-image">
                     <img src="/image/activities/02_canyoning.jpg" />
-
-                    {images.map((image, index) => (
-                        <img key={index} src={image} />
-                    ))}
-                </MobileCarousel>
-            </ImageContainer>
-            <TextContainer>
-                <h2>{text.title}</h2>
-                {text.paragraphs.map((paragraph, index) => (
-                    <p key={index}>{paragraph}</p>
-                ))}
-
-                <br />
-
-                <Link to="/activities/canyoning">
-                    <button className="primary_button">
-                        {text.buttons[0]}
-                    </button>
-                </Link>
-                <a
-                    href="https://api.whatsapp.com/send?l=en&phone=351935124260"
-                    target="_blank"
-                >
-                    <button className="secundary_button">
-                        {text.buttons[1]}
-                    </button>
-                </a>
-            </TextContainer>
+                </div>
+            </InfoContainer>
+            <VerticalImageContainer>
+                <img src="/image/activities/01_canyoning.jpg" />
+            </VerticalImageContainer>
         </Container>
     );
 }

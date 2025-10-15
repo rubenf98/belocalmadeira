@@ -1,18 +1,10 @@
-import React from 'react'
+import React from "react";
 import styled from "styled-components";
-import { dimensions } from '../../helper';
-
-const Overlay = styled.div`
-  z-index: 1;
-  top: 0;bottom:0;left:0;right: 0;
-  position: absolute;
-  background: rgb(0,0,0);
-  background: linear-gradient(180deg, #000 0%, #38383830 100%);
-  opacity: 0.7;
-
-`;
+import { dimensions } from "../../helper";
+import { containerCommonStyle } from "../pages/Form/styles";
 
 const Header = styled.div`
+    ${containerCommonStyle}
     height: calc(60vh);
     background: url("/image/background.webp");
     background: url("/image/background.jpg");
@@ -36,7 +28,7 @@ const Header = styled.div`
     div {
         z-index: 1;
         h1 {
-            font-family: 'Playfair Display', serif;
+            font-family: "Russo One", sans-serif;
             font-size: 60px;
             color: white;
             text-align: center;
@@ -44,7 +36,6 @@ const Header = styled.div`
             @media (max-width: ${dimensions.md}) {
                 font-size: 40px;
             }
-
         }
 
         p {
@@ -55,21 +46,19 @@ const Header = styled.div`
             @media (max-width: ${dimensions.md}) {
                 font-size: 16px;
             }
-
         }
     }
 `;
 
 function PageHeader({ title, subtitle }) {
     return (
-        <Header >
-            <Overlay />
+        <Header>
             <div>
                 <h1>{title}</h1>
                 <p>{subtitle}</p>
             </div>
         </Header>
-    )
+    );
 }
 
-export default PageHeader
+export default PageHeader;

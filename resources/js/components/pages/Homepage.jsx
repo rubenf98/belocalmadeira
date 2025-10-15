@@ -8,6 +8,7 @@ import Services from "./HomepageComponents/Services";
 import Tours from "./HomepageComponents/Tours";
 import Canyoning from "./HomepageComponents/Canyoning";
 import Coasteering from "./HomepageComponents/Coasteering";
+import Newsletter from "./HomepageComponents/Newsletter";
 
 function Homepage() {
     const { text } = require("../../assets/" +
@@ -17,12 +18,15 @@ function Homepage() {
     return (
         <>
             <Header text={text.header} />
-            <Activities text={text.activities} />
+
             <Canyoning text={text.canyoning} />
-            <Coasteering text={text.coasteering} />
+            <Activities text={text.activities} />
+            {/* <Coasteering text={text.coasteering} /> */}
             <Services text={text.services} />
             <Faq text={text.faq} />
             <Tours text={text.activities} />
+
+            <Newsletter text={text.activities} />
 
             {/* <Family text={text.family} /> */}
 

@@ -1,22 +1,24 @@
 import React, { useEffect } from "react";
-import SectionTitle from "../../common/SectionTitle";
-import styled, { ThemeContext } from "styled-components";
-import { dimensions, maxWidth } from "../../../helper";
-import { Link } from "react-router-dom";
+import styled from "styled-components";
+import { dimensions } from "../../../helper";
 import { handleTransferForm } from "../../../redux/application/actions";
 import { connect } from "react-redux";
 import { fetchTours } from "../../../redux/tour/actions";
-import { Row } from "antd";
+import {
+    containerCommonStyle,
+    primaryButtonStyle,
+    Title,
+} from "../Form/styles";
 
 const Container = styled.section`
-    width: 100%;
-    padding: 100px 0px;
-    box-sizing: border-box;
-    position: relative;
+    ${containerCommonStyle}
+
+    .circle {
+        background-color: white !important;
+    }
 `;
 
 const AirportTour = styled.div`
-    max-width: ${maxWidth};
     margin: auto auto 50px auto;
     padding: 0px 50px;
     box-sizing: border-box;
@@ -28,6 +30,7 @@ const AirportTour = styled.div`
     img {
         order: ${(props) => (props.index % 2 ? 1 : 0)};
         width: 50%;
+        border-radius: 20px;
     }
 
     .content {
@@ -51,19 +54,7 @@ const AirportTour = styled.div`
         }
 
         button {
-            box-sizing: border-box;
-            cursor: pointer;
-            background: ${({ theme }) => theme.primary};
-            box-shadow: 0px;
-            padding: 10px 30px 10px 30px;
-            transition: 0.4s;
-            border-radius: 4px;
-            position: relative;
-            background-size: 110%;
-            text-transform: capitalize;
-            color: white;
-            font-weight: bold;
-            border: 0px;
+            ${primaryButtonStyle}
         }
 
         p {
@@ -79,6 +70,7 @@ const AirportTour = styled.div`
         left: 0;
         top: 50px;
         height: calc(100% - 100px);
+        border-radius: 20px;
     }
 
     @media (max-width: ${dimensions.md}) {
@@ -109,7 +101,7 @@ function Tours(props) {
     const { text } = props;
     return (
         <Container>
-            <SectionTitle title={text.subtitle} subtitle={text.title} />
+            <Title center>{text.title}</Title>
 
             {props.tours.map((tour, index) => (
                 <AirportTour index={index} key={tour.id}>
@@ -152,7 +144,7 @@ function Tours(props) {
                             <button
                                 onClick={() => props.handleTransferForm(tour)}
                             >
-                                {text.button}
+                                <div className="circle" /> {text.button}
                             </button>
 
                             {tour.trajectory ? (

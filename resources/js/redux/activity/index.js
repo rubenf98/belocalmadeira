@@ -11,6 +11,7 @@ export const initialState = {
 export default (state = initialState, action = {}) => {
     switch (action.type) {
         case `${types.FETCH_ACTIVITIES}_PENDING`:
+        case `${types.FETCH_ACTIVITY}_PENDING`:
             return {
                 ...state,
                 loading: true,
@@ -31,6 +32,21 @@ export default (state = initialState, action = {}) => {
                 data: action.payload.data.data,
                 meta: action.payload.data.meta,
                 links: action.payload.data.links
+            };
+
+        case `${types.FETCH_ACTIVITY}_REJECTED`:
+            return {
+                ...state,
+                loading: false,
+                current: {},
+            };
+
+
+        case `${types.FETCH_ACTIVITY}_FULFILLED`:
+            return {
+                ...state,
+                loading: false,
+                current: action.payload.data.data,
             };
 
         default:

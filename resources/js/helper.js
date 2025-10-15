@@ -7,6 +7,7 @@ export const dimensions = {
     "lg": "992px",
     "xl": "1200px",
     "xxl": "1600px",
+    "custom": "1400px",
 };
 
 export const colors = {

@@ -20,6 +20,10 @@ const Container = styled.div`
     @media (max-width: ${dimensions.md}) {
         height: ${(props) => (props.hasBackground ? "70px" : "0px")};
     }
+
+    a {
+        color: ${(props) => (props.hasBackground ? "white" : "black")};
+    }
 `;
 
 const Content = styled.div`
@@ -27,13 +31,19 @@ const Content = styled.div`
     background: transparent;
     margin: auto;
     display: flex;
+    width: 100%;
     justify-content: space-between;
-    width: 90%;
+    max-width: ${dimensions.custom};
     margin: auto;
     transition: 0.5s ease-in-out;
     box-sizing: border-box;
     align-items: center;
     margin-top: 15px;
+
+    @media (max-width: ${dimensions.custom}) {
+        padding: 0px 20px;
+        box-sizing: border-box;
+    }
 
     @media (max-width: ${dimensions.md}) {
         margin-top: 5px;
@@ -47,6 +57,10 @@ const Content = styled.div`
         }
     }
 
+    .flex-end {
+        justify-content: flex-end;
+    }
+
     .navbar-hidden-menu {
         @media (min-width: ${dimensions.md}) {
             display: none;
@@ -56,35 +70,24 @@ const Content = styled.div`
 
 const FlexItem = styled.div`
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
     gap: 20px;
-
-    @media (max-width: ${dimensions.md}) {
-        flex: none;
-    }
+    flex: 1;
 `;
 
 const Logo = styled(Link)`
-    margin: auto;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
+    flex: 0 0 auto; /* logo keeps its natural width */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     img {
-        height: 60px;
+        height: 80px;
 
         @media (max-width: ${dimensions.md}) {
             height: 40px;
         }
     }
-`;
-
-const MenuContainer = styled.div`
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: flex-start;
-    flex: 1;
 `;
 
 const OrderButton = styled.div`
@@ -146,16 +149,10 @@ const MenuButton = styled.div`
 `;
 
 const NavbarLink = styled(Link)`
-    display: block;
-    text-align: center;
-    font-size: 15px;
-    text-transform: capitalize;
+    text-transform: uppercase;
     cursor: pointer;
     transition: 0.3s ease-in-out;
-    padding: 25px 10px;
     font-weight: bold;
-    text-align: center;
-    color: ${(props) => props.color};
 
     @media (max-width: ${dimensions.lg}) {
         padding: 15px 10px;
@@ -168,22 +165,10 @@ const NavbarLink = styled(Link)`
     &:hover {
         outline: none;
         transition-duration: 500ms;
-        color: ${(props) => props.color};
+
         div {
             width: 100%;
         }
-    }
-`;
-
-const SelectLink = styled(Link)`
-    display: block;
-    font-size: 1.2em;
-    text-transform: capitalize;
-    font-weight: bold;
-    color: #fff;
-
-    &:hover {
-        color: #fff;
     }
 `;
 
@@ -235,18 +220,6 @@ export const CustomSelect = styled(Select)`
     }
 `;
 
-const Activities = styled.div`
-    display: block;
-    font-size: 15px;
-    text-transform: capitalize;
-    font-weight: bold;
-    color: #fff;
-
-    &:hover {
-        color: #fff;
-    }
-`;
-
 const MenuItem = styled(Menu.Item)`
     padding: 10px 25px;
     box-sizing: border-box;
@@ -273,7 +246,6 @@ const MobileContainer = styled.div`
 `;
 
 function Navbar({ handleVisibility, theme }) {
-    const [openSelect, setOpenSelect] = useState(false);
     const [hasBackground, setHasBackground] = useState(false);
     const themeContext = useContext(ThemeContext);
     const { text } = require("../../assets/" +
@@ -314,7 +286,7 @@ function Navbar({ handleVisibility, theme }) {
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY / window.innerHeight > 0.6) {
+            if (window.scrollY / window.innerHeight > 0.1) {
                 setHasBackground(true);
             } else {
                 setHasBackground(false);
@@ -330,73 +302,76 @@ function Navbar({ handleVisibility, theme }) {
     return (
         <Container background={theme.primary} hasBackground={hasBackground}>
             <Content>
+                <FlexItem className="navbar-hidden-links">
+                    <NavbarLink to="/about">
+                        {text.links[0]} <div />
+                    </NavbarLink>
+                    <NavbarLink to="/contact">
+                        {text.links[1]} <div />
+                    </NavbarLink>
+                    <NavbarLink to="/store">
+                        {text.links[8]} <div />
+                    </NavbarLink>
+                    <NavbarLink to="/blog">
+                        {text.links[9]} <div />
+                    </NavbarLink>
+                </FlexItem>
+
                 <AnimationContainer animateIn="fadeInDown" offset={0}>
                     <Logo to="/">
                         <img
-                            src="/image/logo_white.png"
-                            alt="be local madeira white logo"
+                            src={
+                                hasBackground
+                                    ? "/image/logo_white.png"
+                                    : "/image/logo.png"
+                            }
+                            alt="be local madeira logo"
                         />
                     </Logo>
                 </AnimationContainer>
 
-                <FlexItem className="navbar-hidden-links">
-                    <MenuContainer>
-                        <AnimationContainer animateIn="fadeInDown" offset={0}>
-                            <NavbarLink
-                                color={themeContext.inverseText}
-                                to="/about"
-                            >
-                                {text.links[0]} <div />
-                            </NavbarLink>
-                        </AnimationContainer>
-                        <AnimationContainer animateIn="fadeInDown" offset={0}>
-                            <NavbarLink
-                                color={themeContext.inverseText}
-                                to="/contact"
-                            >
-                                {text.links[1]} <div />
-                            </NavbarLink>
-                        </AnimationContainer>
+                <FlexItem className="navbar-hidden-links flex-end">
+                    <NavbarLink to="/activities/canyoning">
+                        {text.links[3]} <div />
+                    </NavbarLink>
+                    <NavbarLink to="/activities/hiking">
+                        {text.links[4]} <div />
+                    </NavbarLink>
+                    <NavbarLink to="/activities/biking">
+                        {text.links[5]} <div />
+                    </NavbarLink>
+                    <NavbarLink to="/activities/coasteering">
+                        {text.links[6]} <div />
+                    </NavbarLink>
+                    <NavbarLink to="/activities/jeep">
+                        {text.links[7]} <div />
+                    </NavbarLink>
 
-                        <AnimationContainer animateIn="fadeInDown" offset={0}>
-                            <CustomSelect
-                                open={openSelect}
-                                onMouseLeave={() => setOpenSelect(false)}
-                                onMouseEnter={() => setOpenSelect(true)}
-                                placeholder={text.links[2]}
-                                value="activities"
-                                dropdownClassName="primary-dropdown"
+                    {/* <OrderButton
+                            onClick={() => handleVisibility(true)}
+                            color={themeContext.inverseText}
+                            background={themeContext.primary}
+                            backgroundHover={themeContext.primaryHover}
+                        >
+                            <AnimationContainer
+                                animateIn="fadeInDown"
+                                offset={0}
                             >
-                                <Select.Option
-                                    style={{ display: "none" }}
-                                    value="activities"
-                                >
-                                    <Activities>{text.links[2]}</Activities>
-                                </Select.Option>
-                                <Select.Option value="canyoning">
-                                    <SelectLink to="/activities/canyoning">
-                                        {text.links[3]}
-                                    </SelectLink>
-                                </Select.Option>
-                                <Select.Option value="hiking">
-                                    <SelectLink to="/activities/hiking">
-                                        {text.links[4]}
-                                    </SelectLink>
-                                </Select.Option>
-                                <Select.Option value="biking">
-                                    <SelectLink to="/activities/biking">
-                                        {text.links[5]}
-                                    </SelectLink>
-                                </Select.Option>
-                                <Select.Option value="coastering">
-                                    <SelectLink to="/activities/coasteering">
-                                        {text.links[6]}
-                                    </SelectLink>
-                                </Select.Option>
-                            </CustomSelect>
-                            <div />
-                        </AnimationContainer>
+                                <span>{text.button}</span>
+                                <img
+                                    src="/image/navbar/order.svg"
+                                    alt="create reservation"
+                                />
+                            </AnimationContainer>
+                        </OrderButton> */}
+                </FlexItem>
 
+                <MobileContainer>
+                    <Row
+                        type="flex"
+                        align="middle"
+                        className="navbar-hidden-menu"
+                    >
                         <OrderButton
                             onClick={() => handleVisibility(true)}
                             color={themeContext.inverseText}
@@ -414,47 +389,16 @@ function Navbar({ handleVisibility, theme }) {
                                 />
                             </AnimationContainer>
                         </OrderButton>
-                    </MenuContainer>
-                </FlexItem>
-
-                <MobileContainer>
-                    <AnimationContainer animateIn="fadeInDown" offset={0}>
-                        <Row
-                            type="flex"
-                            align="middle"
-                            className="navbar-hidden-menu"
+                        <Dropdown
+                            overlayClassName="menu-dropdown"
+                            overlay={menu}
+                            placement="bottom"
                         >
-                            <OrderButton
-                                onClick={() => handleVisibility(true)}
-                                color={themeContext.inverseText}
-                                background={themeContext.primary}
-                                backgroundHover={themeContext.primaryHover}
-                            >
-                                <AnimationContainer
-                                    animateIn="fadeInDown"
-                                    offset={0}
-                                >
-                                    <span>{text.button}</span>
-                                    <img
-                                        src="/image/navbar/order.svg"
-                                        alt="create reservation"
-                                    />
-                                </AnimationContainer>
-                            </OrderButton>
-                            <Dropdown
-                                overlayClassName="menu-dropdown"
-                                overlay={menu}
-                                placement="bottom"
-                            >
-                                <MenuButton>
-                                    <img
-                                        src="/image/navbar/menu.svg"
-                                        alt="menu"
-                                    />
-                                </MenuButton>
-                            </Dropdown>
-                        </Row>
-                    </AnimationContainer>
+                            <MenuButton>
+                                <img src="/image/navbar/menu.svg" alt="menu" />
+                            </MenuButton>
+                        </Dropdown>
+                    </Row>
                 </MobileContainer>
             </Content>
         </Container>

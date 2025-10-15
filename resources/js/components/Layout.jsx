@@ -25,8 +25,8 @@ const Container = styled.div`
 
 const Whatsapp = styled.a`
     position: fixed;
-    bottom: 100px;
-    right: 5%;
+    bottom: 20px;
+    right: 50px;
     z-index: 999;
 
     button {

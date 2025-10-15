@@ -25,6 +25,8 @@ export const text = {
     header: {
         title: "Be Local Madeira",
         subtitle: "Get to know Madeira Island from a local's perspective",
+        button: "Book now",
+        carousel: ["canyoning", "coasteering", "jeeps", "hiking", "biking"]
     },
     about: {
         videoError: "Your browser does not support the video tag.",
@@ -36,8 +38,7 @@ export const text = {
         ],
     },
     services: {
-        title: "services",
-        subtitle: (<>What we have to <span>offer</span></>),
+        title: "What we have to offer",
         items: [
             {
                 title: "Unforgettable experiences",
@@ -62,7 +63,7 @@ export const text = {
         ]
     },
     canyoning: {
-        title: "Canyoning - Explore with excitement",
+        title: (<><span>Canyoning</span> - Explore with excitement</>),
         paragraphs: [
             "The island of Madeira is now considered one of the best places for Canyoning on the World.",
             "On breathtaking tours through the crystal clear waters of Madeira's numerous rivers, you can explore the pristine and unspoilt interior of the island.",
@@ -89,10 +90,14 @@ export const text = {
         ]
     },
     activities: {
-        title: "Activities",
-        subtitle: (<>Explore the best Outdoor <span>Experiences</span> in Madeira Island </>),
-        button: "Book transfer",
-        items: ['canyoning', "biking", "coasteering", "hiking"]
+        title: (<>Explore the best Outdoor <span>Experiences</span> in Madeira Island </>),
+        button: "view more",
+        items: [
+            { title: 'A sea of emotions', subtitle: "coasteering", description: "Walking, swimming, climbing, rappelling and jumping into water: all this in a single activity, coasteering in Madeira which, amid lots of adventure and adrenalin, will show you the natural wonders of the island." },
+            { title: 'Explore Madeira in a way that is truly yours', subtitle: "jeep", description: "Discover the Island of Madeira in the most authentic and exclusive way – aboard a private 4x4 Jeep, guided by passionate local experts who will reveal to you the island’s hidden treasures, breathtaking landscapes, and cultural heritage." },
+            { title: 'The best hiking experiences in Madeira Island', subtitle: "hiking", description: "In our Madeira walking tours we organize everything including transfers. You enjoy the daily hiking tours to the fullest. We will take you to places that no GPS device knows and that are not to be found in your guidebook" },
+            { title: 'Meet the island with excitement', subtitle: "biking", description: "Madeira Island is a paradise for Mountain Biking. Here you can  find fantastic trails from mountain to sea level! Its famous mild  weather makes biking in Madeira enjoyable all year round." }
+        ]
     },
     discount: {
         title: "Reservation opportunity",

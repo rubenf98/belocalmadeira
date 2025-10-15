@@ -12,7 +12,7 @@ class Experience extends Model
     use FiltersRecords;
 
     public $translatable = [
-        'name',
+        'name', 'description'
     ];
 
     protected $casts = [

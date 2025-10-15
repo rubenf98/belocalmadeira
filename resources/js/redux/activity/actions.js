@@ -8,3 +8,9 @@ export const fetchActivities = (filters = {}) => ({
         arrayFormat: "index"
     })}`)
 })
+
+export const fetchActivity = (id) => ({
+    type: types.FETCH_ACTIVITY,
+    payload: axios.get(`${window.location.origin}/api/activity/${id}`)
+})
+

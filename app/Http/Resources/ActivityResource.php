@@ -15,11 +15,10 @@ class ActivityResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'value' => $this->id,
+            'id' => $this->id,
             'price' => $this->price,
             'private_price' => $this->private_price,
-            'label' =>  $this->getTranslation('name', $request->language) . ($this->price ? (" (" . $this->price . "€)") : ""),
-            'children' => MinExperienceResource::collection($this->experiences()->where('visible', 1)->get()),
+            'name' => $this->getTranslations('name'),
         ];
     }
 }

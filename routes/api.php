@@ -45,5 +45,5 @@ Route::apiResource('tours', 'App\Http\Controllers\TourController');
 Route::apiResource('transfers', 'App\Http\Controllers\TransferController');
 
 Route::apiResource('activity', 'App\Http\Controllers\ActivityController');
-Route::apiResource('experience', 'App\Http\Controllers\ExperienceController');
+Route::apiResource('experiences', 'App\Http\Controllers\ExperienceController');
 Route::apiResource('coupons', CouponController::class);

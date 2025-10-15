@@ -8,8 +8,6 @@ import About from "./components/pages/About";
 import Contact from "./components/pages/Contact";
 import Login from "./components/pages/Login";
 import Layout from "./components/Layout";
-import Canyoning from "./components/pages/Activities/Canyoning";
-import Hiking from "./components/pages/Activities/Hiking";
 import Coasteering from "./components/pages/Activities/Coasteering";
 import Biking from "./components/pages/Activities/Biking";
 import ThemeContainer from "./components/ThemeContainer";
@@ -21,13 +19,12 @@ import DashboardPainel from "./components/dashboard/pages/Painel";
 import Confirmation from "./components/pages/Confirmation";
 import ConfirmationTour from "./components/pages/ConfirmationTour";
 
-import ActivitiesContainer from "./components/pages/ActivitiesContainer";
 import ScrollToTop from "./components/common/ScrollToTop";
-import Level from "./components/pages/Activities/Level";
+import BookingPage from "./components/pages/Activities/BookingPage";
 import Visit from "./components/pages/Visit";
 import Transfers from "./components/dashboard/pages/Transfer/Transfers";
-import HikingLevel from "./components/pages/Activities/HikingLevel";
 import Terms from "./components/common/Terms";
+import ActivityList from "./components/pages/Activities/ActivityList";
 
 export const history = createBrowserHistory();
 
@@ -36,13 +33,12 @@ function Router() {
         <BrowserRouter history={history}>
             <ScrollToTop>
                 <Routes>
-                    <Route exact path="/activities/hiking/:index" element={<Layout><HikingLevel /></Layout>} />
-                    <Route exact path="/activities/canyoning/:index" element={<Layout><Level /></Layout>} />
-                    <Route exact path="/activities/canyoning" element={<Layout><Canyoning /></Layout>} />
-                    <Route exact path="/activities/hiking" element={<Layout><Hiking /></Layout>} />
-                    <Route exact path="/activities/coasteering" element={<Layout><Coasteering /></Layout>} />
+                    <Route path="/activities/:activity/:id" element={<Layout><BookingPage /></Layout>} />
+                    <Route path="/activities/:activity" element={<Layout><ActivityList /></Layout>} />
                     <Route exact path="/activities/biking" element={<Layout><Biking /></Layout>} />
-                    <Route exact path="/activities" element={<Layout><ActivitiesContainer /></Layout>} />
+                    <Route exact path="/activities/coasteering" element={<Layout><Coasteering /></Layout>} />
+
+
                     <Route exact path="/terms" element={<Layout><Terms /></Layout>} />
 
                     <Route exact path="/about" element={<Layout><About /></Layout>} />
