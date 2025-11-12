@@ -1,9 +1,19 @@
 import React, { useEffect } from "react";
 import { Row, Form, Calendar, Col, Select } from "antd";
-import moment from "moment";
+import dayjs from "dayjs";
+import localeData from "dayjs/plugin/localeData";
+import advancedFormat from "dayjs/plugin/advancedFormat";
+import updateLocale from "dayjs/plugin/updateLocale";
+import weekday from "dayjs/plugin/weekday";
 import styled from "styled-components";
 import { fetchDisabledDates } from "../../../redux/reservation/actions";
 import { connect } from "react-redux";
+
+// Ativa os plugins necessários
+dayjs.extend(localeData);
+dayjs.extend(advancedFormat);
+dayjs.extend(updateLocale);
+dayjs.extend(weekday);
 
 const CustomCalendar = styled(Calendar)`
     background: transparent;
@@ -44,8 +54,8 @@ const CustomCalendar = styled(Calendar)`
 
 const CustomSelect = styled(Select)`
     cursor: pointer !important;
-    -moz-appearance: none; /* Firefox */
-    -webkit-appearance: none; /* Safari and Chrome */
+    -moz-appearance: none;
+    -webkit-appearance: none;
     appearance: none;
     outline: none;
     border-radius: 0px;
@@ -76,25 +86,22 @@ const CustomSelect = styled(Select)`
 function Date({ fetchDisabledDates, calendarMetadata, loading, form }) {
     useEffect(() => {
         fetchDisabledDates(1);
-    }, []);
+    }, [fetchDisabledDates]);
 
     useEffect(() => {
-        var init = moment().add(1, "days");
-        var condition = true;
+        let init = dayjs().add(1, "day");
+        let condition = true;
         while (condition) {
             if (
-                !calendarMetadata.disabled.includes(
-                    moment(init).format("YYYY-MM-DD")
-                )
+                !calendarMetadata.disabled.includes(init.format("YYYY-MM-DD"))
             ) {
                 condition = false;
             } else {
-                init.add(1, "days");
+                init = init.add(1, "day");
             }
         }
-
         form.setFieldsValue({ date: init });
-    }, [calendarMetadata]);
+    }, [calendarMetadata, form]);
 
     return (
         <div>
@@ -110,27 +117,20 @@ function Date({ fetchDisabledDates, calendarMetadata, loading, form }) {
                         disabledDate={(currentDate) => {
                             return (
                                 currentDate &&
-                                (currentDate < moment() ||
+                                (currentDate < dayjs() ||
                                     calendarMetadata.disabled.includes(
-                                        moment(currentDate).format("YYYY-MM-DD")
+                                        dayjs(currentDate).format("YYYY-MM-DD")
                                     ))
                             );
                         }}
                         headerRender={({ value, onChange }) => {
-                            const currentDate = moment();
+                            const currentDate = dayjs();
                             const currentYear = currentDate.year();
                             const monthOptions = [];
                             const month = value.month();
                             const year = value.year();
-
                             const current = value.clone();
-                            const localeData = value.localeData();
-                            const months = [];
-
-                            for (let i = 0; i < 12; i++) {
-                                current.month(i);
-                                months.push(localeData.monthsShort(current));
-                            }
+                            const months = dayjs.monthsShort();
 
                             for (let index = 0; index < 12; index++) {
                                 monthOptions.push(
@@ -151,6 +151,7 @@ function Date({ fetchDisabledDates, calendarMetadata, loading, form }) {
                                     </Select.Option>
                                 );
                             }
+
                             return (
                                 <div style={{ padding: 8 }}>
                                     <Row gutter={32}>
@@ -184,7 +185,7 @@ function Date({ fetchDisabledDates, calendarMetadata, loading, form }) {
                                                 onChange={(selectedMonth) => {
                                                     const newValue =
                                                         value.clone();
-                                                    newValue.month(
+                                                    newValue = newValue.month(
                                                         parseInt(
                                                             selectedMonth,
                                                             10
@@ -211,18 +212,15 @@ function Date({ fetchDisabledDates, calendarMetadata, loading, form }) {
         </div>
     );
 }
-const mapDispatchToProps = (dispatch) => {
-    return {
-        fetchDisabledDates: (participants) =>
-            dispatch(fetchDisabledDates(participants)),
-    };
-};
 
-const mapStateToProps = (state) => {
-    return {
-        loading: state.reservation.loading,
-        calendarMetadata: state.reservation.calendarMetadata,
-    };
-};
+const mapDispatchToProps = (dispatch) => ({
+    fetchDisabledDates: (participants) =>
+        dispatch(fetchDisabledDates(participants)),
+});
+
+const mapStateToProps = (state) => ({
+    loading: state.reservation.loading,
+    calendarMetadata: state.reservation.calendarMetadata,
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Date);

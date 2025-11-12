@@ -17,6 +17,7 @@ class Experience extends Model
 
     protected $casts = [
         'visible' => 'integer',
+        'price_per_person' => 'integer',
     ];
 
 

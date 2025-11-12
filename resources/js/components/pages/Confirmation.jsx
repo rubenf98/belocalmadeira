@@ -1,16 +1,13 @@
-import axios from 'axios'
-import React, { Fragment, useEffect, useState } from 'react'
-import { Row, notification } from 'antd';
+import axios from "axios";
+import React, { Fragment, useEffect, useState } from "react";
+import { Row, notification } from "antd";
 import styled from "styled-components";
-import { dimensions, maxWidth } from '../../helper';
-import moment from 'moment';
+import { dimensions, maxWidth } from "../../helper";
+import moment from "moment";
 import { useParams } from "react-router-dom";
-import PageHeader from '../common/PageHeader';
+import PageHeader from "../common/PageHeader";
 
-const Container = styled.div`
-
-`;
-
+const Container = styled.div``;
 
 const Content = styled.div`
     width: 100%;
@@ -31,7 +28,8 @@ const Summary = styled(Row)`
             width: 80%;
             text-align: center;
 
-            h3, p {
+            h3,
+            p {
                 width: 100%;
                 margin: auto;
                 display: block;
@@ -78,7 +76,6 @@ const Detail = styled.div`
 const Participant = styled(Detail)`
     width: 50%;
 `;
-
 
 const Loading = styled.div`
     width: 100%;
@@ -144,102 +141,155 @@ const Loading = styled.div`
 
 const Feedback = styled.h3`
     font-size: 20px;
-    font-weight: bold;  
-    opacity: .8;
+    font-weight: bold;
+    opacity: 0.8;
     padding: 0px 10px;
 `;
 
-
 function Confirmation({ match }) {
-    const [data, setData] = useState({})
-    const [hasError, setHasError] = useState(false)
+    const [data, setData] = useState({});
+    const [hasError, setHasError] = useState(false);
     let { token } = useParams();
-    const { text } = require('../../assets/' + localStorage.getItem('language') + "/confirmation");
-
+    const { text } = require("../../assets/" +
+        localStorage.getItem("language") +
+        "/confirmation");
 
     const openNotification = () => {
         notification.success({
             message: text.feedback,
-            description: text.feedbackInstruction
+            description: text.feedbackInstruction,
         });
     };
 
     const getActivityField = (experience) => {
         var response = null;
         if (experience.activity_id) {
-            response = experience.activity.name[localStorage.getItem("language")] + " (" + experience.name[localStorage.getItem("language")] + ")"
+            response =
+                experience.activity.name[localStorage.getItem("language")] +
+                " (" +
+                experience.name[localStorage.getItem("language")] +
+                ")";
         } else {
-            response = experience.name[localStorage.getItem("language")]
+            response = experience.name[localStorage.getItem("language")];
         }
         return response;
-    }
+    };
 
     useEffect(() => {
-
-        axios.get(`${window.location.origin}/api/reservation/showFromToken?token=${token}`).then((response) => {
-            setData(response.data.data);
-            const before = moment().subtract(1, 'minute')
-            if (moment(response.data.data.updated_at).isAfter(before)) {
-                openNotification();
-            }
-        }).catch((error) => {
-            notification.error({
-                message: text.error,
-                description: text.errorInstruction
+        axios
+            .get(
+                `${window.location.origin}/api/reservation/showFromToken?token=${token}`
+            )
+            .then((response) => {
+                setData(response.data.data);
+                const before = moment().subtract(1, "minute");
+                if (moment(response.data.data.updated_at).isAfter(before)) {
+                    openNotification();
+                }
+            })
+            .catch((error) => {
+                notification.error({
+                    message: text.error,
+                    description: text.errorInstruction,
+                });
+                setHasError(true);
             });
-            setHasError(true);
-        })
-
-    }, [])
+    }, []);
 
     return (
         <Container>
             <PageHeader title={text.title} subtitle={text.subtitle} />
             <Content>
-                {
-                    (Object.keys(data).length === 0) ?
-                        <Loading>
-                            <div className='flex-container'>
-                                {
-                                    !hasError &&
-                                    <div className="gooey">
-                                        <span className="dot"></span>
-                                        <div className="dots">
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                        </div>
+                {Object.keys(data).length === 0 ? (
+                    <Loading>
+                        <div className="flex-container">
+                            {!hasError && (
+                                <div className="gooey">
+                                    <span className="dot"></span>
+                                    <div className="dots">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
                                     </div>
-                                }
-                            </div>
-                        </Loading> :
-                        <Fragment>
+                                </div>
+                            )}
+                        </div>
+                    </Loading>
+                ) : (
+                    <Fragment>
+                        <Feedback>{text.feedbackInstruction}</Feedback>
+                        <Summary type="flex" justify="flex-start">
+                            <Detail>
+                                <span>{text.details.activity} </span>{" "}
+                                {getActivityField(data.experienceable)}{" "}
+                            </Detail>
+                            <Detail>
+                                <span>{text.details.name} </span> {data.name}{" "}
+                            </Detail>
+                            <Detail>
+                                <span>{text.details.email} </span> {data.email}{" "}
+                            </Detail>
+                            <Detail>
+                                <span>{text.details.price} </span> {data.price}€{" "}
+                            </Detail>
+                            <Detail>
+                                <span>{text.details.phone} </span> {data.phone}{" "}
+                            </Detail>
+                            {data.source == "voucher" && (
+                                <Detail>
+                                    <span>{text.details.recipient} </span>{" "}
+                                    {data.recipient}{" "}
+                                </Detail>
+                            )}
+                            {data.source == "website" && (
+                                <Detail>
+                                    <span>{text.details.address} </span>{" "}
+                                    {data.address}{" "}
+                                </Detail>
+                            )}
+                            {data.source == "website" && (
+                                <Detail>
+                                    <span>{text.details.private} </span>{" "}
+                                    {text.details.privateAnswer[data.private]}{" "}
+                                </Detail>
+                            )}
+                            {data.source == "website" && (
+                                <Detail>
+                                    <span>{text.details.date} </span>{" "}
+                                    {data.date} {data.time}
+                                </Detail>
+                            )}
+                            <Detail>
+                                <span>{text.details.created_at} </span>{" "}
+                                {data.created_at}{" "}
+                            </Detail>
+                        </Summary>
+                        {data.source == "website" && (
+                            <Feedback>{text.participantsTitle}</Feedback>
+                        )}
 
-                            <Feedback>{text.feedbackInstruction}</Feedback>
-                            <Summary type="flex" justify="flex-start">
-                                <Detail><span>{text.details.activity} </span> {getActivityField(data.experienceable)} </Detail>
-                                <Detail><span>{text.details.name} </span> {data.name} </Detail>
-                                <Detail><span>{text.details.email} </span> {data.email} </Detail>
-                                <Detail><span>{text.details.price} </span> {data.price}€ </Detail>
-                                <Detail><span>{text.details.phone} </span> {data.phone} </Detail>
-                                {data.source == "voucher" && <Detail><span>{text.details.recipient} </span> {data.recipient} </Detail>}
-                                {data.source == "website" && <Detail><span>{text.details.address} </span> {data.address} </Detail>}
-                                {data.source == "website" && <Detail><span>{text.details.private} </span> {text.details.privateAnswer[data.private]} </Detail>}
-                                {data.source == "website" && <Detail><span>{text.details.date} </span> {data.date} {data.time}</Detail>}
-                                <Detail><span>{text.details.created_at} </span> {data.created_at} </Detail>
-                            </Summary>
-                            {data.source == "website" && <Feedback>{text.participantsTitle}</Feedback>}
-
-                            <Summary type="flex" justify="flex-start">
-                                {data.reservationRarticipants.map((participant, index) => (
-                                    <Participant><span>{text.details.participant} {index + 1} </span> {participant.birthday} /  {participant.gender} /  {participant.weight} / {participant.height}cm /  {participant.shoe} EU </Participant>
-                                ))}
-                            </Summary>
-                        </Fragment>
-                }
+                        <Summary type="flex" justify="flex-start">
+                            {data.reservationRarticipants.map(
+                                (participant, index) => (
+                                    <Participant>
+                                        <span>
+                                            {text.details.participant}{" "}
+                                            {index + 1}{" "}
+                                        </span>{" "}
+                                        {participant.birthday} /{" "}
+                                        {participant.gender} /{" "}
+                                        {participant.weight} /{" "}
+                                        {participant.height}cm /{" "}
+                                        {participant.shoe} EU{" "}
+                                    </Participant>
+                                )
+                            )}
+                        </Summary>
+                    </Fragment>
+                )}
             </Content>
         </Container>
-    )
+    );
 }
 
-export default Confirmation
+export default Confirmation;

@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { withTheme } from "styled-components";
+import styled from "styled-components";
 import Row from "antd/es/row";
 import Form from "antd/es/form";
 import Button from "antd/es/button";
@@ -9,6 +9,7 @@ import axios from "axios";
 import { CustomInput, CustomTextArea } from "./Form/styles";
 import PageHeader from "../common/PageHeader";
 import Faq from "./HomepageComponents/Faq";
+import { connect } from "react-redux";
 
 const Container = styled.div`
     display: flex;
@@ -63,10 +64,10 @@ const FormContainer = styled.div`
     h3,
     p,
     a {
-        color: ${(props) => props.color};
+        color: ${({ theme }) => theme.primary};
 
         &:hover {
-            color: ${(props) => props.color};
+            color: ${({ theme }) => theme.primary};
         }
     }
 `;
@@ -75,7 +76,7 @@ const Sentence = styled.div`
     font-size: 82px;
     line-height: 70px;
     width: 80%;
-    color: ${(props) => props.color};
+    color: ${({ theme }) => theme.primary};
 
     @media (max-width: ${dimensions.lg}) {
         font-size: 70px;
@@ -87,13 +88,13 @@ const Submit = styled(Button)`
     border: none;
     padding: 10px 15px;
     text-transform: uppercase;
-    background-color: ${(props) => props.text};
+    background-color: ${({ theme }) => theme.primary};
     transition: box-shadow 0.3s ease;
 
     &:hover,
     &:focus {
         color: white;
-        background-color: ${(props) => props.text};
+        background-color: ${({ theme }) => theme.primary};
         box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
     }
     @media (max-width: ${dimensions.md}) {
@@ -125,15 +126,11 @@ const rules = {
     ],
 };
 
-function Contact({ theme }) {
+function Contact({ language }) {
     const [form] = Form.useForm();
 
-    const { text } = require("../../assets/" +
-        localStorage.getItem("language") +
-        "/contact");
-    const homepageText = require("../../assets/" +
-        localStorage.getItem("language") +
-        "/homepage");
+    const { text } = require("../../assets/" + language + "/contact");
+    const homepageText = require("../../assets/" + language + "/homepage");
 
     const onFinish = (values) => {
         axios.post(`${window.location.origin}/api/contact`, values);
@@ -149,10 +146,10 @@ function Contact({ theme }) {
             <PageHeader title={text.title} subtitle={text.subtitle} />
             <Container>
                 <SectionContainer className="hide">
-                    <Sentence color={theme.primary}>{text.sentence}</Sentence>
+                    <Sentence>{text.sentence}</Sentence>
                 </SectionContainer>
                 <SectionContainer>
-                    <FormContainer color={theme.primary}>
+                    <FormContainer>
                         <h2>{text.formTitle}</h2>
                         <ContactForm
                             requiredMark={false}
@@ -195,7 +192,6 @@ function Contact({ theme }) {
                                     size="large"
                                     type="primary"
                                     htmlType="submit"
-                                    text={theme.primary}
                                 >
                                     {text.form.submit}
                                 </Submit>
@@ -221,4 +217,10 @@ function Contact({ theme }) {
     );
 }
 
-export default withTheme(Contact);
+const mapStateToProps = (state) => {
+    return {
+        language: state.application.language,
+    };
+};
+
+export default connect(mapStateToProps, null)(Contact);

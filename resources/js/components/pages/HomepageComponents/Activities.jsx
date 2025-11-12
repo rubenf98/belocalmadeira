@@ -29,13 +29,26 @@ const Activity = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 0px 10%;
+    gap: 0px 80px;
 
     .text-container {
         width: 50%;
         order: ${(props) => (props.isOdd ? "1" : "0")};
-        padding: 70px 0px;
+        padding: ${(props) =>
+            props.isOdd ? "70px 50px 70px 0px" : "70px 0px 70px 50px"};
         box-sizing: border-box;
+        position: relative;
+
+        .background {
+            position: absolute;
+            width: calc(100% + 200px);
+            height: 100%;
+            top: 0;
+            left: ${(props) => (props.isOdd ? "-200px" : "0px")};
+            z-index: -3;
+            background: ${({ theme }) => theme.primaryBackground};
+            border-radius: 20px;
+        }
 
         h4 {
             text-transform: uppercase;
@@ -66,10 +79,8 @@ const Activity = styled.div`
         object-fit: cover;
         max-height: 700px;
         border-radius: 20px;
-        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.3);
         transition: all 0.3s ease-in-out;
-
-        margin-top: -50px;
     }
 
     @media (max-width: ${dimensions.md}) {
@@ -102,6 +113,7 @@ function Activities({ text }) {
                 {text.items.map((activity, index) => (
                     <Activity isOdd={index % 2} key={index}>
                         <div className="text-container">
+                            <div className="background" />
                             <h4>{activity.subtitle}</h4>
                             <h3>{activity.title}</h3>
                             <p>{activity.description}</p>

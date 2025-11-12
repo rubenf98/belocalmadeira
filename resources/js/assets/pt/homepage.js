@@ -1,18 +1,17 @@
 import React from 'react'
-import styled from 'styled-components'
 import { Link } from 'react-router-dom';
+import styled from 'styled-components'
 
 const LinkContainer = styled.a`
-    display: inline;
-    position: relative;
-    margin-left: 15px;
+display: inline;
+position: relative;
+margin-left: 15px;
+color: black;
+
+&:hover {
     color: black;
-
-    &:hover {
-        color: black;
-    }
+}
 `;
-
 const LinkImg = styled.img`
     position: absolute;
     bottom: -25px;
@@ -25,103 +24,108 @@ const LinkImg = styled.img`
 export const text = {
     header: {
         title: "Be Local Madeira",
-        subtitle: "Conhece a Ilha da Madeira na perspetiva de um local."
+        subtitle: "Conhece a Ilha da Madeira através da perspetiva de um local",
+        button: "Reservar agora",
+        carousel: ["canyoning", "coasteering", "jeeps", "hiking", "biking"]
     },
     about: {
-        videoError: "O teu browser não suporta a tag de vídeo",
-        titles: ["Quem é a be local", "Os melhores profisisonais para a tarefa", "A sua experiência começa agora"],
+        videoError: "O teu navegador não suporta a tag de vídeo.",
+        titles: ["Quem é a Be Local", "Os melhores profissionais para a tarefa", "A tua experiência começa agora"],
         description: [
-            "Somos uma empresa local que promove aventura e experiências com a natureza na Ilha da Madeira.",
-            "Temos profissionais dedicados e certificados em Canyoning, Coasteering, passeios de bicicleta e caminhadas. Desta forma irá ser acompanhado em todos os momentos.",
-            "Oferecemos uma panóplia de experiências alucinantes que te irão permitir desfrutar de momentos únicos por locais fascinantes. Junte-se a nós e irá viver momentos que recordará para sempre!"
+            "Somos uma empresa local que promove aventuras e experiências na natureza na Ilha da Madeira.",
+            "Temos profissionais dedicados e certificados em Canyoning, Coasteering, BTT e Caminhadas. Assim, estarás acompanhado em todos os momentos.",
+            "Oferecemos uma variedade de experiências emocionantes que te permitirão desfrutar de momentos únicos em locais fascinantes. Junta-te a nós e vive momentos que recordarás para sempre!"
         ],
     },
-    family: {
-        paragraph: "Aproveita o nosso pack família para todas as reservas superiores a 4 paticipantes e cria memórias inesquecíveis para todos",
-        button: "Reservar agora"
-    },
-    discount: {
-        title: "Oportunidade de reserva",
-        paragraph: "Descontos imperdíveis em todas as atividades reservadas online",
-        button: "Reservar agora"
-    },
     services: {
-        title: "serviços",
-        subtitle: (<>O que temos para te <span>oferecer</span></>),
+        title: "O que temos para oferecer",
         items: [
             {
                 title: "Experiências inesquecíveis",
-                description: "Criar sua experiência é totalmente colaborativo e os nossos guias estão aqui para cada etapa"
+                description: "Criar a tua experiência é totalmente colaborativo e os nossos guias estão contigo em cada passo"
             },
             {
                 title: "Equipamento de alta qualidade",
-                description: "A segurança é muito importante para nós, por isso garantimos equipamentos de segurança de alta qualidade para todas as atividades"
+                description: "A segurança é extremamente importante para nós, por isso garantimos equipamento de segurança de alta qualidade para todas as atividades"
             },
             {
                 title: "Transporte",
-                description: "Cuidamos dos serviços de transporte para que apenas tenha que se divertir ao máximo"
+                description: "Tratamos dos serviços de transporte para que possas desfrutar da experiência ao máximo"
             },
             {
                 title: "Fotos e vídeos da atividade",
-                description: "Recorde os momentos incríveis que teve connosco e fique com recordações fantásticas da sua experiência"
+                description: "Nada melhor do que rever os momentos incríveis que viveste connosco e recordá-los para sempre"
             },
             {
                 title: "Guias certificados",
-                description: "Os nossos guias são certificados em todas as atividades que oferecemos, proporcionando a incrível aventura que procura."
-            }
+                description: "Os nossos guias são certificados para cada atividade que oferecemos, proporcionando a aventura incrível que procuras."
+            },
         ]
     },
     canyoning: {
-        title: "Canyoning - Explore com excitação",
+        title: (<><span>Canyoning</span> - Explora com emoção</>),
         paragraphs: [
-            "A Ilha da Madeira é hoje considerada um dos melhores locais para Canyoning do Mundo.",
-            "Em passeios de cortar a respiração pelas águas cristalinas dos inúmeros rios da Madeira, poderá explorar o interior intocado e intocado da ilha.",
-            "O desafio consiste em atravessar ribeiros de montanha, abundantes ao longo dos trilhos de canyoning na Madeira, ultrapassando os vários obstáculos encontrados durante a descida.",
+            "A Ilha da Madeira é atualmente considerada um dos melhores locais do mundo para a prática de Canyoning.",
+            "Em percursos deslumbrantes pelas águas cristalinas dos inúmeros rios madeirenses, poderás explorar o interior puro e intocado da ilha.",
+            "O desafio consiste em atravessar as ribeiras de montanha, abundantes nas rotas de canyoning da Madeira, superando os diversos obstáculos encontrados durante a descida.",
             "Não é necessária experiência prévia.",
             "RNAAT 1093"
         ],
         buttons: [
-            "Reservar",
+            "Reservar agora",
             "+351 935 124 260"
         ]
     },
     coasteering: {
         title: "Coasteering - Um Mar de Emoções",
         paragraphs: [
-            "Coasteering é uma atividade emergente na Ilha da Madeira. Esta atividade consiste em seguir um caminho ao longo da linha da costa, nadar, escalar, caminhar e saltar para a água.",
-            "Esta atividade é feita na Ponta de São Lourenço, uma das mais belas paisagens da Madeira com recantos incríveis.",
-            "Daqui segue para a ponta oriental da Ilha, explorando a costa impressionante de diferentes formas: nadar, escalar, caminhar, saltar para a água.",
-            "O passeio é acompanhado por guias experientes, sendo fornecido o equipamento necessário."
+            "O Coasteering é uma atividade emergente na Ilha da Madeira. Consiste em seguir um percurso ao longo da linha costeira, nadando, escalando, caminhando e saltando para a água.",
+            "Esta atividade é realizada na Ponta de São Lourenço, uma das mais belas paisagens da Madeira, com locais incríveis.",
+            "Daqui segue-se para a ponta oriental da Ilha, explorando a impressionante costa de diferentes formas: nadando, escalando, caminhando e saltando para a água.",
+            "O percurso é acompanhado por guias experientes e todo o equipamento necessário é fornecido."
         ],
         buttons: [
-            "Reservar",
+            "Reservar agora",
             "+351 935 124 260"
         ]
     },
-    feedback: {
-        title: "Feedback",
-        subtitle: (<>O que estão as <span>pessoas</span> a dizer sobre nós?</>),
-        subsubtitle: "Feedback dos Nossos Clientes",
-        viewmore: "Ver Mais",
+    activities: {
+        title: (<>Explora as melhores <span>experiências</span> ao ar livre na Ilha da Madeira </>),
+        button: "ver mais",
         items: [
-            { author: "Lindsey Rangel", comment: "Fabio é de longe o melhor guia que você poderia pedir. Reservamos uma caminhada e tivemos uma experiência tão fenomenal que perguntamos se ele estava disponível no dia seguinte. Felizmente para nós, ele estava. Ele fez o plano para o 2º dia e não consigo nem colocar em palavras o quão divertido e incrível foi." },
-            { author: "Nessrine", comment: "Essa foi a MELHOR maneira de começar a nossa viagem à Madeira! Até agora a melhor atividade que fiz na minha vida enquanto viajava. O guia Fabio foi incrível e nos explicou muitas coisas, tirou excelentes fotos e vídeos meus e do meu amigo na atividade." },
-            { author: "Charlotte Price", comment: "Uma experiência essencial enquanto estiver na Madeira !! O curso de canyoning intermediário estava repleto de rapel, zipline e slides que fizeram um dia incrível. O equipamento era todo de alta qualidade, e em combinação com a experiência das equipas, sentimo-nos incrivelmente seguros." },
-            { author: "Henrike Maris", comment: "Fabio e Pedro foram os nossos guias no passeio de canyoning. Eles foram guias incríveis e o passeio foi fantástico! Sentimo-nos muito seguros e as vistas eram maravilhosas! belas fotografias. Uma experiência incrível para recordar!" },
-            { author: "Maximilian Lambrecht", comment: "Canyoning com a Be Local Madeira foi definitivamente um dos nossos destaques na ilha. Os guias foram muito simpáticos, prestativos e super pacientes com os iniciantes. Os canyons da ilha são espetaculares e Be Local A Madeira é a melhor companhia para os experimentar." },
-            { author: "Vanessa", comment: "Grande aventura!! Os guias eram profissionais. A vista era incrível e o equipamento também estava no ponto. Não poderia desejar uma experiência melhor! No final da viagem, fomos presenteados com um bolo local. Ótimo final de aventura." },
-            { author: "Philip Schürheck", comment: "Fizemos um passeio de Canyoning incrível com o belocalmadeira! Foi super divertido e profissional ao mesmo tempo. Depois do Canyoning, também visitamos um restaurante local espontaneamente com um dos guias. Enfim, uma ótima experiência." },
-            { author: "Diogo Ribeiro", comment: "Fábio do Be Local Madeira é muito profissional e atencioso. Nos deu toda a confiança, segurança e diversão que precisávamos! O canyoning (Nível 2, no Curral das Freiras) é muito variado com muito rafting, caminhadas, cascatas e mergulhos! A paisagem é de tirar o fôlego!" },
+            { title: 'Um mar de emoções', subtitle: "coasteering", description: "Caminhar, nadar, escalar, fazer rappel e saltar para a água: tudo isto numa única atividade — o coasteering na Madeira, que, entre muita aventura e adrenalina, te mostrará as maravilhas naturais da ilha." },
+            { title: 'Explora a Madeira à tua maneira', subtitle: "jeep", description: "Descobre a Ilha da Madeira da forma mais autêntica e exclusiva — a bordo de um jipe privado 4x4, guiado por especialistas locais apaixonados que te irão revelar os tesouros escondidos, as paisagens de cortar a respiração e o património cultural da ilha." },
+            { title: 'As melhores caminhadas na Ilha da Madeira', subtitle: "hiking", description: "Nas nossas caminhadas organizadas, tratamos de tudo, incluindo os transportes. Tu apenas desfrutas ao máximo de cada trilho. Levamos-te a lugares que nenhum GPS conhece e que não encontras em nenhum guia turístico." },
+            { title: 'Descobre a ilha com emoção', subtitle: "biking", description: "A Ilha da Madeira é um paraíso para o BTT. Aqui encontras trilhos fantásticos desde a montanha até ao nível do mar! O seu clima ameno torna o ciclismo agradável durante todo o ano." }
         ]
     },
-    activities: {
-        title: "Atividades",
-        subtitle: (<>Explora as melhores <span>experiências</span> ao ar livre na Ilha da Madeira.</>),
-        button: "Reservar transfer",
-        items: ['canyoning', "bicicleta", "coasteering", "caminhada"]
+    discount: {
+        title: "Oportunidade de reserva",
+        paragraph: "Descontos imperdíveis em todas as atividades reservadas online",
+        button: "Reservar agora"
+    },
+    family: {
+        paragraph: "Aproveita o nosso pacote familiar para todas as reservas com mais de 4 participantes e cria memórias inesquecíveis para todos",
+        button: "Reservar agora"
+    },
+    feedback: {
+        title: "Testemunhos",
+        subtitle: (<>O que as <span>pessoas</span> dizem sobre nós?</>),
+        subsubtitle: "Opiniões dos nossos clientes",
+        viewmore: "Ver mais",
+        items: [
+            { author: "Lindsey Rangel", comment: "O Fábio é, sem dúvida, o melhor guia que poderíamos ter pedido. Reservámos uma caminhada com ele e a experiência foi tão fantástica que pedimos para repetir no dia seguinte. Felizmente, ele estava disponível. O plano que fez foi incrível e nem consigo descrever o quão divertido e inesquecível foi." },
+            { author: "Nessrine", comment: "Foi a MELHOR forma de começar a nossa viagem à Madeira! A melhor atividade que já fiz na vida durante as minhas viagens. O guia Fábio foi incrível, explicou-nos imensas coisas, tirou fotos e vídeos espetaculares de mim e da minha amiga a saltar na cascata." },
+            { author: "Charlotte Price", comment: "Uma experiência obrigatória na Madeira!! O percurso de canyoning intermédio estava cheio de descidas, tirolesas e escorregas — um dia fantástico. O equipamento era de alta qualidade e, com a experiência da equipa, sentimo-nos totalmente seguras." },
+            { author: "Henrike Maris", comment: "O Fábio e o Pedro foram os nossos guias na tour de canyoning hoje. Foram incríveis e o percurso foi fantástico! Sentimo-nos muito seguras e as vistas eram maravilhosas! No final recebemos fotografias espetaculares. Uma experiência inesquecível!" },
+            { author: "Maximilian Lambrecht", comment: "Fazer canyoning com a Be Local Madeira foi, sem dúvida, um dos destaques da viagem. Os guias foram super simpáticos, prestáveis e pacientes com os principiantes. Os desfiladeiros da ilha são espetaculares e a Be Local Madeira é a melhor empresa para os explorar." },
+            { author: "Vanessa", comment: "Grande aventura!! Os guias foram profissionais, a vista era incrível e o equipamento excelente. Não podia ter pedido melhor experiência! No final ainda recebemos um bolo regional. Excelente forma de terminar a aventura." },
+            { author: "Philip Schürheck", comment: "Fiz uma tour de Canyoning incrível com a equipa da Be Local Madeira! Foi super divertido e profissional ao mesmo tempo. Depois da atividade ainda fomos, espontaneamente, com um dos guias a um restaurante local. Experiência fantástica!" },
+            { author: "Diogo Ribeiro", comment: "O Fábio da Be Local Madeira é muito profissional e atencioso. Deu-nos toda a confiança, segurança e diversão que precisávamos! O canyoning (Nível 2, no Curral das Freiras) é muito variado, com muito rapel, caminhada, cascatas e saltos! A paisagem é deslumbrante!" },
+        ]
     },
     socials: {
-        title: "sociais",
+        title: "redes sociais",
         subtitle: (
             <>segue-nos no
                 <LinkContainer href="https://www.instagram.com/belocalmadeira/" target="_blank">
@@ -131,52 +135,52 @@ export const text = {
             </>),
     },
     faq: {
-        terms: (<>Tem outras questões? Consulte os nossos
+        terms: (<>Tens mais perguntas? Consulta os nossos
             <Link to="/terms"> termos e condições</Link></>),
         title: "Perguntas frequentes",
-        subtitle: "Estas são as dúvidas que a maioria das pessoas têm relativamente à Be Local. Caso nenhuma lhe interesse, contacte-nos para informação adicional.",
+        subtitle: "Aqui estão as perguntas mais comuns sobre a Be Local. Se nenhuma delas responde à tua dúvida, contacta-nos para mais informações.",
         questions: [
             {
-                question: "O que está incluído nos tours?",
+                question: "O que está incluído nas tours?",
                 answer: [
                     (<ul>
                         <li>Experiência completa</li>
-                        <li>Seguro de Segurança (De acordo com a legislação portuguesa).</li>
+                        <li>Seguro de acidentes pessoais (de acordo com a legislação portuguesa).</li>
                         <li>Fotos e vídeos gratuitos da atividade</li>
-                        <li>Todo o equipamento (Equipamento Técnico Certificado: Fato de Neoprene; Sapatos de Canyoning; Meias de Neoprene; Capacete; Arnês e colete salva-vidas se necessário).</li>
+                        <li>Todo o equipamento (equipamento técnico certificado: fato de neoprene; sapatos de canyoning; meias de neoprene; capacete; arnês e colete salva-vidas, se necessário).</li>
                         <li>Guias certificados</li>
-                        <li>Snack (Chocolate)</li>
-                        <li>Transfer de/para o Hotel Funchal (outras zonas mediante pedido, poderá ser aplicado um custo adicional)</li>
-                        <li>Caso não precise de transporte, pode obter um desconto de 10%. (Enviamos as coordenadas do local para ir diretamente ao ponto de encontro.)</li>
+                        <li>Lanche (chocolate)</li>
+                        <li>Transporte de/para o hotel no Funchal (outras áreas mediante pedido e possível custo adicional)</li>
+                        <li>Se não necessitares de transporte, podes obter 10% de desconto (enviamos as coordenadas para ires diretamente ao ponto de encontro).</li>
                     </ul>),
-                    "Se precisar de ajuda ou de mais informações, sinta-se à vontade para entrar em contato conosco pelo WhatsApp.",
-                    "Departamento de reservas: WhatsApp: (+351) 935124260"
+                    "Se precisares de ajuda ou mais informações, não hesites em contactar-nos pelo WhatsApp.",
+                    "Departamento de reservas: WhatsApp: (+351) 935 124 260"
                 ]
             },
             {
-                question: "Qual é a idade mínima e a máxima para participar numa atividade de Canyoning ou Coasteering?",
+                question: "Qual é a idade mínima e máxima para participar numa atividade de Canyoning ou Coasteering?",
                 answer: [
-                    "Para as atividades de Canyoning ou Coasteering, a idade mínima é de 7 anos. A idade máxima é de 75 anos.",
+                    "Para atividades de Canyoning ou Coasteering, a idade mínima é 7 anos e a máxima é 75 anos.",
                 ]
             },
             {
-                question: "E se eu não me sentir confortável para saltar?",
+                question: "E se não me sentir confortável em saltar?",
                 answer: [
-                    "Os saltos não são obrigatórios e temos sempre alternativas (podemos colocar uma corda para descer em rapel ou então por vezes temos um caminho alternativo ao longo do curso de água onde podemos ver os outros a saltar sem ter de o fazer."
+                    "Os saltos não são obrigatórios e temos sempre alternativas (podemos colocar uma corda para descer em rappel ou, por vezes, há um trilho alternativo junto à ribeira onde se pode assistir aos saltos sem ter de os fazer)."
                 ]
             },
             {
                 question: "O que acontece em caso de mau tempo?",
                 answer: [
-                    "Em caso de mau tempo, a atividade poderá ser cancelada ou agendada para outra data em concreto. Relativamente ao cancelamento por questões meteorológicas é sempre decidido e avaliado pela nossa equipa."
+                    "Em caso de mau tempo, a atividade pode ser cancelada ou reagendada para outra data. A decisão e avaliação sobre o cancelamento são sempre feitas pela nossa equipa."
                 ]
             },
             {
                 question: "Como posso cancelar uma atividade?",
                 answer: [
-                    "Para o cancelamento de uma atividade é necessário que exista um aviso prévio, quer por e-mail ou telefone. Para ser reembolsado, o cancelamento deve ser feito em um período superior a 24 horas."
+                    "Para cancelar uma atividade, é necessário aviso prévio, por email ou telefone. Para obter reembolso, o cancelamento deve ser feito com pelo menos 24 horas de antecedência."
                 ]
             },
         ],
     }
-} 
+}

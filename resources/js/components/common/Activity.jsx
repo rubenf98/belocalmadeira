@@ -179,8 +179,14 @@ const OrderButton = styled.div`
     }
 `;
 
-function Activity({ data, gallery, level_dictionary, theme, handleForm }) {
-    const lang = localStorage.getItem("language");
+function Activity({
+    data,
+    gallery,
+    level_dictionary,
+    theme,
+    handleForm,
+    language,
+}) {
     return (
         <Container>
             <StepsContainer>
@@ -194,7 +200,7 @@ function Activity({ data, gallery, level_dictionary, theme, handleForm }) {
 
                             <div className="step-content">
                                 <div className="title">
-                                    <h3>{experience.name[lang]}</h3>
+                                    <h3>{experience.name[language]}</h3>
                                     <div className="price">
                                         {experience.price}
                                         <span>/p</span>
@@ -202,7 +208,7 @@ function Activity({ data, gallery, level_dictionary, theme, handleForm }) {
                                 </div>
 
                                 <p style={{ flex: 1 }}>
-                                    {experience.description[lang]}
+                                    {experience.description[language]}
                                 </p>
 
                                 <Row
@@ -221,8 +227,7 @@ function Activity({ data, gallery, level_dictionary, theme, handleForm }) {
                                         background={theme.primary}
                                         backgroundHover={theme.primaryHover}
                                     >
-                                        {localStorage.getItem("language") ==
-                                        "en"
+                                        {language == "en"
                                             ? "Book now"
                                             : "Reservar"}
                                     </OrderButton>
@@ -242,8 +247,7 @@ function Activity({ data, gallery, level_dictionary, theme, handleForm }) {
                                             background={theme.inverseText}
                                             backgroundHover={theme.inverseText}
                                         >
-                                            {localStorage.getItem("language") ==
-                                            "en"
+                                            {language == "en"
                                                 ? "See more"
                                                 : "Saber mais"}
                                         </OrderButton>
@@ -296,4 +300,13 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(null, mapDispatchToProps)(withTheme(Activity));
+const mapStateToProps = (state) => {
+    return {
+        language: state.application.language,
+    };
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(withTheme(Activity));

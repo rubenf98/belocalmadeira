@@ -1,12 +1,13 @@
 import React, { useContext, useState, useEffect } from "react";
-import styled, { ThemeContext, withTheme } from "styled-components";
+import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { dimensions } from "../../helper";
 import { Select, Drawer, Dropdown, Menu, Row } from "antd";
 import AnimationContainer from "./AnimationContainer";
+import { connect } from "react-redux";
 
 const Container = styled.div`
-    background: ${(props) => props.background};
+    background: ${({ theme }) => theme.primary};
     width: 100vw;
     height: ${(props) => (props.hasBackground ? "100px" : "0px")};
     left: 50%;
@@ -93,7 +94,7 @@ const Logo = styled(Link)`
 const OrderButton = styled.div`
     box-sizing: border-box;
     cursor: pointer;
-    background: ${(props) => props.background};
+    background: ${({ theme }) => theme.primary};
     padding: 10px 30px 10px 30px;
     font-size: 15px;
     transition: 0.4s;
@@ -103,7 +104,7 @@ const OrderButton = styled.div`
     position: relative;
     background-size: 110%;
     text-transform: capitalize;
-    color: ${(props) => props.color};
+    color: ${({ theme }) => theme.inverseText};
     font-weight: bold;
 
     @media (max-width: ${dimensions.md}) {
@@ -114,7 +115,7 @@ const OrderButton = styled.div`
     }
 
     &:hover {
-        background: ${(props) => props.backgroundHover};
+        background: ${({ theme }) => theme.primaryHover};
 
         @media (max-width: ${dimensions.md}) {
             /* background: transparent; */
@@ -224,7 +225,7 @@ const MenuItem = styled(Menu.Item)`
     padding: 10px 25px;
     box-sizing: border-box;
     padding-left: ${(props) => (props.main ? "20px" : "40px")};
-    color: ${(props) => props.color};
+    color: ${({ theme }) => theme.primaryLight};
     display: block;
     font-weight: ${(props) => (props.main ? "700" : "400")};
     font-size: ${(props) => (props.main ? "14px" : "12px")};
@@ -245,12 +246,9 @@ const MobileContainer = styled.div`
     }
 `;
 
-function Navbar({ handleVisibility, theme }) {
+function Navbar({ handleVisibility, language }) {
     const [hasBackground, setHasBackground] = useState(false);
-    const themeContext = useContext(ThemeContext);
-    const { text } = require("../../assets/" +
-        localStorage.getItem("language") +
-        "/links");
+    const { text } = require("../../assets/" + language + "/links");
 
     const menu = (
         <Menu
@@ -260,25 +258,23 @@ function Navbar({ handleVisibility, theme }) {
                 left: "50%",
             }}
         >
-            <MenuItem color={theme.primaryLight} main>
+            <MenuItem main>
                 <Link to="/">home</Link>
             </MenuItem>
-            <MenuItem color={theme.primaryLight} main>
-                Activities
-            </MenuItem>
-            <MenuItem color={theme.primaryLight}>
+            <MenuItem main>Activities</MenuItem>
+            <MenuItem>
                 <Link to="/activities/canyoning">canyoning</Link>
             </MenuItem>
-            <MenuItem color={theme.primaryLight}>
+            <MenuItem>
                 <Link to="/activities/biking">biking</Link>
             </MenuItem>
-            <MenuItem color={theme.primaryLight}>
+            <MenuItem>
                 <Link to="/activities/coasteering">coasteering</Link>
             </MenuItem>
-            <MenuItem color={theme.primaryLight}>
+            <MenuItem>
                 <Link to="/activities/hiking">hiking</Link>
             </MenuItem>
-            <MenuItem color={theme.primaryLight} main>
+            <MenuItem main>
                 <Link to="/about">about</Link>
             </MenuItem>
         </Menu>
@@ -300,7 +296,7 @@ function Navbar({ handleVisibility, theme }) {
     }, []);
 
     return (
-        <Container background={theme.primary} hasBackground={hasBackground}>
+        <Container hasBackground={hasBackground}>
             <Content>
                 <FlexItem className="navbar-hidden-links">
                     <NavbarLink to="/about">
@@ -346,24 +342,6 @@ function Navbar({ handleVisibility, theme }) {
                     <NavbarLink to="/activities/jeep">
                         {text.links[7]} <div />
                     </NavbarLink>
-
-                    {/* <OrderButton
-                            onClick={() => handleVisibility(true)}
-                            color={themeContext.inverseText}
-                            background={themeContext.primary}
-                            backgroundHover={themeContext.primaryHover}
-                        >
-                            <AnimationContainer
-                                animateIn="fadeInDown"
-                                offset={0}
-                            >
-                                <span>{text.button}</span>
-                                <img
-                                    src="/image/navbar/order.svg"
-                                    alt="create reservation"
-                                />
-                            </AnimationContainer>
-                        </OrderButton> */}
                 </FlexItem>
 
                 <MobileContainer>
@@ -372,12 +350,7 @@ function Navbar({ handleVisibility, theme }) {
                         align="middle"
                         className="navbar-hidden-menu"
                     >
-                        <OrderButton
-                            onClick={() => handleVisibility(true)}
-                            color={themeContext.inverseText}
-                            background={themeContext.primary}
-                            backgroundHover={themeContext.primaryHover}
-                        >
+                        <OrderButton onClick={() => handleVisibility(true)}>
                             <AnimationContainer
                                 animateIn="fadeInDown"
                                 offset={0}
@@ -405,4 +378,9 @@ function Navbar({ handleVisibility, theme }) {
     );
 }
 
-export default withTheme(Navbar);
+const mapStateToProps = (state) => {
+    return {
+        language: state.application.language,
+    };
+};
+export default connect(mapStateToProps, null)(Navbar);

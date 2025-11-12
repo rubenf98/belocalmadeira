@@ -20,6 +20,8 @@ class ExperienceResource extends JsonResource
             'visible' =>   $this->visible,
             'level' =>   $this->level,
             'key' =>   $this->key,
+            'price_per_person' =>   $this->price_per_person,
+
             'image' =>   $this->image,
             'name' =>  $this->getTranslations('name'),
             'description' =>  $this->getTranslations('description'),

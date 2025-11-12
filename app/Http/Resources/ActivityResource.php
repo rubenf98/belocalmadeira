@@ -18,6 +18,7 @@ class ActivityResource extends JsonResource
             'id' => $this->id,
             'price' => $this->price,
             'private_price' => $this->private_price,
+            'price_per_person' =>   $this->price_per_person,
             'name' => $this->getTranslations('name'),
         ];
     }

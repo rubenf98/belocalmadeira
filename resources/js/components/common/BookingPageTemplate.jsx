@@ -34,6 +34,11 @@ const Content = styled.div`
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+
+    li {
+        font-size: 16px;
+        opacity: 0.7;
+    }
 `;
 
 const DetailsContainer = styled(Row)`
@@ -306,6 +311,23 @@ function BookingPageTemplate({
                             <p>{paragraph}</p>
                         ))}
                     </ParagraphContainer>
+
+                    {text.additionail &&
+                        text.additionail[experience.id] &&
+                        text.additionail[experience.id].titles.map(
+                            (title, index) => (
+                                <div key={"additionail_" + index}>
+                                    <h3>{title}</h3>
+                                    <ul>
+                                        {text.additionail[experience.id].items[
+                                            index
+                                        ].map((info) => (
+                                            <li>{info}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            )
+                        )}
                 </InfoContainer>
                 <FormContainer>
                     <div className="price-container">

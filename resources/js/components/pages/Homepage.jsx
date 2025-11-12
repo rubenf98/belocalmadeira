@@ -9,11 +9,10 @@ import Tours from "./HomepageComponents/Tours";
 import Canyoning from "./HomepageComponents/Canyoning";
 import Coasteering from "./HomepageComponents/Coasteering";
 import Newsletter from "./HomepageComponents/Newsletter";
+import { connect } from "react-redux";
 
-function Homepage() {
-    const { text } = require("../../assets/" +
-        localStorage.getItem("language") +
-        "/homepage");
+function Homepage(props) {
+    const { text } = require("../../assets/" + props.language + "/homepage");
 
     return (
         <>
@@ -38,4 +37,9 @@ function Homepage() {
     );
 }
 
-export default Homepage;
+const mapStateToProps = (state) => {
+    return {
+        language: state.application.language,
+    };
+};
+export default connect(mapStateToProps, null)(Homepage);

@@ -2,7 +2,9 @@ import React, { useEffect, useState, useContext, useRef } from "react";
 import styled, { keyframes, ThemeContext } from "styled-components";
 import { dimensions } from "../../../helper";
 import AnimationContainer from "../../common/AnimationContainer";
-import Flyer from "../../common/Flyer";
+import { setLanguage } from "../../../redux/application/actions";
+
+import { connect } from "react-redux";
 
 const fillBar = keyframes`
   from {
@@ -61,7 +63,7 @@ const TitleContainer = styled.div`
         width: 70%;
         margin: auto;
         text-align: center;
-        font-size: clamp(36px, 4vw, 80px);
+        font-size: clamp(36px, 4vw, 70px);
         font-family: "Russo One", sans-serif;
         line-height: 110%;
         color: white;
@@ -88,10 +90,11 @@ const LanguageContainer = styled.div`
         cursor: pointer;
         font-size: 22px;
         font-weight: bold;
+        opacity: 0.6;
     }
 
     .active {
-        filter: ${(props) => (props.active ? "opacity(1)" : "opacity(.4)")};
+        opacity: 1;
     }
 `;
 
@@ -176,17 +179,16 @@ const ActionBar = styled.div`
 
 const backgrounds = [
     "header_canyoning.jpg",
+    "header_coasteering.jpg",
+    "header_jeep.jpg",
     "header_hiking.jpg",
-    "header_canyoning.jpg",
-    "header_canyoning.jpg",
-    "header_canyoning.jpg",
+    "header_biking.jpg",
 ];
 
-function Header({ text }) {
+function Header({ text, setLanguage, language }) {
     const [backgroundIndex, setBackgroundIndex] = useState(0);
     const counter = useRef(0);
 
-    const [active, setActive] = useState("en");
     const themeContext = useContext(ThemeContext);
 
     useEffect(() => {
@@ -207,15 +209,14 @@ function Header({ text }) {
     }, [backgroundIndex]);
 
     useEffect(() => {
-        setActive(localStorage.getItem("language"));
+        setLanguage(localStorage.getItem("language"));
     }, []);
 
-    function handleLanguageClick(language) {
-        localStorage.setItem("language", language);
-        setActive(language);
-        location.reload();
-    }
-
+    const handleLanguageChange = (value) => {
+        localStorage.setItem("language", value);
+        setLanguage(value);
+    };
+    console.log(language, "language");
     return (
         <Container color={themeContext.inverseText}>
             <BackgroundContainer
@@ -253,17 +254,19 @@ function Header({ text }) {
                     <LanguageContainer>
                         <div
                             className={
-                                "indicator " + (active == "pt" && "active")
+                                "indicator " +
+                                (language == "pt" ? "active" : "")
                             }
-                            onClick={() => handleLanguageClick("pt")}
+                            onClick={() => handleLanguageChange("pt")}
                         >
                             pt
                         </div>
                         <div
                             className={
-                                "indicator " + (active == "en" && "active")
+                                "indicator " +
+                                (language == "en" ? "active" : "")
                             }
-                            onClick={() => handleLanguageClick("en")}
+                            onClick={() => handleLanguageChange("en")}
                         >
                             en
                         </div>
@@ -284,4 +287,14 @@ function Header({ text }) {
     );
 }
 
-export default Header;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setLanguage: (state) => dispatch(setLanguage(state)),
+    };
+};
+const mapStateToProps = (state) => {
+    return {
+        language: state.application.language,
+    };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

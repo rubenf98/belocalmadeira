@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 const activityDictionary = {
     canyoning: 1,
     hiking: 2,
+    jeep: 5,
 };
 
 function ActivityList(props) {

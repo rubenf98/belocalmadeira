@@ -4,6 +4,7 @@ import moment from "moment";
 import { CustomInput, CustomInputNumber } from "../pages/Form/styles";
 import dayjs from "dayjs";
 import styled from "styled-components";
+import { connect } from "react-redux";
 
 const formItems = {
     undefined: [],
@@ -11,17 +12,7 @@ const formItems = {
     hiking: ["name", "email", "phone", "address", "date", "participants"],
     coasteering: ["name", "email", "phone", "address", "date", "participants"],
     biking: ["name", "email", "phone", "address", "date", "participants"],
-    jeep: [
-        "name",
-        "email",
-        "phone",
-        "address",
-        "participants",
-        "direction",
-        "dropdown_date",
-        "time",
-        "return",
-    ],
+    jeep: ["name", "email", "phone", "address", "participants", "date"],
 };
 
 const CalendarHeader = styled.div`
@@ -39,7 +30,7 @@ const CalendarHeader = styled.div`
     }
 `;
 function BookingPageFormTemplate(props) {
-    const { text } = props;
+    const { text, language } = props;
     const [template, setTemplate] = useState([]);
 
     useEffect(() => {
@@ -168,18 +159,32 @@ function BookingPageFormTemplate(props) {
                 </Col>
             )}
 
+            {template.includes("dropdown_date") && (
+                <Col xs={24} md={12}>
+                    <Form.Item label={text.form.name.label} name="name">
+                        <CustomInput
+                            light
+                            placeholder={text.form.name.placeholder}
+                        />
+                    </Form.Item>
+                </Col>
+            )}
+
             <br />
 
             <Col xs={24} md={24}>
                 <button onClick={props.handleSubmit}>
                     <div className="circle" />
-                    {localStorage.getItem("language") == "en"
-                        ? "Book now"
-                        : "Reservar já"}
+                    {language == "en" ? "Book now" : "Reservar já"}
                 </button>
             </Col>
         </Row>
     );
 }
 
-export default BookingPageFormTemplate;
+const mapStateToProps = (state) => {
+    return {
+        language: state.application.language,
+    };
+};
+export default connect(mapStateToProps, null)(BookingPageFormTemplate);

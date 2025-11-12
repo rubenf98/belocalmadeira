@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import { dimensions } from "../../../helper";
-import { handleTransferForm } from "../../../redux/application/actions";
+import {
+    handleTransferForm,
+    setLanguage,
+} from "../../../redux/application/actions";
 import { connect } from "react-redux";
 import { fetchTours } from "../../../redux/tour/actions";
 import {
@@ -98,7 +101,7 @@ function Tours(props) {
         props.fetchTours();
     }, []);
 
-    const { text } = props;
+    const { text, language } = props;
     return (
         <Container>
             <Title center>{text.title}</Title>
@@ -108,34 +111,17 @@ function Tours(props) {
                     <div className="background" />
                     <img src={tour.image} alt="airport" />
                     <div className="content">
-                        <h3>
-                            {tour.subtitle[localStorage.getItem("language")]}
-                        </h3>
-                        <h2>{tour.title[localStorage.getItem("language")]}</h2>
+                        <h3>{tour.subtitle[language]}</h3>
+                        <h2>{tour.title[language]}</h2>
+                        <p>{tour?.description[language]}</p>
                         <p>
-                            {
-                                tour?.description[
-                                    localStorage.getItem("language")
-                                ]
-                            }
+                            {tour.description2 && tour.description2[language]}
                         </p>
                         <p>
-                            {tour.description2 &&
-                                tour.description2[
-                                    localStorage.getItem("language")
-                                ]}
+                            {tour.description3 && tour.description3[language]}
                         </p>
                         <p>
-                            {tour.description3 &&
-                                tour.description3[
-                                    localStorage.getItem("language")
-                                ]}
-                        </p>
-                        <p>
-                            {tour.description4 &&
-                                tour.description4[
-                                    localStorage.getItem("language")
-                                ]}
+                            {tour.description4 && tour.description4[language]}
                         </p>
 
                         <br />
@@ -178,6 +164,7 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => {
     return {
         tours: state.tour.data,
+        language: state.application.language,
     };
 };
 

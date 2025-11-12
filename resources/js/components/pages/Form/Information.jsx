@@ -182,10 +182,6 @@ function Information({
 
                     <Col xs={24}>
                         <Warning>
-                            <img src="/icon/warning.svg" alt="warning" />
-                            <div>{text.warning}</div>
-                        </Warning>
-                        <Warning>
                             <img src="/icon/discount.svg" alt="discount" />
                             <div>{text.family}</div>
                         </Warning>

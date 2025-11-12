@@ -55,40 +55,51 @@ function Summary({ text, data, activities, coupon }) {
     const [discount, setDiscount] = useState(1);
 
     useEffect(() => {
-        activities.map((currentActivity) => {
-            if (data.activity.length == 2) {
-                currentActivity.children.map((activity) => {
-                    if (activity.value == data.activity[1]) {
-                        setActivityName(activity.label);
-                        var price = data.private
-                            ? activity.private_price
-                            : activity.price;
-                        setActivityPrice(price * data.participants);
-                    }
-                });
-            } else {
-                if (currentActivity.value == data.activity[0]) {
-                    setActivityName(currentActivity.label);
-                    var price = data.private
-                        ? currentActivity.private_price
-                        : currentActivity.price;
-                    setActivityPrice(price * data.participants);
-                }
-            }
-        });
+        if (!activities?.length || !data?.activity?.length) return;
 
-        var discountValue = 1;
+        let selectedActivity = null;
 
-        if (data.participants >= 4) {
-            discountValue = 0.9;
+        // Extrai os identificadores
+        const [mainActivityId, subActivityId] = data.activity;
+
+        // Procura a atividade principal
+        const mainActivity = activities.find((a) => a.value === mainActivityId);
+
+        // Se houver subatividade, procura dentro dela
+        if (mainActivity && subActivityId && mainActivity.children) {
+            selectedActivity = mainActivity.children.find(
+                (a) => a.value === subActivityId
+            );
+        } else {
+            selectedActivity = mainActivity;
         }
 
-        if (coupon.id) {
-            discountValue = discountValue * coupon.value;
+        if (selectedActivity) {
+            const basePrice = data.private
+                ? selectedActivity.private_price
+                : selectedActivity.price;
+
+            const perGroup = selectedActivity.price_per_person || 1; // N (default 1)
+
+            // Calcula o número de grupos
+            const groups = Math.ceil(data.participants / perGroup);
+
+            // Preço total baseado no número de grupos
+            const totalPrice = basePrice * groups;
+
+            setActivityName(selectedActivity.label);
+            setActivityPrice(totalPrice);
         }
 
-        setDiscount(discountValue);
-    }, [data]);
+        if (mainActivityId != 5) {
+            let discountValue = 1;
+
+            if (data.participants >= 4) discountValue = 0.9;
+            if (coupon?.id) discountValue *= coupon.value;
+
+            setDiscount(discountValue);
+        }
+    }, [data, activities, coupon]);
 
     return (
         <div>
@@ -131,17 +142,21 @@ function Summary({ text, data, activities, coupon }) {
                     {data.date}
                 </Detail>
             </Flex>
-            <Feedback>{text.participantsTitle}</Feedback>
 
-            {data.person &&
-                data.person.map((participant, index) => (
-                    <Participant key={index}>
-                        {text.details.participant} {index + 1}:{" "}
-                        {participant.gender} / {participant.weight}kg /{" "}
-                        {participant.height}cm / {participant.shoe} EU /{" "}
-                        {participant.birthday}
-                    </Participant>
-                ))}
+            {data.person && (
+                <div>
+                    <Feedback>{text.details.participants}</Feedback>
+
+                    {data.person.map((participant, index) => (
+                        <Participant key={index}>
+                            {text.details.participant} {index + 1}:{" "}
+                            {participant.gender} / {participant.weight}kg /{" "}
+                            {participant.height}cm / {participant.shoe} EU /{" "}
+                            {participant.birthday}
+                        </Participant>
+                    ))}
+                </div>
+            )}
         </div>
     );
 }

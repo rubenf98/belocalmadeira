@@ -102,5 +102,49 @@ class ExperienceSeeder extends Seeder
             'private_price' => 120,
             'activity_id' => 2,
         ]);
+
+        //----------------------------------------------------------------
+
+
+        Experience::create([
+            'name' => ['en' => "Private 4x4 Jeep Tour - Adventure in Madeira", 'pt' => "Private 4x4 Jeep Tour - Adventure in Madeira"],
+            'image' => "/image/activities/levels/25fontes_01.jpg",
+            'key' => "jeep",
+            'description' => ['en' => "Discover the Island of Madeira in the most authentic and exclusive way - aboard a private 4x4 Jeep, guided by passionate local experts who will reveal to you the island’s hidden treasures, breathtaking landscapes, and cultural heritage.", 'pt' => "Pacote Família"],
+            'price' => 350,
+            'private_price' => 350,
+            'activity_id' => 5,
+            'price_per_person' => 6,
+        ]);
+
+        Experience::create([
+            'name' => ['en' => "Westside Wonders 4x4 Jeep Tour", 'pt' => "Miradouro do Pico do Areeiro / Pico Ruivo"],
+            'image' => "/image/activities/levels/picos_01.jpg",
+            'key' => "jeep",
+            'description' => ['en' => "The Western side of Madeira is where nature reveals its most dramatic contrasts: towering sea cliffs, waterfalls plunging into the ocean, volcanic black-sand beaches, lush valleys, and enchanting ancient forests.", 'pt' => "Pacote Família"],
+            'price' => 65,
+            'private_price' => 65,
+            'activity_id' => 5,
+        ]);
+
+        Experience::create([
+            'name' => ['en' => "Half-Day Jeep Tour from Funchal", 'pt' => "Ponta de São Lourenço"],
+            'image' => "/image/activities/levels/saolourenco_01.jpg",
+            'key' => "jeep",
+            'description' => ['en' => "Short on time but eager to discover Madeira’s natural beauty and cultural charm? Our Half-Day Jeep Tour from Funchal is the perfect solution. Designed for cruise ship passengers, city visitors, or anyone with limited time, this 3-hour journey offers a compact yet unforgettable glimpse of the island's highlights.", 'pt' => "Pacote Família"],
+            'price' => 45,
+            'private_price' => 45,
+            'activity_id' => 5,
+        ]);
+
+        Experience::create([
+            'name' => ['en' => "Sunset Jeep Tour Madeira - Discover Madeira''s Golden Hour", 'pt' => "Ponta de São Lourenço"],
+            'image' => "/image/activities/levels/saolourenco_01.jpg",
+            'key' => "jeep",
+            'description' => ['en' => "This exclusive experience offers your clients the opportunity to witness the sunset from Pico do Areeiro (1,818 m), Madeira’s third-highest peak. Unlike the busy morning and afternoon tours, the mountain at dusk is calm, atmospheric, and truly unique. The light conditions are ideal for photography and the setting is perfect for couples, families, or small groups seeking an authentic and memorable moment above the clouds.", 'pt' => "Pacote Família"],
+            'price' => 45,
+            'private_price' => 45,
+            'activity_id' => 5,
+        ]);
     }
 }

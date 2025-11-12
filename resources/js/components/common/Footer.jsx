@@ -3,6 +3,8 @@ import styled, { ThemeContext } from "styled-components";
 import moment from "moment";
 import { dimensions, maxWidth } from "../../helper";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { setLanguage } from "../../redux/application/actions";
 
 const Container = styled.div`
     width: 100%;
@@ -143,13 +145,13 @@ const LegalContainer = styled.div`
         margin: 0px;
     }
 
-    .active-lang {
-        text-decoration: underline;
-        color: ${({ theme }) => theme.accent};
-    }
-
     .lang {
         cursor: pointer;
+    }
+
+    .active {
+        text-decoration: underline;
+        color: ${({ theme }) => theme.accent};
     }
 
     a {
@@ -172,21 +174,19 @@ const LegalContainer = styled.div`
     }
 `;
 
-function Footer() {
+function Footer(props) {
+    const { language } = props;
     const themeContext = useContext(ThemeContext);
     const [active, setActive] = useState("en");
-    const { text } = require("../../assets/" +
-        localStorage.getItem("language") +
-        "/links");
+    const { text } = require("../../assets/" + language + "/links");
 
     useEffect(() => {
-        setActive(localStorage.getItem("language"));
+        setActive(language);
     }, []);
 
     function handleLanguageClick(language) {
         localStorage.setItem("language", language);
-        setActive(language);
-        location.reload();
+        props.setLanguage(language);
     }
 
     return (
@@ -255,13 +255,13 @@ function Footer() {
                     reserved
                 </p>
                 <p
-                    className={active == "en" ? "lang active-lang" : "lang"}
+                    className={"lang " + (language == "en" ? "active" : "")}
                     onClick={() => handleLanguageClick("en")}
                 >
                     EN
                 </p>
                 <p
-                    className={active == "pt" ? "lang active-lang" : "lang"}
+                    className={"lang " + (language == "pt" ? "active" : "")}
                     onClick={() => handleLanguageClick("pt")}
                 >
                     PT
@@ -278,5 +278,15 @@ function Footer() {
         </Container>
     );
 }
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setLanguage: (state) => dispatch(setLanguage(state)),
+    };
+};
 
-export default Footer;
+const mapStateToProps = (state) => {
+    return {
+        language: state.application.language,
+    };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Footer);
