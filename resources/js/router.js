@@ -25,6 +25,11 @@ import Visit from "./components/pages/Visit";
 import Transfers from "./components/dashboard/pages/Transfer/Transfers";
 import Terms from "./components/common/Terms";
 import ActivityList from "./components/pages/Activities/ActivityList";
+import Blogs from "./components/pages/Blogs";
+import Blog from "./components/pages/Blog";
+
+import PainelBlog from "./components/dashboard/pages/Blog/Blog";
+import Store from "./components/pages/Store";
 
 export const history = createBrowserHistory();
 
@@ -33,6 +38,11 @@ function Router() {
         <BrowserRouter history={history}>
             <ScrollToTop>
                 <Routes>
+
+                    <Route exact path="/store" element={<Layout><Store /></Layout>} />
+                    <Route exact path="/blogs" element={<Layout><Blogs /></Layout>} />
+                    <Route exact path="/blogs/:id" element={<Layout><Blog /></Layout>} />
+
                     <Route path="/activities/:activity/:id" element={<Layout><BookingPage /></Layout>} />
                     <Route path="/activities/:activity" element={<Layout><ActivityList /></Layout>} />
                     <Route exact path="/activities/biking" element={<Layout><Biking /></Layout>} />
@@ -50,7 +60,7 @@ function Router() {
                     <Route exact path="/confirmation/:token" element={<Layout><Confirmation /></Layout>} />
 
                     <Route exact path="/painel/transfers" element={<PainelLayout><Transfers /></PainelLayout>} />
-
+                    <Route exact path="/painel/blog" element={<PainelLayout><PainelBlog /></PainelLayout>} />
                     <Route exact path="/painel/bloqueado" element={<PainelLayout><Blocked /></PainelLayout>} />
                     <Route exact path="/painel/contacto" element={<PainelLayout><DashboardContact /></PainelLayout>} />
                     <Route exact path="/painel/reservas" element={<PainelLayout><DashboardReservations /></PainelLayout>} />

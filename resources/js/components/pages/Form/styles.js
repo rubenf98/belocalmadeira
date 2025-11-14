@@ -81,7 +81,7 @@ export const Title = styled.h2`
 export const secundaryButtonStyle = css`
     ${primaryButtonStyle}
     
-    background: white;
+    background: rgb(255, 254, 239);
     color: ${({ theme }) => theme.primary};
     border: 2px solid ${({ theme }) => theme.primary};
 

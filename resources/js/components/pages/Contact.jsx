@@ -2,26 +2,30 @@ import React from "react";
 import styled from "styled-components";
 import Row from "antd/es/row";
 import Form from "antd/es/form";
-import Button from "antd/es/button";
 import Col from "antd/es/col";
 import { dimensions } from "../../helper";
 import axios from "axios";
-import { CustomInput, CustomTextArea } from "./Form/styles";
-import PageHeader from "../common/PageHeader";
+import {
+    containerCommonStyle,
+    CustomInput,
+    CustomTextArea,
+    secundaryButtonStyle,
+} from "./Form/styles";
 import Faq from "./HomepageComponents/Faq";
 import { connect } from "react-redux";
 
 const Container = styled.div`
+    ${containerCommonStyle}
     display: flex;
     align-items: center;
     position: relative;
     justify-content: space-between;
-    width: 90%;
-    margin: 200px auto;
+    margin: 150px auto;
 
     @media (max-width: ${dimensions.md}) {
+        flex-wrap: wrap;
         .hide {
-            display: none;
+            margin-bottom: 30px;
         }
     }
 `;
@@ -41,15 +45,10 @@ const ContactForm = styled(Form)`
 `;
 
 const FormContainer = styled.div`
-    width: 70%;
+    width: 100%;
 
     @media (max-width: ${dimensions.lg}) {
         width: 100%;
-    }
-
-    h2,
-    h3 {
-        font-family: "Playfair Display", serif;
     }
 
     h2 {
@@ -73,33 +72,16 @@ const FormContainer = styled.div`
 `;
 
 const Sentence = styled.div`
-    font-size: 82px;
-    line-height: 70px;
-    width: 80%;
+    font-size: clamp(50px, 4vw, 82px);
+    font-family: "Russo One", sans-serif;
+    line-height: 100%;
+    width: 100%;
     color: ${({ theme }) => theme.primary};
-
-    @media (max-width: ${dimensions.lg}) {
-        font-size: 70px;
-    }
 `;
 
-const Submit = styled(Button)`
-    background: white;
-    border: none;
-    padding: 10px 15px;
-    text-transform: uppercase;
-    background-color: ${({ theme }) => theme.primary};
-    transition: box-shadow 0.3s ease;
-
-    &:hover,
-    &:focus {
-        color: white;
-        background-color: ${({ theme }) => theme.primary};
-        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
-    }
-    @media (max-width: ${dimensions.md}) {
-        margin: auto;
-    }
+const Submit = styled.button`
+    margin-top: 30px;
+    ${secundaryButtonStyle}
 `;
 
 const rules = {
@@ -143,7 +125,6 @@ function Contact({ language }) {
 
     return (
         <div>
-            <PageHeader title={text.title} subtitle={text.subtitle} />
             <Container>
                 <SectionContainer className="hide">
                     <Sentence>{text.sentence}</Sentence>
@@ -193,6 +174,7 @@ function Contact({ language }) {
                                     type="primary"
                                     htmlType="submit"
                                 >
+                                    <div className="circle" />{" "}
                                     {text.form.submit}
                                 </Submit>
                             </Form.Item>

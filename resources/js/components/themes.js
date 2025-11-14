@@ -8,6 +8,7 @@ export const light = {
     primaryLight: "#1d530c",
     primaryBackground: "#dae3cf",
     accent: '#BD9B5E',
+    customWhite: "rgb(255, 254, 239)"
 }
 
 export const dark = {

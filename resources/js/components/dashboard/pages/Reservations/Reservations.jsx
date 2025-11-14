@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
-import { fetchReservations, fetchReservation, deleteReservation, updateReservation } from "../../../../redux/reservation/actions";
+import {
+    fetchReservations,
+    fetchReservation,
+    deleteReservation,
+    updateReservation,
+} from "../../../../redux/reservation/actions";
 import { dimensions } from "../../../../helper";
 import TableContainer from "./TableContainer";
 import DrawerContainer from "./DrawerContainer";
@@ -14,30 +19,30 @@ const ContentContainer = styled.div`
     flex-wrap: wrap;
     margin: 50px 0px;
 
-    @media (max-width: ${dimensions.lg}){
+    @media (max-width: ${dimensions.lg}) {
         width: 100%;
     }
 `;
 
 const Container = styled.div`
     width: 100%;
-    min-height: 100vh;
-    background: rgb(245, 245, 245);
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 1px solid red;
+    flex: 1;
 `;
 
 const Table = styled.div`
-     width: 100%;
+    width: 100%;
 `;
 
 class Reservations extends Component {
     state = {
         filters: {},
         page: 1,
-        drawerVisible: false
-    }
+        drawerVisible: false,
+    };
 
     componentDidMount() {
         this.props.fetchReservations();
@@ -49,22 +54,22 @@ class Reservations extends Component {
         this.setState({ filters });
 
         this.props.fetchReservations(1, filters);
-    }
+    };
 
     handlePageChange = (pagination) => {
         var { filters } = this.state;
         this.setState({ page: pagination.current });
 
         this.props.fetchReservations(pagination.current, filters);
-    }
+    };
 
     onRowClick = (aRecord) => {
         this.props.fetchReservation(aRecord).then(() => {
             this.setState({
-                drawerVisible: true
-            })
+                drawerVisible: true,
+            });
         });
-    }
+    };
 
     setFilters = (aFilters) => {
         var { filters } = this.state;
@@ -72,7 +77,7 @@ class Reservations extends Component {
         this.setState({ filters });
 
         this.props.fetchReservations(1, filters);
-    }
+    };
 
     render() {
         var { data, loading, meta, current } = this.props;
@@ -96,10 +101,13 @@ class Reservations extends Component {
 
                 <DrawerContainer
                     record={current}
-                    onClose={() => this.setState({
-                        drawerVisible: false
-                    })}
-                    visible={drawerVisible} />
+                    onClose={() =>
+                        this.setState({
+                            drawerVisible: false,
+                        })
+                    }
+                    visible={drawerVisible}
+                />
             </Container>
         );
     }
@@ -107,7 +115,8 @@ class Reservations extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchReservations: (page, filters) => dispatch(fetchReservations(page, filters)),
+        fetchReservations: (page, filters) =>
+            dispatch(fetchReservations(page, filters)),
         fetchReservation: (id) => dispatch(fetchReservation(id)),
         updateReservation: (id, data) => dispatch(updateReservation(id, data)),
         deleteReservation: (id) => dispatch(deleteReservation(id)),

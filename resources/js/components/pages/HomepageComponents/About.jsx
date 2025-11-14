@@ -1,25 +1,23 @@
-import React, { useContext } from 'react'
+import React, { useContext } from "react";
 import styled, { ThemeContext } from "styled-components";
-import { dimensions, maxWidth } from '../../../helper';
-import AnimationContainer from '../../common/AnimationContainer';
+import { dimensions, maxWidth } from "../../../helper";
+import AnimationContainer from "../../common/AnimationContainer";
+import { containerCommonStyle } from "../Form/styles";
 
 const Container = styled.section`
+    ${containerCommonStyle}
     position: relative;
     display: flex;
     justify-content: center;
-    max-width: ${maxWidth};
-    margin: auto;
-    padding: 100px 0px;
     box-sizing: border-box;
     align-items: center;
     flex-wrap: wrap;
+    gap: 80px;
 `;
 
 const Column = styled.div`
     box-sizing: border-box;
-    width: 50%;
-    padding: 0px 50px;
-    box-sizing: border-box;
+    width: calc(50% - 40px);
 
     @media (max-width: ${dimensions.md}) {
         width: 100%;
@@ -29,7 +27,7 @@ const Column = styled.div`
 
 const ImageContainer = styled.div`
     width: 100%;
-    order: ${props => props.reverseOrder ? 2 : 1};
+    order: ${(props) => (props.reverseOrder ? 2 : 1)};
     position: relative;
 
     video {
@@ -37,15 +35,13 @@ const ImageContainer = styled.div`
         height: auto;
         max-height: 700px;
         object-fit: cover;
-        
+        border-radius: 20px;
 
         @media (max-width: ${dimensions.md}) {
             margin: auto;
             display: block;
         }
-        
     }
-
 
     .full-width-video {
         border-right: 1px solid lightgray;
@@ -57,20 +53,17 @@ const InfoContainer = styled.div`
     margin-bottom: 50px;
     margin-top: 100px;
 
-    
-
-    h2 {
+    h3 {
         font-size: 40px;
         font-weight: bold;
-        font-family: 'Playfair Display', serif;
-        line-height: 47px;
-        
+        line-height: 100%;
     }
 
     p {
-        font-size: 16px;
-        font-family: 'Playfair Display', serif;
+        font-size: 18px;
         margin-bottom: 5px;
+        font-weight: 300;
+        text-align: justify;
     }
 
     @media (max-width: ${dimensions.md}) {
@@ -83,20 +76,23 @@ const InfoContainer = styled.div`
         }
 
         p {
-            font-size: 14px;
+            font-size: 16px;
         }
     }
 `;
 
 const Overlay = styled.div`
-  z-index: 5;
-  top: 0;bottom:0;left:0;right: 0;
-  position: absolute;
-  background: rgb(0,0,0);
-  background: linear-gradient(180deg, #000 0%, #38383830 100%);
-  opacity: 0.2;
+    z-index: 5;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(180deg, #000 0%, #38383830 100%);
+    opacity: 0.2;
+    border-radius: 20px;
 `;
-
 
 function About({ text }) {
     const themeContext = useContext(ThemeContext);
@@ -105,29 +101,40 @@ function About({ text }) {
         <>
             <InfoContainer lightText={themeContext.lightText}>
                 <AnimationContainer animateIn="fadeInRight">
-                    <h2>{text.titles[title]}</h2>
+                    <h3>{text.titles[title]}</h3>
                     {descriptions.map((index) => (
                         <p key={index}>{text.description[index]}</p>
                     ))}
-
-
                 </AnimationContainer>
             </InfoContainer>
             <ImageContainer>
                 <Overlay />
-                <video preload='metadata' playsInline poster={"/image/homepage/" + thumbnail + ".jpg"} muted loop autoPlay controls={false}>
-                    <source src={"/image/homepage/" + video + ".mp4"} type="video/mp4" />
-                    <source src={"/image/homepage/" + video + ".webm"} type="video/webm" />
+                <video
+                    preload="metadata"
+                    playsInline
+                    poster={"/image/homepage/" + thumbnail + ".jpg"}
+                    muted
+                    loop
+                    autoPlay
+                    controls={false}
+                >
+                    <source
+                        src={"/image/homepage/" + video + ".mp4"}
+                        type="video/mp4"
+                    />
+                    <source
+                        src={"/image/homepage/" + video + ".webm"}
+                        type="video/webm"
+                    />
                     {text.videoError}
                 </video>
             </ImageContainer>
         </>
-    )
+    );
 
     return (
         <Container id="homepage-about-container">
-            <Column >
-
+            <Column>
                 <Section
                     video="mobile_header"
                     thumbnail="timelapse_thumbnail"
@@ -140,9 +147,8 @@ function About({ text }) {
                     title={2}
                     descriptions={[2]}
                 />
-
             </Column>
-            <Column className='last-section'>
+            <Column className="last-section">
                 <Section
                     video="timelapse"
                     thumbnail="timelapse_thumbnail"
@@ -151,10 +157,9 @@ function About({ text }) {
                 />
             </Column>
 
-
             <br />
         </Container>
-    )
+    );
 }
 
-export default About
+export default About;

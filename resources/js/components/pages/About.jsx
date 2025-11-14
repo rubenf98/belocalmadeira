@@ -4,9 +4,10 @@ import { Col, Row } from "antd";
 import { dimensions, maxWidth } from "../../helper";
 import PageHeader from "../common/PageHeader";
 import Faq from "./HomepageComponents/Faq";
+import { containerCommonStyle } from "./Form/styles";
 
 const Container = styled.div`
-    //
+    margin-top: 150px;
 `;
 
 const PartnerContainer = styled(Row)`
@@ -34,32 +35,34 @@ const PartnerContainer = styled(Row)`
     }
 `;
 
-const InfoContainer = styled(Row)`
+const InfoContainer = styled.div`
     width: 100%;
-    max-width: ${maxWidth};
-    margin: auto auto 0px auto;
+    ${containerCommonStyle}
     display: flex;
     align-items: center;
+    gap: 100px;
 
     img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        max-height: 80vh;
+        border-radius: 20px;
+        box-shadow: 0px 00px 10px 0px rgba(0, 0, 0, 0.3);
     }
 `;
 
-const Column = styled(Col)`
-    padding: 15px;
-    box-sizing: border-box;
-
+const Column = styled.div`
+    width: 50%;
     h2 {
-        font-family: "Playfair Display", serif;
-        font-size: 40px;
+        font-size: clamp(40px, 5vw, 60px);
+        line-height: 100%;
     }
 
     p {
-        color: ${(props) => props.text};
-        font-size: 18px;
+        font-size: 20px;
+        font-weight: 300;
+        text-align: justify;
     }
 `;
 
@@ -76,7 +79,6 @@ function About({ theme }) {
 
     return (
         <Container>
-            <PageHeader title={text.title} subtitle={text.subtitle} />
             <InfoContainer>
                 <Column text={theme.lightText} xs={24} md={12}>
                     <h2>{text.section.title}</h2>
@@ -84,7 +86,7 @@ function About({ theme }) {
                         <p key={index}>{paragraph}</p>
                     ))}
                 </Column>
-                <Column xs={24} md={10}>
+                <Column xs={24} md={12}>
                     <img src="/image/about/about3.jpg" alt="" />
                 </Column>
             </InfoContainer>

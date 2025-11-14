@@ -1,0 +1,7 @@
+export const types = {
+    FETCH_BLOGS: 'FETCH_BLOGS',
+    FETCH_BLOG: 'FETCH_BLOG',
+    DELETE_BLOG: 'DELETE_BLOG',
+    UPDATE_BLOG: 'UPDATE_BLOG',
+    CREATE_BLOG: 'CREATE_BLOG',
+};

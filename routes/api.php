@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CouponController;
 use App\Http\Controllers\ExternalReservationController;
 use App\Http\Controllers\HandleTransferVisibilityTransfer;
@@ -47,3 +48,4 @@ Route::apiResource('transfers', 'App\Http\Controllers\TransferController');
 Route::apiResource('activity', 'App\Http\Controllers\ActivityController');
 Route::apiResource('experiences', 'App\Http\Controllers\ExperienceController');
 Route::apiResource('coupons', CouponController::class);
+Route::apiResource('blogs', BlogController::class);

@@ -53,6 +53,7 @@
         height: 100%;
         font-family: 'IBM Plex Sans Arabic', sans-serif;
         scroll-behavior: smooth;
+        background-color: rgb(255, 254, 239);
     }
 
     .full-page-loader {

@@ -13,7 +13,7 @@ const ContentContainer = styled.div`
     flex-wrap: wrap;
     margin: 50px 0px;
 
-    @media (max-width: ${dimensions.lg}){
+    @media (max-width: ${dimensions.lg}) {
         width: 100%;
     }
 `;
@@ -21,21 +21,20 @@ const ContentContainer = styled.div`
 const Container = styled.div`
     width: 100%;
     min-height: 100vh;
-    background: rgb(245, 245, 245);
     display: flex;
     align-items: center;
     justify-content: center;
 `;
 
 const Table = styled.div`
-     width: 100%;
+    width: 100%;
 `;
 
 class Contact extends Component {
     state = {
         filters: {},
         page: 1,
-    }
+    };
 
     componentDidMount() {
         this.props.fetchContacts();
@@ -47,14 +46,14 @@ class Contact extends Component {
         this.setState({ filters });
 
         this.props.fetchContacts(1, filters);
-    }
+    };
 
     handlePageChange = (pagination) => {
         var { filters } = this.state;
         this.setState({ page: pagination.current });
 
         this.props.fetchContacts(pagination.current, filters);
-    }
+    };
 
     render() {
         var { data, loading, meta } = this.props;
@@ -78,7 +77,8 @@ class Contact extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchContacts: (page, filters) => dispatch(fetchContacts(page, filters)),
+        fetchContacts: (page, filters) =>
+            dispatch(fetchContacts(page, filters)),
     };
 };
 

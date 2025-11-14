@@ -125,7 +125,6 @@ const OrderForm = ({
     const [formData, setFormData] = useState({});
     const [step, setStep] = useState(0);
     const [stepOrder, setStepOrder] = useState([]);
-    const [active, setActive] = useState(undefined);
     const [nParticipants, setNParticipants] = useState(3);
     const [drawerWidth, setDrawerWidth] = useState(720);
     const [form] = Form.useForm();

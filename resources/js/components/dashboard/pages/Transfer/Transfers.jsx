@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
-import { fetchTransfers, fetchTransfer, deleteTransfer, updateTransfer } from "../../../../redux/transfer/actions";
+import {
+    fetchTransfers,
+    fetchTransfer,
+    deleteTransfer,
+    updateTransfer,
+} from "../../../../redux/transfer/actions";
 import { dimensions } from "../../../../helper";
 import TableContainer from "./TableContainer";
 import DrawerContainer from "./DrawerContainer";
@@ -14,7 +19,7 @@ const ContentContainer = styled.div`
     flex-wrap: wrap;
     margin: 50px 0px;
 
-    @media (max-width: ${dimensions.lg}){
+    @media (max-width: ${dimensions.lg}) {
         width: 100%;
     }
 `;
@@ -22,22 +27,21 @@ const ContentContainer = styled.div`
 const Container = styled.div`
     width: 100%;
     min-height: 100vh;
-    background: rgb(245, 245, 245);
     display: flex;
     align-items: center;
     justify-content: center;
 `;
 
 const Table = styled.div`
-     width: 100%;
+    width: 100%;
 `;
 
 class Transfers extends Component {
     state = {
         filters: {},
         page: 1,
-        drawerVisible: false
-    }
+        drawerVisible: false,
+    };
 
     componentDidMount() {
         this.props.fetchTransfers();
@@ -49,22 +53,22 @@ class Transfers extends Component {
         this.setState({ filters });
 
         this.props.fetchTransfers(1, filters);
-    }
+    };
 
     handlePageChange = (pagination) => {
         var { filters } = this.state;
         this.setState({ page: pagination.current });
 
         this.props.fetchTransfers(pagination.current, filters);
-    }
+    };
 
     onRowClick = (aRecord) => {
         this.props.fetchTransfer(aRecord).then(() => {
             this.setState({
-                drawerVisible: true
-            })
+                drawerVisible: true,
+            });
         });
-    }
+    };
 
     setFilters = (aFilters) => {
         var { filters } = this.state;
@@ -72,7 +76,7 @@ class Transfers extends Component {
         this.setState({ filters });
 
         this.props.fetchTransfers(1, filters);
-    }
+    };
 
     render() {
         var { data, loading, meta, current } = this.props;
@@ -96,10 +100,13 @@ class Transfers extends Component {
 
                 <DrawerContainer
                     record={current}
-                    onClose={() => this.setState({
-                        drawerVisible: false
-                    })}
-                    visible={drawerVisible} />
+                    onClose={() =>
+                        this.setState({
+                            drawerVisible: false,
+                        })
+                    }
+                    visible={drawerVisible}
+                />
             </Container>
         );
     }
@@ -107,7 +114,8 @@ class Transfers extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchTransfers: (page, filters) => dispatch(fetchTransfers(page, filters)),
+        fetchTransfers: (page, filters) =>
+            dispatch(fetchTransfers(page, filters)),
         fetchTransfer: (id) => dispatch(fetchTransfer(id)),
         updateTransfer: (id, data) => dispatch(updateTransfer(id, data)),
         deleteTransfer: (id) => dispatch(deleteTransfer(id)),

@@ -11,6 +11,7 @@ import transfer from './redux/transfer'
 import date from './redux/date'
 import coupon from './redux/coupon'
 import experience from './redux/experience'
+import blog from './redux/blog'
 
 const reducer = combineReducers({
     auth,
@@ -23,7 +24,8 @@ const reducer = combineReducers({
     tour,
     transfer,
     coupon,
-    experience
+    experience,
+    blog
 })
 
 export default reducer

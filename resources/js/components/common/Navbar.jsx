@@ -308,7 +308,7 @@ function Navbar({ handleVisibility, language }) {
                     <NavbarLink to="/store">
                         {text.links[8]} <div />
                     </NavbarLink>
-                    <NavbarLink to="/blog">
+                    <NavbarLink to="/blogs">
                         {text.links[9]} <div />
                     </NavbarLink>
                 </FlexItem>

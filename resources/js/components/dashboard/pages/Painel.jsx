@@ -9,19 +9,27 @@ import { dimensions } from "../../../helper";
 const Container = styled.div`
     width: 100%;
     min-height: 100%;
-    background: rgb(245, 245, 245);
     flex: 1;
+    max-width: 1600px;
+    width: 90%;
+    margin: auto;
+
+    h1 {
+        text-align: center;
+        font-size: 2em;
+        text-align: center;
+        padding: 50px 0;
+    }
 `;
 
-const CardContent = styled.div`
+const CardContent = styled(Link)`
     background: white;
-    width: 100%;
+    width: 20%;
     padding: 50px 20px;
     text-align: center;
     min-width: 200px;
-    margin: 50px 0;
-    border-radius: 6px;
-    box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s ease-in-out;
 
     @media (max-width: ${dimensions.sm}) {
@@ -35,6 +43,7 @@ const CardContent = styled.div`
 
     img {
         width: 80%;
+        object-fit: cover;
         margin: auto;
         display: block;
     }
@@ -47,90 +56,52 @@ const CardContent = styled.div`
     }
 `;
 
-const Content = styled(Row)`
+const Content = styled.div`
     margin: auto;
     width: 100%;
-`;
-
-const SubContainer = styled.div`
-    max-width: 1140px;
-    width: 90%;
-    margin: auto;
-
-    h1 {
-        text-align: center;
-        font-size: 2em;
-        text-align: center;
-        padding: 50px 0;
-    }
-`;
-
-const Footer = styled.div`
-    margin-top: 100px;
-    img {
-        width: 120px;
-        margin: auto;
-        display: block;
-    }
-
-    p {
-        text-align: center;
-        margin: 20px auto;
-    }
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
 `;
 
 const CardContainer = ({ img, text, to }) => (
-    <CardContent>
-        <Link to={to}>
-            <img src={img} alt="iPhone icon" />
-            <p className="card-text">{text}</p>
-        </Link>
+    <CardContent to={to}>
+        <img src={img} alt="iPhone icon" />
+        <p className="card-text">{text}</p>
     </CardContent>
 );
 
 function Painel() {
     return (
         <Container>
-            <SubContainer>
-                <h1>Bem vindo de volta ao painel de controlo</h1>
-                <Content type="flex" align="middle" justify="space-around">
-                    <Col md={5} sm={24}>
-                        <CardContainer
-                            img="/icon/dashboard/reservation.svg"
-                            text="Listagem de reservas"
-                            to="/painel/reservas"
-                        />
-                    </Col>
-                    <Col md={5} sm={24}>
-                        <CardContainer
-                            img="/icon/dashboard/transfer.svg"
-                            text="Transfers e Tours"
-                            to="/painel/transfers"
-                        />
-                    </Col>
-                    <Col md={5} sm={24}>
-                        <CardContainer
-                            img="/icon/dashboard/contact.svg"
-                            text="Mensagens de clientes"
-                            to="/painel/contacto"
-                        />
-                    </Col>
-                    <Col md={5} sm={24}>
-                        <CardContainer
-                            img="/icon/dashboard/block.svg"
-                            text="Datas bloqueadas"
-                            to="/painel/bloqueado"
-                        />
-                    </Col>
-                </Content>
-                <Footer>
-                    <img src="/image/logo.png" alt="logo" />
-                    <p>
-                        © {moment().year()} Be Local Madeira. All Rights
-                        Reserved.
-                    </p>
-                </Footer>
-            </SubContainer>
+            <h1>Bem vindo de volta ao painel de controlo</h1>
+            <Content>
+                <CardContainer
+                    img="/icon/dashboard/reservation.svg"
+                    text="Listagem de reservas"
+                    to="/painel/reservas"
+                />
+                <CardContainer
+                    img="/icon/dashboard/transfer.svg"
+                    text="Transfers e Tours"
+                    to="/painel/transfers"
+                />
+                <CardContainer
+                    img="/icon/dashboard/contact.svg"
+                    text="Mensagens de clientes"
+                    to="/painel/contacto"
+                />
+                <CardContainer
+                    img="/icon/dashboard/block.svg"
+                    text="Datas bloqueadas"
+                    to="/painel/bloqueado"
+                />
+                <CardContainer
+                    img="/icon/dashboard/blog.svg"
+                    text="Blog Posts"
+                    to="/painel/blog"
+                />
+            </Content>
         </Container>
     );
 }

@@ -5,6 +5,7 @@ import ThemeContainer from "../ThemeContainer";
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import dayjs from "dayjs";
 
 const PageContainer = styled.div`
     margin: auto;
@@ -13,9 +14,8 @@ const PageContainer = styled.div`
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background-color: rgb(245, 245, 245);
 `;
-
-const ContentContainer = styled.div``;
 
 const MobileMessage = styled.div`
     width: 80%;
@@ -24,18 +24,24 @@ const MobileMessage = styled.div`
     text-align: center;
     margin: auto;
     display: none;
+
     @media (min-width: ${dimensions.md}) {
         display: none;
     }
 `;
 
-const Content = styled.div`
-    flex: 1;
-    background: rgb(245, 245, 245);
-`;
+const Footer = styled.div`
+    margin-top: 50px;
+    img {
+        width: 120px;
+        margin: auto;
+        display: block;
+    }
 
-const NavBarContainer = styled.div`
-    height: 80px;
+    p {
+        text-align: center;
+        margin: 20px auto;
+    }
 `;
 
 function PainelLayout(props) {
@@ -50,13 +56,15 @@ function PainelLayout(props) {
     return (
         <ThemeContainer>
             <PageContainer>
-                <NavBarContainer>
-                    <NavBar />
-                </NavBarContainer>
-                <ContentContainer>
-                    <Content>{props.children}</Content>
-                </ContentContainer>
-
+                <NavBar />
+                {props.children}
+                <Footer>
+                    <img src="/image/logo.png" alt="logo" />
+                    <p>
+                        © {dayjs().year()} Be Local Madeira. All Rights
+                        Reserved.
+                    </p>
+                </Footer>
                 <MobileMessage>
                     O painel de controlo não está disponível na versão mobile,
                     utilize um computador para aceder a todas as funções.

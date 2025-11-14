@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from "react";
-import Input from "antd/es/input"
-import Cascader from "antd/es/cascader"
-import DatePicker from "antd/es/date-picker"
+import Input from "antd/es/input";
+import Cascader from "antd/es/cascader";
+import DatePicker from "antd/es/date-picker";
 import styled, { withTheme } from "styled-components";
 import Table from "../../../common/TableContainer";
 import RowOperation from "../../RowOperation";
 import StopPropagation from "../../StopPropagation";
 import FormContainer from "./FormContainer";
-import { updateReservation, createExternalReservation, blockReservationDate, updateVisibility } from "../../../../redux/reservation/actions";
+import {
+    updateReservation,
+    createExternalReservation,
+    blockReservationDate,
+    updateVisibility,
+} from "../../../../redux/reservation/actions";
 import { fetchActivities } from "../../../../redux/activity/actions";
 import { connect } from "react-redux";
 import { colors } from "../../../../helper";
@@ -25,13 +30,13 @@ const Indicator = styled.div`
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: ${props => props.background};
+    background: ${(props) => props.background};
 `;
 
 const IndicatorButton = styled.button`
     border-radius: 6px;
     color: white;
-    background: ${props => props.background};
+    background: ${(props) => props.background};
     box-shadow: 0px;
     border: 0px;
     padding: 6px 8px;
@@ -43,14 +48,14 @@ const AddButton = styled.div`
     width: 80px;
     height: 40px;
     float: right;
-    background: ${props => props.background};
+    background: ${(props) => props.background};
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
     cursor: pointer;
     padding: 10px;
 
     &:hover {
-        background: ${props => props.backgroundH};
+        background: ${(props) => props.backgroundH};
     }
 
     img {
@@ -60,60 +65,101 @@ const AddButton = styled.div`
     }
 `;
 
-function TableContainer({ theme, blockReservationDate, fetchActivities, loading, data, meta, handlePageChange, onRowClick, updateVisibility, onDelete, updateReservation, setFilters, createExternalReservation }) {
+function TableContainer({
+    theme,
+    blockReservationDate,
+    fetchActivities,
+    loading,
+    data,
+    meta,
+    handlePageChange,
+    onRowClick,
+    updateVisibility,
+    onDelete,
+    updateReservation,
+    setFilters,
+    createExternalReservation,
+}) {
     const [visibility, setVisibility] = useState(false);
     const [reservationVisibility, setReservationVisibility] = useState(false);
     const [blockVisibility, setBlockVisibility] = useState(false);
     const [currentRecord, setCurrentRecord] = useState({});
-    const [input, setInput] = useState({ client: undefined, activity: undefined });
+    const [input, setInput] = useState({
+        client: undefined,
+        activity: undefined,
+    });
 
     useEffect(() => {
         fetchActivities({ language: "pt" });
-    }, [])
+    }, []);
 
     const columns = [
         {
-            title: '',
-            dataIndex: 'confirmation',
-            render: (confirmation) => <Indicator background={confirmation != 0 ? "#008d09" : "#df0000"} />,
+            title: "",
+            dataIndex: "confirmation",
+            render: (confirmation) => (
+                <Indicator
+                    background={confirmation != 0 ? "#008d09" : "#df0000"}
+                />
+            ),
         },
         {
-            title: '#',
-            dataIndex: 'id',
+            title: "#",
+            dataIndex: "id",
         },
         {
-            title: 'Fonte',
-            dataIndex: 'source',
+            title: "Fonte",
+            dataIndex: "source",
         },
         {
-            title: 'Cliente',
-            dataIndex: 'name',
-            filterDropdown: () => (getFilter("client")),
-            render: (name, row) => (<span>{name} | {row.email} | {row.phone}</span>),
+            title: "Cliente",
+            dataIndex: "name",
+            filterDropdown: () => getFilter("client"),
+            render: (name, row) => (
+                <span>
+                    {name} | {row.email} | {row.phone}
+                </span>
+            ),
         },
         {
-            title: 'Atividade',
-            dataIndex: 'experienceable',
-            render: (experience, row) => (<span>{getActivityField(experience)}</span>),
+            title: "Atividade",
+            dataIndex: "experienceable",
+            render: (experience, row) => (
+                <span>{getActivityField(experience)}</span>
+            ),
         },
         {
-            title: 'Pessoas',
-            dataIndex: 'participants',
+            title: "Pessoas",
+            dataIndex: "participants",
         },
         {
-            title: 'Data',
-            dataIndex: 'date',
-            filterDropdown: () => (getDatePicker("date")),
+            title: "Data",
+            dataIndex: "date",
+            filterDropdown: () => getDatePicker("date"),
         },
         {
-            title: 'Preço',
-            dataIndex: 'price',
-            render: (price) => (<span>{price + "€"}</span>),
+            title: "Preço",
+            dataIndex: "price",
+            render: (price) => <span>{price + "€"}</span>,
         },
         {
-            title: '',
-            dataIndex: 'seen',
-            render: (seen, row) => <StopPropagation> <IndicatorButton background={seen != 0 ? "#008d09" : "#df0000"} onClick={() => updateVisibility(row.id)}>{seen ? <span>Desmarcar como visto</span> : <span>Marcar como visto</span>}</IndicatorButton></StopPropagation>,
+            title: "",
+            dataIndex: "seen",
+            render: (seen, row) => (
+                <StopPropagation>
+                    {" "}
+                    <IndicatorButton
+                        background={seen != 0 ? "#008d09" : "#df0000"}
+                        onClick={() => updateVisibility(row.id)}
+                    >
+                        {seen ? (
+                            <span>Desmarcar como visto</span>
+                        ) : (
+                            <span>Marcar como visto</span>
+                        )}
+                    </IndicatorButton>
+                </StopPropagation>
+            ),
         },
         {
             title: "",
@@ -132,9 +178,10 @@ function TableContainer({ theme, blockReservationDate, fetchActivities, loading,
     function getActivityField(experience) {
         var response = null;
         if (experience.activity_id) {
-            response = experience.activity.name.pt + " (" + experience.name.pt + ")"
+            response =
+                experience.activity.name.pt + " (" + experience.name.pt + ")";
         } else {
-            response = experience.name.pt
+            response = experience.name.pt;
         }
         return response;
     }
@@ -142,7 +189,7 @@ function TableContainer({ theme, blockReservationDate, fetchActivities, loading,
     function onUpdateClick(record) {
         setVisibility(true);
         setCurrentRecord(record);
-    };
+    }
 
     function handleFilterChange(field, value) {
         let newInput = input;
@@ -178,21 +225,29 @@ function TableContainer({ theme, blockReservationDate, fetchActivities, loading,
 
     function handleDateBlock(e) {
         try {
-            blockReservationDate(e)
-            message.success('Datas bloqueadas com sucesso.');
+            blockReservationDate(e);
+            message.success("Datas bloqueadas com sucesso.");
         } catch (error) {
-            message.error('Ocorreu um erro no bloqueio das datas, cao o problema persista contacte o programador.');
+            message.error(
+                "Ocorreu um erro no bloqueio das datas, cao o problema persista contacte o programador."
+            );
         }
-
     }
-
 
     return (
         <Container>
-            <AddButton backgroundH={theme.primaryHover} background={theme.primary} onClick={() => setReservationVisibility(true)}>
+            <AddButton
+                backgroundH={theme.primaryHover}
+                background={theme.primary}
+                onClick={() => setReservationVisibility(true)}
+            >
                 <img src="/icon/add_white.svg" alt="add" />
             </AddButton>
-            <AddButton backgroundH={theme.primaryHover} background={theme.primary} onClick={() => setBlockVisibility(true)}>
+            <AddButton
+                backgroundH={theme.primaryHover}
+                background={theme.primary}
+                onClick={() => setBlockVisibility(true)}
+            >
                 <img src="/icon/block_white.svg" alt="block" />
             </AddButton>
             <Table
@@ -224,12 +279,13 @@ function TableContainer({ theme, blockReservationDate, fetchActivities, loading,
                 createReservation={handleDateBlock}
             />
         </Container>
-    )
+    );
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        createExternalReservation: (data) => dispatch(createExternalReservation(data)),
+        createExternalReservation: (data) =>
+            dispatch(createExternalReservation(data)),
         updateReservation: (id, data) => dispatch(updateReservation(id, data)),
         fetchActivities: (filters) => dispatch(fetchActivities(filters)),
         blockReservationDate: (data) => dispatch(blockReservationDate(data)),
@@ -244,4 +300,7 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withTheme(TableContainer));
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(withTheme(TableContainer));
