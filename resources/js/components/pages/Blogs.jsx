@@ -70,9 +70,7 @@ function Blogs(props) {
                         {" "}
                         <img src={post.image} alt={post.title} />
                     </Link>
-                    <span>
-                        {new Date(post.created_at).toLocaleDateString()}
-                    </span>
+                    <span>{new Date(post.date).toLocaleDateString()}</span>
                     <Link to={`/blogs/${post.id}`}>
                         <h3>{post.title}</h3>
                     </Link>

@@ -231,7 +231,6 @@ const MenuItem = styled(Menu.Item)`
     font-size: ${(props) => (props.main ? "14px" : "12px")};
     text-transform: capitalize;
     transition: 0.3s ease-in-out;
-    font-family: "Playfair Display", serif;
 
     a {
         color: ${(props) => props.color};
@@ -274,18 +273,40 @@ function Navbar({ handleVisibility, language }) {
             <MenuItem>
                 <Link to="/activities/hiking">hiking</Link>
             </MenuItem>
+            <MenuItem>
+                <Link to="/activities/jeep">jeep</Link>
+            </MenuItem>
             <MenuItem main>
                 <Link to="/about">about</Link>
+            </MenuItem>
+            <MenuItem main>
+                <Link to="/store">store</Link>
+            </MenuItem>
+            <MenuItem main>
+                <Link to="/blogs">blog</Link>
+            </MenuItem>
+            <MenuItem main>
+                <Link to="/contact">Contact</Link>
             </MenuItem>
         </Menu>
     );
 
     useEffect(() => {
+        if (window.innerWidth < 1200) {
+            setHasBackground(true);
+        }
+    }, []);
+
+    useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY / window.innerHeight > 0.1) {
+            if (window.innerWidth < 1200) {
                 setHasBackground(true);
             } else {
-                setHasBackground(false);
+                if (window.scrollY / window.innerHeight > 0.1) {
+                    setHasBackground(true);
+                } else {
+                    setHasBackground(false);
+                }
             }
         };
 

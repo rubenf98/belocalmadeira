@@ -6,18 +6,40 @@ import {
     secundaryButtonStyle,
 } from "./Form/styles";
 import { connect } from "react-redux";
+import { dimensions } from "../../helper";
 
 const Container = styled.section`
     ${containerCommonStyle}
     margin-top: 120px;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+
+    .mobile {
+        display: none;
+        margin: 20px auto;
+    }
+
+    @media (max-width: ${dimensions.custom}) {
+        .desktop {
+            display: none;
+        }
+
+        .mobile {
+            display: block;
+        }
+    }
 `;
 
 const Information = styled.div`
     width: 50%;
     padding-right: 50px;
     box-sizing: border-box;
+
+    @media (max-width: ${dimensions.custom}) {
+        padding-right: 20px;
+        width: 100%;
+    }
 
     p,
     li {
@@ -52,6 +74,11 @@ const Grid = styled.div`
     gap: 20px;
     width: 50%;
 
+    @media (max-width: ${dimensions.custom}) {
+        padding-right: 20px;
+        width: 100%;
+    }
+
     .column {
         display: flex;
         justify-content: space-between;
@@ -78,11 +105,36 @@ const Grid = styled.div`
 function Store(props) {
     const { text } = require("../../assets/" + props.language + "/store");
 
+    const GridComponent = () => (
+        <Grid>
+            <div className="column small">
+                <img src="/image/merch/1.png" alt="" />
+                <img src="/image/merch/2.png" alt="" />
+                <img src="/image/merch/3.png" alt="" />
+            </div>
+
+            <div className="column big">
+                <img style={{ flex: 1 }} src="/image/merch/main.png" alt="" />
+                <img src="/image/merch/kids.png" alt="" />
+            </div>
+
+            <div className="column small">
+                <img src="/image/merch/4.png" alt="" />
+                <img src="/image/merch/5.png" alt="" />
+                <img src="/image/merch/6.png" alt="" />
+            </div>
+        </Grid>
+    );
+
     return (
         <Container>
             <Information>
                 <h2>{text.title}</h2>
                 <h3>{text.subtitle}</h3>
+
+                <div className="mobile">
+                    <GridComponent />
+                </div>
 
                 {text.descriptions.map((paragraph, index) => (
                     <p key={index}>{paragraph}</p>
@@ -114,28 +166,9 @@ function Store(props) {
                     </a>
                 </div>
             </Information>
-            <Grid>
-                <div className="column small">
-                    <img src="/image/merch/1.png" alt="" />
-                    <img src="/image/merch/2.png" alt="" />
-                    <img src="/image/merch/3.png" alt="" />
-                </div>
-
-                <div className="column big">
-                    <img
-                        style={{ flex: 1 }}
-                        src="/image/merch/main.png"
-                        alt=""
-                    />
-                    <img src="/image/merch/kids.png" alt="" />
-                </div>
-
-                <div className="column small">
-                    <img src="/image/merch/4.png" alt="" />
-                    <img src="/image/merch/5.png" alt="" />
-                    <img src="/image/merch/6.png" alt="" />
-                </div>
-            </Grid>
+            <div className="desktop">
+                <GridComponent />
+            </div>
         </Container>
     );
 }

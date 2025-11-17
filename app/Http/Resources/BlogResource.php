@@ -17,11 +17,11 @@ class BlogResource extends JsonResource
         return [
             'id' => $this->id,
             'title' =>   $this->title,
-            'image' =>   $this->image,
+            'image' =>  "/storage/" . $this->image,
             'body' =>   $this->body,
             'next' =>   $this->next,
             'previous' =>   $this->previous,
-            'created_at' => $this->created_at,
+            'date' => $this->date,
         ];
     }
 }

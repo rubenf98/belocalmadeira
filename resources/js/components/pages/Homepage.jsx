@@ -6,8 +6,7 @@ import Header from "./HomepageComponents/Header";
 import Instagram from "./HomepageComponents/Instagram";
 import Services from "./HomepageComponents/Services";
 import Tours from "./HomepageComponents/Tours";
-import Canyoning from "./HomepageComponents/Canyoning";
-import Coasteering from "./HomepageComponents/Coasteering";
+import Multiday from "./HomepageComponents/Multiday";
 import Newsletter from "./HomepageComponents/Newsletter";
 import { connect } from "react-redux";
 
@@ -17,9 +16,9 @@ function Homepage(props) {
     return (
         <>
             <Header text={text.header} />
-
-            <Canyoning text={text.canyoning} />
             <Activities text={text.activities} />
+            <Multiday text={text.multiday} />
+
             {/* <Coasteering text={text.coasteering} /> */}
             <Services text={text.services} />
             <Faq text={text.faq} />

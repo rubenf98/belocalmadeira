@@ -70,7 +70,7 @@ function Blog(props) {
                 <div className="header">
                     <h2>{current.title}</h2>
 
-                    <p>{new Date(current.created_at).toLocaleDateString()}</p>
+                    <p>{new Date(current.date).toLocaleDateString()}</p>
                     <img src={current.image} alt="" />
                 </div>
 

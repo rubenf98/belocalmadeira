@@ -62,17 +62,14 @@ export const text = {
             },
         ]
     },
-    canyoning: {
-        title: (<><span>Canyoning</span> - Explore with excitement</>),
+    multiday: {
+        title: (<>Madeira <span>Multi-Day</span> Adventure Packages</>),
         paragraphs: [
-            "The island of Madeira is now considered one of the best places for Canyoning on the World.",
-            "On breathtaking tours through the crystal clear waters of Madeira's numerous rivers, you can explore the pristine and unspoilt interior of the island.",
-            "The challenge consists of crossing mountain streams, abundant along canyoning trails in Madeira, overcoming the various obstacles encountered during the descent.",
-            "No previous experience required.",
-            "RNAAT 1093"
+            "Embark on an unforgettable adventure with our flexible multi-day packages! You can explore the island’s most breathtaking canyoning routes, scenic hiking trails, and authentic local culture at your own pace. Adventure, discovery, and indulgence are all yours to enjoy, exactly how you want.",
+            "Our packages are designed as flexible frameworks, giving you the freedom to create your perfect adventure. Every activity, schedule, and itinerary can be adjusted or fully customised to match your style.",
         ],
         buttons: [
-            "Book now",
+            "Check more",
             "+351 935 124 260"
         ]
     },
@@ -93,6 +90,7 @@ export const text = {
         title: (<>Explore the best Outdoor <span>Experiences</span> in Madeira Island </>),
         button: "view more",
         items: [
+            { title: 'Explore with excitement', subtitle: "canyoning", description: "The island of Madeira is now considered one of the best places for Canyoning on the World. On breathtaking tours through the crystal clear waters of Madeira's numerous rivers, you can explore the pristine and unspoilt interior of the island." },
             { title: 'A sea of emotions', subtitle: "coasteering", description: "Walking, swimming, climbing, rappelling and jumping into water: all this in a single activity, coasteering in Madeira which, amid lots of adventure and adrenalin, will show you the natural wonders of the island." },
             { title: 'Explore Madeira in a way that is truly yours', subtitle: "jeep", description: "Discover the Island of Madeira in the most authentic and exclusive way – aboard a private 4x4 Jeep, guided by passionate local experts who will reveal to you the island’s hidden treasures, breathtaking landscapes, and cultural heritage." },
             { title: 'The best hiking experiences in Madeira Island', subtitle: "hiking", description: "In our Madeira walking tours we organize everything including transfers. You enjoy the daily hiking tours to the fullest. We will take you to places that no GPS device knows and that are not to be found in your guidebook" },

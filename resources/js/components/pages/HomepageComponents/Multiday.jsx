@@ -143,7 +143,7 @@ const VerticalImageContainer = styled.div`
     }
 `;
 
-function Canyoning({ text }) {
+function Multiday({ text }) {
     return (
         <Container>
             <InfoContainer>
@@ -154,7 +154,7 @@ function Canyoning({ text }) {
                         <p className="last-paragraph">{text.paragraphs[1]}</p>
 
                         <div className="button-container">
-                            <Link to="/activities/canyoning">
+                            <Link to="/multiday">
                                 <button className="action-button">
                                     <div className="circle" /> {text.buttons[0]}
                                 </button>
@@ -170,7 +170,7 @@ function Canyoning({ text }) {
                         </div>
                     </div>
 
-                    <img src="/image/activities/03_canyoning.jpg" />
+                    <img src="/image/activities/01_coasteering.jpg" />
                 </div>
 
                 <div className="horizontal-image">
@@ -178,10 +178,10 @@ function Canyoning({ text }) {
                 </div>
             </InfoContainer>
             <VerticalImageContainer>
-                <img src="/image/activities/01_canyoning.jpg" />
+                <img src="/image/activities/01_hiking.jpg" />
             </VerticalImageContainer>
         </Container>
     );
 }
 
-export default Canyoning;
+export default Multiday;

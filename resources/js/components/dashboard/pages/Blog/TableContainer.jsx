@@ -5,6 +5,14 @@ import dayjs from "dayjs";
 import StopPropagation from "../../StopPropagation";
 import RowOperation from "../../RowOperation";
 import FormContainer from "./FormContainer";
+import {
+    fetchBlogs,
+    fetchBlog,
+    updateBlog,
+    deleteBlog,
+    createBlog,
+} from "../../../../redux/blog/actions";
+import { connect } from "react-redux";
 
 const Container = styled.div`
     width: 100%;
@@ -36,8 +44,9 @@ function TableContainer({
     data,
     meta,
     handlePageChange,
-    onDelete,
+    deleteBlog,
     updateBlog,
+    createBlog,
 }) {
     const [visibility, setVisibility] = useState(false);
     const [currentRecord, setCurrentRecord] = useState({});
@@ -71,10 +80,7 @@ function TableContainer({
             key: "",
             render: (text, row) => (
                 <StopPropagation>
-                    <RowOperation
-                        onDeleteConfirm={() => onDelete(row.id)}
-                        onUpdateClick={() => onUpdateClick(row)}
-                    />
+                    <RowOperation onDeleteConfirm={() => deleteBlog(row.id)} />
                 </StopPropagation>
             ),
         },
@@ -83,6 +89,11 @@ function TableContainer({
     function onUpdateClick(record) {
         setVisibility(true);
         setCurrentRecord(record);
+    }
+
+    function onClose() {
+        setVisibility(false);
+        setCurrentRecord({});
     }
 
     return (
@@ -101,11 +112,32 @@ function TableContainer({
             <FormContainer
                 visible={visibility}
                 record={currentRecord}
-                handleModalClose={() => setVisibility(false)}
-                updateReservation={updateBlog}
+                handleModalClose={onClose}
+                updateBlog={updateBlog}
+                createBlog={createBlog}
             />
         </Container>
     );
 }
 
-export default TableContainer;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchBlogs: (page, filters) => dispatch(fetchBlogs(page, filters)),
+        fetchBlog: (id) => dispatch(fetchBlog(id)),
+        updateBlog: (id, data) => dispatch(updateBlog(id, data)),
+        createBlog: (data) => dispatch(createBlog(data)),
+
+        deleteBlog: (id) => dispatch(deleteBlog(id)),
+    };
+};
+
+const mapStateToProps = (state) => {
+    return {
+        loading: state.blog.loading,
+        data: state.blog.data,
+        meta: state.blog.meta,
+        current: state.blog.current,
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TableContainer);

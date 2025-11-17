@@ -30,6 +30,7 @@ import Blog from "./components/pages/Blog";
 
 import PainelBlog from "./components/dashboard/pages/Blog/Blog";
 import Store from "./components/pages/Store";
+import MultiDay from "./components/pages/MultiDay";
 
 export const history = createBrowserHistory();
 
@@ -38,6 +39,7 @@ function Router() {
         <BrowserRouter history={history}>
             <ScrollToTop>
                 <Routes>
+                    <Route exact path="/multiday" element={<Layout><MultiDay /></Layout>} />
 
                     <Route exact path="/store" element={<Layout><Store /></Layout>} />
                     <Route exact path="/blogs" element={<Layout><Blogs /></Layout>} />

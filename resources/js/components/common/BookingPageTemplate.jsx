@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { Col, Form, Row, Carousel, Image } from "antd";
 import { connect } from "react-redux";
@@ -28,12 +27,29 @@ const Container = styled.div`
             box-sizing: border-box;
         }
     }
+
+    .ant-picker-calendar,
+    .ant-picker-panel {
+        background-color: ${({ theme }) => theme.customWhite};
+    }
+
+    .ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-cell-inner,
+    .ant-picker-cell-in-view.ant-picker-cell-range-start .ant-picker-cell-inner,
+    .ant-picker-cell-in-view.ant-picker-cell-range-end .ant-picker-cell-inner {
+        background-color: ${({ theme }) => theme.primary};
+    }
+
+    .ant-picker-cell-in-view.ant-picker-cell-today
+        .ant-picker-cell-inner::before {
+        border-color: ${({ theme }) => theme.primary};
+    }
 `;
 
 const Content = styled.div`
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+    flex-wrap: wrap;
 
     li {
         font-size: 16px;
@@ -77,6 +93,8 @@ const FormContainer = styled.div`
 
     @media (max-width: ${dimensions.md}) {
         width: 100%;
+        padding: 20px;
+        margin: auto;
     }
 
     .price-container {
@@ -113,6 +131,8 @@ const FormContainer = styled.div`
 
 const InfoContainer = styled.div`
     width: 60%;
+    padding: 0px 20px;
+    box-sizing: border-box;
 
     @media (max-width: ${dimensions.md}) {
         width: 100%;

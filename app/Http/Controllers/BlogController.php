@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\BlogRequest;
 use App\Http\Resources\BlogResource;
 use App\Models\Blog;
 use Illuminate\Http\Request;
@@ -24,9 +25,14 @@ class BlogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BlogRequest $request)
     {
-        //
+        $validator = $request->validated();
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            $validator['image'] = $request->file('image')->store('images', 'public');
+        }
+        $blog = Blog::create($validator);
+        return new BlogResource($blog);
     }
 
     /**
@@ -47,9 +53,16 @@ class BlogController extends Controller
      * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Blog $blog)
+    public function update(BlogRequest $request, Blog $blog)
     {
-        //
+        $validator = $request->validated();
+
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            $validator['image'] = $request->file('image')->store('images', 'public');
+        }
+
+        $blog->update($validator);
+        return new BlogResource($blog);
     }
 
     /**
@@ -60,6 +73,8 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        //
+        $blog->delete();
+
+        return response()->json(null, 204);
     }
 }

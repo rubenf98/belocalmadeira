@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
-import { fetchBlogs } from "../../../../redux/blog/actions";
+import {
+    fetchBlogs,
+    fetchBlog,
+    updateBlog,
+    deleteBlog,
+} from "../../../../redux/blog/actions";
 import { dimensions } from "../../../../helper";
 import TableContainer from "./TableContainer";
 
@@ -29,24 +34,25 @@ const Table = styled.div`
     width: 100%;
 `;
 
-const Blog = ({ data, loading, meta, fetchBlogs }) => {
+const Blog = (props) => {
+    const { data, loading, meta } = props;
     const [filters, setFilters] = useState({});
     const [page, setPage] = useState(1);
 
     useEffect(() => {
-        fetchBlogs();
+        props.fetchBlogs();
     }, []);
 
     const setFiltersHandler = (aFilters) => {
         const newFilters = { ...filters, ...aFilters };
         setFilters(newFilters);
         setPage(1);
-        fetchBlogs(1, newFilters);
+        props.fetchBlogs(1, newFilters);
     };
 
     const handlePageChange = (pagination) => {
         setPage(pagination.current);
-        fetchBlogs(pagination.current, filters);
+        props.fetchBlogs(pagination.current, filters);
     };
 
     return (
@@ -69,6 +75,8 @@ const Blog = ({ data, loading, meta, fetchBlogs }) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchBlogs: (page, filters) => dispatch(fetchBlogs(page, filters)),
+        fetchBlog: (id) => dispatch(fetchBlog(id)),
+        deleteBlog: (id) => dispatch(deleteBlog(id)),
     };
 };
 

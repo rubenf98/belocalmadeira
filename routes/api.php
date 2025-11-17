@@ -49,3 +49,8 @@ Route::apiResource('activity', 'App\Http\Controllers\ActivityController');
 Route::apiResource('experiences', 'App\Http\Controllers\ExperienceController');
 Route::apiResource('coupons', CouponController::class);
 Route::apiResource('blogs', BlogController::class);
+// Route::get('blogs', [BlogController::class, "index"]);
+// Route::get('blogs/{id}', [BlogController::class, "show"]);
+// Route::delete('blogs/{id}', [BlogController::class, "destroy"]);
+// Route::post('blogs', [BlogController::class, "store"]);
+// Route::post('blogs/{id}', [BlogController::class, "update"]);

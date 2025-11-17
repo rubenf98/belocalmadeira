@@ -62,20 +62,18 @@ export const text = {
             },
         ]
     },
-    canyoning: {
-        title: (<><span>Canyoning</span> - Explora com emoção</>),
+    multiday: {
+        title: (<>Madeira <span>Pacotes de Aventura</span> Multi-Dia</>),
         paragraphs: [
-            "A Ilha da Madeira é atualmente considerada um dos melhores locais do mundo para a prática de Canyoning.",
-            "Em percursos deslumbrantes pelas águas cristalinas dos inúmeros rios madeirenses, poderás explorar o interior puro e intocado da ilha.",
-            "O desafio consiste em atravessar as ribeiras de montanha, abundantes nas rotas de canyoning da Madeira, superando os diversos obstáculos encontrados durante a descida.",
-            "Não é necessária experiência prévia.",
-            "RNAAT 1093"
+            "Embarque numa aventura inesquecível com os nossos pacotes flexíveis de vários dias! Explore as rotas de canyoning mais deslumbrantes da ilha, trilhos panorâmicos e a autêntica cultura local ao seu próprio ritmo. A aventura, a descoberta e o prazer estão todos à sua espera, exatamente como deseja.",
+            "Os nossos pacotes foram concebidos como estruturas flexíveis, dando-lhe a liberdade de criar a sua aventura perfeita. Cada atividade, horário e itinerário pode ser ajustado ou totalmente personalizado para se adequar ao seu estilo.",
         ],
         buttons: [
-            "Reservar agora",
+            "Saber mais",
             "+351 935 124 260"
         ]
     },
+
     coasteering: {
         title: "Coasteering - Um Mar de Emoções",
         paragraphs: [
@@ -93,6 +91,7 @@ export const text = {
         title: (<>Explora as melhores <span>experiências</span> ao ar livre na Ilha da Madeira </>),
         button: "ver mais",
         items: [
+            { title: 'Explora com emoção', subtitle: "canyoning", description: "A Ilha da Madeira é atualmente considerada um dos melhores locais do mundo para a prática de Canyoning. Em percursos deslumbrantes pelas águas cristalinas dos inúmeros rios madeirenses, poderás explorar o interior puro e intocado da ilha." },
             { title: 'Um mar de emoções', subtitle: "coasteering", description: "Caminhar, nadar, escalar, fazer rappel e saltar para a água: tudo isto numa única atividade — o coasteering na Madeira, que, entre muita aventura e adrenalina, te mostrará as maravilhas naturais da ilha." },
             { title: 'Explora a Madeira à tua maneira', subtitle: "jeep", description: "Descobre a Ilha da Madeira da forma mais autêntica e exclusiva — a bordo de um jipe privado 4x4, guiado por especialistas locais apaixonados que te irão revelar os tesouros escondidos, as paisagens de cortar a respiração e o património cultural da ilha." },
             { title: 'As melhores caminhadas na Ilha da Madeira', subtitle: "hiking", description: "Nas nossas caminhadas organizadas, tratamos de tudo, incluindo os transportes. Tu apenas desfrutas ao máximo de cada trilho. Levamos-te a lugares que nenhum GPS conhece e que não encontras em nenhum guia turístico." },

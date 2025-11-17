@@ -9,6 +9,13 @@ class Blog extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'body',
+        'image',
+        'date',
+    ];
+
     protected $appends = ['next', 'previous'];
 
     public function getNextAttribute()

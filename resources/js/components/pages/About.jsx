@@ -8,29 +8,20 @@ import { containerCommonStyle } from "./Form/styles";
 
 const Container = styled.div`
     margin-top: 150px;
-`;
 
-const PartnerContainer = styled(Row)`
-    width: 100%;
-    max-width: ${maxWidth};
-    margin: 200px auto;
-
-    @media (max-width: ${dimensions.md}) {
-        margin: 100px auto;
+    .mobile-image {
+        display: none;
+        margin-bottom: 20px;
+        max-height: 400px;
     }
 
-    img {
-        width: 10%;
-        max-width: 250px;
-        filter: contrast(0);
-
-        @media (max-width: ${dimensions.md}) {
-            width: 30%;
-            margin: 20px 0px;
+    @media (max-width: ${dimensions.md}) {
+        .desktop-image {
+            display: none;
         }
 
-        @media (max-width: ${dimensions.sm}) {
-            width: 40%;
+        .mobile-image {
+            display: block;
         }
     }
 `;
@@ -40,6 +31,7 @@ const InfoContainer = styled.div`
     ${containerCommonStyle}
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 100px;
 
     img {
@@ -64,6 +56,10 @@ const Column = styled.div`
         font-weight: 300;
         text-align: justify;
     }
+
+    @media (max-width: ${dimensions.md}) {
+        width: 100%;
+    }
 `;
 
 function About({ theme }) {
@@ -82,11 +78,16 @@ function About({ theme }) {
             <InfoContainer>
                 <Column text={theme.lightText} xs={24} md={12}>
                     <h2>{text.section.title}</h2>
+                    <img
+                        className="mobile-image"
+                        src="/image/about/about3.jpg"
+                        alt=""
+                    />
                     {text.section.items.map((paragraph, index) => (
                         <p key={index}>{paragraph}</p>
                     ))}
                 </Column>
-                <Column xs={24} md={12}>
+                <Column className="desktop-image" xs={24} md={12}>
                     <img src="/image/about/about3.jpg" alt="" />
                 </Column>
             </InfoContainer>

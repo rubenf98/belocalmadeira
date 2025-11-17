@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext, useRef } from "react";
 import styled, { keyframes, ThemeContext } from "styled-components";
 import { dimensions } from "../../../helper";
 import AnimationContainer from "../../common/AnimationContainer";
-import { setLanguage } from "../../../redux/application/actions";
+import { setLanguage, handleForm } from "../../../redux/application/actions";
 
 import { connect } from "react-redux";
 
@@ -139,6 +139,12 @@ const CarouselBar = styled.div`
         animation: ${fillBar} 10s linear infinite;
         z-index: 3;
     }
+
+    @media (max-width: ${dimensions.md}) {
+        width: 100%;
+        padding: 0px 20px;
+        box-sizing: border-box;
+    }
 `;
 
 const MainButton = styled.div`
@@ -185,7 +191,7 @@ const backgrounds = [
     "header_biking.jpg",
 ];
 
-function Header({ text, setLanguage, language }) {
+function Header({ text, setLanguage, language, handleForm }) {
     const [backgroundIndex, setBackgroundIndex] = useState(0);
     const counter = useRef(0);
 
@@ -247,7 +253,7 @@ function Header({ text, setLanguage, language }) {
                         </a>
                     </Social>
 
-                    <MainButton>
+                    <MainButton onClick={() => handleForm(true)}>
                         {text.button} <div className="circle" />
                     </MainButton>
 
@@ -290,6 +296,8 @@ function Header({ text, setLanguage, language }) {
 const mapDispatchToProps = (dispatch) => {
     return {
         setLanguage: (state) => dispatch(setLanguage(state)),
+        handleForm: (visibility, activity) =>
+            dispatch(handleForm(visibility, activity)),
     };
 };
 const mapStateToProps = (state) => {

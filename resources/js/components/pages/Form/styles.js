@@ -13,6 +13,7 @@ export const containerCommonStyle = css`
         padding: 20px;
         box-sizing: border-box;
     }
+
 `;
 
 export const primaryButtonStyle = css`

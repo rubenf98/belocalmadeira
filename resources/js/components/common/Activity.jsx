@@ -6,7 +6,12 @@ import { handleForm } from "../../redux/application/actions";
 import { Row } from "antd";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { containerCommonStyle, Title } from "../pages/Form/styles";
+import {
+    containerCommonStyle,
+    phoneButtonStyle,
+    secundaryButtonStyle,
+    Title,
+} from "../pages/Form/styles";
 
 const Container = styled.section`
     ${containerCommonStyle}
@@ -54,6 +59,7 @@ const Step = styled.div`
         box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.25);
         height: 100%;
         display: flex;
+        border-radius: 10px;
         flex-direction: column;
     }
 
@@ -70,8 +76,8 @@ const Step = styled.div`
             width: 100%;
             height: 300px;
             object-fit: cover;
-            z-index: -2;
             position: relative;
+            border-radius: 10px;
 
             @media (max-width: ${dimensions.md}) {
                 max-height: 500px;
@@ -179,6 +185,21 @@ const OrderButton = styled.div`
     }
 `;
 
+const ButtonContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+
+    .action-button {
+        ${secundaryButtonStyle}
+    }
+
+    .phone-button {
+        ${phoneButtonStyle}
+    }
+`;
+
 function Activity({
     data,
     gallery,
@@ -210,27 +231,20 @@ function Activity({
                                 <p style={{ flex: 1 }}>
                                     {experience.description[language]}
                                 </p>
-
-                                <Row
-                                    type="flex"
-                                    align="bottom"
-                                    justify="space-between"
-                                >
-                                    <OrderButton
+                                <ButtonContainer>
+                                    <button
                                         onClick={() =>
                                             handleForm(true, {
                                                 activity_id: [1, experience.id],
                                             })
                                         }
-                                        color={theme.inverseText}
-                                        border={theme.primary}
-                                        background={theme.primary}
-                                        backgroundHover={theme.primaryHover}
+                                        className="action-button"
                                     >
+                                        <div className="circle" />{" "}
                                         {language == "en"
                                             ? "Book now"
                                             : "Reservar"}
-                                    </OrderButton>
+                                    </button>
 
                                     <Link
                                         to={
@@ -240,19 +254,13 @@ function Activity({
                                             experience.id
                                         }
                                     >
-                                        <OrderButton
-                                            marginLeft
-                                            color={theme.primary}
-                                            border={theme.primary}
-                                            background={theme.inverseText}
-                                            backgroundHover={theme.inverseText}
-                                        >
+                                        <button className="phone-button">
                                             {language == "en"
                                                 ? "See more"
                                                 : "Saber mais"}
-                                        </OrderButton>
+                                        </button>
                                     </Link>
-                                </Row>
+                                </ButtonContainer>
                             </div>
                         </div>
                     </Step>
