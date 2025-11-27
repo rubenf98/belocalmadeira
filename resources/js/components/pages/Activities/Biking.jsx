@@ -1,37 +1,59 @@
-import React from 'react'
-import Activity from '../../common/Activity'
-import ActivityHeader from '../../common/ActivityHeader';
+import { useEffect } from "react";
+import { fetchActivity } from "../../../redux/activity/actions";
+import { connect } from "react-redux";
+import BookingPageTemplate from "../../common/BookingPageTemplate";
+import { handleForm } from "../../../redux/application/actions";
 
-function Biking() {
-    const { text } = require('../../../assets/' + localStorage.getItem('language') + "/activityBiking");
+function Biking(props) {
+    const { text } = require("../../../assets/" +
+        localStorage.getItem("language") +
+        "/activitybiking");
+
+    useEffect(() => {
+        props.fetchActivity(3);
+    }, []);
+
+    const handleSubmit = (data) => {
+        props.handleForm(true, {
+            activity: [props.activity?.id, null],
+            ...data,
+        });
+    };
 
     return (
         <div>
-            <ActivityHeader title="Biking" />
-            <Activity
-                content={{
-                    title: text.title,
-                    subtitle: text.subtitle,
-                    info: text.information,
-                    images: [
-                        "01_biking.jpg"
-                    ],
-                    section: text.section,
-                    includes: text.includes,
-                    activities: text.activities,
-                    gallery: {
-                        title: text.gallery.title,
-                        subtitle: text.gallery.subtitle,
-                        images: [
-                            ["biking/10", "biking/04", "biking/08"],
-                            ["biking/02", "biking/05"],
-                            ["biking/03", "biking/06"],
-                        ]
-                    }
-                }}
-            />
+            <div>
+                {props.activity?.id && (
+                    <BookingPageTemplate
+                        experience={{
+                            ...props.activity,
+                            id: 1,
+                            key: "biking",
+                            image: "/images/activities/biking/04.jpg",
+                        }}
+                        experienceId={1}
+                        text={text.booking}
+                        index={props.activity?.id}
+                        handleForm={handleSubmit}
+                    />
+                )}
+            </div>
         </div>
-    )
+    );
 }
+const mapDispatchToProps = (dispatch) => {
+    return {
+        handleForm: (visibility, activity) =>
+            dispatch(handleForm(visibility, activity)),
+        fetchActivity: (id) => dispatch(fetchActivity(id)),
+    };
+};
 
-export default Biking
+const mapStateToProps = (state) => {
+    return {
+        loading: state.activity.loading,
+        activity: state.activity.current,
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Biking);

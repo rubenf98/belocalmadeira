@@ -17,6 +17,7 @@ class CreateReservationsTable extends Migration
             $table->id();
             $table->integer('experienceable_id');
             $table->string('experienceable_type');
+            $table->unsignedBigInteger('coupon_id')->nullable();
             $table->boolean('private')->default(false);
             $table->boolean('confirmation')->default(false);
             $table->boolean('seen')->default(false);
@@ -32,6 +33,8 @@ class CreateReservationsTable extends Migration
             $table->date('date')->nullable();
             $table->time('time')->default("09:00:00");
             $table->timestamps();
+
+            $table->foreign('coupon_id')->references('id')->on('coupons')->onDelete('set null');
         });
     }
 

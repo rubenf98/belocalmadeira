@@ -119,14 +119,12 @@ const OrderForm = ({
     activityInitialValue,
     fetchActivities,
     coupon,
+    language,
 }) => {
-    const { text } = require("../../assets/" +
-        localStorage.getItem("language") +
-        "/form");
+    const { text } = require("../../assets/" + language + "/form");
     const [formData, setFormData] = useState({});
     const [step, setStep] = useState(0);
     const [stepOrder, setStepOrder] = useState([]);
-    const [active, setActive] = useState(undefined);
     const [nParticipants, setNParticipants] = useState(3);
     const [drawerWidth, setDrawerWidth] = useState(720);
     const [form] = Form.useForm();
@@ -134,11 +132,12 @@ const OrderForm = ({
 
     useEffect(() => {
         if (visible) handleReset(true);
+
         if (activityInitialValue.name) {
+            setStep(activityInitialValue.activity[0] == 5 ? 3 : 2);
             setNParticipants(activityInitialValue.participants);
             setFormData({ ...activityInitialValue });
-            fetchActivities({ language: localStorage.getItem("language") });
-            setStep(2);
+            fetchActivities({ language: language });
         }
     }, [visible]);
 
@@ -175,12 +174,17 @@ const OrderForm = ({
 
     const nextStep = () => {
         form.validateFields().then((currentStepData) => {
-            setFormData({ ...formData, ...currentStepData });
+            let data = { ...formData, ...currentStepData };
+            setFormData(data);
+            var nextStep = step == steps.length - 1 ? step : step + 1;
+
             if (step == 1) {
                 setNParticipants(form.getFieldValue("participants"));
-            }
 
-            var nextStep = step == steps.length - 1 ? step : step + 1;
+                if (data.activity[0] == 5) {
+                    nextStep = 3;
+                }
+            }
 
             setStepOrder([step, ...stepOrder]);
             setStep(nextStep);
@@ -190,7 +194,11 @@ const OrderForm = ({
     const previousStep = () => {
         var newOrder = [...stepOrder];
         newOrder.splice(0, 1);
-        setStep(stepOrder[0]);
+        let nextStep = stepOrder[0];
+        if (!stepOrder.length) {
+            nextStep = 0;
+        }
+        setStep(nextStep);
         setStepOrder(newOrder);
     };
 
@@ -300,7 +308,7 @@ const OrderForm = ({
                     >
                         <Loading
                             isloading={loading ? 1 : 0}
-                            src="/image/navbar/loading.svg"
+                            src="/icon/navbar/loading.svg"
                             alt="loading"
                         />
                         <span> {text.controls.submit} </span>
@@ -325,6 +333,7 @@ const mapStateToProps = (state) => {
         calendarMetadata: state.reservation.calendarMetadata,
         activityInitialValue: state.application.activityInitialValue,
         coupon: state.coupon.current,
+        language: state.application.language,
     };
 };
 

@@ -1,22 +1,27 @@
 import React, { useEffect } from "react";
-import SectionTitle from "../../common/SectionTitle";
-import styled, { ThemeContext } from "styled-components";
-import { dimensions, maxWidth } from "../../../helper";
-import { Link } from "react-router-dom";
-import { handleTransferForm } from "../../../redux/application/actions";
+import styled from "styled-components";
+import { dimensions } from "../../../helper";
+import {
+    handleTransferForm,
+    setLanguage,
+} from "../../../redux/application/actions";
 import { connect } from "react-redux";
 import { fetchTours } from "../../../redux/tour/actions";
-import { Row } from "antd";
+import {
+    containerCommonStyle,
+    primaryButtonStyle,
+    Title,
+} from "../Form/styles";
 
 const Container = styled.section`
-    width: 100%;
-    padding: 100px 0px;
-    box-sizing: border-box;
-    position: relative;
+    ${containerCommonStyle}
+
+    .circle {
+        background-color: white !important;
+    }
 `;
 
 const AirportTour = styled.div`
-    max-width: ${maxWidth};
     margin: auto auto 50px auto;
     padding: 0px 50px;
     box-sizing: border-box;
@@ -28,6 +33,7 @@ const AirportTour = styled.div`
     img {
         order: ${(props) => (props.index % 2 ? 1 : 0)};
         width: 50%;
+        border-radius: 20px;
     }
 
     .content {
@@ -51,19 +57,7 @@ const AirportTour = styled.div`
         }
 
         button {
-            box-sizing: border-box;
-            cursor: pointer;
-            background: ${({ theme }) => theme.primary};
-            box-shadow: 0px;
-            padding: 10px 30px 10px 30px;
-            transition: 0.4s;
-            border-radius: 4px;
-            position: relative;
-            background-size: 110%;
-            text-transform: capitalize;
-            color: white;
-            font-weight: bold;
-            border: 0px;
+            ${primaryButtonStyle}
         }
 
         p {
@@ -79,6 +73,7 @@ const AirportTour = styled.div`
         left: 0;
         top: 50px;
         height: calc(100% - 100px);
+        border-radius: 20px;
     }
 
     @media (max-width: ${dimensions.md}) {
@@ -106,44 +101,27 @@ function Tours(props) {
         props.fetchTours();
     }, []);
 
-    const { text } = props;
+    const { text, language } = props;
     return (
         <Container>
-            <SectionTitle title={text.subtitle} subtitle={text.title} />
+            <Title center>{text.title}</Title>
 
             {props.tours.map((tour, index) => (
                 <AirportTour index={index} key={tour.id}>
                     <div className="background" />
                     <img src={tour.image} alt="airport" />
                     <div className="content">
-                        <h3>
-                            {tour.subtitle[localStorage.getItem("language")]}
-                        </h3>
-                        <h2>{tour.title[localStorage.getItem("language")]}</h2>
+                        <h3>{tour.subtitle[language]}</h3>
+                        <h2>{tour.title[language]}</h2>
+                        <p>{tour?.description[language]}</p>
                         <p>
-                            {
-                                tour?.description[
-                                    localStorage.getItem("language")
-                                ]
-                            }
+                            {tour.description2 && tour.description2[language]}
                         </p>
                         <p>
-                            {tour.description2 &&
-                                tour.description2[
-                                    localStorage.getItem("language")
-                                ]}
+                            {tour.description3 && tour.description3[language]}
                         </p>
                         <p>
-                            {tour.description3 &&
-                                tour.description3[
-                                    localStorage.getItem("language")
-                                ]}
-                        </p>
-                        <p>
-                            {tour.description4 &&
-                                tour.description4[
-                                    localStorage.getItem("language")
-                                ]}
+                            {tour.description4 && tour.description4[language]}
                         </p>
 
                         <br />
@@ -152,7 +130,7 @@ function Tours(props) {
                             <button
                                 onClick={() => props.handleTransferForm(tour)}
                             >
-                                {text.button}
+                                <div className="circle" /> {text.button}
                             </button>
 
                             {tour.trajectory ? (
@@ -186,6 +164,7 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => {
     return {
         tours: state.tour.data,
+        language: state.application.language,
     };
 };
 

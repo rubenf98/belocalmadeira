@@ -29,3 +29,9 @@ export function handleTransferForm(state, data = {}) {
         type: types.HANDLE_TRANSFER_FORM, payload: [state, data]
     };
 }
+
+export function setLanguage(value) {
+    return {
+        type: types.SET_LANGUAGE, payload: value
+    };
+}

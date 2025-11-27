@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Validation\Rule;
 
 class ReservationRequest extends FormRequest
 {
@@ -31,29 +32,40 @@ class ReservationRequest extends FormRequest
         $experienceable_type = $this->polymorphic_classes[$helper_size - 1];
         if ($experienceable_type == 'App\Models\Activity') {
             $activity = Activity::find($this->activity[0]);
-            $price = ($this->private ? $activity->private_price : $activity->price) * $this->participants;
+            if ($activity) {
+                $basePrice = $this->private ? $activity->private_price : $activity->price;
+                $perGroup = $activity->price_per_person ?: 1; // integer N
+                $groups = ceil($this->participants / $perGroup);
+                $price = $basePrice * $groups;
+            }
         } else {
             $experience = Experience::find($this->activity[1]);
-            if ($experience->visible) {
-                $price = ($this->private ? $experience->private_price : $experience->price) * $this->participants;
+            if ($experience && $experience->visible) {
+                $basePrice = $this->private ? $experience->private_price : $experience->price;
+                $perGroup = $experience->price_per_person ?: 1; // integer N
+                $groups = ceil($this->participants / $perGroup);
+                $price = $basePrice * $groups;
             } else {
-                $price = 120;
+                $price = 120; // fallback para experiência não visível
             }
         }
+        // ---- Cálculo do desconto ----
         $discount = 1;
-
-        if ($this->participants >= 4) {
+        if ($this->participants >= 4 && $this->activity[0] != 5) { // desconto de 10% para grupos de 4 ou mais, exceto jeep tours
             $discount = 0.9;
         }
-        $coupon = null;
 
+        $coupon = null;
         if ($this->coupon_id) {
             $coupon = Coupon::find($this->coupon_id);
-            $discount = $coupon->value * $discount;
+            if ($coupon) {
+                $discount *= $coupon->value;
+            }
         }
 
         $price = $price * $discount;
 
+        // ---- Normalização do telefone ----
         $phone = "";
         if (is_array($this->phone)) {
             if (array_key_exists("code", $this->phone) && array_key_exists("phone", $this->phone)) {
@@ -63,23 +75,23 @@ class ReservationRequest extends FormRequest
             $phone = $this->phone;
         }
 
-
-
+        // ---- Normalização da data ----
         if ($this->date) {
             $this->merge([
                 'date' => new Carbon($this->date)
             ]);
         }
 
+        // ---- Merge final ----
         $this->merge([
             'price' => $price,
             'source' => "website",
-            'phone' =>  $phone,
-            'coupon_id' =>  $coupon ? $coupon->id : null,
-            'private' => $this->private && true,
+            'phone' => $phone,
+            'coupon_id' => $coupon ? $coupon->id : null,
+            'private' => (bool) $this->private,
             'confirmation_token' => uniqid(),
             'experienceable_type' => $experienceable_type,
-            'experienceable_id' =>  $helper_size == 2 ? $this->activity[1] : $this->activity[0],
+            'experienceable_id' => $helper_size == 2 ? $this->activity[1] : $this->activity[0],
         ]);
     }
 
@@ -104,7 +116,13 @@ class ReservationRequest extends FormRequest
             'participants' => 'required|integer|min:1|max:15',
             'private' => 'required_if:source,website|boolean',
             'phone' => 'required|string',
-            'person' => 'required_if:source,website|size:' . $this->participants,
+            'person' => [
+                Rule::requiredIf(function () {
+                    return $this->source === 'website'
+                        && (!is_array($this->activity) || !in_array(5, $this->activity));
+                }),
+                'size:' . $this->participants,
+            ],
             'person.*.name' => 'required|string',
             'person.*.birthday' => 'required|integer',
             'person.*.gender' => 'required|string',

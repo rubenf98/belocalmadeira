@@ -1,3 +1,4 @@
 export const types = {
     FETCH_ACTIVITIES: 'FETCH_ACTIVITIES',
+    FETCH_ACTIVITY: 'FETCH_ACTIVITY'
 };

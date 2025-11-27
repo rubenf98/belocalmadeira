@@ -2,6 +2,91 @@
 import { Input, Checkbox, Select, InputNumber, DatePicker, Cascader, Radio } from 'antd';
 import styled, { css } from "styled-components";
 import CountryPhoneInput from 'antd-country-phone-input';
+import { dimensions } from '../../../helper';
+
+export const containerCommonStyle = css`
+    width: 100%;
+    max-width: ${dimensions.custom};
+    margin: 110px auto;
+    
+    @media (max-width: ${dimensions.custom}) {
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+`;
+
+export const primaryButtonStyle = css`
+    box-sizing: border-box;
+    cursor: pointer;
+    background: white;
+    padding: 3px 20px 3px 3px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    background-color: ${({ theme }) => theme.primary};
+    color: white;
+    border: 2px solid ${({ theme }) => theme.primary};
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    .circle {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background: white;
+        transition: 0.4s;
+        background: ${({ theme }) => theme.primary};
+    }
+
+    &:hover {
+        .circle {
+            background: ${({ theme }) => theme.primaryHover};
+        }
+    }
+`;
+
+export const phoneButtonStyle = css`
+    background-color: transparent;
+    cursor: pointer;
+    border: 0px;
+    color: ${({ theme }) => theme.primary};
+`;
+export const Title = styled.h2`
+    color: inherit;
+    text-align: ${props => props.center ? "center" : "left"};
+    margin: 0px auto;
+    margin-bottom: ${props => props.center ? "100px" : "0px"};
+    width: ${props => props.center ? "60%" : "100%"};;
+    text-transform: capitalize;
+    font-family: "Russo One", sans-serif;
+    font-size: clamp(28px, 4vw, 46px);
+    line-height: 100%;
+
+    @media (max-width: ${dimensions.lg}) {
+        width: ${props => props.center ? "70%" : "100%"};;
+    }
+
+    @media (max-width: ${dimensions.md}) {
+        width: 100%;
+    }
+
+    span {
+        color: ${({ theme }) => theme.primary};
+    }
+`;
+
+
+export const secundaryButtonStyle = css`
+    ${primaryButtonStyle}
+    
+    background: rgb(255, 254, 239);
+    color: ${({ theme }) => theme.primary};
+    border: 2px solid ${({ theme }) => theme.primary};
+
+`;
 
 export const baseInputStyles = css`
     width: 100%;

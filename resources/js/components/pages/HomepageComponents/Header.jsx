@@ -1,328 +1,306 @@
-import React, { useEffect, useState, useContext } from "react";
-import styled, { ThemeContext } from "styled-components";
+import React, { useEffect, useState, useContext, useRef } from "react";
+import styled, { keyframes, ThemeContext } from "styled-components";
 import { dimensions } from "../../../helper";
-
-import headerWebp1200 from "/image/background_1200.webp";
-import headerJpg1200 from "/image/background_1200.jpg";
-import headerWebp1920 from "/image/background_1920.webp";
-import headerJpg1920 from "/image/background_1920.jpg";
-import headerWebp3000 from "/image/background_3000.webp";
-import headerJpg3000 from "/image/background_3000.jpg";
 import AnimationContainer from "../../common/AnimationContainer";
-import Flyer from "../../common/Flyer";
+import { setLanguage, handleForm } from "../../../redux/application/actions";
+
+import { connect } from "react-redux";
+
+const fillBar = keyframes`
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
+`;
 
 const Container = styled.section`
     width: 100%;
-    height: 100vh;
+    margin: auto;
+    margin-top: 110px;
+    max-width: ${dimensions.custom};
+    min-height: calc(100vh - 110px);
+    flex-direction: column;
     position: relative;
     display: flex;
     align-items: center;
-    overflow: hidden;
     /* flex-wrap: wrap; */
-    color: ${(props) => props.color};
 
-    @media (max-width: ${dimensions.sm}) {
-        flex-direction: column;
-        background-color: ${({ theme }) => theme.primary};
-        gap: 40px;
+    @media (max-width: ${dimensions.md}) {
+        margin-top: 0px;
+        min-height: calc(100vh - 50px);
     }
 `;
 
 const BackgroundContainer = styled.div`
-    position: absolute;
-    z-index: -2;
-    top: 0;
-    left: 0;
+    background: ${(props) => "url(" + props.background + ")"};
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex: 1;
+    color: white;
     display: flex;
-    justify-content: flex-end;
-    width: 100vw;
-    height: 100vh;
-    background-color: ${({ theme }) => theme.primary};
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px;
+    box-sizing: border-box;
+    border-radius: 50px;
 
-    picture {
-        width: 50%;
-        height: 100%;
-        display: block;
-
-        img {
-            width: 100%;
-            height: 100%;
-            border-top-left-radius: 20%;
-            object-fit: cover;
-        }
+    @media (max-width: ${dimensions.md}) {
+        border-top-right-radius: 0px;
+        border-top-left-radius: 0px;
     }
-
-    @media (max-width: ${dimensions.sm}) {
-        width: 100%;
-        height: 100%;
-        flex: 1 1 0;
-        z-index: 0;
-        position: relative;
-
-        picture {
-            width: 100%;
-            object-fit: cover;
-        }
-    }
-`;
-
-const Overlay = styled.div`
-    /* z-index: -1;
-  top: 0;bottom:0;left:0;right: 0;
-  position: absolute;
-  background: rgb(0,0,0);
-  background: linear-gradient(180deg, #000 0%, #38383830 100%);
-  opacity: 0.7; */
 `;
 
 const TitleContainer = styled.div`
-    width: 90%;
+    width: 100%;
     display: block;
     margin: auto;
-
-    h1,
-    h2 {
-        color: white;
-        width: 50%;
-        padding-right: 30px;
-        box-sizing: border-box;
-        line-height: 100%;
-    }
+    flex: 1;
 
     h1 {
-        font-size: clamp(40px, 4vw, 100px);
-        font-family: "Playfair Display", serif;
+        width: 70%;
+        margin: 30px auto 0px auto;
+        text-align: center;
+        font-size: clamp(36px, 4vw, 60px);
+        font-family: "Russo One", sans-serif;
+        line-height: 110%;
+        color: white;
     }
-
-    h2 {
-        font-size: clamp(20px, 2vw, 22px);
-        text-transform: uppercase;
-        margin-bottom: 20px;
-        font-weight: bold;
-    }
-
-    @media (max-width: ${dimensions.sm}) {
-        width: 100%;
-        padding: 120px 0px 30px 0px;
-        box-sizing: border-box;
-        margin: auto;
-
-        h1,
-        h2 {
-            width: 100%;
-            padding: 0px 20px;
-            text-align: center;
-        }
-    }
-`;
-
-const Scroll = styled.div`
-    margin: auto;
-    position: absolute;
-    left: 50%;
-    bottom: 30px;
-    transform: translate(-50%, 0);
-    display: flex;
-    color: inherit;
 
     @media (max-width: ${dimensions.md}) {
-        display: none;
-    }
+        margin-top: 100px;
 
-    img {
-        width: 15px;
-        margin-left: 10px;
-    }
-
-    p {
-        margin: 0px 5px;
-        line-height: 15px;
-        text-transform: uppercase;
-
-        &:nth-child(2) {
-            letter-spacing: 2px;
+        h1 {
+            width: 100%;
+            padding: 0px 20px;
         }
     }
 `;
 
 const LanguageContainer = styled.div`
-    margin: auto;
-    position: absolute;
-    right: 100px;
-    bottom: 30px;
     color: inherit;
+    display: flex;
+    justify-content: flex-end;
+    gap: 13px;
+    align-items: center;
 
-    @media (max-width: ${dimensions.md}) {
-        right: 30px;
+    .indicator {
+        cursor: pointer;
+        font-size: 22px;
+        font-weight: bold;
+        opacity: 0.6;
+    }
+
+    .active {
+        opacity: 1;
     }
 `;
 
-const LanguageIndicator = styled.span`
-    filter: ${(props) => (props.active ? "opacity(1)" : "opacity(.4)")};
-    z-index: 100;
-    cursor: pointer;
-    font-size: 22px;
-    font-weight: bold;
-
-    &:nth-child(2) {
-        margin-left: 13px;
-    }
-`;
-
-const Instagram = styled.div`
-    margin: auto;
-    position: absolute;
-    left: 100px;
-    bottom: 30px;
+const Social = styled.div`
     color: inherit;
-
-    .animated {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    @media (max-width: ${dimensions.md}) {
-        left: 30px;
-    }
+    display: flex;
+    gap: 10px;
+    align-items: center;
 
     img {
         width: 30px;
         height: 30px;
     }
 `;
+const CarouselBar = styled.div`
+    display: flex;
+    width: 80%;
+    justify-content: flex-end;
+    gap: 30px;
+    margin: 30px 0px 0px auto;
 
-const ScrollDownIndicator = () => (
-    <Scroll>
-        <div>
-            <p>scroll</p> <p>down</p>
-        </div>
-    </Scroll>
-);
+    div {
+        border-top: 2px solid #e2e2e2;
+        padding: 10px 0px;
+        cursor: pointer;
+        font-size: clamp(10px, 2vw, 16px);
+        text-transform: uppercase;
+        flex: 1 1 0px;
+    }
 
-function Header({ text }) {
-    const [positionOffset, setPositionOffset] = useState({
-        x: undefined,
-        y: undefined,
-    });
-    const [active, setActive] = useState("en");
+    .active {
+        position: relative;
+    }
+
+    .active::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: -2px;
+        height: 2px;
+        background-color: ${({ theme }) => theme.primary};
+        animation: ${fillBar} 10s linear infinite;
+        z-index: 3;
+    }
+
+    @media (max-width: ${dimensions.md}) {
+        width: 100%;
+        padding: 0px 20px;
+        box-sizing: border-box;
+    }
+`;
+
+const MainButton = styled.div`
+    box-sizing: border-box;
+    cursor: pointer;
+    background: white;
+    padding: 3px 3px 3px 20px;
+
+    border-radius: 20px;
+    text-transform: capitalize;
+    color: ${({ theme }) => theme.primary};
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    .circle {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: ${({ theme }) => theme.primary};
+        transition: 0.4s;
+    }
+
+    &:hover {
+        .circle {
+            background: ${({ theme }) => theme.primaryHover};
+        }
+    }
+`;
+
+const ActionBar = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`;
+
+const backgrounds = [
+    "/images/activities/canyoning/header.jpg",
+    "/images/activities/coasteering/header.jpg",
+    "/images/activities/jeep/header.jpg",
+    "/images/activities/hiking/header.jpg",
+    "/images/activities/biking/header.jpg",
+];
+
+function Header({ text, setLanguage, language, handleForm }) {
+    const [backgroundIndex, setBackgroundIndex] = useState(0);
+    const counter = useRef(0);
+
     const themeContext = useContext(ThemeContext);
 
     useEffect(() => {
-        setActive(localStorage.getItem("language"));
-        const DOM = document.getElementById("header-container");
+        if (counter.current < 100) {
+            counter.current += 1;
+            const timer = setTimeout(
+                () =>
+                    setBackgroundIndex(
+                        backgroundIndex == backgrounds.length - 1
+                            ? 0
+                            : backgroundIndex + 1
+                    ),
+                10000
+            );
 
-        const setFromEvent = (e) => {
-            var yOffset = e.pageY - window.innerHeight / 2;
-            var xOffset = e.pageX - window.innerWidth / 2;
+            return () => clearTimeout(timer);
+        }
+    }, [backgroundIndex]);
 
-            var maxXOffset = window.innerWidth / 2;
-            var maxYOffset = window.innerHeight / 2;
-
-            setPositionOffset({
-                x: ((xOffset - -maxXOffset) * 10) / (maxXOffset * 2) - 5,
-                y: ((yOffset - -maxYOffset) * 10) / (maxYOffset * 2) - 5,
-            });
-        };
-
-        DOM.addEventListener("mousemove", setFromEvent);
-
-        return () => {
-            DOM.removeEventListener("mousemove", setFromEvent);
-        };
+    useEffect(() => {
+        setLanguage(localStorage.getItem("language"));
     }, []);
 
-    function handleLanguageClick(language) {
-        localStorage.setItem("language", language);
-        setActive(language);
-        location.reload();
-    }
+    const handleLanguageChange = (value) => {
+        localStorage.setItem("language", value);
+        setLanguage(value);
+    };
 
     return (
-        <Container color={themeContext.inverseText} id="header-container">
-            {/* <Overlay /> */}
-            <Flyer />
+        <Container color={themeContext.inverseText}>
+            <BackgroundContainer background={backgrounds[backgroundIndex]}>
+                <TitleContainer>
+                    <AnimationContainer animateIn="fadeIn" offset={0}>
+                        <h1>{text.subtitle}</h1>
+                    </AnimationContainer>
+                </TitleContainer>
 
-            <TitleContainer>
-                <AnimationContainer animateIn="fadeIn" offset={0}>
-                    <h2>{text.title}</h2>
-                    <h1>{text.subtitle}</h1>
-                </AnimationContainer>
-            </TitleContainer>
+                <ActionBar>
+                    <Social>
+                        <a
+                            href="https://www.instagram.com/belocalmadeira/"
+                            target="_blank"
+                        >
+                            <img
+                                src="/icon/instagram.png"
+                                alt="instagram link"
+                            />
+                        </a>
+                        <a
+                            href="https://www.tiktok.com/@belocalmadeira"
+                            target="_blank"
+                        >
+                            <img src="/icon/tiktok.svg" alt="tiktok link" />
+                        </a>
+                    </Social>
 
-            <BackgroundContainer
-                background={themeContext.primary}
-                positionOffset={positionOffset}
-            >
-                <picture>
-                    <source
-                        media="(max-width: 580px)"
-                        srcSet={headerWebp1200}
-                    />
-                    <source
-                        media="(max-width: 1920px)"
-                        srcSet={headerWebp1920}
-                    />
-                    <source
-                        media="(min-width: 1921px)"
-                        srcSet={headerWebp3000}
-                    />
-                    <source media="(max-width: 580px)" srcSet={headerJpg1200} />
-                    <source
-                        media="(max-width: 1920px)"
-                        srcSet={headerJpg1920}
-                    />
-                    <source
-                        media="(min-width: 1921px)"
-                        srcSet={headerJpg3000}
-                    />
+                    <MainButton onClick={() => handleForm(true)}>
+                        {text.button} <div className="circle" />
+                    </MainButton>
 
-                    <img src={headerWebp1920} alt="profile" loading="eager" />
-                </picture>
-                {/* 
-                <video playsInline poster="/image/background_960.jpg" muted loop autoPlay controls={false}>
-                    <source src="/image/homepage/mobile_header.mp4" type="video/mp4" />
-                    <source src="/image/homepage/mobile_header.webm" type="video/webm" />
-                </video> */}
+                    <LanguageContainer>
+                        <div
+                            className={
+                                "indicator " +
+                                (language == "pt" ? "active" : "")
+                            }
+                            onClick={() => handleLanguageChange("pt")}
+                        >
+                            pt
+                        </div>
+                        <div
+                            className={
+                                "indicator " +
+                                (language == "en" ? "active" : "")
+                            }
+                            onClick={() => handleLanguageChange("en")}
+                        >
+                            en
+                        </div>
+                    </LanguageContainer>
+                </ActionBar>
             </BackgroundContainer>
-
-            <Instagram>
-                <AnimationContainer animateIn="fadeInUp" offset={0}>
-                    <a
-                        href="https://www.instagram.com/belocalmadeira/"
-                        target="_blank"
+            <CarouselBar>
+                {text.carousel.map((activity, index) => (
+                    <div
+                        onClick={() => setBackgroundIndex(index)}
+                        className={index == backgroundIndex && "active"}
                     >
-                        <img src="/icon/instagram.png" alt="instagram link" />
-                    </a>
-                    <a
-                        href="https://www.tiktok.com/@belocalmadeira"
-                        target="_blank"
-                    >
-                        <img src="/icon/tiktok.svg" alt="tiktok link" />
-                    </a>
-                </AnimationContainer>
-            </Instagram>
-
-            <LanguageContainer>
-                <AnimationContainer animateIn="fadeInUp" offset={0}>
-                    <LanguageIndicator
-                        active={active == "pt"}
-                        onClick={() => handleLanguageClick("pt")}
-                    >
-                        pt
-                    </LanguageIndicator>
-                    <LanguageIndicator
-                        active={active == "en"}
-                        onClick={() => handleLanguageClick("en")}
-                    >
-                        en
-                    </LanguageIndicator>
-                </AnimationContainer>
-            </LanguageContainer>
-
-            <ScrollDownIndicator />
+                        {activity}
+                    </div>
+                ))}
+            </CarouselBar>
         </Container>
     );
 }
 
-export default Header;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setLanguage: (state) => dispatch(setLanguage(state)),
+        handleForm: (visibility, activity) =>
+            dispatch(handleForm(visibility, activity)),
+    };
+};
+const mapStateToProps = (state) => {
+    return {
+        language: state.application.language,
+    };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
-import { fetchBlockedDates, deleteBlockedDate } from "../../../../redux/date/actions";
+import {
+    fetchBlockedDates,
+    deleteBlockedDate,
+} from "../../../../redux/date/actions";
 import { dimensions } from "../../../../helper";
 import TableContainer from "./TableContainer";
 
@@ -13,7 +16,7 @@ const ContentContainer = styled.div`
     flex-wrap: wrap;
     margin: 50px 0px;
 
-    @media (max-width: ${dimensions.lg}){
+    @media (max-width: ${dimensions.lg}) {
         width: 100%;
     }
 `;
@@ -21,21 +24,20 @@ const ContentContainer = styled.div`
 const Container = styled.div`
     width: 100%;
     min-height: 100vh;
-    background: rgb(245, 245, 245);
     display: flex;
     align-items: center;
     justify-content: center;
 `;
 
 const Table = styled.div`
-     width: 100%;
+    width: 100%;
 `;
 
 class Blocked extends Component {
     state = {
         filters: {},
         page: 1,
-    }
+    };
 
     componentDidMount() {
         this.props.fetchBlockedDates();
@@ -47,14 +49,14 @@ class Blocked extends Component {
         this.setState({ filters });
 
         this.props.fetchBlockedDates(1, filters);
-    }
+    };
 
     handlePageChange = (pagination) => {
         var { filters } = this.state;
         this.setState({ page: pagination.current });
 
         this.props.fetchBlockedDates(pagination.current, filters);
-    }
+    };
 
     render() {
         var { data, loading, meta } = this.props;
@@ -79,7 +81,8 @@ class Blocked extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchBlockedDates: (page, filters) => dispatch(fetchBlockedDates(page, filters)),
+        fetchBlockedDates: (page, filters) =>
+            dispatch(fetchBlockedDates(page, filters)),
         deleteBlockedDate: (id) => dispatch(deleteBlockedDate(id)),
     };
 };

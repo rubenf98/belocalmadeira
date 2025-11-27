@@ -53,6 +53,7 @@
         height: 100%;
         font-family: 'IBM Plex Sans Arabic', sans-serif;
         scroll-behavior: smooth;
+        background-color: rgb(255, 254, 239);
     }
 
     .full-page-loader {
@@ -471,8 +472,8 @@
 <script>
     var script = document.createElement('script');
     script.src = "{{mix('js/app.js')}}";
-    setTimeout(() => {
-        document.getElementById('index').append(script);
-    }, 0);
+
+    document.getElementById('index').append(script);
+
     // 4300
 </script>

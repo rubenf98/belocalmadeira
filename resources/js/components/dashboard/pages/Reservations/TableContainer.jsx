@@ -143,12 +143,6 @@ function TableContainer({
             render: (price) => <span>{price + "€"}</span>,
         },
         {
-            title: "Código",
-            dataIndex: "coupon",
-            render: (coupon) => <span>{coupon ? coupon.code : "N/A"}</span>,
-            filterDropdown: () => getFilter("coupon"),
-        },
-        {
             title: "",
             dataIndex: "seen",
             render: (seen, row) => (

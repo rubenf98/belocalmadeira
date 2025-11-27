@@ -298,7 +298,7 @@ const TransferForm = ({
                     >
                         <Loading
                             isloading={loading ? 1 : 0}
-                            src="/image/navbar/loading.svg"
+                            src="/icon/navbar/loading.svg"
                             alt="loading"
                         />
                         <span> {text.controls.submit} </span>

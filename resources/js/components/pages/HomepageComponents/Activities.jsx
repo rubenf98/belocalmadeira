@@ -1,14 +1,15 @@
-import React, { useContext } from 'react'
-import SectionTitle from '../../common/SectionTitle'
+import React, { useContext } from "react";
 import styled, { ThemeContext } from "styled-components";
-import { dimensions } from '../../../helper';
-import { Link } from 'react-router-dom';
+import { dimensions } from "../../../helper";
+import { Link } from "react-router-dom";
+import {
+    containerCommonStyle,
+    secundaryButtonStyle,
+    Title,
+} from "../Form/styles";
 
 const Container = styled.section`
-    width: 100%;
-    padding: 100px 0px;
-    box-sizing: border-box;
-    position: relative;
+    ${containerCommonStyle}
 `;
 
 const ActivitiesContainer = styled.div`
@@ -16,116 +17,126 @@ const ActivitiesContainer = styled.div`
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    max-width: 2600px;
-    margin: auto;
+    margin: 100px auto;
 
     h4 {
-        color: ${props => props.titleColor};
+        color: ${(props) => props.titleColor};
     }
 `;
 
-const ActivityContainer = styled(Link)`
-    width: 25%;
-    padding: 30px;
-    box-sizing: border-box;
+const Activity = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0px 80px;
 
-    &:hover {
-        .image-container {
-            box-shadow: 0px 0px 15px 0px rgba(0,0,0,.3);
-            scale: 1.01;
-        }
-        
-    }
-    @media (max-width: ${dimensions.lg}){
+    .text-container {
         width: 50%;
-        margin-top: 0px !important;
-    }
-
-    @media (max-width: ${dimensions.md}){
-        padding: 10px;
-    }
-
-    .image-container {
+        order: ${(props) => (props.isOdd ? "1" : "0")};
+        padding: ${(props) =>
+            props.isOdd ? "70px 50px 70px 0px" : "70px 0px 70px 50px"};
+        box-sizing: border-box;
         position: relative;
-        height: 0px;
-        padding-top: 150%;
-        background: ${props => "url(" + props.background + ")"};
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        transition: all .3s ease;
-        
 
-
-        .overlay {
-            background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 100%);
+        .background {
             position: absolute;
-            top: 0px;bottom: 0px; left: 0px; right: 0px;
+            width: calc(100% + 200px);
+            height: 100%;
+            top: 0;
+            left: ${(props) => (props.isOdd ? "-200px" : "0px")};
+            z-index: -3;
+            background: ${({ theme }) => theme.primaryBackground};
+            border-radius: 20px;
         }
 
         h4 {
-            position: absolute;
-            top: 40px;
-            left: 50%;
-            transform: translate(-50%, 0);
-            text-transform: capitalize;
-            font-size: 36px;
-
-            @media (max-width: ${dimensions.md}){
-                font-size: 28px;
-            }
+            text-transform: uppercase;
         }
 
-        
+        h3 {
+            text-transform: capitalize;
+            font-size: clamp(26px, 3vw, 36px);
+            margin-top: 0px;
+            line-height: 100%;
+        }
+
+        p {
+            font-weight: 300;
+            font-size: clamp(16px, 2vw, 18px);
+            text-align: justify;
+        }
+
+        button {
+            margin-top: 50px;
+            ${secundaryButtonStyle}
+        }
+    }
+
+    img {
+        order: ${(props) => (props.isOdd ? "0" : "1")};
+        width: 50%;
+        object-fit: cover;
+        max-height: 700px;
+        border-radius: 20px;
+        box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease-in-out;
+    }
+
+    @media (max-width: ${dimensions.md}) {
+        flex-wrap: wrap;
+        img {
+            order: 2;
+            width: 100%;
+            max-height: 300px;
+            margin: 0px auto 100px auto !important;
+        }
+
+        .text-container {
+            width: 100%;
+            text-align: center;
+            padding: 0px;
+        }
+
+        button {
+            margin: 0px auto 20px auto !important;
+        }
     }
 `;
 
-const Activity = ({ title, spacingTop = false, code }) => {
-    return (
-        <ActivityContainer
-            to={"/activities/" + code}
-            background={"/image/homepage/" + code + ".jpg"}
-            style={{ marginTop: spacingTop ? "50px" : "0px" }}
-        >
-            <div className='image-container'>
-                <div className='overlay' />
-                <h4>{title}</h4>
-            </div>
-        </ActivityContainer>
-    )
-
-}
-
-function Activities({ text, showTitle = true }) {
-    const themeContext = useContext(ThemeContext);
-
+function Activities({ text }) {
     return (
         <Container id="activities">
-            {
-                showTitle && <SectionTitle title={text.subtitle} subtitle={text.title} />
-            }
-            <ActivitiesContainer titleColor={themeContext.inverseText}>
-                <Activity
-                    title={text.items[0]}
-                    code="canyoning"
-                />
-                <Activity
-                    title={text.items[1]}
-                    spacingTop
-                    code="biking"
-                />
-                <Activity
-                    title={text.items[2]}
-                    code="coasteering"
-                />
-                <Activity
-                    title={text.items[3]}
-                    spacingTop
-                    code="hiking"
-                />
+            <Title center>{text.title}</Title>
+
+            <ActivitiesContainer>
+                {text.items.map((activity, index) => (
+                    <Activity isOdd={index % 2} key={index}>
+                        <div className="text-container">
+                            <div className="background" />
+                            <h4>{activity.subtitle}</h4>
+                            <h3>{activity.title}</h3>
+                            <p>{activity.description}</p>
+
+                            <Link to={"/activities/" + activity.subtitle}>
+                                <button>
+                                    <div className="circle" /> {text.button}
+                                </button>
+                            </Link>
+                        </div>
+                        <img
+                            src={
+                                "/images/activities/" +
+                                activity.subtitle +
+                                "/main.jpg"
+                            }
+                            alt=""
+                        />
+                    </Activity>
+                ))}
             </ActivitiesContainer>
         </Container>
-    )
+    );
 }
 
-export default Activities
+export default Activities;

@@ -1,21 +1,27 @@
-import React from 'react'
+import React from "react";
 import styled from "styled-components";
-import { dimensions } from '../../helper';
+import { dimensions } from "../../helper";
+import { containerCommonStyle } from "../pages/Form/styles";
 
 const Overlay = styled.div`
-  z-index: 1;
-  top: 0;bottom:0;left:0;right: 0;
-  position: absolute;
-  background: rgb(0,0,0);
-  background: linear-gradient(180deg, #000 0%, #38383830 100%);
-  opacity: 0.7;
-
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(180deg, #000 0%, #38383830 100%);
+    opacity: 0.7;
+    border-radius: 100px;
 `;
 
 const Header = styled.div`
+    ${containerCommonStyle}
     height: calc(60vh);
-    background: url("/image/background.webp");
-    background: url("/image/background.jpg");
+    border-radius: 100px;
+    background: url("/images/background.webp");
+    background: url("/images/background.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -33,7 +39,7 @@ const Header = styled.div`
         margin-top: calc(30vh - 40px);
 
         h1 {
-            font-family: 'Playfair Display', serif;
+            font-family: "Russo One", sans-serif;
             font-size: 9vw;
             line-height: 80px;
             color: white;
@@ -45,13 +51,13 @@ const Header = styled.div`
 
 function ActivityHeader({ title }) {
     return (
-        <Header >
+        <Header>
             <Overlay />
-            <div className='title-container'>
+            <div className="title-container">
                 <h1>{title}</h1>
             </div>
         </Header>
-    )
+    );
 }
 
-export default ActivityHeader
+export default ActivityHeader;

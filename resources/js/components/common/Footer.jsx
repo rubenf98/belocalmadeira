@@ -3,6 +3,8 @@ import styled, { ThemeContext } from "styled-components";
 import moment from "moment";
 import { dimensions, maxWidth } from "../../helper";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { setLanguage } from "../../redux/application/actions";
 
 const Container = styled.div`
     width: 100%;
@@ -16,7 +18,7 @@ const Container = styled.div`
         letter-spacing: 12px;
         color: white;
         text-align: center;
-        font-family: "Playfair Display", serif;
+        font-family: "Russo One", sans-serif;
     }
 
     @media (max-width: ${dimensions.md}) {
@@ -59,7 +61,6 @@ const Content = styled.div`
         h3 {
             text-transform: uppercase;
             color: ${({ theme }) => theme.accent};
-            font-family: "Playfair Display", serif;
             font-size: 20px;
             margin: 0px;
         }
@@ -144,13 +145,13 @@ const LegalContainer = styled.div`
         margin: 0px;
     }
 
-    .active-lang {
-        text-decoration: underline;
-        color: ${({ theme }) => theme.accent};
-    }
-
     .lang {
         cursor: pointer;
+    }
+
+    .active {
+        text-decoration: underline;
+        color: ${({ theme }) => theme.accent};
     }
 
     a {
@@ -173,21 +174,19 @@ const LegalContainer = styled.div`
     }
 `;
 
-function Footer() {
+function Footer(props) {
+    const { language } = props;
     const themeContext = useContext(ThemeContext);
     const [active, setActive] = useState("en");
-    const { text } = require("../../assets/" +
-        localStorage.getItem("language") +
-        "/links");
+    const { text } = require("../../assets/" + language + "/links");
 
     useEffect(() => {
-        setActive(localStorage.getItem("language"));
+        setActive(language);
     }, []);
 
     function handleLanguageClick(language) {
         localStorage.setItem("language", language);
-        setActive(language);
-        location.reload();
+        props.setLanguage(language);
     }
 
     return (
@@ -200,18 +199,26 @@ function Footer() {
                     <Link to="/activities/hiking">{text.links[4]}</Link>
                     <Link to="/activities/biking">{text.links[5]}</Link>
                     <Link to="/activities/coasteering">{text.links[6]}</Link>
+                    <Link to="/activities/jeep">{text.links[7]}</Link>
                 </div>
                 <div className="flex-item links-container">
                     <h3>{text.titles[1]}</h3>
                     <Link to="/contact">{text.links[1]}</Link>
                     <Link to="/about">{text.links[0]}</Link>
+                    <Link to="/store">{text.links[8]}</Link>
+                    <Link to="/blog">{text.links[9]}</Link>
                 </div>
                 <div className="flex-item links-container grow">
                     <h3>{text.titles[2]}</h3>
                     <a href="mailto:belocalmadeira@gmail.com" target="__blank">
-                        belocalmadeira@gmail.com
+                        E: belocalmadeira@gmail.com
                     </a>
-                    <p>+351 935 124 260</p>
+                    <a
+                        href="https://api.whatsapp.com/send?l=en&phone=351935124260"
+                        target="_blank"
+                    >
+                        P: +351 935 124 260
+                    </a>
                 </div>
                 <div className="flex-item social-container">
                     <div className="social-links">
@@ -234,7 +241,7 @@ function Footer() {
                     </div>
                     <Logo to="/">
                         <img
-                            src="/image/logo_white.png"
+                            src="/images/logo_white.png"
                             alt="be local madeira white logo"
                         />
                     </Logo>
@@ -248,13 +255,13 @@ function Footer() {
                     reserved
                 </p>
                 <p
-                    className={active == "en" ? "lang active-lang" : "lang"}
+                    className={"lang " + (language == "en" ? "active" : "")}
                     onClick={() => handleLanguageClick("en")}
                 >
                     EN
                 </p>
                 <p
-                    className={active == "pt" ? "lang active-lang" : "lang"}
+                    className={"lang " + (language == "pt" ? "active" : "")}
                     onClick={() => handleLanguageClick("pt")}
                 >
                     PT
@@ -271,5 +278,15 @@ function Footer() {
         </Container>
     );
 }
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setLanguage: (state) => dispatch(setLanguage(state)),
+    };
+};
 
-export default Footer;
+const mapStateToProps = (state) => {
+    return {
+        language: state.application.language,
+    };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Footer);

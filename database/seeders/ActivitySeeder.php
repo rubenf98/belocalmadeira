@@ -35,9 +35,8 @@ class ActivitySeeder extends Seeder
             'private_price' => 150,
         ]);
 
-        // Activity::create([
-        //     'name' => ['en' => "Tours", 'pt' => "Tours"],
-        //     'visible' => false,
-        // ]);
+        Activity::create([
+            'name' => ['en' => "Jeep Tour", 'pt' => "Jeep Tour"],
+        ]);
     }
 }

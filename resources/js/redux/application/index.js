@@ -6,6 +6,8 @@ export const initialState = {
     formVisible: false,
     formTransferVisible: false,
     activityInitialValue: {},
+    language: localStorage.language ? localStorage.language : "en",
+
 }
 
 export default (state = initialState, action = {}) => {
@@ -21,6 +23,12 @@ export default (state = initialState, action = {}) => {
             return {
                 ...state,
                 menuVisible: action.payload,
+            };
+
+        case `${types.SET_LANGUAGE}`:
+            return {
+                ...state,
+                language: action.payload,
             };
 
         case `${types.HANDLE_FORM}`:

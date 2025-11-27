@@ -1,9 +1,9 @@
-import React from 'react'
-import styled, { keyframes } from 'styled-components'
-import { dimensions, maxWidth } from '../../../helper';
-import AnimationContainer from '../../common/AnimationContainer';
-import SectionTitle from '../../common/SectionTitle'
-
+import React from "react";
+import styled, { keyframes } from "styled-components";
+import { dimensions, maxWidth } from "../../../helper";
+import AnimationContainer from "../../common/AnimationContainer";
+import SectionTitle from "../../common/SectionTitle";
+import { containerCommonStyle, Title } from "../Form/styles";
 
 const showImage = keyframes`
   0% {
@@ -15,22 +15,19 @@ const showImage = keyframes`
   }
 `;
 
-
 const Container = styled.section`
+    ${containerCommonStyle}
     margin-bottom: 200px;
 `;
 
 const FlexContainer = styled.div`
     display: flex;
-    max-width: ${maxWidth};
     margin: auto;
     flex-wrap: wrap;
 `;
 
-
-
 const Item = styled.div`
-    width: ${props => props.width + "%"};
+    width: ${(props) => props.width + "%"};
     height: auto;
     padding: 10px;
     box-sizing: border-box;
@@ -43,9 +40,8 @@ const Item = styled.div`
         }
 
         .overlay {
-            opacity: .5;
+            opacity: 0.5;
         }
-
     }
 
     @media (max-width: ${dimensions.md}) {
@@ -53,23 +49,21 @@ const Item = styled.div`
     }
 
     .fadeIn {
-        animation: ${showImage} .8s ease-in-out forwards;
+        animation: ${showImage} 0.8s ease-in-out forwards;
         height: 500px;
-        width: 100%; 
+        width: 100%;
         padding: 0px;
-        
-        
+
         @media (max-width: ${dimensions.md}) {
-            height: ${props => props.height + "px"};
+            height: ${(props) => props.height + "px"};
         }
     }
-
 
     img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        
+        border-radius: 20px;
 
         @media (max-width: ${dimensions.md}) {
             object-fit: none;
@@ -80,8 +74,12 @@ const Item = styled.div`
         background: black;
         opacity: 0;
         position: absolute;
-        top: 10px;bottom: 10px; left: 10px; right: 10px;
-        transition: opacity .3s ease;
+        top: 10px;
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        transition: opacity 0.3s ease;
+        border-radius: 20px;
     }
 
     .instagram-logo {
@@ -90,15 +88,12 @@ const Item = styled.div`
         position: absolute;
         left: 50%;
         top: 50%;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%, -50%);
         display: none;
         z-index: 5;
+        border-radius: 0px;
     }
 `;
-
-
-
-
 
 const items = [
     { src: "01", width: 30, height: 500 },
@@ -126,43 +121,55 @@ const items = [
     { src: "23", width: 33, height: 550 },
     { src: "05", width: 33, height: 600 },
     { src: "19", width: 100, height: 600 },
-]
-
+];
 
 function Instagram({ text }) {
     return (
         <Container>
-            <SectionTitle
-                title={text.subtitle}
-                subtitle={text.title} />
+            <Title center>{text.subtitle}</Title>
 
             <FlexContainer>
                 {items.map((item, index) => (
-
                     <Item key={index} width={item.width} height={item.height}>
                         <AnimationContainer animateIn="fadeIn">
-                            <a href="https://www.instagram.com/belocalmadeira/" target="_blank" rel="noreferrer">
-                                <picture loading='lazy'>
-                                    <source srcSet={"/image/instagram/" + item.src + ".jpg"} />
+                            <a
+                                href="https://www.instagram.com/belocalmadeira/"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                <picture loading="lazy">
+                                    <source
+                                        srcSet={
+                                            "/images/instagram/" +
+                                            item.src +
+                                            ".jpg"
+                                        }
+                                    />
 
                                     <img
-                                        className='instagram-post' src={"/image/homepage/instagram/" + item.src + ".webp"}
+                                        className="instagram-post"
+                                        src={
+                                            "/images/instagram/" +
+                                            item.src +
+                                            ".webp"
+                                        }
                                         alt="instagram post"
-                                        loading='lazy'
+                                        loading="lazy"
                                     />
                                 </picture>
-                                <img className='instagram-logo' src="/icon/instagram.png" alt="" />
-                                <div className='overlay' />
+                                <img
+                                    className="instagram-logo"
+                                    src="/icon/instagram.png"
+                                    alt=""
+                                />
+                                <div className="overlay" />
                             </a>
                         </AnimationContainer>
                     </Item>
                 ))}
-
             </FlexContainer>
-
-
         </Container>
-    )
+    );
 }
 
-export default Instagram
+export default Instagram;

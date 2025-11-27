@@ -1,26 +1,31 @@
 import React from "react";
-import styled, { withTheme } from "styled-components";
+import styled from "styled-components";
 import Row from "antd/es/row";
 import Form from "antd/es/form";
-import Button from "antd/es/button";
 import Col from "antd/es/col";
 import { dimensions } from "../../helper";
 import axios from "axios";
-import { CustomInput, CustomTextArea } from "./Form/styles";
-import PageHeader from "../common/PageHeader";
+import {
+    containerCommonStyle,
+    CustomInput,
+    CustomTextArea,
+    secundaryButtonStyle,
+} from "./Form/styles";
 import Faq from "./HomepageComponents/Faq";
+import { connect } from "react-redux";
 
 const Container = styled.div`
+    ${containerCommonStyle}
     display: flex;
     align-items: center;
     position: relative;
     justify-content: space-between;
-    width: 90%;
-    margin: 200px auto;
+    margin: 150px auto;
 
     @media (max-width: ${dimensions.md}) {
+        flex-wrap: wrap;
         .hide {
-            display: none;
+            margin-bottom: 30px;
         }
     }
 `;
@@ -40,15 +45,10 @@ const ContactForm = styled(Form)`
 `;
 
 const FormContainer = styled.div`
-    width: 70%;
+    width: 100%;
 
     @media (max-width: ${dimensions.lg}) {
         width: 100%;
-    }
-
-    h2,
-    h3 {
-        font-family: "Playfair Display", serif;
     }
 
     h2 {
@@ -63,42 +63,25 @@ const FormContainer = styled.div`
     h3,
     p,
     a {
-        color: ${(props) => props.color};
+        color: ${({ theme }) => theme.primary};
 
         &:hover {
-            color: ${(props) => props.color};
+            color: ${({ theme }) => theme.primary};
         }
     }
 `;
 
 const Sentence = styled.div`
-    font-size: 82px;
-    line-height: 70px;
-    width: 80%;
-    color: ${(props) => props.color};
-
-    @media (max-width: ${dimensions.lg}) {
-        font-size: 70px;
-    }
+    font-size: clamp(50px, 4vw, 82px);
+    font-family: "Russo One", sans-serif;
+    line-height: 100%;
+    width: 100%;
+    color: ${({ theme }) => theme.primary};
 `;
 
-const Submit = styled(Button)`
-    background: white;
-    border: none;
-    padding: 10px 15px;
-    text-transform: uppercase;
-    background-color: ${(props) => props.text};
-    transition: box-shadow 0.3s ease;
-
-    &:hover,
-    &:focus {
-        color: white;
-        background-color: ${(props) => props.text};
-        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
-    }
-    @media (max-width: ${dimensions.md}) {
-        margin: auto;
-    }
+const Submit = styled.button`
+    margin-top: 30px;
+    ${secundaryButtonStyle}
 `;
 
 const rules = {
@@ -125,15 +108,11 @@ const rules = {
     ],
 };
 
-function Contact({ theme }) {
+function Contact({ language }) {
     const [form] = Form.useForm();
 
-    const { text } = require("../../assets/" +
-        localStorage.getItem("language") +
-        "/contact");
-    const homepageText = require("../../assets/" +
-        localStorage.getItem("language") +
-        "/homepage");
+    const { text } = require("../../assets/" + language + "/contact");
+    const homepageText = require("../../assets/" + language + "/homepage");
 
     const onFinish = (values) => {
         axios.post(`${window.location.origin}/api/contact`, values);
@@ -146,13 +125,12 @@ function Contact({ theme }) {
 
     return (
         <div>
-            <PageHeader title={text.title} subtitle={text.subtitle} />
             <Container>
                 <SectionContainer className="hide">
-                    <Sentence color={theme.primary}>{text.sentence}</Sentence>
+                    <Sentence>{text.sentence}</Sentence>
                 </SectionContainer>
                 <SectionContainer>
-                    <FormContainer color={theme.primary}>
+                    <FormContainer>
                         <h2>{text.formTitle}</h2>
                         <ContactForm
                             requiredMark={false}
@@ -195,8 +173,8 @@ function Contact({ theme }) {
                                     size="large"
                                     type="primary"
                                     htmlType="submit"
-                                    text={theme.primary}
                                 >
+                                    <div className="circle" />{" "}
                                     {text.form.submit}
                                 </Submit>
                             </Form.Item>
@@ -221,4 +199,10 @@ function Contact({ theme }) {
     );
 }
 
-export default withTheme(Contact);
+const mapStateToProps = (state) => {
+    return {
+        language: state.application.language,
+    };
+};
+
+export default connect(mapStateToProps, null)(Contact);

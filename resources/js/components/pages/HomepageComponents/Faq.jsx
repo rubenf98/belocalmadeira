@@ -1,8 +1,7 @@
 import { Collapse } from "antd";
-import React from "react";
 import styled, { withTheme } from "styled-components";
 import { dimensions, maxWidth } from "../../../helper";
-import { Link } from "react-router-dom";
+import { Title } from "../Form/styles";
 
 const { Panel } = Collapse;
 
@@ -38,11 +37,6 @@ const Info = styled.div`
         padding: 20px 0px;
     }
 
-    h2 {
-        font-size: 40px;
-        font-family: "Playfair Display", serif;
-    }
-
     p {
         font-size: 16px;
         opacity: 0.7;
@@ -63,6 +57,7 @@ const Accordion = styled(Collapse)`
     .ant-collapse-item:last-child {
         background-color: white;
         margin-bottom: 10px;
+        border-radius: 10px;
 
         span {
             position: relative;
@@ -70,19 +65,19 @@ const Accordion = styled(Collapse)`
         }
     }
     .ant-collapse-header {
-        font-size: 14px;
+        font-size: 16px;
         padding: 10px;
         box-sizing: border-box;
 
         @media (max-width: ${dimensions.md}) {
-            font-size: 12px;
+            font-size: 14px;
             padding: 0px;
         }
     }
 
     .ant-collapse-content-box {
         p {
-            font-size: 12px;
+            font-size: 14px;
             text-align: justify;
 
             @media (max-width: ${dimensions.md}) {
@@ -97,7 +92,7 @@ function Faq({ theme, text, hasBackground = true }) {
         <Container background={hasBackground && theme.primaryBackground}>
             <Content>
                 <Info>
-                    <h2>{text.title}</h2>
+                    <Title>{text.title}</Title>
                     <p>{text.subtitle}</p>
 
                     <p>{text.terms}</p>

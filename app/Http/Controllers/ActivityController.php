@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ActivityDropdownResource;
 use App\Http\Resources\ActivityResource;
 use App\Models\Activity;
 use App\QueryFilters\ActivityFilters;
@@ -16,7 +17,7 @@ class ActivityController extends Controller
      */
     public function index(ActivityFilters $filters)
     {
-        return ActivityResource::collection(Activity::filterBy($filters)->where("visible", 1)->get());
+        return ActivityDropdownResource::collection(Activity::filterBy($filters)->where("visible", 1)->get());
     }
 
     /**
@@ -38,7 +39,7 @@ class ActivityController extends Controller
      */
     public function show(Activity $activity)
     {
-        //
+        return new ActivityResource($activity);
     }
 
     /**

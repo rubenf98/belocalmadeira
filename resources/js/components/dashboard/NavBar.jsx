@@ -1,44 +1,39 @@
-import React, { Component } from "react";
 import styled, { withTheme } from "styled-components";
-import { dimensions, colors } from "../../helper";
-import Row from "antd/es/row"
+import { dimensions } from "../../helper";
 import { NavLink } from "react-router-dom";
 
-const Container = styled(Row)`
-    width: 100%;
-    height: 80px;
-`;
-
-const NavBarContainer = styled(Row)`
-    width: 60%;
+const Container = styled.section`
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
     text-transform: uppercase;
-    margin: auto;
+    margin: 20px auto;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: ${({ theme }) => theme.primary};
+    border-radius: 20px;
 
-    @media (max-width: ${dimensions.md}){
-        width: 100%;
-    }
-`;
+    ul {
+        text-align: center;
+        margin: 0 auto;
+        display: block;
+        padding: 0;
 
-const TabList = styled.ul`
-    text-align: center;
-    margin: 0 auto;
-    display: block;
-    padding: 0;
-
-    li {
-        display: inline-block;
-        :last-child {
-            div::after {
-                content: "";
+        li {
+            display: inline-block;
+            :last-child {
+                div::after {
+                    content: "";
+                }
             }
         }
-    }
 
-    .link--active{
-        color: black;
-        font-weight: bold;
-        ::before {
-            width: 105%;
+        .link--active {
+            color: white;
+            font-weight: bold;
+            ::before {
+                width: 105%;
+            }
         }
     }
 `;
@@ -50,27 +45,25 @@ const LinkWithSeparator = styled(NavLink)`
     padding: 0 10px;
     margin: auto 5px;
     position: relative;
-    color: ${colors.gray};
+    color: ${({ theme }) => theme.customWhite};
     cursor: pointer;
     -webkit-transition: 0.3s;
     -moz-transition: 0.3s;
     -o-transition: 0.3s;
     transition: 0.3s;
-    border-bottom: 6px solid white;
     margin: 0 20px;
     text-transform: uppercase;
     font-size: 1em;
 
-
     &:hover {
-        color: black;
+        color: white;
         ::before {
             width: 105%;
         }
     }
 
-    @media (max-width: ${dimensions.sm}){
-        font-size: .9em;
+    @media (max-width: ${dimensions.sm}) {
+        font-size: 0.9em;
         margin: 0 10px;
     }
 
@@ -82,7 +75,7 @@ const LinkWithSeparator = styled(NavLink)`
         height: 8px;
         left: 0;
         bottom: 0px;
-        background: ${props => props.accent};
+        background: ${({ theme }) => theme.customWhite};
         z-index: -1;
         transition: 0.3s;
     }
@@ -90,44 +83,48 @@ const LinkWithSeparator = styled(NavLink)`
     ::after {
         position: absolute;
         content: "•";
-        color: #b7b7b7;
         right: -25px;
 
-        @media (max-width: ${dimensions.sm}){
+        @media (max-width: ${dimensions.sm}) {
             right: -15px;
         }
     }
 
     :last-child {
         ::after {
-        content: "";
+            content: "";
         }
     }
 `;
 
-const NavBarItem = ({ item, name, color }) => (
-    <LinkWithSeparator accent={color} activeClassName="link--active" to={"/painel/" + item} >
-        {name}
-    </LinkWithSeparator>
-)
+const pages = [
+    { item: "", name: "painel" },
+    { item: "reservas", name: "reservas" },
+    { item: "transfers", name: "transfers" },
+    { item: "contacto", name: "contacto" },
+    { item: "bloqueado", name: "bloqueado" },
+    { item: "blog", name: "blog" },
+    { item: "newsletter", name: "newsletter" },
+];
 
-function NavBar({ theme }) {
+function NavBar() {
     return (
-        <Container type="flex" justify="center" align="middle">
-            <NavBarContainer type="flex" justify="space-around" align="middle">
-
-                <TabList>
-                    <li>
-                        <NavBarItem color={theme.primary} item="reservas" name="reservas" />
-                        <NavBarItem color={theme.primary} item="transfers" name="transfers" />
-                        <NavBarItem color={theme.primary} item="contacto" name="contacto" />
-                        <NavBarItem color={theme.primary} item="bloqueado" name="bloqueado" />
-                    </li>
-                </TabList>
-
-            </NavBarContainer>
+        <Container>
+            <ul>
+                <li>
+                    {pages.map(({ item, name }) => (
+                        <LinkWithSeparator
+                            key={item}
+                            activeClassName="link--active"
+                            to={"/painel/" + item}
+                        >
+                            {name}
+                        </LinkWithSeparator>
+                    ))}
+                </li>
+            </ul>
         </Container>
-    )
+    );
 }
 
 export default withTheme(NavBar);
