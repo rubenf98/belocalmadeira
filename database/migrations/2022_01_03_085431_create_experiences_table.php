@@ -22,7 +22,7 @@ class CreateExperiencesTable extends Migration
             $table->integer('price_per_person')->default(1);
             $table->text('description')->nullable();
             $table->string('image')->nullable();
-            $table->string('key')->nullable();
+            $table->string('type')->nullable();
 
             $table->decimal('private_price', 5, 2)->nullable();
             $table->unsignedBigInteger('activity_id');
