@@ -134,7 +134,7 @@ function DrawerContainer({ visible, onClose, record }) {
                             <li className="details">
                                 <span>Desconto</span>{" "}
                                 {record.coupon
-                                    ? record.coupon.discount + "%t"
+                                    ? record.coupon.discount + "%"
                                     : "N/A"}
                             </li>
 
