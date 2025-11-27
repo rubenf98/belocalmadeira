@@ -27,11 +27,6 @@ const Container = styled.section`
     display: flex;
     align-items: center;
     /* flex-wrap: wrap; */
-
-    @media (max-width: ${dimensions.md}) {
-        margin-top: 0px;
-        min-height: calc(100vh - 50px);
-    }
 `;
 
 const BackgroundContainer = styled.div`
@@ -47,9 +42,9 @@ const BackgroundContainer = styled.div`
     box-sizing: border-box;
     border-radius: 50px;
 
-    @media (max-width: ${dimensions.md}) {
-        border-top-right-radius: 0px;
-        border-top-left-radius: 0px;
+    @media (max-width: ${dimensions.custom}) {
+        margin: 0px 20px;
+        box-sizing: border-box;
     }
 `;
 
@@ -63,14 +58,14 @@ const TitleContainer = styled.div`
         width: 70%;
         margin: 30px auto 0px auto;
         text-align: center;
-        font-size: clamp(36px, 4vw, 60px);
+        font-size: clamp(30px, 4vw, 60px);
         font-family: "Russo One", sans-serif;
         line-height: 110%;
         color: white;
     }
 
     @media (max-width: ${dimensions.md}) {
-        margin-top: 100px;
+        margin-top: 0px;
 
         h1 {
             width: 100%;
@@ -191,6 +186,14 @@ const backgrounds = [
     "/images/activities/biking/header.jpg",
 ];
 
+const mobileBackgrounds = [
+    "/images/activities/canyoning/header_mobile.jpg",
+    "/images/activities/coasteering/header_mobile.jpg",
+    "/images/activities/jeep/header_mobile.jpg",
+    "/images/activities/hiking/header_mobile.jpg",
+    "/images/activities/biking/header_mobile.jpg",
+];
+
 function Header({ text, setLanguage, language, handleForm }) {
     const [backgroundIndex, setBackgroundIndex] = useState(0);
     const counter = useRef(0);
@@ -223,9 +226,27 @@ function Header({ text, setLanguage, language, handleForm }) {
         setLanguage(value);
     };
 
+    const [isPortrait, setIsPortrait] = useState(
+        typeof window !== "undefined"
+            ? window.innerHeight > window.innerWidth
+            : true
+    );
+
+    useEffect(() => {
+        if (typeof window === "undefined") return;
+        const onResize = () =>
+            setIsPortrait(window.innerHeight > window.innerWidth);
+        window.addEventListener("resize", onResize);
+        return () => window.removeEventListener("resize", onResize);
+    }, []);
+
+    const currentBackground = isPortrait
+        ? mobileBackgrounds[backgroundIndex]
+        : backgrounds[backgroundIndex];
+
     return (
         <Container color={themeContext.inverseText}>
-            <BackgroundContainer background={backgrounds[backgroundIndex]}>
+            <BackgroundContainer background={currentBackground}>
                 <TitleContainer>
                     <AnimationContainer animateIn="fadeIn" offset={0}>
                         <h1>{text.subtitle}</h1>

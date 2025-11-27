@@ -15,7 +15,12 @@ const InfoContainer = styled.div`
     ${containerCommonStyle}
     display: flex;
     align-items: center;
+
     gap: 100px;
+
+    @media (max-width: ${dimensions.md}) {
+        flex-wrap: wrap;
+    }
 
     img {
         width: 100%;
@@ -29,6 +34,7 @@ const InfoContainer = styled.div`
 
 const Column = styled.div`
     width: 50%;
+    box-sizing: border-box;
     h2 {
         font-size: clamp(40px, 5vw, 60px);
         line-height: 100%;
@@ -40,8 +46,23 @@ const Column = styled.div`
         text-align: justify;
     }
 
+    .mobile {
+        display: none;
+        margin: 20px auto;
+        max-height: 50vh;
+        object-fit: cover;
+    }
+
     @media (max-width: ${dimensions.md}) {
         width: 100%;
+
+        .desktop {
+            display: none;
+        }
+
+        .mobile {
+            display: flex;
+        }
     }
 `;
 
@@ -60,12 +81,19 @@ function About({ theme }) {
                 <Column text={theme.lightText} xs={24} md={12}>
                     <h2>{text.section.title}</h2>
 
+                    <img
+                        className="mobile"
+                        src="/images/activities/canyoning/13.jpg"
+                        alt="beautiful green waterfall"
+                    />
+
                     {text.section.items.map((paragraph, index) => (
                         <p key={index}>{paragraph}</p>
                     ))}
                 </Column>
                 <Column className="desktop-image" xs={24} md={12}>
                     <img
+                        className="desktop"
                         src="/images/activities/canyoning/13.jpg"
                         alt="beautiful green waterfall"
                     />

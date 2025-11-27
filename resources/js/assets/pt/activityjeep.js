@@ -47,7 +47,7 @@ export const text = {
             items: {
                 9: ["8 horas (experiência de dia inteiro)", "6 participantes por jipe", "Pick-up gratuito em hotéis e alojamentos no Funchal (a pedido)"],
                 10: ["8 horas (experiência de dia inteiro)", "6 participantes por jipe", "Pick-up gratuito em hotéis e alojamentos no Funchal (a pedido)"],
-                11: ["3 horas (experiência de meio dia)", "6 participantes por jipe", "Pick-up gratuito em hotéis e alojamentos no Funchal (a pedido)"],
+                11: ["4/5 horas (experiência de meio dia)", "6 participantes por jipe", "Pick-up gratuito em hotéis e alojamentos no Funchal (a pedido)"],
                 12: ["4/5 horas", "Grupos privados até 6 participantes", "Pick-up gratuito em hotéis e alojamentos no Funchal (a pedido)"],
             },
         },

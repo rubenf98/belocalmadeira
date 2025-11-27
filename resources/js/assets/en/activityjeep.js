@@ -47,7 +47,7 @@ export const text = {
             items: {
                 9: ["8 hours (full day experience)", "6 participants per jeep", "Free pick-up at hotels and Airbnbs within Funchal (on request)"],
                 10: ["8 hours (full day experience)", "6 participants per jeep", "Free pick-up at hotels and Airbnbs within Funchal (on request)"],
-                11: ["3 hours (half day experience)", "6 participants per jeep", "Free pick-up at hotels and Airbnbs within Funchal (on request)"],
+                11: ["4/5 hours (half day experience)", "6 participants per jeep", "Free pick-up at hotels and Airbnbs within Funchal (on request)"],
                 12: ["4/5 hours", "Private groups up to 6 participants", "Free pick-up at hotels and Airbnbs within Funchal (on request)"],
 
             },

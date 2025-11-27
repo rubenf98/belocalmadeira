@@ -15,8 +15,6 @@ const Container = styled.section`
     display: flex;
     justify-content: space-between;
 
-    margin: 50px auto;
-
     flex-wrap: wrap;
 
     img {
@@ -106,6 +104,7 @@ const InfoContainer = styled.div`
     }
 
     @media (max-width: ${dimensions.md}) {
+        padding: 0px;
         .text-container {
             flex-wrap: wrap;
 

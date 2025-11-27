@@ -37,7 +37,7 @@ export const text = {
     packages: [
         {
             image: "/images/activities/canyoning/18.jpg",
-            title: "Ridges & Ravines Escape (3 days)",
+            title: "Be Local Madeira – 3-Day Adventure - Canyoning • Hiking • Coasteering",
             description:
                 "Discover Madeira’s wild side with a complete 3-day adventure designed for travellers who want real experiences — water, mountains and coastline all in one package. Explore the island with certified local guides and enjoy authentic, safe and unforgettable moments.",
             highlights: [
@@ -56,7 +56,7 @@ export const text = {
         },
         {
             image: "/images/activities/coasteering/09.jpg",
-            title: "Cliffs & Waves Experience (single day)",
+            title: "Be Local Madeira – 1-Day Adventure - Canyoning • Coasteering",
             description:
                 "Discover Madeira’s wild side with a complete adventure designed for travellers who want real experiences — water, mountains, and coastline in one powerful combination. Explore the island with certified local guides and enjoy authentic, safe, and unforgettable moments.",
             highlights: [
@@ -74,7 +74,7 @@ export const text = {
         },
         {
             image: "/images/activities/canyoning/curral_01.jpg",
-            title: "Beginner's Canyoning (3 days)",
+            title: "Be Local Madeira - 3-Day - Adventure – MORE CANYONING - Level 1 • Level 2 • Level 3",
             description:
                 "Discover Madeira from the inside out with a full canyoning progression — starting with a beginner-friendly route, moving to an intermediate canyon, and finishing with a technical and more challenging Level 3. This complete package is perfect for those who want to improve their skills, experience different landscapes, and enjoy Madeira’s wild nature in its purest form.",
             highlights: [
@@ -93,7 +93,7 @@ export const text = {
         },
         {
             image: "/images/activities/canyoning/header.jpg",
-            title: "Advanced's Canyoning (3 days)",
+            title: "Be Local Madeira - 3-Day - Adventure – MORE ADVANCED CANYONING - Level 2 • Level 3 • Level 4",
             description:
                 "For adventure seekers looking for the most complete and intense canyoning progression, this 3 - day package takes you through Madeira’s wildest vertical canyons.From intermediate routes to deep technical gorges and high- voltage advanced waterfalls, this experience is designed for travellers who want a real challenge, more exposure, and true mountain adventure.",
             highlights: [
@@ -112,7 +112,7 @@ export const text = {
         },
         {
             image: "/images/activities/jeep/01.jpg",
-            title: "Mountains & Motors Adventure (single day)",
+            title: "Be Local Madeira - 1-Day - Adventure CANYONING + JEEP PACK",
             description:
                 "Start your day jumping into waterfalls in Madeira’s Laurissilva Forest and finish the afternoon exploring the island by 4x4 Jeep — mountains, valleys, local villages and off-road trails. The perfect full-day adventure for travellers who want excitement, nature and authentic Madeira landscapes.",
             highlights: [
@@ -133,7 +133,7 @@ export const text = {
         },
         {
             image: "/images/activities/hiking/picos_03.jpg",
-            title: "Sunset & Streams Journey (single day)",
+            title: "Be Local Madeira - 1-Day - Adventure CANYONING + SUNSET",
             description:
                 "Combine an exhilarating canyoning adventure in Madeira’s Laurissilva Forest with a breathtaking sunset experience in one of the island’s most iconic viewpoints. A perfect balance of adrenaline, nature and unforgettable landscapes — all in a single day.",
             highlights: [

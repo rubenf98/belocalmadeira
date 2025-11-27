@@ -17,7 +17,7 @@ const ActivitiesContainer = styled.div`
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    margin: 100px auto;
+    margin: auto;
 
     h4 {
         color: ${(props) => props.titleColor};
@@ -81,25 +81,35 @@ const Activity = styled.div`
         border-radius: 20px;
         box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.3);
         transition: all 0.3s ease-in-out;
+        margin: 0px;
     }
 
     @media (max-width: ${dimensions.md}) {
         flex-wrap: wrap;
+        margin: 50px auto 50px auto;
+
         img {
             order: 2;
             width: 100%;
             max-height: 300px;
-            margin: 0px auto 100px auto !important;
         }
 
         .text-container {
             width: 100%;
             text-align: center;
             padding: 0px;
+
+            p {
+                text-align: center;
+            }
         }
 
         button {
             margin: 0px auto 20px auto !important;
+        }
+
+        .background {
+            display: none;
         }
     }
 `;
@@ -111,7 +121,14 @@ function Activities({ text }) {
 
             <ActivitiesContainer>
                 {text.items.map((activity, index) => (
-                    <Activity isOdd={index % 2} key={index}>
+                    <Activity
+                        style={{
+                            marginBottom:
+                                index + 1 == text.items.length ? "0px" : "50px",
+                        }}
+                        isOdd={index % 2}
+                        key={index}
+                    >
                         <div className="text-container">
                             <div className="background" />
                             <h4>{activity.subtitle}</h4>

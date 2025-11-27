@@ -12,6 +12,8 @@ export const containerCommonStyle = css`
     @media (max-width: ${dimensions.custom}) {
         padding: 20px;
         box-sizing: border-box;
+            margin: 50px auto;
+
     }
 
 `;
@@ -71,6 +73,7 @@ export const Title = styled.h2`
 
     @media (max-width: ${dimensions.md}) {
         width: 100%;
+        margin-bottom: 0px;
     }
 
     span {

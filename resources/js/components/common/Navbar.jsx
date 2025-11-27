@@ -18,6 +18,11 @@ const Container = styled.div`
     transition: all 0.3s ease;
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
 
+    @media (max-width: ${dimensions.custom}) {
+        margin: 0px 0px;
+        width: calc(100% - 30px);
+    }
+
     @media (max-width: ${dimensions.md}) {
         height: 70px;
     }
@@ -47,7 +52,7 @@ const Content = styled.div`
     }
 
     @media (max-width: ${dimensions.md}) {
-        margin-top: 5px;
+        margin-top: 10px;
         height: 50px;
         justify-content: space-between;
     }
@@ -95,12 +100,12 @@ const OrderButton = styled.div`
     box-sizing: border-box;
     cursor: pointer;
     background: ${({ theme }) => theme.primary};
-    padding: 10px 30px 10px 30px;
+    padding: 10px 20px 10px 20px;
     font-size: 15px;
     transition: 0.4s;
     margin-left: auto;
     overflow: hidden;
-    border-radius: 4px;
+    border-radius: 12px;
     position: relative;
     background-size: 110%;
     text-transform: capitalize;
@@ -275,6 +280,9 @@ function Navbar({ handleVisibility, language }) {
             </MenuItem>
             <MenuItem>
                 <Link to="/activities/jeep">jeep</Link>
+            </MenuItem>
+            <MenuItem>
+                <Link to="/activities/multiday">multiday</Link>
             </MenuItem>
             <MenuItem main>
                 <Link to="/about">about</Link>
