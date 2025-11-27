@@ -130,7 +130,7 @@ function Services({ text }) {
         <Container>
             <Title center>{text.title}</Title>
             <Content>
-                <HiddenImage src="/image/homepage/service.webp" />
+                <HiddenImage src="/images/activities/canyoning/17.jpg" />
                 <Column>
                     <Service text={text.items[0]} icon="experience" />
                     <Service
@@ -143,11 +143,11 @@ function Services({ text }) {
                     <ImageContainer>
                         <picture>
                             <source
-                                src="/image/homepage/service.webp"
+                                src="/images/activities/canyoning/17.webp"
                                 type="image/webp"
                             />
                             <img
-                                src="/image/homepage/service.jpg"
+                                src="/images/activities/canyoning/17.jpg"
                                 loading="lazy"
                             />
                         </picture>

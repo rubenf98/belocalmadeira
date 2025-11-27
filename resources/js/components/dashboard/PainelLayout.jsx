@@ -59,7 +59,7 @@ function PainelLayout(props) {
                 <NavBar />
                 {props.children}
                 <Footer>
-                    <img src="/image/logo.png" alt="logo" />
+                    <img src="/images/logo.png" alt="logo" />
                     <p>
                         © {dayjs().year()} Be Local Madeira. All Rights
                         Reserved.

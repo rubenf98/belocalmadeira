@@ -1,7 +1,7 @@
 import React from "react";
-import Menu from "antd/es/menu"
-import Dropdown from "antd/es/dropdown"
-import Popconfirm from "antd/es/popconfirm"
+import Menu from "antd/es/menu";
+import Dropdown from "antd/es/dropdown";
+import Popconfirm from "antd/es/popconfirm";
 import styled from "styled-components";
 
 const StyledDropdownLink = styled.div`
@@ -20,16 +20,14 @@ const RowOperation = ({ onDeleteConfirm, children, onUpdateClick }) => {
                 </Menu.Item>
             )}
             {onDeleteConfirm && (
-                <Menu.Item key="delete" >
+                <Menu.Item key="delete">
                     <Popconfirm
                         title="De certeza que quer apagar este registo?"
                         okText="Sim"
                         cancelText="Não"
                         onConfirm={() => onDeleteConfirm()}
                     >
-
                         Apagar
-
                     </Popconfirm>
                 </Menu.Item>
             )}

@@ -23,12 +23,12 @@ function BookingPage(props) {
             ...data,
         });
     };
-
     return (
         <div>
             {props.experience?.id && (
                 <BookingPageTemplate
                     experience={props.experience}
+                    experienceId={id ? id : props.experience.id}
                     text={text.booking}
                     index={id}
                     handleForm={handleSubmit}

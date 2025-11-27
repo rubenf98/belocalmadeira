@@ -6,7 +6,7 @@ import BookingPageTemplate from "../../common/BookingPageTemplate";
 function Coasteering(props) {
     const { text } = require("../../../assets/" +
         localStorage.getItem("language") +
-        "/activitybiking");
+        "/activitycoasteering");
 
     useEffect(() => {
         props.fetchActivity(4);
@@ -28,8 +28,9 @@ function Coasteering(props) {
                             ...props.activity,
                             id: 1,
                             key: "coasteering",
-                            image: "/image/activities/levels/coasteering_01.jpg",
+                            image: "/images/activities/coasteering/21.jpg",
                         }}
+                        experienceId={1}
                         text={text.booking}
                         index={props.activity?.id}
                         handleForm={handleSubmit}

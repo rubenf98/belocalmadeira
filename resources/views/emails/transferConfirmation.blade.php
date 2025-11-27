@@ -155,7 +155,7 @@
                                                                         align="center">
 
                                                                         <img align="center" border="0"
-                                                                            src="http://www.belocalmadeira.com/image/email/image-4.png"
+                                                                            src="http://www.belocalmadeira.com/icon/email/image-4.png"
                                                                             alt="Image" title="Image"
                                                                             style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 26%;max-width: 150.8px;"
                                                                             width="150.8" />
@@ -443,7 +443,7 @@
                                                                                     <a href="https://m.facebook.com/BeLocalMadeira/"
                                                                                         title="Facebook"
                                                                                         target="_blank">
-                                                                                        <img src="http://www.belocalmadeira.com/image/email/image-2.png"
+                                                                                        <img src="http://www.belocalmadeira.com/icon/email/image-2.png"
                                                                                             alt="Facebook"
                                                                                             title="Facebook" width="32"
                                                                                             style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
@@ -465,7 +465,7 @@
                                                                                     <a href="https://www.instagram.com/belocalmadeira/"
                                                                                         title="Instagram"
                                                                                         target="_blank">
-                                                                                        <img src="http://www.belocalmadeira.com/image/email/image-1.png"
+                                                                                        <img src="http://www.belocalmadeira.com/icon/email/image-1.png"
                                                                                             alt="Instagram"
                                                                                             title="Instagram" width="32"
                                                                                             style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">

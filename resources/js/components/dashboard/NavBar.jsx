@@ -104,6 +104,7 @@ const pages = [
     { item: "contacto", name: "contacto" },
     { item: "bloqueado", name: "bloqueado" },
     { item: "blog", name: "blog" },
+    { item: "newsletter", name: "newsletter" },
 ];
 
 function NavBar() {

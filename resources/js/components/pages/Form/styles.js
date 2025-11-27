@@ -7,7 +7,7 @@ import { dimensions } from '../../../helper';
 export const containerCommonStyle = css`
     width: 100%;
     max-width: ${dimensions.custom};
-    margin: 100px auto;
+    margin: 110px auto;
     
     @media (max-width: ${dimensions.custom}) {
         padding: 20px;

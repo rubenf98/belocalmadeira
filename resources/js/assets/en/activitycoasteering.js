@@ -1,28 +1,60 @@
+const imagePath = "/images/activities/coasteering/";
+
 export const text = {
     title: "coasteering",
     subtitle: (<>A sea of <span>emotions</span></>),
-    information: [
-        "Walking, swimming, climbing, rappelling and jumping into water: all this in a single activity, coasteering in Madeira which, amid lots of adventure and adrenalin, will show you the natural wonders of the island.",
-        "This activity is done in Ponta de São Lourenço, of the most beautifull landscapes of Madeira with incredible spots.",
-        "NOTE: If you are uncomfortable about jumping, know that there are alternatives."
-    ],
-    section: "All necessary information regarding Coasteering",
-    includes: [
-        "Transport",
-        "Individual equipment",
-        "Water and chocolate",
-        "Certified guides",
-        "Activity photos and videos",
-        "Insurance (personal accidents and civil liability)"
-    ],
-    activities: {
-        title: "Informations",
-        items: [
-            "Schedule: everyday, all year round",
-            "Duration: approximately 3 to 4 hours",
-            "Important to bring: towel, swimming clothes",
-            "Conditions: Not experience required"
-        ],
+    booking: {
+        description: {
+            1: [
+                "Experience Madeira’s coastline in its most authentic, wild and untouched form.",
+                "Our Coasteering adventure combines ocean swimming, coastal traversing and optional cliff jumps with the exploration of dramatic volcanic formations shaped by the Atlantic over millions of years. ",
+                "This experience is done in Ponta de São Lourenço, of the most beautifull landscapes of Madeira with incredible spots.",
+                "Designed and led by certified local guides, this experience blends adventure, safety and natural beauty into one of the island’s most remarkable outdoor activities."
+            ]
+        },
+        additional: {
+            1: {
+                titles: ["Included"],
+                items: [
+                    [
+                        "Transfers.",
+                        "Complete high-quality equipment (incl. helmet, wetsuit, neoprene socks, harness, shoes)",
+                        "Free pictures + snack",
+                        "Certified guides",
+                        "Insurance (personal accidents and civil liability)"
+                    ],
+
+                ]
+            },
+        },
+        titles: ['Details', "Summary"],
+        details: {
+            titles: ["SENSATION LEVEL", "TOTAL DURATION", "MEETING POINT", "JUMPS"],
+            items: {
+                1: ["Not experience required", "3-4hrs", "Funchal, Pestana CR7 Hotel", "Optional"],
+            },
+        },
+        images: {
+            1: [imagePath + "18.jpg", imagePath + "03.jpg", imagePath + "20.jpg"],
+        },
+        form: {
+            name: {
+                label: "Name *",
+
+            },
+            email: {
+                label: "Email *"
+            },
+            phone: {
+                label: "Phone Number *"
+            },
+            address: {
+                label: "Pickup Address *"
+            },
+            participants: {
+                label: "Nº of participants *",
+            },
+        },
     },
     gallery: {
         subtitle: "gallery",

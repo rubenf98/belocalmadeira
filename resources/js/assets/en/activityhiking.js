@@ -1,3 +1,5 @@
+const imagePath = "/images/activities/hiking/";
+
 export const text = {
     level_dictionary: {
         1: "Begginer",
@@ -8,9 +10,9 @@ export const text = {
         titles: ['Details', "Summary"],
 
         images: {
-            8: ["saolourenco_01", "saolourenco_02", "saolourenco_03"],
-            6: ["25fontes_01", "25fontes_02", "25fontes_03"],
-            7: ["picos_01", "picos_02", "picos_03"],
+            8: [imagePath + "saolourenco_02.jpg", imagePath + "saolourenco_03.jpg"],
+            6: [imagePath + "25fontes_02.jpg", imagePath + "25fontes_03.jpg"],
+            7: [imagePath + "picos_02.jpg", imagePath + "picos_03.jpg"],
         },
         description: {
             8: [

@@ -140,7 +140,7 @@ function Instagram({ text }) {
                                 <picture loading="lazy">
                                     <source
                                         srcSet={
-                                            "/image/instagram/" +
+                                            "/images/instagram/" +
                                             item.src +
                                             ".jpg"
                                         }
@@ -149,7 +149,7 @@ function Instagram({ text }) {
                                     <img
                                         className="instagram-post"
                                         src={
-                                            "/image/homepage/instagram/" +
+                                            "/images/instagram/" +
                                             item.src +
                                             ".webp"
                                         }

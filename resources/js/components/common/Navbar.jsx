@@ -1,4 +1,3 @@
-import React, { useContext, useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { dimensions } from "../../helper";
@@ -7,11 +6,12 @@ import AnimationContainer from "./AnimationContainer";
 import { connect } from "react-redux";
 
 const Container = styled.div`
-    background: ${({ theme }) => theme.primary};
-    width: 100vw;
-    height: ${(props) => (props.hasBackground ? "100px" : "0px")};
+    background-color: ${({ theme }) => theme.primary};
+    width: 100%;
+    max-width: ${dimensions.custom};
+    border-radius: 30px;
     left: 50%;
-    top: 0;
+    top: 10px;
     position: fixed;
     z-index: 20;
     transform: translate(-50%, 0);
@@ -19,16 +19,16 @@ const Container = styled.div`
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
 
     @media (max-width: ${dimensions.md}) {
-        height: ${(props) => (props.hasBackground ? "70px" : "0px")};
+        height: 70px;
     }
 
     a {
-        color: ${(props) => (props.hasBackground ? "white" : "black")};
+        color: white;
     }
 `;
 
 const Content = styled.div`
-    height: 60px;
+    height: 80px;
     background: transparent;
     margin: auto;
     display: flex;
@@ -39,7 +39,7 @@ const Content = styled.div`
     transition: 0.5s ease-in-out;
     box-sizing: border-box;
     align-items: center;
-    margin-top: 15px;
+    padding: 20px 30px;
 
     @media (max-width: ${dimensions.custom}) {
         padding: 0px 20px;
@@ -81,9 +81,9 @@ const Logo = styled(Link)`
     display: flex;
     justify-content: center;
     align-items: center;
-
+    margin-top: -5px;
     img {
-        height: 80px;
+        height: 70px;
 
         @media (max-width: ${dimensions.md}) {
             height: 40px;
@@ -154,6 +154,7 @@ const NavbarLink = styled(Link)`
     cursor: pointer;
     transition: 0.3s ease-in-out;
     font-weight: bold;
+    color: white;
 
     @media (max-width: ${dimensions.lg}) {
         padding: 15px 10px;
@@ -246,7 +247,6 @@ const MobileContainer = styled.div`
 `;
 
 function Navbar({ handleVisibility, language }) {
-    const [hasBackground, setHasBackground] = useState(false);
     const { text } = require("../../assets/" + language + "/links");
 
     const menu = (
@@ -291,33 +291,8 @@ function Navbar({ handleVisibility, language }) {
         </Menu>
     );
 
-    useEffect(() => {
-        if (window.innerWidth < 1200) {
-            setHasBackground(true);
-        }
-    }, []);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            if (window.innerWidth < 1200) {
-                setHasBackground(true);
-            } else {
-                if (window.scrollY / window.innerHeight > 0.1) {
-                    setHasBackground(true);
-                } else {
-                    setHasBackground(false);
-                }
-            }
-        };
-
-        window.addEventListener("scroll", handleScroll);
-        return () => {
-            window.removeEventListener("scroll", setFromEvent);
-        };
-    }, []);
-
     return (
-        <Container hasBackground={hasBackground}>
+        <Container>
             <Content>
                 <FlexItem className="navbar-hidden-links">
                     <NavbarLink to="/about">
@@ -337,11 +312,7 @@ function Navbar({ handleVisibility, language }) {
                 <AnimationContainer animateIn="fadeInDown" offset={0}>
                     <Logo to="/">
                         <img
-                            src={
-                                hasBackground
-                                    ? "/image/logo_white.png"
-                                    : "/image/logo.png"
-                            }
+                            src="/images/logo_white.png"
                             alt="be local madeira logo"
                         />
                     </Logo>
@@ -378,7 +349,7 @@ function Navbar({ handleVisibility, language }) {
                             >
                                 <span>{text.button}</span>
                                 <img
-                                    src="/image/navbar/order.svg"
+                                    src="/icon/navbar/order.svg"
                                     alt="create reservation"
                                 />
                             </AnimationContainer>
@@ -389,7 +360,7 @@ function Navbar({ handleVisibility, language }) {
                             placement="bottom"
                         >
                             <MenuButton>
-                                <img src="/image/navbar/menu.svg" alt="menu" />
+                                <img src="/icon/navbar/menu.svg" alt="menu" />
                             </MenuButton>
                         </Dropdown>
                     </Row>

@@ -24,7 +24,7 @@ const Container = styled.div`
 
 const CardContent = styled(Link)`
     background: white;
-    width: 20%;
+    width: calc(33% - 20px);
     padding: 50px 20px;
     text-align: center;
     min-width: 200px;
@@ -59,8 +59,10 @@ const CardContent = styled(Link)`
 const Content = styled.div`
     margin: auto;
     width: 100%;
+    max-width: 1200px;
     display: flex;
     justify-content: flex-start;
+    flex-wrap: wrap;
     gap: 20px;
 `;
 
@@ -100,6 +102,11 @@ function Painel() {
                     img="/icon/dashboard/blog.svg"
                     text="Blog Posts"
                     to="/painel/blog"
+                />
+                <CardContainer
+                    img="/icon/dashboard/newsletter.svg"
+                    text="Newsletter"
+                    to="/painel/newsletter"
                 />
             </Content>
         </Container>

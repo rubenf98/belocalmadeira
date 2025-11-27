@@ -98,6 +98,16 @@ export const text = {
             { title: 'Descobre a ilha com emoção', subtitle: "biking", description: "A Ilha da Madeira é um paraíso para o BTT. Aqui encontras trilhos fantásticos desde a montanha até ao nível do mar! O seu clima ameno torna o ciclismo agradável durante todo o ano." }
         ]
     },
+    newsletter: {
+        title: "Junte-se às nossas newsletters",
+        paragraph: "Subscreva a nossa newsletter com promoções, dicas e muito mais para aproveitar a Ilha da Madeira da melhor forma possível.",
+        emailPlaceholder: "Insira o seu email",
+        phonePlaceholder: "Insira o seu número de telefone",
+        feedback: "Obrigado pela subscrição!",
+        feedbackInstruction: "Subscreveu com sucesso a nossa newsletter.",
+        error: "Ocorreu um erro ao subscrever.",
+        errorInstruction: "Ocorreu um erro ao processar a sua subscrição. Por favor, tente novamente mais tarde."
+    },
     discount: {
         title: "Oportunidade de reserva",
         paragraph: "Descontos imperdíveis em todas as atividades reservadas online",
@@ -129,7 +139,7 @@ export const text = {
             <>segue-nos no
                 <LinkContainer href="https://www.instagram.com/belocalmadeira/" target="_blank">
                     <span>Instagram</span>
-                    <LinkImg src='/image/homepage/instagram_arrow.svg' />
+                    <LinkImg src='/icon/instagram_arrow.svg' />
                 </LinkContainer>
             </>),
     },
@@ -140,46 +150,89 @@ export const text = {
         subtitle: "Aqui estão as perguntas mais comuns sobre a Be Local. Se nenhuma delas responde à tua dúvida, contacta-nos para mais informações.",
         questions: [
             {
-                question: "O que está incluído nas tours?",
+                question: "O que está incluído nos tours?",
                 answer: [
                     (<ul>
-                        <li>Experiência completa</li>
-                        <li>Seguro de acidentes pessoais (de acordo com a legislação portuguesa).</li>
-                        <li>Fotos e vídeos gratuitos da atividade</li>
-                        <li>Todo o equipamento (equipamento técnico certificado: fato de neoprene; sapatos de canyoning; meias de neoprene; capacete; arnês e colete salva-vidas, se necessário).</li>
-                        <li>Guias certificados</li>
-                        <li>Lanche (chocolate)</li>
-                        <li>Transporte de/para o hotel no Funchal (outras áreas mediante pedido e possível custo adicional)</li>
-                        <li>Se não necessitares de transporte, podes obter 10% de desconto (enviamos as coordenadas para ires diretamente ao ponto de encontro).</li>
+                        <li>Experiência Completa</li>
+                        <li>Seguro de Acidentes Pessoais (de acordo com a legislação portuguesa)</li>
+                        <li>Fotos & Vídeos gratuitos da atividade</li>
+                        <li>Todo o Equipamento Técnico Incluído:</li>
+                        <ul>
+                            <li>Fato neoprene</li>
+                            <li>Sapatilhas de canyoning</li>
+                            <li>Meias de neoprene</li>
+                            <li>Capacete</li>
+                            <li>Arnês</li>
+                            <li>Coletes de flutuação (se necessário)</li>
+                        </ul>
+                        <li>Guias Certificados & Experientes</li>
+                        <li>Transfer de/para Funchal</li>
+                        <ul>
+                            <li>Outras zonas disponíveis mediante pedido (pode aplicar-se custo adicional)</li>
+                        </ul>
+                        <li>10% de desconto caso não precise de pick-up</li>
+                        <ul>
+                            <li>Enviamos as coordenadas GPS do ponto de encontro.</li>
+                        </ul>
                     </ul>),
-                    "Se precisares de ajuda ou mais informações, não hesites em contactar-nos pelo WhatsApp.",
-                    "Departamento de reservas: WhatsApp: (+351) 935 124 260"
+                    "Para mais informações ou apoio, a nossa equipa está disponível para ajudar a qualquer momento.",
+                    (<div>Departamento de Reservas: <br />WhatsApp: <a href="https://api.whatsapp.com/send?l=en&phone=351935124260"
+                        target="_blank">(+ 351) 935 124 260</a> </div>)
                 ]
             },
             {
                 question: "Qual é a idade mínima e máxima para participar numa atividade de Canyoning ou Coasteering?",
                 answer: [
-                    "Para atividades de Canyoning ou Coasteering, a idade mínima é 7 anos e a máxima é 75 anos.",
+                    "As nossas atividades foram pensadas para serem acessíveis, divertidas e seguras para participantes de várias idades.",
+                    "Para Canyoning e Coasteering, a idade mínima é de 7 anos. As crianças devem estar acompanhadas por um dos pais ou tutor legal e sentir-se confortáveis na água.",
+                    "A idade máxima recomendada é 65 anos, uma vez que estas atividades envolvem esforço físico, terreno irregular e obstáculos aquáticos. No entanto, a participação depende sempre da condição física, mobilidade e saúde de cada pessoa.",
+                    "Antes de confirmar a reserva, recomendamos que os participantes:",
+                    (<ul>
+                        <li>Tenham boa condição física geral e sejam capazes de realizar atividade física moderada</li>
+                        <li>Não tenham restrições médicas que possam comprometer a segurança</li>
+                        <li>Informem a nossa equipa sobre qualquer condição de saúde relevante antecipadamente</li>
+                    </ul>),
+                    "Os nossos guias são profissionais certificados e avaliam cada situação individualmente para garantir o mais alto nível de segurança e conforto.",
+                    "Se tiver dúvidas sobre idade adequada ou condição física específica, estamos disponíveis para dar aconselhamento personalizado.",
+                    "Para mais informações ou apoio, a nossa equipa está disponível a qualquer momento.",
+                    (<div>Departamento de Reservas: <br />WhatsApp: <a href="https://api.whatsapp.com/send?l=en&phone=351935124260"
+                        target="_blank">(+ 351) 935 124 260</a> </div>)
                 ]
             },
             {
-                question: "E se não me sentir confortável em saltar?",
+                question: "E se eu não me sentir confortável a saltar?",
                 answer: [
-                    "Os saltos não são obrigatórios e temos sempre alternativas (podemos colocar uma corda para descer em rappel ou, por vezes, há um trilho alternativo junto à ribeira onde se pode assistir aos saltos sem ter de os fazer)."
+                    "Os saltos não são obrigatórios e existem sempre alternativas — podemos colocar uma corda para descer em rappel ou, nalguns casos, existe um caminho alternativo junto ao curso de água onde poderá ver os outros saltarem sem ter de o fazer."
                 ]
             },
             {
                 question: "O que acontece em caso de mau tempo?",
                 answer: [
-                    "Em caso de mau tempo, a atividade pode ser cancelada ou reagendada para outra data. A decisão e avaliação sobre o cancelamento são sempre feitas pela nossa equipa."
+                    "A segurança é a nossa prioridade máxima. Por isso, todas as atividades ao ar livre dependem das condições meteorológicas e ambientais.",
+                    "Em caso de mau tempo, os nossos guias certificados avaliam a situação e decidem se a atividade pode decorrer em segurança. Se não for possível, uma das seguintes soluções será oferecida:",
+                    (<ul>
+                        <li>Reagendar a atividade para outra data e horário disponíveis</li>
+                        <li>Alterar a atividade para um local ou experiência alternativa mais segura</li>
+                        <li>Cancelar a atividade caso não exista uma opção segura</li>
+                    </ul>),
+                    "Todas as decisões relacionadas com o clima são tomadas no próprio dia, com base na avaliação em tempo real dos níveis de água, vento, chuva, condições do mar e critérios gerais de segurança.",
+                    "Se a atividade for cancelada devido ao tempo e não for possível reagendar, será efetuado reembolso total.",
+                    "A sua segurança e qualidade da experiência estarão sempre em primeiro lugar."
                 ]
             },
             {
                 question: "Como posso cancelar uma atividade?",
                 answer: [
-                    "Para cancelar uma atividade, é necessário aviso prévio, por email ou telefone. Para obter reembolso, o cancelamento deve ser feito com pelo menos 24 horas de antecedência."
+                    "Para cancelar uma atividade, deverá informar-nos previamente por email ou telefone.",
+                    (<ul>
+                        <li>Cancelamentos feitos com pelo menos 24h de antecedência são elegíveis para reembolso total.</li>
+                        <li>Cancelamentos dentro das 24h anteriores à atividade, ou não comparência, não têm direito a reembolso.</li>
+                        <li>Alterações à reserva (data, número de participantes ou detalhes de pick-up) estão sujeitas a disponibilidade e devem ser solicitadas antecipadamente.</li>
+                    </ul>),
+                    "Recomendamos que todos os pedidos de cancelamento ou alteração sejam feitos o mais cedo possível para garantir o seu processamento adequado."
                 ]
             },
-        ],
+        ]
+
     }
 }

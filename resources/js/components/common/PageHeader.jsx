@@ -6,8 +6,8 @@ import { containerCommonStyle } from "../pages/Form/styles";
 const Header = styled.div`
     ${containerCommonStyle}
     height: calc(60vh);
-    background: url("/image/background.webp");
-    background: url("/image/background.jpg");
+    background: url("/images/background.webp");
+    background: url("/images/background.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

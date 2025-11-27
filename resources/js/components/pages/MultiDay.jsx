@@ -119,14 +119,13 @@ const Card = styled.div`
     .card-header {
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
-        img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
 
-            @media (max-width: ${dimensions.md}) {
-                max-height: 500px;
-            }
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+
+        @media (max-width: ${dimensions.md}) {
+            max-height: 500px;
         }
     }
 
@@ -204,12 +203,12 @@ function MultiDay(props) {
                 <Grid>
                     <div className="column ">
                         <img
-                            src="/image/activities/01_coasteering.jpg"
+                            src="/images/activities/coasteering/17.jpg"
                             alt=""
                         />
                         <img
                             style={{ flex: 1 }}
-                            src="/image/activities/01_hiking.jpg"
+                            src="/images/activities/hiking/19.jpg"
                             alt=""
                         />
                     </div>
@@ -217,21 +216,21 @@ function MultiDay(props) {
                     <div className="column ">
                         <img
                             style={{ flex: 1 }}
-                            src="/image/activities/03_canyoning.jpg"
+                            src="/images/activities/canyoning/15.jpg"
                             alt=""
                         />
                         <img
                             style={{ minHeight: "200px" }}
-                            src="/image/activities/02_canyoning.jpg"
+                            src="/images/activities/canyoning/header.jpg"
                             alt=""
                         />
                     </div>
 
                     <div className="column ">
-                        <img src="/image/activities/01_jeep.jpg" alt="" />
+                        <img src="/images/activities/jeep/01.jpg" alt="" />
                         <img
                             style={{ flex: 1 }}
-                            src="/image/activities/01_biking.jpg"
+                            src="/images/activities/biking/12.jpg"
                             alt=""
                         />
                     </div>
@@ -270,10 +269,21 @@ function MultiDay(props) {
 
                                 <div className="button-container">
                                     {packageItem.price}
-                                    <button className="action-button">
-                                        <div className="circle" />{" "}
-                                        {packageItem.button}
-                                    </button>
+                                    <a
+                                        href={
+                                            "mailto:belocalmadeira@gmail.com?subject=Be%20Local%20Madeira%20Order%20Inquiry&body=I'm%20interested%20in%20the%20multi%20day%20activity%20" +
+                                            packageItem.title
+                                                .replace(/ /g, "%20")
+                                                .replace(/&/g, "%26") +
+                                            "%0A%0AMy%20name%20is%3A%0ANumber%20of%20days%20interested%3A%0AWhich%20days%20%28dates%29%3A%0ANumber%20of%20people%3A%0AAdditional%20notes%20%28optional%29%3A%0A%0A%0A"
+                                        }
+                                        target="__blank"
+                                    >
+                                        <button className="action-button">
+                                            <div className="circle" />{" "}
+                                            {packageItem.button}
+                                        </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>

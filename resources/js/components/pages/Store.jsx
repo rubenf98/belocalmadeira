@@ -13,7 +13,7 @@ const Container = styled.section`
     margin-top: 120px;
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
+    width: 100%;
 
     .mobile {
         display: none;
@@ -26,7 +26,7 @@ const Container = styled.section`
         }
 
         .mobile {
-            display: block;
+            display: flex;
         }
     }
 `;
@@ -105,23 +105,23 @@ const Grid = styled.div`
 function Store(props) {
     const { text } = require("../../assets/" + props.language + "/store");
 
-    const GridComponent = () => (
-        <Grid>
+    const GridComponent = ({ type }) => (
+        <Grid className={type}>
             <div className="column small">
-                <img src="/image/merch/1.png" alt="" />
-                <img src="/image/merch/2.png" alt="" />
-                <img src="/image/merch/3.png" alt="" />
+                <img src="/images/merch/1.png" alt="" />
+                <img src="/images/merch/2.png" alt="" />
+                <img src="/images/merch/3.png" alt="" />
             </div>
 
             <div className="column big">
-                <img style={{ flex: 1 }} src="/image/merch/main.png" alt="" />
-                <img src="/image/merch/kids.png" alt="" />
+                <img style={{ flex: 1 }} src="/images/merch/main.png" alt="" />
+                <img src="/images/merch/kids.png" alt="" />
             </div>
 
             <div className="column small">
-                <img src="/image/merch/4.png" alt="" />
-                <img src="/image/merch/5.png" alt="" />
-                <img src="/image/merch/6.png" alt="" />
+                <img src="/images/merch/4.png" alt="" />
+                <img src="/images/merch/5.png" alt="" />
+                <img src="/images/merch/6.png" alt="" />
             </div>
         </Grid>
     );
@@ -132,9 +132,7 @@ function Store(props) {
                 <h2>{text.title}</h2>
                 <h3>{text.subtitle}</h3>
 
-                <div className="mobile">
-                    <GridComponent />
-                </div>
+                <GridComponent type="mobile" />
 
                 {text.descriptions.map((paragraph, index) => (
                     <p key={index}>{paragraph}</p>
@@ -166,9 +164,7 @@ function Store(props) {
                     </a>
                 </div>
             </Information>
-            <div className="desktop">
-                <GridComponent />
-            </div>
+            <GridComponent type="desktop" />
         </Container>
     );
 }

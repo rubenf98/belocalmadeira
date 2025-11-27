@@ -1,133 +1,156 @@
 export const text = {
-    title: "Pacotes Multi-Dia na Madeira",
-    subtitle: "Explora a Madeira com Flexibilidade, Aventura e Conhecimento Local",
+    title: "Pacotes de Aventura na Madeira",
+    subtitle: "Explore a Madeira com Flexibilidade, Aventura e Conhecimento Local",
     descriptions:
         [
-            "Os nossos pacotes de aventura multi-dia foram concebidos para viajantes que querem experienciar verdadeiramente a Madeira. Em vez de escolher apenas uma atividade, pode combinar as melhores experiências da ilha ao longo de vários dias. Com transfers incluídos e sugestões flexíveis de refeições locais, desfruta de uma forma simples e sem stress de explorar a Madeira ao seu próprio ritmo.",
+            "Os nossos pacotes de aventura foram concebidos para viajantes que querem experienciar verdadeiramente a Madeira. Em vez de escolher apenas uma atividade, pode combinar as melhores experiências da ilha ao longo de vários dias. Com transfers incluídos e sugestões flexíveis de refeições locais, desfruta de uma forma simples e sem stress de explorar a Madeira ao seu próprio ritmo.",
         ],
     items: [
         {
             title: "Ampla Variedade de Atividades:",
-            description: "Escolhe entre canyoning, aventura mista, exploração de picos e cascatas, fusão mar–montanha ou uma experiência completa de Madeira."
+            description: "Escolha entre canyoning, aventuras mistas, exploração de picos e cascatas, fusão mar–montanha ou uma experiência completa e variada da Madeira."
         },
         {
             title: "Duração Flexível:",
-            description: "Escolha entre 2 a 5 dias e construa a sua aventura de acordo com o seu horário."
+            description: "Opções de 1 a 3 dias para construir a sua aventura de acordo com a sua disponibilidade."
         },
         {
             title: "Itinerários Diários Flexíveis:",
-            description: "Combine atividades consoante o seu nível de energia, interesses e condições meteorológicas."
+            description: "Combine atividades consoante o seu nível de energia, interesses e as condições meteorológicas."
         },
         {
             title: "Transfers Aeroporto/Hotel Incluídos:",
             description: "Comece e termine a sua viagem sem preocupações."
         },
         {
-            title: "Sugestões de Restaurantes e Gastronomia Local:",
-            description: "Recomendações personalizadas para excelentes refeições, locais tradicionais, restaurantes com vista para o mar e ideias de piquenique para os dias de caminhada."
+            title: "Sugestões de Gastronomia e Restaurantes Locais:",
+            description: "Recomendações personalizadas para ótimas refeições, locais tradicionais, restaurantes com vista para o mar e ideias de piquenique para os dias de caminhada."
         },
         {
             title: "Acesso à Autêntica Madeira:",
             description: "Descubra desfiladeiros escondidos, cristas montanhosas, percursos costeiros, piscinas naturais e miradouros que a maioria dos visitantes não conhece."
         },
     ],
-    disclaimer: "Os pacotes foram concebidos como soluções flexíveis para se adaptarem a uma grande variedade de viajantes. Todas as atividades, horários e itinerários podem ser ajustados ou personalizados com base nas suas preferências, nível de preparação física, condições meteorológicas e disponibilidade. Se tiver pedidos específicos, teremos todo o gosto em adaptá-los.",
+    disclaimer: "Os pacotes foram concebidos como soluções flexíveis que se adaptam a diferentes tipos de viajantes. Todas as atividades, horários e itinerários podem ser ajustados ou personalizados com base nas suas preferências, condição física, condições meteorológicas e disponibilidade. Caso tenha pedidos específicos, teremos todo o gosto em adaptar a experiência.",
+
 
     packages: [
         {
-            image: "/image/multiday/1.jpg",
-            title: "Exploração de Canyoning",
+            image: "/images/activities/canyoning/18.jpg",
+            title: "Ridges & Ravines Escape (3 dias)",
             description:
-                "Perfeito para viajantes que querem mergulhar totalmente nas cascatas, piscinas naturais e paisagens verticais da Madeira. Cada dia foca-se num desfiladeiro diferente, adaptado ao seu nível.",
+                "Descubra o lado mais selvagem da Madeira com uma aventura completa de 3 dias, ideal para viajantes que procuram experiências verdadeiras — água, montanha e costa num só pacote. Explore a ilha com guias locais certificados e viva momentos autênticos, seguros e inesquecíveis.",
             highlights: [
-                "Aventuras de canyoning diárias",
-                "Guias locais certificados de canyoning",
-                "Sugestões de restaurantes após cada percurso",
+                "Saltar, deslizar, fazer rappel e explorar cascatas escondidas.",
+                "Seguir levadas icónicas ou trilhos de montanha através de vales verdejantes.",
+                "Exploração costeira com saltos opcionais, natação e caminhadas junto aos penhascos.",
             ],
-            itineraryTitle: "Inclui em cada dia:",
+            itineraryTitle: "O que inclui cada dia:",
             itinerary: [
-                "2-4 Dias: desfiladeiros diários de diferentes dificuldades",
-                "5 Dias: Imersão completa em canyoning + workshop opcional de canyoning técnico"
+                "Dia 1: Canyoning (Nível 1 ou Nível 2)",
+                "Dia 2: Caminhada na Natureza (Levada ou Trilha de Montanha)",
+                "Dia 3: Experiência de Coasteering"
             ],
             button: "Tenho interesse!",
-            price: (<div className="price">A partir de <br /> 150€/dia</div>)
+            price: (<div className="price">A partir de <br /> 175€/pessoa</div>)
         },
         {
-            image: "/image/multiday/1.jpg",
-            title: "Aventura Picos & Cascatas",
+            image: "/images/activities/coasteering/09.jpg",
+            title: "Cliffs & Waves Experience (dia único)",
             description:
-                "Este pacote combina as duas experiências ao ar livre mais famosas da Madeira: descida de cascatas e subida de cristas montanhosas.",
+                "Descubra o lado mais selvagem da Madeira com uma aventura completa ideal para viajantes que procuram emoções reais — água, montanha e costa numa combinação poderosa. Explore a ilha com guias locais certificados e desfrute de momentos autênticos, seguros e inesquecíveis.",
             highlights: [
-                "Combinação de canyoning e trilhos pedestres",
-                "Guias locais certificados de canyoning",
-                "Sugestões de restaurantes após cada percurso",
+                "Um percurso de canyoning divertido e cheio de adrenalina, com saltos opcionais, escorregas naturais e rappéis em cascatas.",
+                "Exploração costeira com saltos, natação, escalada e caminhadas junto às falésias.",
+                "Perfeito para aventureiros principiantes ou intermédios."
             ],
-            itineraryTitle: "Inclui em cada dia:",
+            itineraryTitle: "O que inclui cada dia:",
             itinerary: [
-                "2 Dias: Canyoning + Caminhada na Levada",
-                "3 Dias: Canyoning + Caminhada na crista do Pico do Arieiro + Caminhada na Levada",
-                "4 Dias: Canyoning + 2 caminhadas + miradouro costeiro ao pôr do sol",
-                "5 Dias: Canyoning + 3 caminhadas icónicas + missão opcional ao nascer do sol"
+                "Manhã: Canyoning (Nível 1 ou Nível 2)",
+                "Tarde: Experiência de Coasteering",
             ],
             button: "Tenho interesse!",
-            price: (<div className="price">A partir de <br /> 250€/dia</div>)
+            price: (<div className="price">A partir de <br /> 125€/dia</div>)
         },
         {
-            image: "/image/multiday/1.jpg",
-            title: "Explorador da Ilha",
+            image: "/images/activities/canyoning/curral_01.jpg",
+            title: "Beginner's Canyoning (3 dias)",
             description:
-                "Uma ótima opção para viajantes que querem variedade. Cada dia apresenta uma forma diferente de explorar a Madeira — desde mountain biking a passeios off-road de jipe por vales escondidos.",
+                "Descubra a Madeira de dentro para fora com uma progressão completa de canyoning — começando com um percurso introdutório, passando para um canyon intermédio e terminando com um percurso técnico e mais desafiante de Nível 3. Este pacote é ideal para quem quer evoluir, ver diferentes paisagens e aproveitar a natureza selvagem da Madeira no seu estado mais puro.",
             highlights: [
-                "Guias locais certificados de canyoning",
-                "Sugestões de restaurantes após cada percurso",
-                "Dia 3: Canyoning Avançado - Ribeira do Inferno",
+                "A sua introdução ao canyoning, com o equilíbrio ideal entre aventura e conforto.",
+                "Uma experiência acessível, com saltos opcionais e pequenos rappéis — perfeita para aprender as bases.",
+                "No último dia, um canyon desafiante ideal para quem procura adrenalina real.",
             ],
-            itineraryTitle: "Inclui em cada dia:",
+            itineraryTitle: "O que inclui cada dia:",
             itinerary: [
-                "2 Dias: Passeio de jipe + canyoning ou caminhada curta",
-                "3 Dias: Dia de bicicleta + Canyoning + Passeio de jipe",
-                "4 Dias: Canyoning + Caminhadas + Coasteering + Passeio de jipe",
-                "5 Dias: Rotação completa de aventuras incluindo piscinas naturais ou percursos costeiros adicionais"
+                "Dia 1: Canyoning Nível 1",
+                "Dia 2: Canyoning Nível 2",
+                "Dia 3: Canyoning Nível 3"
             ],
             button: "Tenho interesse!",
-            price: (<div className="price">A partir de <br /> 250€/dia</div>)
+            price: (<div className="price">A partir de <br /> 265€/dia</div>)
         },
         {
-            image: "/image/multiday/1.jpg",
-            title: "Fusão Mar & Montanha",
+            image: "/images/activities/canyoning/header.jpg",
+            title: "Advanced's Canyoning (3 dias)",
             description:
-                "Uma combinação dinâmica de coasteering ao longo de falésias vulcânicas, caminhadas por florestas ancestrais e canyoning em desfiladeiros profundos.",
+                "Para aventureiros que procuram a progressão de canyoning mais completa e intensa, este pacote de 3 dias leva-o pelos desfiladeiros mais selvagens da Madeira. Desde percursos intermédios até ravinas técnicas profundas e cascatas avançadas de grande altura, esta experiência foi pensada para quem procura verdadeiro desafio, mais exposição e uma verdadeira aventura de montanha.",
             highlights: [
-                "Guias locais certificados de canyoning",
-                "Sugestões de restaurantes após cada percurso",
-                "Dia 3: Canyoning Avançado - Ribeira do Inferno",
+                "Piscinas naturais profundas e secções de água dinâmica.",
+                "Técnicas avançadas de corda: desvios, rappéis guiados, descidas em múltiplas etapas.",
+                "Rappéis verticais muito altos (45m+ dependendo do canyon).",
             ],
-            itineraryTitle: "Inclui em cada dia:",
+            itineraryTitle: "O que inclui cada dia:",
             itinerary: [
-                "2-3 Dias: Coasteering + Canyoning",
-                "4 Dias: Coasteering + Canyoning + Caminhada na Levada",
-                "5 Dias: Fusão completa: coasteering, canyoning, subida a pico, caminhada costeira, passeio de jipe"
+                "Dia 1: Canyoning Nível 2",
+                "Dia 2: Canyoning Nível 3",
+                "Dia 3: Canyoning Nível 4"
             ],
             button: "Tenho interesse!",
-            price: (<div className="price">A partir de <br /> 300€/dia</div>)
+            price: (<div className="price">A partir de <br /> 390€/dia</div>)
         },
         {
-            image: "/image/multiday/1.jpg",
-            title: "Experiência Completa da Madeira",
+            image: "/images/activities/jeep/01.jpg",
+            title: "Mountains & Motors Adventure (dia único)",
             description:
-                "Uma seleção cuidada das melhores atividades da Madeira todos os dias — combinando aventura, natureza, cultura e gastronomia — ideal para visitantes de primeira viagem ou para quem quer um pouco de tudo sem um foco intenso em aventura.",
+                "Comece o dia a aventurar-se por cascatas na Floresta Laurissilva e termine a tarde a explorar a ilha num Jeep 4x4 — montanhas, vales, aldeias locais e trilhos off-road. A aventura perfeita para quem quer emoção, natureza e paisagens autênticas da Madeira.",
             highlights: [
-                "Guias locais certificados de canyoning",
-                "Sugestões de restaurantes após cada percurso",
-                "Dia 3: Canyoning Avançado - Ribeira do Inferno",
+                "Pequenos rappéis em cascatas.",
+                "Natação entre formações vulcânicas.",
+                "Saltos opcionais em piscinas naturais de montanha.",
+                "Secções de montanha e floresta em off-road.",
+                "Miradouros panorâmicos impressionantes.",
+                "Seguro e acessível para todos os níveis."
             ],
-            itineraryTitle: "Inclui em cada dia:",
+            itineraryTitle: "O que inclui cada dia:",
             itinerary: [
-                "2-3 Dias: Canyoning + Passeio de jipe + Miradouros",
-                "4-5 Dias: Experiência completa: canyoning, picos, jipe, caminhada costeira, prova cultural opcional",
+                "Manhã: Canyoning Básico (Nível 1)",
+                "Tarde: Passeio de Jeep 4x4 (meio dia)",
             ],
             button: "Tenho interesse!",
-            price: (<div className="price">A partir de <br /> 400€/dia</div>)
+            price: (<div className="price">A partir de <br /> 155€/dia</div>)
+        },
+        {
+            image: "/images/activities/hiking/picos_03.jpg",
+            title: "Sunset & Streams Journey (dia único)",
+            description:
+                "Combine uma aventura emocionante de canyoning na Floresta Laurissilva com um pôr do sol inesquecível num dos miradouros mais icónicos da Madeira. O equilíbrio perfeito entre adrenalina, natureza e paisagens marcantes — tudo num único dia.",
+            highlights: [
+                "Rappéis pequenos e médios em cascatas.",
+                "Natação em secções de rio de águas cristalinas.",
+                "Saltos opcionais em piscinas naturais.",
+                "Vistas douradas sobre montanhas ou costa.",
+                "Um final tranquilo e relaxante para o dia de aventura.",
+                "Ideal para principiantes ou aventureiros intermédios."
+            ],
+            itineraryTitle: "O que inclui cada dia:",
+            itinerary: [
+                "Manhã: Canyoning Básico (Nível 1/2)",
+                "Tarde: Pôr do sol deslumbrante",
+            ],
+            button: "Tenho interesse!",
+            price: (<div className="price">A partir de <br /> 120€/dia</div>)
         },
     ],
 };

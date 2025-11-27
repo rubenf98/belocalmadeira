@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled, { withTheme } from "styled-components";
-import { containerCommonStyle, Title } from "../Form/styles";
+import { Title } from "../Form/styles";
 import { dimensions } from "../../../helper";
-import { Input, Space } from "antd";
+import { Input, notification } from "antd";
+import { connect } from "react-redux";
+import { createNewsletter } from "../../../redux/newsletter/actions";
 
 const Container = styled.section`
     width: 100%;
@@ -54,19 +56,38 @@ const Container = styled.section`
 `;
 
 function Newsletter(props) {
+    const { text } = props;
     const [form, setForm] = useState({ phone: undefined, email: undefined });
+
+    const handleSubmit = () => {
+        if (form.email || form.phone) {
+            props
+                .createNewsletter(form)
+                .then(() => {
+                    setForm({ phone: undefined, email: undefined });
+                    notification.success({
+                        message: text.feedback,
+                        description: text.feedbackInstruction,
+                    });
+                })
+                .catch(() => {
+                    notification.error({
+                        message: text.error,
+                        description: text.errorInstruction,
+                    });
+                });
+        }
+    };
 
     return (
         <Container>
-            <img src="/image/about/about3.jpg" alt="" />
+            <img src="/images/activities/canyoning/18.jpg" alt="" />
             <div className="content">
-                <Title>Sasd</Title>
-                <p>
-                    Subscribe our newsletter with promotions, tips and much more
-                    for you to enjoy Madeira Island in the best way possible.
-                </p>
+                <Title>{text.title}</Title>
+                <p>{text.paragraph}</p>
                 <Input.Group compact>
                     <Input
+                        value={form.email}
                         onChange={(e) =>
                             setForm({ ...form, email: e.target.value })
                         }
@@ -75,7 +96,7 @@ function Newsletter(props) {
                             borderTopLeftRadius: "20px",
                             borderBottomLeftRadius: "20px",
                         }}
-                        placeholder="Enter your email"
+                        placeholder={text.emailPlaceholder}
                         suffix={
                             <div
                                 style={{
@@ -87,6 +108,7 @@ function Newsletter(props) {
                         }
                     />
                     <Input
+                        value={form.phone}
                         onChange={(e) =>
                             setForm({ ...form, phone: e.target.value })
                         }
@@ -97,17 +119,17 @@ function Newsletter(props) {
                         }}
                         suffix={
                             <div
-                                onClick={() => alert("Clicked")}
+                                onClick={handleSubmit}
                                 style={{
                                     width: "35px",
                                     height: "35px",
                                     borderRadius: "50%",
-                                    background: props.theme.primary,
+                                    background: "green",
                                     cursor: "pointer",
                                 }}
                             />
                         }
-                        placeholder="Enter your phone number"
+                        placeholder={text.phonePlaceholder}
                     />
                 </Input.Group>
             </div>
@@ -115,4 +137,14 @@ function Newsletter(props) {
     );
 }
 
-export default withTheme(Newsletter);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        createNewsletter: (data) => dispatch(createNewsletter(data)),
+    };
+};
+const mapStateToProps = (state) => {
+    return {
+        language: state.application.language,
+    };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Newsletter);

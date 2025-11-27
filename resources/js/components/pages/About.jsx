@@ -8,22 +8,6 @@ import { containerCommonStyle } from "./Form/styles";
 
 const Container = styled.div`
     margin-top: 150px;
-
-    .mobile-image {
-        display: none;
-        margin-bottom: 20px;
-        max-height: 400px;
-    }
-
-    @media (max-width: ${dimensions.md}) {
-        .desktop-image {
-            display: none;
-        }
-
-        .mobile-image {
-            display: block;
-        }
-    }
 `;
 
 const InfoContainer = styled.div`
@@ -31,7 +15,6 @@ const InfoContainer = styled.div`
     ${containerCommonStyle}
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
     gap: 100px;
 
     img {
@@ -71,38 +54,24 @@ function About({ theme }) {
         localStorage.getItem("language") +
         "/homepage");
 
-    const AboutSection = React.lazy(() => import("./HomepageComponents/About"));
-
     return (
         <Container>
             <InfoContainer>
                 <Column text={theme.lightText} xs={24} md={12}>
                     <h2>{text.section.title}</h2>
-                    <img
-                        className="mobile-image"
-                        src="/image/about/about3.jpg"
-                        alt=""
-                    />
+
                     {text.section.items.map((paragraph, index) => (
                         <p key={index}>{paragraph}</p>
                     ))}
                 </Column>
                 <Column className="desktop-image" xs={24} md={12}>
-                    <img src="/image/about/about3.jpg" alt="" />
+                    <img
+                        src="/images/activities/canyoning/13.jpg"
+                        alt="beautiful green waterfall"
+                    />
                 </Column>
             </InfoContainer>
-            <Suspense fallback={<div></div>}>
-                <AboutSection text={homepageText.text.about} />
-            </Suspense>
             <Faq text={homepageText.text.faq} />
-
-            {/* <PartnerContainer type="flex" justify="space-around" align="middle">
-                <img loading="lazy" src="/image/about/fastrope.png" alt="fastrope" />
-                <img loading="lazy" src="/image/about/tripadvisor.png" alt="tripadvisor" />
-                <img loading="lazy" src="/image/about/movigo.svg" alt="movigo" />
-                <img loading="lazy" src="/image/about/espacomilenio.png" alt="espacomilenio" />
-                <img style={{ filter: "contrast(1) grayscale(1)" }} loading="lazy" src="/image/about/liveinmadeira.png" alt="liveinmadeira" />
-            </PartnerContainer> */}
         </Container>
     );
 }

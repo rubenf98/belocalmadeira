@@ -20,8 +20,8 @@ const Header = styled.div`
     ${containerCommonStyle}
     height: calc(60vh);
     border-radius: 100px;
-    background: url("/image/background.webp");
-    background: url("/image/background.jpg");
+    background: url("/images/background.webp");
+    background: url("/images/background.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

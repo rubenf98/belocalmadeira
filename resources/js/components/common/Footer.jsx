@@ -241,7 +241,7 @@ function Footer(props) {
                     </div>
                     <Logo to="/">
                         <img
-                            src="/image/logo_white.png"
+                            src="/images/logo_white.png"
                             alt="be local madeira white logo"
                         />
                     </Logo>

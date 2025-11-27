@@ -29,6 +29,7 @@ import Blogs from "./components/pages/Blogs";
 import Blog from "./components/pages/Blog";
 
 import PainelBlog from "./components/dashboard/pages/Blog/Blog";
+import PainelNewsletter from "./components/dashboard/pages/Newsletter/Newsletter";
 import Store from "./components/pages/Store";
 import MultiDay from "./components/pages/MultiDay";
 
@@ -60,6 +61,8 @@ function Router() {
 
                     <Route exact path="/confirmationTransfer/:token" element={<Layout><ConfirmationTour /></Layout>} />
                     <Route exact path="/confirmation/:token" element={<Layout><Confirmation /></Layout>} />
+
+                    <Route exact path="/painel/newsletter" element={<PainelLayout><PainelNewsletter /></PainelLayout>} />
 
                     <Route exact path="/painel/transfers" element={<PainelLayout><Transfers /></PainelLayout>} />
                     <Route exact path="/painel/blog" element={<PainelLayout><PainelBlog /></PainelLayout>} />

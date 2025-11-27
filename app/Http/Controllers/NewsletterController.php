@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\NewsletterRequest;
+use App\Http\Requests\UpdateNewsletterRequest;
+use App\Http\Resources\NewsletterResource;
 use App\Models\Newsletter;
 use Illuminate\Http\Request;
 
@@ -14,17 +17,7 @@ class NewsletterController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return NewsletterResource::collection(Newsletter::paginate(10));
     }
 
     /**
@@ -33,32 +26,13 @@ class NewsletterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(NewsletterRequest $request)
     {
-        //
+        $validator = $request->validated();
+        $newsletter = Newsletter::create($validator);
+        return new NewsletterResource($newsletter);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Newsletter  $newsletter
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Newsletter $newsletter)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Newsletter  $newsletter
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Newsletter $newsletter)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -67,9 +41,11 @@ class NewsletterController extends Controller
      * @param  \App\Models\Newsletter  $newsletter
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Newsletter $newsletter)
+    public function update(UpdateNewsletterRequest $request, Newsletter $newsletter)
     {
-        //
+        $validator = $request->validated();
+        $newsletter->update($validator);
+        return new NewsletterResource($newsletter);
     }
 
     /**
@@ -80,6 +56,8 @@ class NewsletterController extends Controller
      */
     public function destroy(Newsletter $newsletter)
     {
-        //
+        $newsletter->delete();
+
+        return response()->json(null, 204);
     }
 }

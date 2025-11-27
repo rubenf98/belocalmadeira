@@ -1,3 +1,4 @@
+import { error } from 'laravel-mix/src/Log';
 import React from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
@@ -97,6 +98,16 @@ export const text = {
             { title: 'Meet the island with excitement', subtitle: "biking", description: "Madeira Island is a paradise for Mountain Biking. Here you can  find fantastic trails from mountain to sea level! Its famous mild  weather makes biking in Madeira enjoyable all year round." }
         ]
     },
+    newsletter: {
+        title: "Join our newsletters",
+        paragraph: "Subscribe our newsletter with promotions, tips and much more for you to enjoy Madeira Island in the best way possible.",
+        emailPlaceholder: "Enter your email",
+        phonePlaceholder: "Enter your phone number",
+        feedback: "Thank you for subscribing!",
+        feedbackInstruction: "You have successfully subscribed to our newsletter.",
+        error: "There was an error subscribing.",
+        errorInstruction: "An error occurred while processing your subscription. Please try again later."
+    },
     discount: {
         title: "Reservation opportunity",
         paragraph: "Unmissable discounts on all activities booked online",
@@ -128,7 +139,7 @@ export const text = {
             <>follow us on
                 <LinkContainer href="https://www.instagram.com/belocalmadeira/" target="_blank">
                     <span>Instagram</span>
-                    <LinkImg src='/image/homepage/instagram_arrow.svg' />
+                    <LinkImg src='/icon/instagram_arrow.svg' />
                 </LinkContainer>
             </>),
     },
@@ -143,22 +154,49 @@ export const text = {
                 answer: [
                     (<ul>
                         <li>Full Experience</li>
-                        <li>Safety Insurance (According to Portuguese legislation).</li>
-                        <li>Free Photos and Videos of the Activity</li>
-                        <li>All the gear (Certified Technical Gear: Neoprene suit; Canyoning Shoes; Neoprene socks; Helmet; Harness and lifejacket if necessary).</li>
-                        <li>Certificate Guides</li>
-                        <li>Snack (Chocolate)</li>
-                        <li>Transfer from/to Hotel Funchal (other areas on request, an extra charge may apply)</li>
-                        <li>In case you don’t need a pickup, you can get a 10% Discount. (We send the coordinates from the place to go directly to the meeting point.)</li>
+                        <li>Safety Insurance (according to Portuguese legislation)</li>
+                        <li>Free Photos & Videos of the activity</li>
+                        <li>All Technical Gear Included:</li>
+                        <ul>
+                            <li>Neoprene suit</li>
+                            <li>Canyoning shoes</li>
+                            <li>Neoprene socks</li>
+                            <li>Helmet</li>
+                            <li>Harness</li>
+                            <li>Life Jacket (if required)</li>
+                        </ul>
+                        <li>Certified & Experienced Guides</li>
+                        <li>Transfer from/to Funchal</li>
+                        <ul>
+                            <li>Other areas available upon request (extra charge may apply)</li>
+                        </ul>
+                        <li>10% Discount if you don’t need pickup</li>
+                        <ul>
+                            <li>We send the GPS coordinates for the meeting point.</li>
+                        </ul>
                     </ul>),
-                    "If you need help or need further information, please feel free to contact us on WhatsApp.",
-                    "Reservations department: WhatsApp: (+ 351) 935124260"
+                    "For additional information or assistance, our team is available to support you at any time.",
+                    (<div>Reservations department: <br />WhatsApp: <a href="https://api.whatsapp.com/send?l=en&phone=351935124260"
+                        target="_blank">(+ 351) 935 124 260</a> </div>)
                 ]
             },
             {
                 question: "What is the minimum and maximum age to participate in a Canyoning or Coasteering activity?",
                 answer: [
-                    "For Canyoning or Coasteering activities, the minimum age is 7 years. The maximum age is 75 years.",
+                    "Our activities are designed to be accessible, enjoyable, and safe for participants of various ages.",
+                    "For both Canyoning and Coasteering, the minimum age requirement is 7 years old. Children must be accompanied by a parent or legal guardian and should be comfortable in the water.",
+                    "The maximum recommended age is 65 years old, as these activities involve physical effort, uneven terrain, and water obstacles. However, participation also depends on each individual’s physical condition, mobility, and health status.",
+                    "Before confirming a booking, we always recommend that participants:",
+                    (<ul>
+                        <li>Are in good general health and capable of moderate physical activity</li>
+                        <li>Have no medical restrictions that could compromise safety</li>
+                        <li>Inform our team of any relevant health conditions beforehand</li>
+                    </ul>),
+                    "Our guides are certified professionals and will assess each situation individually to ensure the highest level of safety and comfort.",
+                    "If you have any doubts regarding age suitability or specific physical conditions, our team is available to assist you with personalised guidance.",
+                    "For additional information or assistance, our team is available to support you at any time.",
+                    (<div>Reservations department: <br />WhatsApp: <a href="https://api.whatsapp.com/send?l=en&phone=351935124260"
+                        target="_blank">(+ 351) 935 124 260</a> </div>)
                 ]
             },
             {
@@ -170,13 +208,28 @@ export const text = {
             {
                 question: "What happens in case of bad weather?",
                 answer: [
-                    "In case of bad weather, the activity may be canceled or scheduled for another specific date. Regarding the cancellation due to weather, it is always decided and evaluated by our team."
+                    "Safety is our top priority. For this reason, all outdoor activities depend on weather and environmental conditions.",
+                    "In the event of adverse weather, our certified guides will assess the situation and decide whether the activity can proceed safely. If conditions are not suitable, one of the following solutions will be offered:",
+                    (<ul>
+                        <li>Reschedule the activity for another available date and time</li>
+                        <li>Change the activity to a safer location or alternative experience</li>
+                        <li>Cancel the activity if no safe option is possible</li>
+                    </ul>),
+                    "All decisions related to weather are made on the same day, based on real-time evaluations of water levels, wind, rain, sea conditions, and general safety criteria.",
+                    "If the activity is canceled due to weather and rescheduling is not possible, you will be fully refunded.",
+                    "Your safety and experience quality will always come first."
                 ]
             },
             {
                 question: "How can I cancel an activity?",
                 answer: [
-                    "In order to cancel an activity, prior notice must be given, either by email or telephone. To be refunded, cancellation must be made within 24 hours."
+                    "To cancel an activity, you must provide prior notice through email or telephone.",
+                    (<ul>
+                        <li>Cancellations made at least 24 hours before the scheduled start time are eligible for a full refund.</li>
+                        <li>Cancellations made within 24 hours of the activity, or failure to attend, are not eligible for a refund.</li>
+                        <li>Any modification of the booking (date, number of participants or pick-up details) is also subject to availability and must be requested in advance.</li>
+                    </ul>),
+                    "We recommend that all cancellation or modification requests be submitted as early as possible to ensure proper processing."
                 ]
             },
         ],

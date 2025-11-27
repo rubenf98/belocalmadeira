@@ -230,6 +230,7 @@ function BookingPageTemplate({
     calendarMetadata,
     text,
     experience,
+    experienceId,
 }) {
     const [form] = Form.useForm();
     useEffect(() => {
@@ -270,47 +271,34 @@ function BookingPageTemplate({
             <Content>
                 <InfoContainer>
                     <GalleryContainer
-                        n_images={text.images[experience.id].length}
+                        n_images={text.images[experienceId].length}
                     >
                         <div className="main_gallery_image">
                             <Image src={experience.image} />
                         </div>
                         <div className="images">
-                            {text.images[experience.id].map((image, index) => (
-                                <Image
-                                    key={index}
-                                    src={
-                                        "/image/activities/levels/" +
-                                        image +
-                                        ".jpg"
-                                    }
-                                />
+                            {text.images[experienceId].map((image, index) => (
+                                <Image key={index} src={image} />
                             ))}
                         </div>
 
                         <MobileCarousel autoplay showDots infinite>
                             <img src={experience.image} />
 
-                            {text.images[experience.id].map((image, index) => (
-                                <img
-                                    key={index}
-                                    src={
-                                        "/image/activities/levels/" +
-                                        image +
-                                        ".jpg"
-                                    }
-                                />
+                            {text.images[experienceId].map((image, index) => (
+                                <img key={index} src={image} />
                             ))}
                         </MobileCarousel>
                     </GalleryContainer>
 
                     <h3>{text.titles[0]}</h3>
                     <DetailsContainer type="flex" justify="space-between">
-                        {text.details.items[experience.id].map(
+                        {text.details.items[experienceId].map(
                             (detail, detailIndex) => (
                                 <Col xs={12} md={12}>
                                     <h4>{text.details.titles[detailIndex]}</h4>
-                                    {detailIndex == 4 ? (
+                                    {text.details.titles[detailIndex] ==
+                                    "MEETING POINT" ? (
                                         <a
                                             href="https://maps.app.goo.gl/QGif4UZZpUGJGnph7"
                                             target="__blank"
@@ -327,19 +315,19 @@ function BookingPageTemplate({
 
                     <h3>{text.titles[1]}</h3>
                     <ParagraphContainer>
-                        {text.description[experience.id].map((paragraph) => (
+                        {text.description[experienceId].map((paragraph) => (
                             <p>{paragraph}</p>
                         ))}
                     </ParagraphContainer>
 
-                    {text.additionail &&
-                        text.additionail[experience.id] &&
-                        text.additionail[experience.id].titles.map(
+                    {text.additional &&
+                        text.additional[experienceId] &&
+                        text.additional[experienceId].titles.map(
                             (title, index) => (
-                                <div key={"additionail_" + index}>
+                                <div key={"additional_" + index}>
                                     <h3>{title}</h3>
                                     <ul>
-                                        {text.additionail[experience.id].items[
+                                        {text.additional[experienceId].items[
                                             index
                                         ].map((info) => (
                                             <li>{info}</li>

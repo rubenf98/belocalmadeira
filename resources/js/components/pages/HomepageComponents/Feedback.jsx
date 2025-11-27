@@ -129,8 +129,8 @@ function Feedback({ text }) {
             >
                 <Col xs={24} md={12}>
                     <MainImage
-                        src="/image/homepage/feedback.jpg"
-                        alt="feedabck image"
+                        src="/images/activities/canyoning/15.jpg"
+                        alt="canyoning participant looking over a bridge"
                     />
                 </Col>
                 <Col xs={24} md={12} style={{ position: "relative" }}>

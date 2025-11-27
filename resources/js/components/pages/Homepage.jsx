@@ -24,7 +24,7 @@ function Homepage(props) {
             <Faq text={text.faq} />
             <Tours text={text.activities} />
 
-            <Newsletter text={text.activities} />
+            <Newsletter text={text.newsletter} />
 
             {/* <Family text={text.family} /> */}
 

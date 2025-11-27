@@ -4,7 +4,9 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CouponController;
 use App\Http\Controllers\ExternalReservationController;
+use App\Http\Controllers\HandleNewsletterSubscriptionInvokable;
 use App\Http\Controllers\HandleTransferVisibilityTransfer;
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\ReservationVisibilityController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -49,6 +51,11 @@ Route::apiResource('activity', 'App\Http\Controllers\ActivityController');
 Route::apiResource('experiences', 'App\Http\Controllers\ExperienceController');
 Route::apiResource('coupons', CouponController::class);
 Route::apiResource('blogs', BlogController::class);
+Route::apiResource('newsletters', NewsletterController::class);
+
+Route::put('newsletters-subscription/{newsletter}', HandleNewsletterSubscriptionInvokable::class);
+
+
 // Route::get('blogs', [BlogController::class, "index"]);
 // Route::get('blogs/{id}', [BlogController::class, "show"]);
 // Route::delete('blogs/{id}', [BlogController::class, "destroy"]);

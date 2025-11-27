@@ -19,9 +19,9 @@ const fillBar = keyframes`
 const Container = styled.section`
     width: 100%;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 110px;
     max-width: ${dimensions.custom};
-    min-height: calc(100vh - 100px);
+    min-height: calc(100vh - 110px);
     flex-direction: column;
     position: relative;
     display: flex;
@@ -61,9 +61,9 @@ const TitleContainer = styled.div`
 
     h1 {
         width: 70%;
-        margin: auto;
+        margin: 30px auto 0px auto;
         text-align: center;
-        font-size: clamp(36px, 4vw, 70px);
+        font-size: clamp(36px, 4vw, 60px);
         font-family: "Russo One", sans-serif;
         line-height: 110%;
         color: white;
@@ -184,11 +184,11 @@ const ActionBar = styled.div`
 `;
 
 const backgrounds = [
-    "header_canyoning.jpg",
-    "header_coasteering.jpg",
-    "header_jeep.jpg",
-    "header_hiking.jpg",
-    "header_biking.jpg",
+    "/images/activities/canyoning/header.jpg",
+    "/images/activities/coasteering/header.jpg",
+    "/images/activities/jeep/header.jpg",
+    "/images/activities/hiking/header.jpg",
+    "/images/activities/biking/header.jpg",
 ];
 
 function Header({ text, setLanguage, language, handleForm }) {
@@ -222,12 +222,10 @@ function Header({ text, setLanguage, language, handleForm }) {
         localStorage.setItem("language", value);
         setLanguage(value);
     };
-    console.log(language, "language");
+
     return (
         <Container color={themeContext.inverseText}>
-            <BackgroundContainer
-                background={"/image/" + backgrounds[backgroundIndex]}
-            >
+            <BackgroundContainer background={backgrounds[backgroundIndex]}>
                 <TitleContainer>
                     <AnimationContainer animateIn="fadeIn" offset={0}>
                         <h1>{text.subtitle}</h1>

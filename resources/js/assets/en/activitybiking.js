@@ -1,3 +1,5 @@
+const imagePath = "/images/activities/biking/";
+
 export const text = {
     title: "biking",
     subtitle: (<>Meet the <span>island</span> with excitement</>),
@@ -17,7 +19,7 @@ export const text = {
             },
         },
         images: {
-            1: ["biking_01", "biking_02", "biking_03"],
+            1: [imagePath + "08.jpg", imagePath + "10.jpg", imagePath + "06.jpg"],
         },
         form: {
             name: {

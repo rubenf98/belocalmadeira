@@ -36,7 +36,7 @@ class TourSeeder extends Seeder
                 'en' => "Our drivers track the progress of your flight, meaning there will always be someone waiting to transfer you from the airport on to your final destination. For complete peace of mind book an airport transfer from Madeira airport.",
                 'pt' => "Os nossos motoristas acompanham o progresso do seu voo, o que significa que haverá sempre alguém à espera para o transferir do aeroporto até ao destino final. Para total tranquilidade reserve um transfer do aeroporto da Madeira."
             ],
-            'image' => "/image/homepage/airport.jpg",
+            'image' => "/images/activities/tour/airport.jpg",
             'price' => 35,
         ]);
 
@@ -55,7 +55,7 @@ class TourSeeder extends Seeder
                 'en' => "Enjoy convenient, hassle-free transportation to and from your Levada track journey’s start and end points with our service.",
                 'pt' => "Desfrute de transporte conveniente e sem complicações de e para os pontos inicial e final da sua jornada na Levada com o nosso serviço."
             ],
-            'image' => "/image/homepage/picos.jpg",
+            'image' => "/images/activities/hiking/picos.jpg",
             'trajectory' => "Pestana CR7 Hotel - Pico Arieiro - Pico Ruivo - Pestana CR7 Hotel",
         ]);
     }

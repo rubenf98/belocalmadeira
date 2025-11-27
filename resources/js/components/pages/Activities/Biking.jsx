@@ -29,8 +29,9 @@ function Biking(props) {
                             ...props.activity,
                             id: 1,
                             key: "biking",
-                            image: "/image/activities/levels/biking_01.jpg",
+                            image: "/images/activities/biking/04.jpg",
                         }}
+                        experienceId={1}
                         text={text.booking}
                         index={props.activity?.id}
                         handleForm={handleSubmit}

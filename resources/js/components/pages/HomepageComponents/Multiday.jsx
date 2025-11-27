@@ -170,15 +170,15 @@ function Multiday({ text }) {
                         </div>
                     </div>
 
-                    <img src="/image/activities/01_coasteering.jpg" />
+                    <img src="/images/activities/coasteering/17.jpg" />
                 </div>
 
                 <div className="horizontal-image">
-                    <img src="/image/activities/02_canyoning.jpg" />
+                    <img src="/images/activities/canyoning/14.jpg" />
                 </div>
             </InfoContainer>
             <VerticalImageContainer>
-                <img src="/image/activities/01_hiking.jpg" />
+                <img src="/images/activities/hiking/19.jpg" />
             </VerticalImageContainer>
         </Container>
     );

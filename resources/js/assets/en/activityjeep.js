@@ -1,3 +1,5 @@
+const imagePath = "/images/activities/jeep/";
+
 export const text = {
     level_dictionary: {
         1: "Begginer",
@@ -8,10 +10,10 @@ export const text = {
         titles: ['Details', "Summary"],
 
         images: {
-            9: ["saolourenco_01", "saolourenco_02", "saolourenco_03"],
-            10: ["25fontes_01", "25fontes_02", "25fontes_03"],
-            11: ["picos_01", "picos_02", "picos_03"],
-            12: ["picos_01", "picos_02", "picos_03"],
+            9: [imagePath + "01.jpg", imagePath + "03.jpg", imagePath + "07.jpg"],
+            10: [imagePath + "02.jpg", imagePath + "04.jpg", imagePath + "08.jpg"],
+            11: [imagePath + "09.jpg", imagePath + "10.jpg", imagePath + "11.jpg"],
+            12: [imagePath + "12.jpg", imagePath + "05.jpg", imagePath + "13.jpg"],
         },
         description: {
             9: [
@@ -51,7 +53,7 @@ export const text = {
             },
         },
 
-        additionail: {
+        additional: {
             9: {
                 titles: ["Why choose a Private Jeep Tour?", "What to Expect", "Included", "Not included", "What to bring", "Highlights at a Glance"],
                 items: [
@@ -216,25 +218,22 @@ export const text = {
         title: (<>Amazing<span>adventures</span> that you'll never forget</>),
         images: [
             [
-                "hiking/01",
-                "hiking/04",
-                "hiking/07",
-                "hiking/10",
-                "hiking/18",
+                "jeep/01",
+                "jeep/04",
+                "jeep/07",
+                "jeep/10",
             ],
             [
-                "hiking/02",
-                "hiking/03",
-                "hiking/08",
-                "hiking/11",
-                "hiking/17",
+                "jeep/02",
+                "jeep/03",
+                "jeep/08",
+                "jeep/11",
             ],
             [
-                "hiking/05",
-                "hiking/06",
-                "hiking/09",
-                "hiking/12",
-                "hiking/15",
+                "jeep/05",
+                "jeep/06",
+                "jeep/09",
+                "jeep/12",
             ],
         ],
     },

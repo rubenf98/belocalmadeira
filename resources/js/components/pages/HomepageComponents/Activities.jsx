@@ -126,7 +126,9 @@ function Activities({ text }) {
                         </div>
                         <img
                             src={
-                                "/image/homepage/" + activity.subtitle + ".jpg"
+                                "/images/activities/" +
+                                activity.subtitle +
+                                "/main.jpg"
                             }
                             alt=""
                         />

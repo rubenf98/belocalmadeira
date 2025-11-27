@@ -43,17 +43,17 @@ const Gallery = styled.section`
 
 const StepsContainer = styled.div`
     display: flex;
+    justify-content: flex-start;
     align-items: stretch;
     flex-wrap: wrap;
-    max-width: ${maxWidth};
+    gap: 30px;
+    max-width: ${dimensions.custom};
     width: 100%;
     margin: 50px auto 0px auto;
 `;
 
 const Step = styled.div`
-    width: 33%;
-    padding: 30px 15px;
-    box-sizing: border-box;
+    width: calc(33% - 16px);
 
     .content {
         box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.25);
@@ -120,13 +120,14 @@ const Step = styled.div`
 
             h3,
             .price {
-                font-size: clamp(22px, 3vw, 32px);
+                font-size: clamp(22px, 3vw, 28px);
                 font-weight: bold;
                 margin: 0px;
                 line-height: 100%;
 
                 span {
                     font-size: 18px;
+                    white-space: nowrap;
                 }
             }
 
@@ -162,29 +163,6 @@ const Step = styled.div`
     }
 `;
 
-const OrderButton = styled.div`
-    box-sizing: border-box;
-    cursor: pointer;
-    background: ${(props) => props.background};
-    border: ${(props) => "1px solid " + props.border};
-    padding: 10px 30px 10px 30px;
-    font-size: 15px;
-    transition: 0.4s;
-    border-radius: 4px;
-    background-size: 110%;
-    text-transform: capitalize;
-    color: ${(props) => props.color};
-    font-weight: bold;
-    margin-top: 10px;
-    min-width: 100px;
-    text-align: center;
-    text-transform: uppercase;
-
-    &:hover {
-        background: ${(props) => props.backgroundHover};
-    }
-`;
-
 const ButtonContainer = styled.div`
     display: flex;
     align-items: center;
@@ -200,14 +178,7 @@ const ButtonContainer = styled.div`
     }
 `;
 
-function Activity({
-    data,
-    gallery,
-    level_dictionary,
-    theme,
-    handleForm,
-    language,
-}) {
+function Activity({ data, gallery, level_dictionary, handleForm, language }) {
     return (
         <Container>
             <StepsContainer>
@@ -273,26 +244,11 @@ function Activity({
                 {gallery.images.map((column) => (
                     <div>
                         {column.map((image, index) => (
-                            <picture key={index}>
-                                <source
-                                    srcSet={
-                                        "/image/activities/gallery/" +
-                                        image +
-                                        ".jpg"
-                                    }
-                                    type="image/jpg"
-                                />
-                                <img
-                                    alt="gallery image"
-                                    className="profile"
-                                    src={
-                                        "/image/activities/gallery/" +
-                                        image +
-                                        ".webp"
-                                    }
-                                    loading="lazy"
-                                />
-                            </picture>
+                            <img
+                                key={index}
+                                src={"/images/activities/" + image + ".jpg"}
+                                type="image/jpg"
+                            />
                         ))}
                     </div>
                 ))}

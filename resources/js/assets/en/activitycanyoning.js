@@ -1,3 +1,5 @@
+const imagePath = "/images/activities/canyoning/";
+
 export const text = {
     level_dictionary: {
         1: "Begginer",
@@ -8,11 +10,11 @@ export const text = {
         titles: ['Details', "Summary"],
 
         images: {
-            1: ["family_01", "family_02", "family_03"],
-            2: ["cales_01", "cales_02", "cales_03"],
-            3: ["curral_01", "curral_02", "curral_03"],
-            4: ["ribeiro_frio_01", "ribeiro_frio_02", "ribeiro_frio_03"],
-            5: ["funda_011", "funda_022", "funda_033"],
+            1: [imagePath + "family_02.jpg", imagePath + "family_03.jpg"],
+            2: [imagePath + "cales_02.jpg", imagePath + "cales_03.jpg"],
+            3: [imagePath + "curral_02.jpg", imagePath + "curral_03.jpg"],
+            4: [imagePath + "ribeiro_frio_02.jpg", imagePath + "ribeiro_frio_03.jpg"],
+            5: [imagePath + "funda_022.jpg", imagePath + "funda_033.jpg"],
         },
         description: {
             1: [

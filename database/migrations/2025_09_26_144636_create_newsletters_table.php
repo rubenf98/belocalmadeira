@@ -17,8 +17,10 @@ class CreateNewslettersTable extends Migration
             $table->id();
             $table->string('email')->unique()->nullable();
             $table->string('phone')->unique()->nullable();
+            $table->string('token')->unique()->default(uniqid());
+            $table->timestamp('subscribed_at')->default(now());
             $table->boolean('subscribed')->default(true);
-            
+
             $table->timestamps();
         });
     }
