@@ -36,7 +36,7 @@ export const text = {
 
     packages: [
         {
-            image: "/images/activities/canyoning/18.jpg",
+            image: "/images/activities/canyoning/14.jpg",
             title: "Be Local Madeira – 3-Day Adventure - Canyoning • Hiking • Coasteering",
             description:
                 "Discover Madeira’s wild side with a complete 3-day adventure designed for travellers who want real experiences — water, mountains and coastline all in one package. Explore the island with certified local guides and enjoy authentic, safe and unforgettable moments.",
@@ -52,7 +52,7 @@ export const text = {
                 "Day 3: Coasteering Experience "
             ],
             button: "I'm interested!",
-            price: (<div className="price">Starting <br /> 175€/person</div>)
+            price: (<div className="price">Starting <br /> 175€/p</div>)
         },
         {
             image: "/images/activities/coasteering/09.jpg",
@@ -70,7 +70,7 @@ export const text = {
                 "Afternoon: Coasteering Experience",
             ],
             button: "I'm interested!",
-            price: (<div className="price">Starting <br /> 125€/day</div>)
+            price: (<div className="price">Starting <br /> 125€/p</div>)
         },
         {
             image: "/images/activities/canyoning/curral_01.jpg",
@@ -89,7 +89,7 @@ export const text = {
                 "Day 3: Canyoning Level 3"
             ],
             button: "I'm interested!",
-            price: (<div className="price">Starting <br /> 265€/day</div>)
+            price: (<div className="price">Starting <br /> 265€/p</div>)
         },
         {
             image: "/images/activities/canyoning/header.jpg",
@@ -108,7 +108,7 @@ export const text = {
                 "Day 3: Canyoning Level 4"
             ],
             button: "I'm interested!",
-            price: (<div className="price">Starting <br /> 390€/day</div>)
+            price: (<div className="price">Starting <br /> 390€/p</div>)
         },
         {
             image: "/images/activities/jeep/01.jpg",
@@ -129,7 +129,7 @@ export const text = {
                 "Afternoon: Half-day 4x4 Jeep Tour",
             ],
             button: "I'm interested!",
-            price: (<div className="price">Starting <br /> 155€/day</div>)
+            price: (<div className="price">Starting <br /> 155€/p</div>)
         },
         {
             image: "/images/activities/hiking/picos_03.jpg",
@@ -150,7 +150,7 @@ export const text = {
                 "Afternoon: Stunning Sunset",
             ],
             button: "I'm interested!",
-            price: (<div className="price">Starting <br /> 120€/day</div>)
+            price: (<div className="price">Starting <br /> 120€/p</div>)
         },
     ],
 };

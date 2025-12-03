@@ -282,7 +282,7 @@ function Navbar({ handleVisibility, language }) {
                 <Link to="/activities/jeep">jeep</Link>
             </MenuItem>
             <MenuItem>
-                <Link to="/activities/multiday">multiday</Link>
+                <Link to="/multiday">Multi-Day Packages</Link>
             </MenuItem>
             <MenuItem main>
                 <Link to="/about">about</Link>
@@ -314,6 +314,9 @@ function Navbar({ handleVisibility, language }) {
                     </NavbarLink>
                     <NavbarLink to="/blogs">
                         {text.links[9]} <div />
+                    </NavbarLink>
+                    <NavbarLink to="/multiday">
+                        {text.links[10]} <div />
                     </NavbarLink>
                 </FlexItem>
 

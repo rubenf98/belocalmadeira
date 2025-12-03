@@ -36,7 +36,7 @@ export const text = {
 
     packages: [
         {
-            image: "/images/activities/canyoning/18.jpg",
+            image: "/images/activities/canyoning/14.jpg",
             title: "Be Local Madeira – 3-Dias - Aventura CANYONING • CAMINHADA • COASTEERING",
             description:
                 "Descubra o lado mais selvagem da Madeira com uma aventura completa de 3 dias, ideal para viajantes que procuram experiências verdadeiras — água, montanha e costa num só pacote. Explore a ilha com guias locais certificados e viva momentos autênticos, seguros e inesquecíveis.",
@@ -52,7 +52,7 @@ export const text = {
                 "Dia 3: Experiência de Coasteering"
             ],
             button: "Tenho interesse!",
-            price: (<div className="price">A partir de <br /> 175€/pessoa</div>)
+            price: (<div className="price">A partir de <br /> 175€/p</div>)
         },
         {
             image: "/images/activities/coasteering/09.jpg",
@@ -70,7 +70,7 @@ export const text = {
                 "Tarde: Experiência de Coasteering",
             ],
             button: "Tenho interesse!",
-            price: (<div className="price">A partir de <br /> 125€/dia</div>)
+            price: (<div className="price">A partir de <br /> 125€/p</div>)
         },
         {
             image: "/images/activities/canyoning/curral_01.jpg",
@@ -89,7 +89,7 @@ export const text = {
                 "Dia 3: Canyoning Nível 3"
             ],
             button: "Tenho interesse!",
-            price: (<div className="price">A partir de <br /> 265€/dia</div>)
+            price: (<div className="price">A partir de <br /> 265€/p</div>)
         },
         {
             image: "/images/activities/canyoning/header.jpg",
@@ -108,7 +108,7 @@ export const text = {
                 "Dia 3: Canyoning Nível 4"
             ],
             button: "Tenho interesse!",
-            price: (<div className="price">A partir de <br /> 390€/dia</div>)
+            price: (<div className="price">A partir de <br /> 390€/p</div>)
         },
         {
             image: "/images/activities/jeep/01.jpg",
@@ -129,7 +129,7 @@ export const text = {
                 "Tarde: Passeio de Jeep 4x4 (meio dia)",
             ],
             button: "Tenho interesse!",
-            price: (<div className="price">A partir de <br /> 155€/dia</div>)
+            price: (<div className="price">A partir de <br /> 155€/p</div>)
         },
         {
             image: "/images/activities/hiking/picos_03.jpg",
@@ -150,7 +150,7 @@ export const text = {
                 "Tarde: Pôr do sol deslumbrante",
             ],
             button: "Tenho interesse!",
-            price: (<div className="price">A partir de <br /> 120€/dia</div>)
+            price: (<div className="price">A partir de <br /> 120€/p</div>)
         },
     ],
 };

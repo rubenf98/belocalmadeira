@@ -13,7 +13,7 @@ export const text = {
             9: [imagePath + "01.jpg", imagePath + "03.jpg", imagePath + "07.jpg"],
             10: [imagePath + "02.jpg", imagePath + "04.jpg", imagePath + "08.jpg"],
             11: [imagePath + "09.jpg", imagePath + "10.jpg", imagePath + "11.jpg"],
-            12: [imagePath + "12.jpg", imagePath + "05.jpg", imagePath + "13.jpg"],
+            12: [imagePath + "12.jpg", imagePath + "05.jpg", imagePath + "11.jpg"],
         },
         description: {
             9: [
