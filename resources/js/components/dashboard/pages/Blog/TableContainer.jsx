@@ -80,7 +80,10 @@ function TableContainer({
             key: "",
             render: (text, row) => (
                 <StopPropagation>
-                    <RowOperation onDeleteConfirm={() => deleteBlog(row.id)} />
+                    <RowOperation
+                        onUpdateClick={() => onUpdateClick(row)}
+                        onDeleteConfirm={() => deleteBlog(row.id)}
+                    />
                 </StopPropagation>
             ),
         },

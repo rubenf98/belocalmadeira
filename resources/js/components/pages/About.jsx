@@ -36,12 +36,12 @@ const Column = styled.div`
     width: 50%;
     box-sizing: border-box;
     h2 {
-        font-size: clamp(40px, 5vw, 60px);
+        font-size: clamp(30px, 5vw, 40px);
         line-height: 100%;
     }
 
     p {
-        font-size: 20px;
+        font-size: 17px;
         font-weight: 300;
         text-align: justify;
     }

@@ -43,13 +43,11 @@ const FormContainer = (props) => {
         formData.append("title", values.title);
         formData.append("date", values.date);
         formData.append("body", values.body);
-        formData.append("image", image);
 
         if (props?.record?.id) {
-            formData.append("_method", "PATCH");
-            //https://github.com/laravel/framework/issues/13457
-            props.updateBlog(props.record.id, formData);
+            props.updateBlog(props.record.id, values);
         } else {
+            formData.append("image", image);
             props.createBlog(formData);
         }
         handleModalClose();
@@ -70,12 +68,17 @@ const FormContainer = (props) => {
         <Container>
             <div>
                 <Modal
-                    width={720}
+                    width={1400}
                     onCancel={handleModalClose}
                     visible={props.visible}
                     footer={null}
                 >
-                    <Form form={form} name="basic" onFinish={onFinish}>
+                    <Form
+                        style={{ padding: "30px 0px" }}
+                        form={form}
+                        name="basic"
+                        onFinish={onFinish}
+                    >
                         <Row gutter={16}>
                             <Col span={12}>
                                 <Form.Item name="title" label="Título">
@@ -93,18 +96,21 @@ const FormContainer = (props) => {
                                     />
                                 </Form.Item>
                             </Col>
-                            <Col span={24}>
-                                <Upload {...uploadprops}>
-                                    <Button htmlType="button">
-                                        Upload Image
-                                    </Button>
-                                </Upload>
-                            </Col>
+                            {!props?.record?.id && (
+                                <Col span={24}>
+                                    <Upload {...uploadprops}>
+                                        <Button htmlType="button">
+                                            Upload Image
+                                        </Button>
+                                    </Upload>
+                                </Col>
+                            )}
+
                             <Col span={24}>
                                 <Form.Item name="body">
                                     <ReactQuill
                                         theme="snow"
-                                        style={{ height: "200px" }}
+                                        style={{ height: "500px" }}
                                     />
                                 </Form.Item>
                             </Col>

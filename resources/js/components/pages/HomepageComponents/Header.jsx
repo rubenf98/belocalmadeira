@@ -188,10 +188,10 @@ const backgrounds = [
 
 const mobileBackgrounds = [
     "/images/activities/canyoning/header_mobile.jpg",
-    "/images/activities/coasteering/header_mobile.jpg",
-    "/images/activities/jeep/header_mobile.jpg",
-    "/images/activities/hiking/header_mobile.jpg",
-    "/images/activities/biking/header_mobile.jpg",
+    "/images/activities/coasteering/04.jpg",
+    "/images/activities/jeep/01.jpg",
+    "/images/activities/hiking/04.jpg",
+    "/images/activities/biking/12.jpg",
 ];
 
 function Header({ text, setLanguage, language, handleForm }) {
