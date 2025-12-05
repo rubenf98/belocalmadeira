@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Newsletter extends Model
 {
     use HasFactory;
-    protected $fillable = ['email', 'phone', 'subscribed_at'];
+    protected $fillable = ['email', 'phone', 'subscribed_at', 'token'];
 }

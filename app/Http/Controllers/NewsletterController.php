@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\NewsletterRequest;
 use App\Http\Requests\UpdateNewsletterRequest;
 use App\Http\Resources\NewsletterResource;
+use App\Jobs\NewsletterEmailJob;
 use App\Models\Newsletter;
 use Illuminate\Http\Request;
 
@@ -29,7 +30,14 @@ class NewsletterController extends Controller
     public function store(NewsletterRequest $request)
     {
         $validator = $request->validated();
+        $validator["token"] = uniqid();
         $newsletter = Newsletter::create($validator);
+
+        if ($validator["email"]) {
+            NewsletterEmailJob::dispatch($newsletter->email)->delay(now()->addSecond());
+        }
+
+
         return new NewsletterResource($newsletter);
     }
 
