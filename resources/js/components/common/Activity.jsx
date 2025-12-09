@@ -206,7 +206,10 @@ function Activity({ data, gallery, level_dictionary, handleForm, language }) {
                                     <button
                                         onClick={() =>
                                             handleForm(true, {
-                                                activity_id: [1, experience.id],
+                                                activity: [
+                                                    experience.activity.id,
+                                                    experience.id,
+                                                ],
                                             })
                                         }
                                         className="action-button"

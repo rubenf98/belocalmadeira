@@ -2,13 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Row, Form, Col, Input } from "antd";
 import {
     CustomCheckbox,
-    CustomCascader,
     CustomInput,
     CustomInputNumber,
     CustomPhoneSelect,
     CustomSearch,
 } from "./styles";
-import { fetchActivities } from "../../../redux/activity/actions";
 import { fetchCoupon } from "../../../redux/coupon/actions";
 import { ConfigProvider } from "antd-country-phone-input";
 import en from "world_countries_lists/data/countries/en/world.json";
@@ -72,25 +70,10 @@ const rules = {
             message: "",
         },
     ],
-    activity: [
-        {
-            required: true,
-            message: "Please select an activity",
-        },
-    ],
 };
 
-function Information({
-    fetchCoupon,
-    fetchActivities,
-    data,
-    text,
-    currentCoupon,
-}) {
+function Information({ fetchCoupon, text, currentCoupon }) {
     const [couponError, setCouponError] = useState(false);
-    useEffect(() => {
-        fetchActivities({ language: localStorage.getItem("language") });
-    }, []);
 
     const handleCoupon = (value) => {
         fetchCoupon(value)
@@ -160,7 +143,7 @@ function Information({
                         </Form.Item>
                     </Col>
 
-                    <Col xs={24} md={12}>
+                    {/* <Col xs={24} md={12}>
                         <Form.Item name="activity" rules={rules.activity}>
                             <CustomCascader
                                 size="large"
@@ -170,28 +153,14 @@ function Information({
                                 placeholder={text.form.activity.placeholder}
                             />
                         </Form.Item>
-                    </Col>
+                    </Col> */}
 
-                    <Col span={24}>
-                        <Form.Item name="private" valuePropName="checked">
-                            <CustomCheckbox>
-                                {text.form.private.placeholder}
-                            </CustomCheckbox>
-                        </Form.Item>
-                    </Col>
-
-                    <Col xs={24}>
-                        <Warning>
-                            <img src="/icon/discount.svg" alt="discount" />
-                            <div>{text.family}</div>
-                        </Warning>
-                    </Col>
-
-                    <Col span={24}>
+                    <Col xs={24} md={12}>
                         <Form.Item name="coupon">
                             <>
                                 <CustomSearch
-                                    style={{ width: "50%" }}
+                                    size="large"
+                                    style={{ width: "100%" }}
                                     placeholder={text.form.coupon.placeholder}
                                     onSearch={handleCoupon}
                                 />
@@ -219,6 +188,21 @@ function Information({
                             </>
                         </Form.Item>
                     </Col>
+
+                    <Col span={24}>
+                        <Form.Item name="private" valuePropName="checked">
+                            <CustomCheckbox>
+                                {text.form.private.placeholder}
+                            </CustomCheckbox>
+                        </Form.Item>
+                    </Col>
+
+                    <Col xs={24}>
+                        <Warning>
+                            <img src="/icon/discount.svg" alt="discount" />
+                            <div>{text.family}</div>
+                        </Warning>
+                    </Col>
                 </Row>
             </div>
         </ConfigProvider>
@@ -227,14 +211,12 @@ function Information({
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchActivities: (filters) => dispatch(fetchActivities(filters)),
         fetchCoupon: (filters) => dispatch(fetchCoupon(filters)),
     };
 };
 
 const mapStateToProps = (state) => {
     return {
-        data: state.activity.data,
         currentCoupon: state.coupon.current,
     };
 };

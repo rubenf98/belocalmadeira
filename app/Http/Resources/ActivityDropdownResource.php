@@ -18,6 +18,8 @@ class ActivityDropdownResource extends JsonResource
             'value' => $this->id,
             'price' => $this->price,
             'private_price' => $this->private_price,
+            'image' =>   $this->image,
+            'name' => $this->getTranslations('name'),
             'label' => $this->getTranslation('name', $request->language) . ($this->price ? (" (" . $this->price . "€)") : ""),
             'children' => MinExperienceResource::collection($this->experiences()->where('visible', 1)->get()),
         ];

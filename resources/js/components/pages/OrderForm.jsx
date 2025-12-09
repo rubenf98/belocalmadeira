@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Form, Drawer, Button, Row, notification, Popconfirm } from "antd";
-import styled, { ThemeContext, keyframes } from "styled-components";
+import { Form, Drawer, Row, notification, Popconfirm } from "antd";
+import styled, { ThemeContext } from "styled-components";
 import Information from "./Form/Information";
 import Date from "./Form/Date";
 import Participants from "./Form/Participants";
@@ -9,20 +9,10 @@ import { connect } from "react-redux";
 import Summary from "./Form/Summary";
 import moment from "moment";
 import { dimensions } from "../../helper";
-import Type from "./Form/Type";
-import Voucher from "./Form/Voucher";
 import { fetchActivities } from "../../redux/activity/actions";
 import { resetCoupon } from "../../redux/coupon/actions";
-
-const rotate = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-`;
+import ActivityPicker from "./Form/ActivityPicker";
+import { secundaryButtonStyle } from "./Form/styles";
 
 const Content = styled(Drawer)`
     color: white;
@@ -63,39 +53,15 @@ const Title = styled.h2`
 `;
 
 const Next = styled.button`
-    cursor: pointer;
     display: flex;
-    align-items: center;
     justify-content: flex-end;
-    margin: 20px 0px 20px auto;
-    padding: 10px 22px;
-    background-color: ${({ theme }) => theme.primary};
-    font-size: 18px;
-    border: 1px solid white;
+    margin: 30px 0px 20px auto;
+
+    ${secundaryButtonStyle}
 `;
 
-const Submit = styled(Button)`
-    cursor: pointer;
-    cursor: ${(props) => (props.isloading ? "loading" : "pointer")};
-    margin: 20px 0px;
-    background-color: transparent;
-    border: none;
-    box-shadow: 0px;
-    color: white;
-
-    &:focus,
-    &:active,
-    &:hover {
-        background-color: transparent;
-        border: none;
-        box-shadow: 0px;
-    }
-`;
-
-const Loading = styled.img`
-    width: 50px;
-    animation: ${rotate} 2s linear infinite;
-    opacity: ${(props) => (props.isloading ? "1 !important" : "0 !important")};
+const Submit = styled.button`
+    ${secundaryButtonStyle}
 `;
 
 const Previous = styled.img`
@@ -126,26 +92,44 @@ const OrderForm = ({
     const [step, setStep] = useState(0);
     const [stepOrder, setStepOrder] = useState([]);
     const [nParticipants, setNParticipants] = useState(3);
-    const [drawerWidth, setDrawerWidth] = useState(720);
+    const [drawerWidth, setDrawerWidth] = useState(1200);
     const [form] = Form.useForm();
     const themeContext = useContext(ThemeContext);
 
     useEffect(() => {
         if (visible) handleReset(true);
+        if (activityInitialValue.activity) {
+            if (activityInitialValue.name) {
+                setStep(activityInitialValue.activity[0] == 5 ? 4 : 3);
+                setNParticipants(activityInitialValue.participants);
+            } else {
+                setStep(1);
+            }
 
-        if (activityInitialValue.name) {
-            setStep(activityInitialValue.activity[0] == 5 ? 3 : 2);
-            setNParticipants(activityInitialValue.participants);
             setFormData({ ...activityInitialValue });
             fetchActivities({ language: language });
         }
     }, [visible]);
-
     useEffect(() => {
-        setDrawerWidth(window.innerWidth > 720 ? 720 : window.innerWidth);
+        setDrawerWidth(
+            window.innerWidth > 1200 ? 1200 : window.innerWidth - 20
+        );
     }, [window.innerWidth]);
 
     const steps = [
+        {
+            title: text.pages[6].title,
+            content: (
+                <ActivityPicker
+                    formData={formData}
+                    setStepOrder={setStepOrder}
+                    setStep={setStep}
+                    setFormData={setFormData}
+                    form={form}
+                    text={text.pages[1]}
+                />
+            ),
+        },
         {
             title: text.pages[1].title,
             content: <Date form={form} text={text.pages[1]} />,
@@ -178,11 +162,11 @@ const OrderForm = ({
             setFormData(data);
             var nextStep = step == steps.length - 1 ? step : step + 1;
 
-            if (step == 1) {
+            if (step == 2) {
                 setNParticipants(form.getFieldValue("participants"));
-
+                console.log(data, "data");
                 if (data.activity[0] == 5) {
-                    nextStep = 3;
+                    nextStep = 4;
                 }
             }
 
@@ -209,7 +193,6 @@ const OrderForm = ({
         form.resetFields();
         setFormData({});
     };
-
     const handleFinish = () => {
         form.validateFields().then((currentStepData) => {
             createReservation({
@@ -294,24 +277,22 @@ const OrderForm = ({
             >
                 {steps[step].content}
             </Form>
-            {step != 3 ? (
-                <Next onClick={nextStep}>
-                    <span> {text.controls.next} </span>
-                </Next>
+            {step != 4 ? (
+                <>
+                    {step != 0 && (
+                        <Next onClick={nextStep}>
+                            <div className="circle" /> {text.controls.next}
+                        </Next>
+                    )}
+                </>
             ) : (
                 <Row type="flex" justify="end">
                     <Submit
-                        isloading={loading ? 1 : 0}
                         onClick={handleFinish}
                         type="primary"
                         htmlType="submit"
                     >
-                        <Loading
-                            isloading={loading ? 1 : 0}
-                            src="/icon/navbar/loading.svg"
-                            alt="loading"
-                        />
-                        <span> {text.controls.submit} </span>
+                        <div className="circle" /> {text.controls.submit}
                     </Submit>
                 </Row>
             )}

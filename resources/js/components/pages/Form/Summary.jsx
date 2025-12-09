@@ -61,10 +61,10 @@ function Summary({ text, data, activities, coupon }) {
 
         // Extrai os identificadores
         const [mainActivityId, subActivityId] = data.activity;
-
+        console.log(activities, "activities");
         // Procura a atividade principal
         const mainActivity = activities.find((a) => a.value === mainActivityId);
-
+        console.log(mainActivity, "mainActivity");
         // Se houver subatividade, procura dentro dela
         if (mainActivity && subActivityId && mainActivity.children) {
             selectedActivity = mainActivity.children.find(
@@ -73,7 +73,7 @@ function Summary({ text, data, activities, coupon }) {
         } else {
             selectedActivity = mainActivity;
         }
-
+        console.log(selectedActivity, "selectedActivity");
         if (selectedActivity) {
             const basePrice = data.private
                 ? selectedActivity.private_price

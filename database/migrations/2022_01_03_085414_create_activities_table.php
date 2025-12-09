@@ -20,6 +20,7 @@ class CreateActivitiesTable extends Migration
             $table->decimal('price', 5, 2)->nullable();
             $table->decimal('private_price', 5, 2)->nullable();
             $table->integer('price_per_person')->default(1);
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

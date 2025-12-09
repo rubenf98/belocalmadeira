@@ -118,6 +118,9 @@ export const text = {
                 },
             },
         },
+        {
+            title: "Explora as nossas atividades e disfruta da tua experiência na Ilha da Madeira!"
+        }
     ],
     submit: "RESERVAR",
     success: {

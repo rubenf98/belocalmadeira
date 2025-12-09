@@ -118,6 +118,9 @@ export const text = {
                 },
             },
         },
+        {
+            title: "Explore our activities and enjoy your Madeira Island experience!"
+        }
     ],
     submit: "CHECKOUT",
     success: {

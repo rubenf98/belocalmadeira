@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { fetchActivity } from "../../../redux/activity/actions";
 import { connect } from "react-redux";
 import BookingPageTemplate from "../../common/BookingPageTemplate";
+import { handleForm } from "../../../redux/application/actions";
 
 function Coasteering(props) {
     const { text } = require("../../../assets/" +
