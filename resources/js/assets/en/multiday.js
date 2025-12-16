@@ -56,7 +56,7 @@ export const text = {
         },
         {
             image: "/images/activities/coasteering/09.jpg",
-            title: "Be Local Madeira – 1-Day Adventure - Canyoning • Coasteering",
+            title: "Be Local Madeira – 2-Days Adventure - Canyoning • Coasteering",
             description:
                 "Discover Madeira’s wild side with a complete adventure designed for travellers who want real experiences — water, mountains, and coastline in one powerful combination. Explore the island with certified local guides and enjoy authentic, safe, and unforgettable moments.",
             highlights: [
@@ -66,8 +66,8 @@ export const text = {
             ],
             itineraryTitle: "What's included each day:",
             itinerary: [
-                "Morning: Canyoning (Level 1 or Level 2)",
-                "Afternoon: Coasteering Experience",
+                "Day 1: Canyoning (Level 1 or Level 2)",
+                "Day 2: Coasteering",
             ],
             button: "I'm interested!",
             price: (<div className="price">Starting <br /> 125€/p</div>)

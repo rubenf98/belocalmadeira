@@ -56,7 +56,7 @@ export const text = {
         },
         {
             image: "/images/activities/coasteering/09.jpg",
-            title: "Be Local Madeira – 1-Dia - Aventura CANYONING + COASTEERING",
+            title: "Be Local Madeira – 2-Dias - Aventura CANYONING + COASTEERING",
             description:
                 "Descubra o lado mais selvagem da Madeira com uma aventura completa ideal para viajantes que procuram emoções reais — água, montanha e costa numa combinação poderosa. Explore a ilha com guias locais certificados e desfrute de momentos autênticos, seguros e inesquecíveis.",
             highlights: [
@@ -66,8 +66,8 @@ export const text = {
             ],
             itineraryTitle: "O que inclui cada dia:",
             itinerary: [
-                "Manhã: Canyoning (Nível 1 ou Nível 2)",
-                "Tarde: Experiência de Coasteering",
+                "Dia 1: Canyoning (Nível 1 ou Nível 2)",
+                "Dia 2: Experiência de Coasteering",
             ],
             button: "Tenho interesse!",
             price: (<div className="price">A partir de <br /> 125€/p</div>)
