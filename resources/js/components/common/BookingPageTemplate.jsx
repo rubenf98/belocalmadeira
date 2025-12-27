@@ -162,7 +162,7 @@ const GalleryContainer = styled.div`
             width: 100%;
 
             img {
-                max-height: calc(50vh / 5);
+                max-height: calc(50vh / 6);
                 width: 100%;
                 object-fit: cover;
             }

@@ -29,7 +29,7 @@ function Biking(props) {
                             ...props.activity,
                             id: 1,
                             key: "biking",
-                            image: "/images/activities/biking/04.jpg",
+                            image: "/images/activities/biking/main.jpg",
                         }}
                         experienceId={1}
                         text={text.booking}
