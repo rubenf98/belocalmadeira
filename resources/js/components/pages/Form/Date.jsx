@@ -183,7 +183,7 @@ function Date({ fetchDisabledDates, calendarMetadata, loading, form }) {
                                                 dropdownMatchSelectWidth={false}
                                                 value={String(month)}
                                                 onChange={(selectedMonth) => {
-                                                    const newValue =
+                                                    var newValue =
                                                         value.clone();
                                                     newValue = newValue.month(
                                                         parseInt(
