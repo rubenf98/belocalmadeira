@@ -52,10 +52,10 @@ export const text = {
                 "Dia 3: Experiência de Coasteering"
             ],
             button: "Tenho interesse!",
-            price: (<div className="price">A partir de <br /> 175€/p</div>)
+            price: (<div className="price">Desde <br /> 175€/p</div>)
         },
         {
-            image: "/images/activities/coasteering/09.jpg",
+            image: "/images/activities/coasteering/26.jpg",
             title: "Be Local Madeira – 2-Dias - Aventura CANYONING + COASTEERING",
             description:
                 "Descubra o lado mais selvagem da Madeira com uma aventura completa ideal para viajantes que procuram emoções reais — água, montanha e costa numa combinação poderosa. Explore a ilha com guias locais certificados e desfrute de momentos autênticos, seguros e inesquecíveis.",
@@ -70,7 +70,7 @@ export const text = {
                 "Dia 2: Experiência de Coasteering",
             ],
             button: "Tenho interesse!",
-            price: (<div className="price">A partir de <br /> 125€/p</div>)
+            price: (<div className="price">Desde <br /> 125€/p</div>)
         },
         {
             image: "/images/activities/canyoning/curral_01.jpg",
@@ -89,7 +89,7 @@ export const text = {
                 "Dia 3: Canyoning Nível 3"
             ],
             button: "Tenho interesse!",
-            price: (<div className="price">A partir de <br /> 265€/p</div>)
+            price: (<div className="price">Desde <br /> 265€/p</div>)
         },
         {
             image: "/images/activities/canyoning/header.jpg",
@@ -108,7 +108,7 @@ export const text = {
                 "Dia 3: Canyoning Nível 4"
             ],
             button: "Tenho interesse!",
-            price: (<div className="price">A partir de <br /> 390€/p</div>)
+            price: (<div className="price">Desde <br /> 390€/p</div>)
         },
         {
             image: "/images/activities/jeep/01.jpg",
@@ -129,7 +129,7 @@ export const text = {
                 "Tarde: Passeio de Jeep 4x4 (meio dia)",
             ],
             button: "Tenho interesse!",
-            price: (<div className="price">A partir de <br /> 155€/p</div>)
+            price: (<div className="price">Desde <br /> 155€/p</div>)
         },
         {
             image: "/images/activities/hiking/picos_03.jpg",
@@ -150,7 +150,33 @@ export const text = {
                 "Tarde: Pôr do sol deslumbrante",
             ],
             button: "Tenho interesse!",
-            price: (<div className="price">A partir de <br /> 120€/p</div>)
+            price: (<div className="price">Desde <br /> 120€/p</div>)
         },
+        {
+            image: "/images/activities/canyoning/family_01.jpg",
+            title: "Pacote Montanha & Oceano – Canyoning & Experiência de Observação de Baleias e Golfinhos ao Pôr do Sol",
+            description:
+                (<div>
+                    <p>O pacote Montanha & Oceano combina uma aventura de canyoning ideal para famílias nas montanhas da Madeira com uma experiência ao pôr do sol no mar, criando o equilíbrio perfeito entre aventura, natureza e relaxamento.</p>
+                    <p>Esta experiência inesquecível combina canyoning pela floresta endémica Laurissilva da Madeira — com escorregas naturais, pequenos saltos, rapel e piscinas de águas cristalinas — com um passeio de barco ao pôr do sol ao longo da costa da ilha, oferecendo vistas deslumbrantes e a oportunidade de observar baleias e golfinhos no seu habitat natural.</p>
+                </div>),
+            highlights: [
+                "Percurso de canyoning ideal para famílias",
+                "Não é necessária experiência prévia",
+                "Escorregas naturais, piscinas e cascatas",
+                "Guias profissionais de canyoning certificados",
+                "Todo o equipamento técnico incluído",
+                "Grupos pequenos para uma experiência mais tranquila",
+                "Adequado para adultos e crianças"
+            ],
+            itineraryTitle: "O que está incluído em cada dia:",
+            itinerary: [
+                "Manhã: Aventura de Canyoning – Floresta Laurissilva",
+                "Tarde: Experiência de Observação de Baleias ao Pôr do Sol – Oceano"
+            ],
+            button: "Tenho interesse!",
+            price: (<div className="price">Desde <br /> 110€/p</div>)
+        },
+
     ],
 };

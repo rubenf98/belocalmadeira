@@ -7,7 +7,7 @@ import Participants from "./Form/Participants";
 import { createReservation } from "../../redux/reservation/actions";
 import { connect } from "react-redux";
 import Summary from "./Form/Summary";
-import moment from "moment";
+import dayjs from "dayjs";
 import { dimensions } from "../../helper";
 import { fetchActivities } from "../../redux/activity/actions";
 import { resetCoupon } from "../../redux/coupon/actions";
@@ -115,7 +115,6 @@ const OrderForm = ({
             window.innerWidth > 1200 ? 1200 : window.innerWidth - 20
         );
     }, [window.innerWidth]);
-
     const steps = [
         {
             title: text.pages[6].title,
@@ -149,7 +148,7 @@ const OrderForm = ({
                     text={text.pages[3]}
                     data={{
                         ...formData,
-                        date: moment(formData.date).format("YYYY-MM-DD"),
+                        date: dayjs(formData.date).format("YYYY-MM-DD"),
                     }}
                 />
             ),

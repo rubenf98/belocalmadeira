@@ -161,9 +161,8 @@ function Date({ fetchDisabledDates, calendarMetadata, loading, form }) {
                                                 size="large"
                                                 dropdownMatchSelectWidth={false}
                                                 onChange={(newYear) => {
-                                                    const now = value
-                                                        .clone()
-                                                        .year(newYear);
+                                                    const now =
+                                                        current.year(newYear);
                                                     onChange(now);
                                                 }}
                                                 dropdownRender={(menu) => (

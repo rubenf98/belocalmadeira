@@ -55,7 +55,7 @@ export const text = {
             price: (<div className="price">Starting <br /> 175€/p</div>)
         },
         {
-            image: "/images/activities/coasteering/09.jpg",
+            image: "/images/activities/coasteering/26.jpg",
             title: "Be Local Madeira – 2-Days Adventure - Canyoning • Coasteering",
             description:
                 "Discover Madeira’s wild side with a complete adventure designed for travellers who want real experiences — water, mountains, and coastline in one powerful combination. Explore the island with certified local guides and enjoy authentic, safe, and unforgettable moments.",
@@ -151,6 +151,32 @@ export const text = {
             ],
             button: "I'm interested!",
             price: (<div className="price">Starting <br /> 120€/p</div>)
+        },
+        {
+            image: "/images/activities/canyoning/family_01.jpg",
+            title: "Package Mountains & Ocean - Canyoning & Sunset Whale and Dolphin Watching Experience",
+            description:
+                (<div>
+                    <p>Package Mountains & Ocean combines a family-friendly canyoning adventure in Madeira’s mountains with a sunset experience at sea, creating the perfect balance between adventure, nature, and relaxation.</p>
+                    <p>This unforgettable experience combines canyoning through Madeira’s endemic Laurissilva forest—featuring natural waterslides, small jumps, rappelling, and crystal-clear pools—with a sunset boat trip along the island’s coastline, offering breathtaking views and the chance to spot whales and dolphins in their natural habitat.</p>
+
+                </div>),
+            highlights: [
+                "Family-friendly canyoning route",
+                "No previous experience required",
+                "Natural slides, pools, and waterfalls",
+                "Certified professional canyoning guides",
+                "All technical equipment included",
+                "Small groups for a relaxed experience",
+                "Suitable for adults and children"
+            ],
+            itineraryTitle: "What's included each day:",
+            itinerary: [
+                "Morning: Canyoning Adventure – Laurissilva Forest",
+                "Afternoon: Sunset & Whale Watching Experience – Ocean",
+            ],
+            button: "I'm interested!",
+            price: (<div className="price">Starting <br /> 110€/p</div>)
         },
     ],
 };
