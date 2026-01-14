@@ -153,7 +153,7 @@ export const text = {
             price: (<div className="price">Desde <br /> 120€/p</div>)
         },
         {
-            image: "/images/activities/canyoning/family_01.jpg",
+            image: "/images/activities/tour/multiday_mountain_ocean.jpg",
             title: "Pacote Montanha & Oceano – Canyoning & Experiência de Observação de Baleias e Golfinhos ao Pôr do Sol",
             description:
                 (<div>

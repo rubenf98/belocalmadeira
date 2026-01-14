@@ -153,7 +153,7 @@ export const text = {
             price: (<div className="price">Starting <br /> 120€/p</div>)
         },
         {
-            image: "/images/activities/canyoning/family_01.jpg",
+            image: "/images/activities/tour/multiday_mountain_ocean.jpg",
             title: "Package Mountains & Ocean - Canyoning & Sunset Whale and Dolphin Watching Experience",
             description:
                 (<div>

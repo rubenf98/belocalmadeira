@@ -10,7 +10,7 @@ import Summary from "./Form/Summary";
 import dayjs from "dayjs";
 import { dimensions } from "../../helper";
 import { fetchActivities } from "../../redux/activity/actions";
-import { resetCoupon } from "../../redux/coupon/actions";
+import { fetchCoupon, resetCoupon } from "../../redux/coupon/actions";
 import ActivityPicker from "./Form/ActivityPicker";
 import { secundaryButtonStyle } from "./Form/styles";
 
@@ -81,7 +81,7 @@ const OrderForm = ({
     visible,
     handleVisibility,
     createReservation,
-    loading,
+    fetchCoupon,
     activityInitialValue,
     fetchActivities,
     coupon,
@@ -163,6 +163,12 @@ const OrderForm = ({
 
             if (step == 2) {
                 setNParticipants(form.getFieldValue("participants"));
+
+                if (data.coupon) {
+                    fetchCoupon(data.coupon).catch(() => {
+                        console.log("invalid coupon");
+                    });
+                }
                 console.log(data, "data");
                 if (data.activity[0] == 5) {
                     nextStep = 4;
@@ -303,6 +309,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         createReservation: (data) => dispatch(createReservation(data)),
         resetCoupon: () => dispatch(resetCoupon()),
+        fetchCoupon: (filters) => dispatch(fetchCoupon(filters)),
         fetchActivities: (filters) => dispatch(fetchActivities(filters)),
     };
 };

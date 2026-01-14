@@ -157,36 +157,33 @@ function Information({ fetchCoupon, text, currentCoupon }) {
 
                     <Col xs={24} md={12}>
                         <Form.Item name="coupon">
+                            <CustomSearch
+                                size="large"
+                                style={{ width: "100%" }}
+                                placeholder={text.form.coupon.placeholder}
+                                onSearch={handleCoupon}
+                            />
+                        </Form.Item>
+                        {couponError ? (
+                            <p style={{ color: "red", margin: 0 }}>
+                                Promo code does not exist, or is no longer
+                                valid.
+                            </p>
+                        ) : (
                             <>
-                                <CustomSearch
-                                    size="large"
-                                    style={{ width: "100%" }}
-                                    placeholder={text.form.coupon.placeholder}
-                                    onSearch={handleCoupon}
-                                />
-                                {couponError ? (
-                                    <p style={{ color: "red", margin: 0 }}>
-                                        Promo code does not exist, or is no
-                                        longer valid.
+                                {currentCoupon?.id && (
+                                    <p
+                                        style={{
+                                            color: "white",
+                                            margin: 0,
+                                        }}
+                                    >
+                                        Promo code of {currentCoupon.discount}%
+                                        will be applied at the end.
                                     </p>
-                                ) : (
-                                    <>
-                                        {currentCoupon?.id && (
-                                            <p
-                                                style={{
-                                                    color: "white",
-                                                    margin: 0,
-                                                }}
-                                            >
-                                                Promo code of{" "}
-                                                {currentCoupon.discount}% will
-                                                be applied at the end.
-                                            </p>
-                                        )}
-                                    </>
                                 )}
                             </>
-                        </Form.Item>
+                        )}
                     </Col>
 
                     <Col span={24}>
