@@ -154,29 +154,32 @@ export const text = {
         },
         {
             image: "/images/activities/tour/multiday_mountain_ocean.jpg",
-            title: "Package Mountains & Ocean - Canyoning & Sunset Whale and Dolphin Watching Experience",
+            title: "Package Mountains & Ocean – Canyoning & Whale and Dolphin Watching Experience",
             description:
                 (<div>
-                    <p>Package Mountains & Ocean combines a family-friendly canyoning adventure in Madeira’s mountains with a sunset experience at sea, creating the perfect balance between adventure, nature, and relaxation.</p>
-                    <p>This unforgettable experience combines canyoning through Madeira’s endemic Laurissilva forest—featuring natural waterslides, small jumps, rappelling, and crystal-clear pools—with a sunset boat trip along the island’s coastline, offering breathtaking views and the chance to spot whales and dolphins in their natural habitat.</p>
-
+                    <p>
+                        The Mountains & Ocean Package combines a family-friendly canyoning adventure in Madeira’s mountains with an unforgettable whale and dolphin watching experience, offering the perfect balance between adventure, nature, and the Atlantic Ocean.</p>
+                    <p>This experience starts with canyoning in the heart of Madeira’s Laurissilva forest, where you’ll explore crystal-clear streams, natural waterslides, small jumps, rappels, and refreshing pools.</p>
+                    <p>Later, you’ll head out to sea for a Whale and Dolphin Watching Experience, sailing along Madeira’s coastline in search of dolphins and whales in their natural habitat, while enjoying stunning ocean views.</p>
                 </div>),
             highlights: [
                 "Family-friendly canyoning route",
                 "No previous experience required",
-                "Natural slides, pools, and waterfalls",
-                "Certified professional canyoning guides",
+                "Natural slides, pools, waterfalls, rappelling down the waterfalls. ",
                 "All technical equipment included",
                 "Small groups for a relaxed experience",
                 "Suitable for adults and children"
             ],
-            itineraryTitle: "What's included each day:",
+            itineraryTitle: "Whale and Dolphin Watching Experience Highlights",
             itinerary: [
-                "Morning: Canyoning Adventure – Laurissilva Forest",
-                "Afternoon: Sunset & Whale Watching Experience – Ocean",
+                "Boat trip along Madeira’s coastline",
+                "High chance of spotting dolphins and whales in their natural environment",
+                "Experienced crew and marine wildlife spotters",
+                "Informative and relaxed ocean experience",
+                "Suitable for all ages"
             ],
             button: "I'm interested!",
-            price: (<div className="price">Starting <br /> 110€/p</div>)
+            price: (<div className="price">Starting <br /> 120€/p</div>)
         },
     ],
 };
