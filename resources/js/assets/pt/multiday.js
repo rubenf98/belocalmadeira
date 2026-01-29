@@ -154,29 +154,34 @@ export const text = {
         },
         {
             image: "/images/activities/tour/multiday_mountain_ocean.jpg",
-            title: "Pacote Montanha & Oceano – Canyoning & Experiência de Observação de Baleias e Golfinhos ao Pôr do Sol",
+            title: "Pacote Montanhas & Oceano – Experiência de Canyoning e Observação de Baleias e Golfinhos",
             description:
                 (<div>
-                    <p>O pacote Montanha & Oceano combina uma aventura de canyoning ideal para famílias nas montanhas da Madeira com uma experiência ao pôr do sol no mar, criando o equilíbrio perfeito entre aventura, natureza e relaxamento.</p>
-                    <p>Esta experiência inesquecível combina canyoning pela floresta endémica Laurissilva da Madeira — com escorregas naturais, pequenos saltos, rapel e piscinas de águas cristalinas — com um passeio de barco ao pôr do sol ao longo da costa da ilha, oferecendo vistas deslumbrantes e a oportunidade de observar baleias e golfinhos no seu habitat natural.</p>
+                    <p>
+                        O Pacote Montanhas & Oceano combina uma aventura de canyoning adequada para famílias nas montanhas da Madeira com uma inesquecível experiência de observação de baleias e golfinhos, oferecendo o equilíbrio perfeito entre aventura, natureza e o Oceano Atlântico.</p>
+                    <p>Esta experiência começa com canyoning no coração da floresta Laurissilva da Madeira, onde irá explorar ribeiras de águas cristalinas, escorregas naturais, pequenos saltos, rapéis e piscinas refrescantes.</p>
+                    <p>Mais tarde, seguirá para o mar para uma Experiência de Observação de Baleias e Golfinhos, navegando ao longo da costa da Madeira à procura de golfinhos e baleias no seu habitat natural, enquanto desfruta de vistas deslumbrantes sobre o oceano.</p>
                 </div>),
             highlights: [
-                "Percurso de canyoning ideal para famílias",
+                "Percurso de canyoning adequado para famílias",
                 "Não é necessária experiência prévia",
-                "Escorregas naturais, piscinas e cascatas",
-                "Guias profissionais de canyoning certificados",
+                "Escorregas naturais, piscinas, cascatas e rapel nas cascatas",
                 "Todo o equipamento técnico incluído",
-                "Grupos pequenos para uma experiência mais tranquila",
+                "Grupos pequenos para uma experiência mais relaxada",
                 "Adequado para adultos e crianças"
             ],
-            itineraryTitle: "O que está incluído em cada dia:",
+            itineraryTitle: "Destaques da Experiência de Observação de Baleias e Golfinhos",
             itinerary: [
-                "Manhã: Aventura de Canyoning – Floresta Laurissilva",
-                "Tarde: Experiência de Observação de Baleias ao Pôr do Sol – Oceano"
+                "Passeio de barco ao longo da costa da Madeira",
+                "Elevada probabilidade de avistar golfinhos e baleias no seu ambiente natural",
+                "Tripulação experiente e observadores de vida marinha",
+                "Experiência oceânica informativa e descontraída",
+                "Adequado para todas as idades"
             ],
-            button: "Tenho interesse!",
-            price: (<div className="price">Desde <br /> 110€/p</div>)
+            button: "Estou interessado!",
+            price: (<div className="price">Desde <br /> 120€/p</div>)
         },
+
 
     ],
 };
