@@ -78,7 +78,7 @@ class ReservationRequest extends FormRequest
         // ---- Normalização da data ----
         if ($this->date) {
             $this->merge([
-                'date' => new Carbon($this->date)
+                'date' => $this->date
             ]);
         }
 

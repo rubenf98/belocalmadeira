@@ -66,7 +66,7 @@ function Summary({ text, data, activities, coupon }) {
         // Se houver subatividade, procura dentro dela
         if (mainActivity && subActivityId && mainActivity.children) {
             selectedActivity = mainActivity.children.find(
-                (a) => a.value === subActivityId
+                (a) => a.value === subActivityId,
             );
         } else {
             selectedActivity = mainActivity;

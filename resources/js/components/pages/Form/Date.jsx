@@ -119,7 +119,7 @@ function Date({ fetchDisabledDates, calendarMetadata, loading, form }) {
                                 currentDate &&
                                 (currentDate < dayjs() ||
                                     calendarMetadata.disabled.includes(
-                                        dayjs(currentDate).format("YYYY-MM-DD")
+                                        dayjs(currentDate).format("YYYY-MM-DD"),
                                     ))
                             );
                         }}
@@ -139,7 +139,7 @@ function Date({ fetchDisabledDates, calendarMetadata, loading, form }) {
                                         key={index}
                                     >
                                         {months[index]}
-                                    </Select.Option>
+                                    </Select.Option>,
                                 );
                             }
 
@@ -148,7 +148,7 @@ function Date({ fetchDisabledDates, calendarMetadata, loading, form }) {
                                 options.push(
                                     <Select.Option key={i} value={i}>
                                         {i}
-                                    </Select.Option>
+                                    </Select.Option>,
                                 );
                             }
 
@@ -187,8 +187,8 @@ function Date({ fetchDisabledDates, calendarMetadata, loading, form }) {
                                                     newValue = newValue.month(
                                                         parseInt(
                                                             selectedMonth,
-                                                            10
-                                                        )
+                                                            10,
+                                                        ),
                                                     );
                                                     onChange(newValue);
                                                 }}

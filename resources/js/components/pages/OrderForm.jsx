@@ -112,7 +112,7 @@ const OrderForm = ({
     }, [visible]);
     useEffect(() => {
         setDrawerWidth(
-            window.innerWidth > 1200 ? 1200 : window.innerWidth - 20
+            window.innerWidth > 1200 ? 1200 : window.innerWidth - 20,
         );
     }, [window.innerWidth]);
     const steps = [
@@ -203,6 +203,7 @@ const OrderForm = ({
             createReservation({
                 ...formData,
                 ...currentStepData,
+                date: dayjs(formData.date).format("YYYY-MM-DD"),
                 coupon_id: coupon.id,
             })
                 .then((response, err) => {
@@ -218,11 +219,11 @@ const OrderForm = ({
                 .catch((error) => {
                     let messages = [];
 
-                    Object.values(error.response.data.errors).map(function (
-                        message
-                    ) {
-                        messages.push(message[0]);
-                    });
+                    Object.values(error.response.data.errors).map(
+                        function (message) {
+                            messages.push(message[0]);
+                        },
+                    );
 
                     openNotificationWithIcon("error", {
                         message: text.error.message,
