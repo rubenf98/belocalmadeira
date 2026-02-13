@@ -30,7 +30,7 @@ class ReservationResource extends JsonResource
             'time' =>   $this->time,
             'people' =>   $this->people,
             'notes' =>   $this->notes,
-            'private' =>   $this->private,
+            'private' =>    (int)  $this->private,
             'confirmation' =>  (int) $this->confirmation,
             'participants' =>   $this->participants,
             'reservationRarticipants' =>   $this->reservationRarticipants,
