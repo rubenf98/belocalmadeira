@@ -169,7 +169,6 @@ const OrderForm = ({
                         console.log("invalid coupon");
                     });
                 }
-                console.log(data, "data");
                 if (data.activity[0] == 5) {
                     nextStep = 4;
                 }

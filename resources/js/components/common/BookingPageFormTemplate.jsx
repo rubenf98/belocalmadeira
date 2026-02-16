@@ -2,7 +2,6 @@ import { Calendar, Form, Input, Row, Col } from "antd";
 import { useEffect, useState } from "react";
 import moment from "moment";
 import { CustomInput, CustomInputNumber } from "../pages/Form/styles";
-import dayjs from "dayjs";
 import styled from "styled-components";
 import { connect } from "react-redux";
 
@@ -44,13 +43,18 @@ function BookingPageFormTemplate(props) {
             {template.includes("date") && (
                 <Col style={{ marginBottom: "50px" }} span={24}>
                     <Calendar
+                        onSelect={(date) => {
+                            props.form.setFieldsValue({ date });
+                        }}
                         defaultValue={moment().add(1, "day")}
                         disabledDate={(currentDate) => {
                             return (
                                 currentDate &&
-                                (currentDate.isBefore(dayjs(), "day") ||
+                                (currentDate.isBefore(moment(), "day") ||
                                     props.calendarMetadata.disabled.includes(
-                                        dayjs(currentDate).format("YYYY-MM-DD")
+                                        moment(currentDate).format(
+                                            "YYYY-MM-DD",
+                                        ),
                                     ))
                             );
                         }}
@@ -73,9 +77,8 @@ function BookingPageFormTemplate(props) {
                                             <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
                                         </svg>
                                     </div>
-                                    {dayjs(new Date(year, month - 1, 1)).format(
-                                        "MMMM YYYY"
-                                    )}
+                                    {value.format("MMMM YYYY")}
+
                                     <div
                                         onClick={() => {
                                             const now = value

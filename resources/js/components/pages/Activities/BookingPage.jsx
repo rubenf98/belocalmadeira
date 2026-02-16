@@ -8,10 +8,12 @@ import { useEffect } from "react";
 
 function BookingPage(props) {
     var { activity, id } = useParams();
-    const { text } = require("../../../assets/" +
-        localStorage.getItem("language") +
-        "/activity" +
-        activity);
+    const { text } = require(
+        "../../../assets/" +
+            localStorage.getItem("language") +
+            "/activity" +
+            activity,
+    );
 
     useEffect(() => {
         props.fetchExperience(id);

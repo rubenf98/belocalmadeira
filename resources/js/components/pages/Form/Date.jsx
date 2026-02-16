@@ -117,7 +117,7 @@ function Date({ fetchDisabledDates, calendarMetadata, loading, form }) {
                         disabledDate={(currentDate) => {
                             return (
                                 currentDate &&
-                                (currentDate < dayjs() ||
+                                (currentDate.isBefore(dayjs(), "day") ||
                                     calendarMetadata.disabled.includes(
                                         dayjs(currentDate).format("YYYY-MM-DD"),
                                     ))
@@ -136,6 +136,7 @@ function Date({ fetchDisabledDates, calendarMetadata, loading, form }) {
                                 monthOptions.push(
                                     <Select.Option
                                         style={{ width: "100px" }}
+                                        value={index}
                                         key={index}
                                     >
                                         {months[index]}
@@ -170,7 +171,7 @@ function Date({ fetchDisabledDates, calendarMetadata, loading, form }) {
                                                         {menu}
                                                     </div>
                                                 )}
-                                                value={String(year)}
+                                                value={year}
                                             >
                                                 {options}
                                             </CustomSelect>
@@ -180,7 +181,6 @@ function Date({ fetchDisabledDates, calendarMetadata, loading, form }) {
                                                 style={{ width: "100%" }}
                                                 size="large"
                                                 dropdownMatchSelectWidth={false}
-                                                value={String(month)}
                                                 onChange={(selectedMonth) => {
                                                     var newValue =
                                                         value.clone();
@@ -192,6 +192,7 @@ function Date({ fetchDisabledDates, calendarMetadata, loading, form }) {
                                                     );
                                                     onChange(newValue);
                                                 }}
+                                                value={month}
                                                 dropdownRender={(menu) => (
                                                     <div className="colored-dropdown">
                                                         {menu}

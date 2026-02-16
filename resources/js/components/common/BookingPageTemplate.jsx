@@ -243,7 +243,7 @@ function BookingPageTemplate({
         while (condition) {
             if (
                 !calendarMetadata.disabled.includes(
-                    dayjs(init).format("YYYY-MM-DD")
+                    dayjs(init).format("YYYY-MM-DD"),
                 )
             ) {
                 condition = false;
@@ -309,7 +309,7 @@ function BookingPageTemplate({
                                         <p>{detail}</p>
                                     )}
                                 </Col>
-                            )
+                            ),
                         )}
                     </DetailsContainer>
 
@@ -334,7 +334,7 @@ function BookingPageTemplate({
                                         ))}
                                     </ul>
                                 </div>
-                            )
+                            ),
                         )}
                 </InfoContainer>
                 <FormContainer>
@@ -374,5 +374,5 @@ const mapStateToProps = (state) => {
 
 export default connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(BookingPageTemplate);
