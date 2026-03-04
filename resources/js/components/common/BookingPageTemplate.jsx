@@ -349,6 +349,7 @@ function BookingPageTemplate({
                                 handleSubmit={handleSubmit}
                                 calendarMetadata={calendarMetadata}
                                 text={text}
+                                form={form}
                             />
                         </Form>
                     </div>
