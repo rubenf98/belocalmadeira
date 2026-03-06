@@ -10,11 +10,11 @@ export const text = {
         titles: ['Details', "Summary"],
 
         images: {
-            1: [imagePath + "family_02.jpg", imagePath + "family_03.jpg"],
-            2: [imagePath + "cales_02.jpg", imagePath + "cales_03.jpg"],
-            3: [imagePath + "curral_02.jpg", imagePath + "curral_03.jpg"],
-            4: [imagePath + "ribeiro_frio_02.jpg", imagePath + "ribeiro_frio_03.jpg"],
-            5: [imagePath + "funda_022.jpg", imagePath + "funda_033.jpg"],
+            1: [imagePath + "family_01.jpeg", imagePath + "family_02.jpeg", imagePath + "family_03.jpeg", imagePath + "family_04.jpeg", imagePath + "family_05.jpeg"],
+            2: [imagePath + "cales_01.jpeg", imagePath + "cales_02.jpeg", imagePath + "cales_03.jpeg", imagePath + "cales_04.jpeg", imagePath + "cales_05.jpeg", imagePath + "cales_06.jpeg"],
+            3: [imagePath + "cidrao_01.jpeg", imagePath + "cidrao_02.jpeg", imagePath + "cidrao_03.jpeg", imagePath + "cidrao_04.jpeg", imagePath + "cidrao_05.jpeg", imagePath + "cidrao_06.jpeg", imagePath + "cidrao_07.jpeg", imagePath + "cidrao_05.jpeg", imagePath + "cidrao_06.jpeg"],
+            4: [imagePath + "ribeiro_frio_01.jpeg", imagePath + "ribeiro_frio_02.jpeg", imagePath + "ribeiro_frio_03.jpeg", imagePath + "ribeiro_frio_04.jpeg", imagePath + "ribeiro_frio_05.jpeg", imagePath + "ribeiro_frio_06.jpeg", imagePath + "ribeiro_frio_07.jpeg"],
+            5: [imagePath + "funda_01.jpeg", imagePath + "funda_02.jpeg", imagePath + "funda_03.jpeg", imagePath + "funda_04.jpeg", imagePath + "funda_05.jpeg", imagePath + "funda_06.jpeg"],
         },
         description: {
             1: [

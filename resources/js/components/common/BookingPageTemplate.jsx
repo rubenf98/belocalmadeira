@@ -152,17 +152,19 @@ const GalleryContainer = styled.div`
     .images {
         display: flex;
         justify-content: space-between;
+        min-width: 100px;
         width: 20%;
         flex-direction: column;
         gap: 20px;
-        max-height: 50vh;
+        max-height: 60vh;
         overflow-y: auto;
+        padding-right: 10px;
 
         .ant-image {
             width: 100%;
 
             img {
-                max-height: calc(50vh / 6);
+                max-height: calc(50vh / 5);
                 width: 100%;
                 object-fit: cover;
             }
