@@ -5,9 +5,11 @@ import BookingPageTemplate from "../../common/BookingPageTemplate";
 import { handleForm } from "../../../redux/application/actions";
 
 function Coasteering(props) {
-    const { text } = require("../../../assets/" +
-        localStorage.getItem("language") +
-        "/activitycoasteering");
+    const { text } = require(
+        "../../../assets/" +
+            localStorage.getItem("language") +
+            "/activitycoasteering",
+    );
 
     useEffect(() => {
         props.fetchActivity(4);
@@ -29,7 +31,7 @@ function Coasteering(props) {
                             ...props.activity,
                             id: 1,
                             key: "coasteering",
-                            image: "/images/activities/coasteering/21.jpg",
+                            image: "/images/activities/coasteering/30.jpg",
                         }}
                         experienceId={1}
                         text={text.booking}

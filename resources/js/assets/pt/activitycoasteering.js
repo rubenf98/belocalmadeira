@@ -34,7 +34,7 @@ export const text = {
             },
         },
         images: {
-            1: [imagePath + "20.jpg", imagePath + "header.jpg", imagePath + "19.jpg", imagePath + "22.jpg", imagePath + "23.jpg", imagePath + "24.jpg", imagePath + "25.jpg", imagePath + "26.jpg"],
+            1: [imagePath + "27.jpg", imagePath + "28.jpg", imagePath + "29.jpg", imagePath + "31.jpg", imagePath + "20.jpg", imagePath + "header.jpg", imagePath + "19.jpg", imagePath + "22.jpg", imagePath + "23.jpg", imagePath + "24.jpg", imagePath + "25.jpg", imagePath + "26.jpg"],
         },
         form: {
             name: {
