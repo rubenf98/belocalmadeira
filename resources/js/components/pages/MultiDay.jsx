@@ -254,7 +254,7 @@ function MultiDay(props) {
                                     {packageItem.highlights.map(
                                         (highlight, index) => (
                                             <li key={index}>{highlight}</li>
-                                        )
+                                        ),
                                     )}
                                 </ul>
 
@@ -263,7 +263,7 @@ function MultiDay(props) {
                                     {packageItem.itinerary.map(
                                         (itinerary, index) => (
                                             <li key={index}>{itinerary}</li>
-                                        )
+                                        ),
                                     )}
                                 </ul>
 

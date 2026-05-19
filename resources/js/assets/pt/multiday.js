@@ -70,7 +70,7 @@ export const text = {
                 "Dia 2: Experiência de Coasteering",
             ],
             button: "Tenho interesse!",
-            price: (<div className="price">Desde <br /> 125€/p</div>)
+            price: (<div className="price">Desde <br /> 130€/p</div>)
         },
         {
             image: "/images/activities/canyoning/curral_01.jpg",
