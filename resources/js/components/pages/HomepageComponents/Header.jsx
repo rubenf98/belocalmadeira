@@ -181,7 +181,7 @@ const ActionBar = styled.div`
 const backgrounds = [
     "/images/activities/canyoning/header.jpg",
     "/images/activities/coasteering/header.jpg",
-    "/images/activities/jeep/header.jpg",
+    "/images/activities/jeep/header2.jpg",
     "/images/activities/hiking/header.jpg",
     "/images/activities/biking/header.jpg",
 ];
@@ -189,7 +189,7 @@ const backgrounds = [
 const mobileBackgrounds = [
     "/images/activities/canyoning/header_mobile.jpg",
     "/images/activities/coasteering/04.jpg",
-    "/images/activities/jeep/header_mobile.jpg",
+    "/images/activities/jeep/header_mobile2.jpg",
     "/images/activities/hiking/04.jpg",
     "/images/activities/biking/12.jpg",
 ];
