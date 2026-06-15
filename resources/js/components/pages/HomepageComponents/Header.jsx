@@ -189,7 +189,7 @@ const backgrounds = [
 const mobileBackgrounds = [
     "/images/activities/canyoning/header_mobile.jpg",
     "/images/activities/coasteering/04.jpg",
-    "/images/activities/jeep/header_mobile2.jpg",
+    "/images/activities/jeep/header_mobile.jpg",
     "/images/activities/hiking/04.jpg",
     "/images/activities/biking/12.jpg",
 ];
