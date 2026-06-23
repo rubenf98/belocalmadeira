@@ -62,7 +62,7 @@ class Reservation extends Model
             array_push($disabled, $date->date);
         }
         $dates = [];
-        $treshold = $people ? 14 - $people : 14;
+        $treshold = $people ? 100 - $people : 100;
 
         foreach ($reservations as  $reservation) {
 

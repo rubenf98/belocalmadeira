@@ -10,5 +10,4 @@ class BlockReservationDate extends Model
     use HasFactory;
 
     protected $fillable = ["date"];
-
 }
