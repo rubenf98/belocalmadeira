@@ -28,7 +28,8 @@ class ReservationRequest extends FormRequest
     protected function prepareForValidation()
     {
         $price = 0;
-        $helper_size = count($this->activity);
+        $helper_size = count(array_filter($this->activity, fn ($v) => $v !== null));
+
         $experienceable_type = $this->polymorphic_classes[$helper_size - 1];
         if ($experienceable_type == 'App\Models\Activity') {
             $activity = Activity::find($this->activity[0]);
