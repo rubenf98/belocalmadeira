@@ -72,7 +72,7 @@ class Reservation extends Model
                     $dates[$reservation->date] = $dates[$reservation->date] + $reservation->participants;
                 } else $dates[$reservation->date] = $reservation->participants;
 
-                if ($dates[$reservation->date] >= $treshold || $reservation->private) {
+                if ($dates[$reservation->date] >= $treshold) {
                     array_push($disabled, $reservation->date);
                 }
             }
