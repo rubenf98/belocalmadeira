@@ -192,7 +192,13 @@ export const text = {
             name: { label: "Nome *" },
             email: { label: "Email *" },
             phone: { label: "Número de Telefone *" },
-            address: { label: "Morada para Recolha *" },
+            address: {
+                label: "Morada *",
+            },
+            meeting_point: {
+                label: "Ponto de encontro *",
+                custom_option: "A sua morada (pendente aprovação)"
+            },
             participants: { label: "Nº de Participantes *" },
         },
     },

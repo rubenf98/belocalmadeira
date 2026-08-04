@@ -55,7 +55,38 @@ export const text = {
                 "RNAAT 1093"
             ],
         },
+        additional: {
+            2: {
+                titles: ["Meeting Point"],
 
+                description: [
+
+                    "We’re very excited to take you on this experience!",
+                    "🅿️ Parking is free and easily accessible — it’s right where we’ll start the experience. Afterwards, we’ll take you back to your car, safe and sound.",
+                    "📍 Location: Curral das Freiras – Capela São Rafael",
+                    "🕘 Meeting time: 09:35 AM",
+                    (<>📌 Google Maps - <a href="https://maps.app.goo.gl/9M2rdhieTADBbJWr7" target="__blank">https://maps.app.goo.gl/9M2rdhieTADBbJWr7</a></>),
+                    "This is a beautiful viewpoint, just 20 minutes from Funchal. After you exit the tunnel, turn right — you’ll see a spectacular view over Nuns Valley.",
+                    "Tip: After exiting the tunnel, turn right and you’ll find a beautiful viewpoint over Nuns Valley. We’re happy to share local recommendations for after your adventure!",
+                    "It’s best to arrive already wearing your bathing suit under your clothes.",
+                ]
+            },
+            3: {
+                titles: ["Meeting Point"],
+
+                description: [
+
+                    "We’re very excited to take you on this experience!",
+                    "🅿️ Parking is free and easily accessible — it’s right where we’ll start the experience. Afterwards, we’ll take you back to your car, safe and sound.",
+                    "📍 Location: Curral das Freiras – Capela São Rafael",
+                    "🕘 Meeting time: 09:35 AM",
+                    (<>📌 Google Maps - <a href="https://maps.app.goo.gl/9M2rdhieTADBbJWr7" target="__blank">https://maps.app.goo.gl/9M2rdhieTADBbJWr7</a></>),
+                    "This is a beautiful viewpoint, just 20 minutes from Funchal. After you exit the tunnel, turn right — you’ll see a spectacular view over Nuns Valley.",
+                    "Tip: After exiting the tunnel, turn right and you’ll find a beautiful viewpoint over Nuns Valley. We’re happy to share local recommendations for after your adventure!",
+                    "It’s best to arrive already wearing your bathing suit under your clothes.",
+                ]
+            },
+        },
 
         details: {
             titles: ["SENSATION LEVEL", "FITNESS LEVEL", "TOTAL DURATION", "JUMP HEIGHT (OPTIONAL)", "MEETING POINT", "ABSEILING HEIGHT"],

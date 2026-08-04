@@ -204,7 +204,11 @@ export const text = {
                 label: "Phone Number *"
             },
             address: {
-                label: "Pickup Address *"
+                label: "Address *"
+            },
+            meeting_point: {
+                label: "Meeting Point *",
+                custom_option: "Your address (pending approval)"
             },
             participants: {
                 label: "Nº of participants *",

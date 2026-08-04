@@ -47,7 +47,11 @@ export const text = {
                 label: "Telemóvel *"
             },
             address: {
-                label: "Morada para Pickup *"
+                label: "Morada *",
+            },
+            meeting_point: {
+                label: "Ponto de encontro *",
+                custom_option: "A sua morada (pendente aprovação)"
             },
             participants: {
                 label: "Nº de participantes *",

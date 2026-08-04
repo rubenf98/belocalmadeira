@@ -312,6 +312,7 @@ function BookingPageTemplate({
                             <p>{paragraph}</p>
                         ))}
                     </ParagraphContainer>
+                    <br />
 
                     {text.additional &&
                         text.additional[experienceId] &&
@@ -319,13 +320,20 @@ function BookingPageTemplate({
                             (title, index) => (
                                 <div key={"additional_" + index}>
                                     <h3>{title}</h3>
-                                    <ul>
-                                        {text.additional[experienceId].items[
-                                            index
-                                        ].map((info) => (
-                                            <li>{info}</li>
-                                        ))}
-                                    </ul>
+                                    {text.additional[experienceId]?.items && (
+                                        <ul>
+                                            {text.additional[
+                                                experienceId
+                                            ].items[index].map((info) => (
+                                                <li>{info}</li>
+                                            ))}
+                                        </ul>
+                                    )}
+                                    {text.additional[
+                                        experienceId
+                                    ].description.map((paragraph) => (
+                                        <p>{paragraph}</p>
+                                    ))}
                                 </div>
                             ),
                         )}
