@@ -21,7 +21,8 @@ class ExperienceResource extends JsonResource
             'level' =>   $this->level,
             'key' =>   $this->type,
             'price_per_person' =>   $this->price_per_person,
-
+            'pickup' => $this->getTranslations('pickup'),
+            'pickup_address' => $this->pickup_address,
             'image' =>   $this->image,
             'name' =>  $this->getTranslations('name'),
             'description' =>  $this->getTranslations('description'),

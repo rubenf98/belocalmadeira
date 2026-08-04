@@ -19,14 +19,14 @@ export const text = {
         description: {
             1: [
                 "We provide you one of the best family adventures that Madeira can offer. Enjoy 10% OFF for families on all tours with 4 or more participants! We take your family to enjoy splashing and jumping in the beautiful waterfalls, green pools and to entertain the whole family.",
-                "The first level does not require any experience and is perfect for those who want to take their first step in this wonderful activity! It is a easy and accessible route for all ages (over 7 years old). It has a maximum height of 10-15 meters with several optional jumps.",
+                "The first level does not require any experience and is perfect for those who want to take their first step in this wonderful activity! It is a easy and accessible route for all ages (over 10 years old). It has a maximum height of 10-15 meters with several optional jumps.",
                 "Explore the unspoiled nature on Madeira Island and have fun on a big natural playground by jumping into crystal clear river pools, slide on natural water slides and rappel the walls with a rope.",
                 "Learn fun techniques that will safely take you down the canyon and actively spend your free time in nature in a completely different way.",
                 "RNAAT 1093"
             ],
             2: [
-                "This canyoning is intended for those who wish to have the first contact with the activity. It is a easy and accessible route for all ages (over 7 years old).",
-                "The first level does not require any experience and is perfect for those who want to take their first step in this wonderful activity! It is a easy and accessible route for all ages (over 7 years old). It has a maximum height of 10-15 meters with several optional jumps.",
+                "This canyoning is intended for those who wish to have the first contact with the activity. It is a easy and accessible route for all ages (over 10 years old).",
+                "The first level does not require any experience and is perfect for those who want to take their first step in this wonderful activity! It is a easy and accessible route for all ages (over 10 years old). It has a maximum height of 10-15 meters with several optional jumps.",
                 "This canyoning is located in the Center South of the Island, more precisely in the Ecological Park of Funchal.", "Along the route, together with all the natural obstacles, four abseiling’s shall be encountered, the largest of which with 15 meters. The abseiling’s are alternated with jumps to small natural ponds as well as toboggans.",
                 "At the end there is a 15 minutes walking hill back to the car, where we will warm up a bit.",
                 "RNAAT 1093"
@@ -60,11 +60,46 @@ export const text = {
         details: {
             titles: ["SENSATION LEVEL", "FITNESS LEVEL", "TOTAL DURATION", "JUMP HEIGHT (OPTIONAL)", "MEETING POINT", "ABSEILING HEIGHT"],
             items: {
-                1: ["Begginer", "Active person", "3-4hrs", "7m", "Funchal, Pestana CR7 Hotel", "15m"],
-                2: ["Begginer", "Active person", "3-4hrs", "7m", "Funchal, Pestana CR7 Hotel", "15m"],
-                3: ["Intermediate", "Fit individual", "3-4hrs", "7m", "Funchal, Pestana CR7 Hotel", "20m"],
-                4: ["Intermediate", "Fit individual", "3-4hrs", "7m", "Funchal, Pestana CR7 Hotel", "20m"],
-                5: ["Advanced", "High Fitness", "3-4hrs", "7m", "Funchal, Pestana CR7 Hotel", "55m"],
+                1: ["Begginer", "Active person", "3-4hrs", "7m", (<a
+                    href="https://maps.app.goo.gl/QGif4UZZpUGJGnph7"
+                    target="__blank"
+                >
+                    Funchal, Pestana CR7 Hotel
+                </a>), "15m"],
+                2: ["Begginer", "Active person", "3-4hrs", "7m", (<span><a
+                    href="https://maps.app.goo.gl/QGif4UZZpUGJGnph7"
+                    target="__blank"
+                >
+                    Funchal, Pestana CR7 Hotel
+                </a> / <a
+                    href="https://maps.app.goo.gl/QGif4UZZpUGJGnph7"
+                    target="__blank"
+                >
+                        Canyoning Location
+                    </a></span>), "15m"],
+                3: ["Intermediate", "Fit individual", "3-4hrs", "7m", (<span><a
+                    href="https://maps.app.goo.gl/QGif4UZZpUGJGnph7"
+                    target="__blank"
+                >
+                    Funchal, Pestana CR7 Hotel
+                </a> / <a
+                    href="https://maps.app.goo.gl/QGif4UZZpUGJGnph7"
+                    target="__blank"
+                >
+                        Canyoning Location
+                    </a></span>), "20m"],
+                4: ["Intermediate", "Fit individual", "3-4hrs", "7m", (<a
+                    href="https://maps.app.goo.gl/QGif4UZZpUGJGnph7"
+                    target="__blank"
+                >
+                    Funchal, Pestana CR7 Hotel
+                </a>), "20m"],
+                5: ["Advanced", "High Fitness", "3-4hrs", "7m", (<a
+                    href="https://maps.app.goo.gl/QGif4UZZpUGJGnph7"
+                    target="__blank"
+                >
+                    Funchal, Pestana CR7 Hotel
+                </a>), "55m"],
             },
         },
 
@@ -80,7 +115,11 @@ export const text = {
                 label: "Phone Number *"
             },
             address: {
-                label: "Pickup Address *"
+                label: "Address *"
+            },
+            meeting_point: {
+                label: "Meeting Point *",
+                custom_option: "Your address (pending approval)"
             },
             participants: {
                 label: "Nº of participants *",

@@ -122,6 +122,10 @@ function TableContainer({
             ),
         },
         {
+            dataIndex: "meeting_point",
+            title: "Ponto de encontro",
+        },
+        {
             title: "Atividade",
             dataIndex: "experienceable",
             render: (experience, row) => (
@@ -229,7 +233,7 @@ function TableContainer({
             message.success("Datas bloqueadas com sucesso.");
         } catch (error) {
             message.error(
-                "Ocorreu um erro no bloqueio das datas, cao o problema persista contacte o programador."
+                "Ocorreu um erro no bloqueio das datas, cao o problema persista contacte o programador.",
             );
         }
     }
@@ -302,5 +306,5 @@ const mapStateToProps = (state) => {
 
 export default connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(withTheme(TableContainer));

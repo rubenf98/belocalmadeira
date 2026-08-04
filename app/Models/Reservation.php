@@ -14,7 +14,7 @@ class Reservation extends Model
     use FiltersRecords;
 
     protected $fillable = [
-        'private', 'experienceable_id',
+        'private', 'experienceable_id', 'meeting_point',
         'experienceable_type', 'source', 'price', 'participants', 'notes', 'name', 'recipient',
         'email', 'address', 'phone', 'date', 'experience_id', "confirmation_token", "confirmation", "coupon_id"
     ];

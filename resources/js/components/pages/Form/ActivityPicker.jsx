@@ -182,7 +182,7 @@ function ActivityPicker(props) {
                                       key={activity.id}
                                       activity={activity}
                                   />,
-                              ]
+                              ],
                     )}
 
                 {/* {data.map((activity) => (

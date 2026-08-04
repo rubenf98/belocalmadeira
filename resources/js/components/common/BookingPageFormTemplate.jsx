@@ -1,7 +1,11 @@
-import { Calendar, Form, Input, Row, Col } from "antd";
+import { Calendar, Form, Input, Row, Col, Select } from "antd";
 import { useEffect, useState } from "react";
 import moment from "moment";
-import { CustomInput, CustomInputNumber } from "../pages/Form/styles";
+import {
+    CustomInput,
+    CustomInputNumber,
+    CustomSelect,
+} from "../pages/Form/styles";
 import styled from "styled-components";
 import { connect } from "react-redux";
 
@@ -29,7 +33,7 @@ const CalendarHeader = styled.div`
     }
 `;
 function BookingPageFormTemplate(props) {
-    const { text, language } = props;
+    const { text, language, experience } = props;
     const [template, setTemplate] = useState([]);
 
     useEffect(() => {
@@ -145,7 +149,7 @@ function BookingPageFormTemplate(props) {
                 </Col>
             )}
             {template.includes("address") && (
-                <Col xs={24} md={24}>
+                <Col xs={24} md={12}>
                     <Form.Item label={text.form.address.label} name="address">
                         <CustomInput
                             light
@@ -154,6 +158,39 @@ function BookingPageFormTemplate(props) {
                     </Form.Item>
                 </Col>
             )}
+
+            {template.includes("address") && (
+                <Col xs={24} md={12}>
+                    <Form.Item
+                        label={text.form.meeting_point.label}
+                        name="meeting_point"
+                    >
+                        <CustomSelect
+                            colored
+                            placeholder={text.form.meeting_point.placeholder}
+                        >
+                            <Select.Option value="Funchal, Pestana CR7 Hotel">
+                                Funchal, Pestana CR7 Hotel
+                            </Select.Option>
+                            <Select.Option
+                                value={text.form.meeting_point.custom_option}
+                            >
+                                {text.form.meeting_point.custom_option}
+                            </Select.Option>
+                            {experience?.pickup_address ? (
+                                <Select.Option
+                                    value={experience?.pickup_address}
+                                >
+                                    {experience.pickup[language]}
+                                </Select.Option>
+                            ) : (
+                                <></>
+                            )}
+                        </CustomSelect>
+                    </Form.Item>
+                </Col>
+            )}
+
             {template.includes("date") && (
                 <Col xs={24} md={24}>
                     <Form.Item name="date">
@@ -188,6 +225,7 @@ function BookingPageFormTemplate(props) {
 const mapStateToProps = (state) => {
     return {
         language: state.application.language,
+        experience: state.experience.current,
     };
 };
 export default connect(mapStateToProps, null)(BookingPageFormTemplate);

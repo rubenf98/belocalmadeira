@@ -121,6 +121,12 @@ function Summary({ text, data, activities, coupon }) {
                     {data.address}{" "}
                 </Detail>
                 <Detail>
+                    <span className="fieldname">
+                        {text.details.meeting_point}{" "}
+                    </span>{" "}
+                    {data.meeting_point}{" "}
+                </Detail>
+                <Detail>
                     <span className="fieldname">{text.details.private} </span>{" "}
                     {data.private ? "Yes" : "No"}{" "}
                 </Detail>

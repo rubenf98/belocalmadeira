@@ -175,6 +175,10 @@ export const CustomSelect = styled(Select)`
     svg {
         color: white;
     }
+
+    &::placeholder {
+        color: #b1b1b1;
+    }
 `;
 
 export const CustomPhoneSelect = styled(CountryPhoneInput)`

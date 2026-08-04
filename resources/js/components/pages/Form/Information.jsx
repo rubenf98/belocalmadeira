@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Row, Form, Col, Input } from "antd";
+import { Row, Form, Col, Input, Select } from "antd";
 import {
     CustomCheckbox,
     CustomInput,
     CustomInputNumber,
     CustomPhoneSelect,
     CustomSearch,
+    CustomSelect,
 } from "./styles";
 import { fetchCoupon } from "../../../redux/coupon/actions";
 import { ConfigProvider } from "antd-country-phone-input";
@@ -64,6 +65,12 @@ const rules = {
             message: "",
         },
     ],
+    meeting_point: [
+        {
+            required: true,
+            message: "",
+        },
+    ],
     participants: [
         {
             required: true,
@@ -72,7 +79,13 @@ const rules = {
     ],
 };
 
-function Information({ fetchCoupon, text, currentCoupon }) {
+function Information({
+    fetchCoupon,
+    text,
+    currentCoupon,
+    currentExperience,
+    language,
+}) {
     const [couponError, setCouponError] = useState(false);
 
     const handleCoupon = (value) => {
@@ -120,15 +133,6 @@ function Information({ fetchCoupon, text, currentCoupon }) {
                         </Form.Item>
                     </Col>
                     <Col xs={24} md={12}>
-                        <Form.Item name="address" rules={rules.address}>
-                            <CustomInput
-                                size="large"
-                                placeholder={text.form.address.placeholder}
-                            />
-                        </Form.Item>
-                    </Col>
-
-                    <Col xs={24} md={12}>
                         <Form.Item
                             name="participants"
                             rules={rules.participants}
@@ -140,6 +144,46 @@ function Information({ fetchCoupon, text, currentCoupon }) {
                                 size="large"
                                 placeholder={text.form.participants.placeholder}
                             />
+                        </Form.Item>
+                    </Col>
+                    <Col xs={24} md={12}>
+                        <Form.Item name="address" rules={rules.address}>
+                            <CustomInput
+                                size="large"
+                                placeholder={text.form.address.placeholder}
+                            />
+                        </Form.Item>
+                    </Col>
+                    <Col xs={24} md={12}>
+                        <Form.Item name="meeting_point" rules={rules.address}>
+                            <CustomSelect
+                                size="large"
+                                placeholder={
+                                    text.form.meeting_point.placeholder
+                                }
+                            >
+                                <Select.Option value="Funchal, Pestana CR7 Hotel">
+                                    Funchal, Pestana CR7 Hotel
+                                </Select.Option>
+                                <Select.Option
+                                    value={
+                                        text.form.meeting_point.custom_option
+                                    }
+                                >
+                                    {text.form.meeting_point.custom_option}
+                                </Select.Option>
+                                {currentExperience?.pickup_address ? (
+                                    <Select.Option
+                                        value={
+                                            currentExperience?.pickup_address
+                                        }
+                                    >
+                                        {currentExperience.pickup[language]}
+                                    </Select.Option>
+                                ) : (
+                                    <></>
+                                )}
+                            </CustomSelect>
                         </Form.Item>
                     </Col>
 
@@ -155,7 +199,7 @@ function Information({ fetchCoupon, text, currentCoupon }) {
                         </Form.Item>
                     </Col> */}
 
-                    <Col xs={24} md={12}>
+                    <Col xs={24} md={24}>
                         <Form.Item name="coupon">
                             <CustomSearch
                                 size="large"
@@ -215,6 +259,7 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => {
     return {
         currentCoupon: state.coupon.current,
+        language: state.application.language,
     };
 };
 

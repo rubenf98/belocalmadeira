@@ -62,11 +62,46 @@ export const text = {
         details: {
             titles: ["NÍVEL DE SENSAÇÃO", "NÍVEL DE CONDIÇÃO FÍSICA", "DURAÇÃO TOTAL", "ALTURA DO SALTO (OPCIONAL)", "PONTO DE ENCONTRO", "ALTURA DO RAPEL"],
             items: {
-                1: ["Iniciante", "Pessoa ativa", "3-4 horas", "7 m", "Funchal, Hotel Pestana CR7", "15 m"],
-                2: ["Iniciante", "Pessoa ativa", "3-4 horas", "7 m", "Funchal, Hotel Pestana CR7", "15 m"],
-                3: ["Intermédio", "Pessoa em boa forma", "3-4 horas", "7 m", "Funchal, Hotel Pestana CR7", "20 m"],
-                4: ["Intermédio", "Pessoa em boa forma", "3-4 horas", "7 m", "Funchal, Hotel Pestana CR7", "20 m"],
-                5: ["Avançado", "Excelente forma física", "3-4 horas", "7 m", "Funchal, Hotel Pestana CR7", "55 m"],
+                1: ["Iniciante", "Pessoa ativa", "3-4 horas", "7 m", (<a
+                    href="https://maps.app.goo.gl/QGif4UZZpUGJGnph7"
+                    target="__blank"
+                >
+                    Funchal, Pestana CR7 Hotel
+                </a>), "15 m"],
+                2: ["Iniciante", "Pessoa ativa", "3-4 horas", "7 m", (<span><a
+                    href="https://maps.app.goo.gl/QGif4UZZpUGJGnph7"
+                    target="__blank"
+                >
+                    Funchal, Pestana CR7 Hotel
+                </a> / <a
+                    href="https://maps.app.goo.gl/QGif4UZZpUGJGnph7"
+                    target="__blank"
+                >
+                        Local do Canyoning
+                    </a></span>), "15 m"],
+                3: ["Intermédio", "Pessoa em boa forma", "3-4 horas", "7 m", (<span><a
+                    href="https://maps.app.goo.gl/QGif4UZZpUGJGnph7"
+                    target="__blank"
+                >
+                    Funchal, Pestana CR7 Hotel
+                </a> / <a
+                    href="https://maps.app.goo.gl/QGif4UZZpUGJGnph7"
+                    target="__blank"
+                >
+                        Local do Canyoning
+                    </a></span>), "20 m"],
+                4: ["Intermédio", "Pessoa em boa forma", "3-4 horas", "7 m", (<a
+                    href="https://maps.app.goo.gl/QGif4UZZpUGJGnph7"
+                    target="__blank"
+                >
+                    Funchal, Pestana CR7 Hotel
+                </a>), "20 m"],
+                5: ["Avançado", "Excelente forma física", "3-4 horas", "7 m", (<a
+                    href="https://maps.app.goo.gl/QGif4UZZpUGJGnph7"
+                    target="__blank"
+                >
+                    Funchal, Pestana CR7 Hotel
+                </a>), "55 m"],
             },
         },
 
@@ -81,7 +116,11 @@ export const text = {
                 label: "Número de telefone *",
             },
             address: {
-                label: "Morada de recolha *",
+                label: "Morada *",
+            },
+            meeting_point: {
+                label: "Ponto de encontro *",
+                custom_option: "A sua morada (pendente aprovação)"
             },
             participants: {
                 label: "Nº de participantes *",

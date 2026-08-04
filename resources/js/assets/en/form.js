@@ -19,7 +19,11 @@ export const text = {
                     placeholder: "+351"
                 },
                 address: {
-                    placeholder: "Pickup Address *"
+                    placeholder: "Address *"
+                },
+                meeting_point: {
+                    placeholder: "Meeting Point *",
+                    custom_option: "Your address (pending approval)"
                 },
                 activity: {
                     placeholder: "Activity *"
@@ -76,6 +80,7 @@ export const text = {
                 email: "Email",
                 phone: "Phone number",
                 address: "Pickup address",
+                meeting_point: "Meeting point",
                 recipient: "Recipient name",
                 private: "Private experience",
                 privateAnswer: ['No', 'Yes'],

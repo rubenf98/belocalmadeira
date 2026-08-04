@@ -10,6 +10,8 @@ import Summary from "./Form/Summary";
 import dayjs from "dayjs";
 import { dimensions } from "../../helper";
 import { fetchActivities } from "../../redux/activity/actions";
+import { fetchExperience } from "../../redux/experience/actions";
+
 import { fetchCoupon, resetCoupon } from "../../redux/coupon/actions";
 import ActivityPicker from "./Form/ActivityPicker";
 import { secundaryButtonStyle } from "./Form/styles";
@@ -84,6 +86,8 @@ const OrderForm = ({
     fetchCoupon,
     activityInitialValue,
     fetchActivities,
+    fetchExperience,
+    currentExperience,
     coupon,
     language,
 }) => {
@@ -115,6 +119,16 @@ const OrderForm = ({
             window.innerWidth > 1200 ? 1200 : window.innerWidth - 20,
         );
     }, [window.innerWidth]);
+
+    useEffect(() => {
+        var chosenActivity = null;
+        if (formData.activity) {
+            if (formData.activity.length == 2) {
+                fetchExperience(formData.activity[1]);
+            }
+        }
+    }, [formData?.activity]);
+
     const steps = [
         {
             title: text.pages[6].title,
@@ -135,7 +149,12 @@ const OrderForm = ({
         },
         {
             title: text.pages[0].title,
-            content: <Information text={text.pages[0]} />,
+            content: (
+                <Information
+                    currentExperience={currentExperience}
+                    text={text.pages[0]}
+                />
+            ),
         },
         {
             title: text.pages[2].title,
@@ -238,6 +257,8 @@ const OrderForm = ({
         notification[type](content);
     };
 
+    console.log(formData, "formData");
+
     return (
         <Content
             background={themeContext.primary}
@@ -311,6 +332,7 @@ const mapDispatchToProps = (dispatch) => {
         resetCoupon: () => dispatch(resetCoupon()),
         fetchCoupon: (filters) => dispatch(fetchCoupon(filters)),
         fetchActivities: (filters) => dispatch(fetchActivities(filters)),
+        fetchExperience: (id) => dispatch(fetchExperience(id)),
     };
 };
 
@@ -321,6 +343,8 @@ const mapStateToProps = (state) => {
         activityInitialValue: state.application.activityInitialValue,
         coupon: state.coupon.current,
         language: state.application.language,
+        activities: state.activity.data,
+        currentExperience: state.experience.current,
     };
 };
 

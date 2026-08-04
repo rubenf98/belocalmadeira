@@ -25,6 +25,7 @@ class CreateReservationsTable extends Migration
             $table->string('name')->nullable();
             $table->string('email')->nullable();
             $table->string('address')->nullable();
+            $table->string('meeting_point')->nullable();
             $table->string('recipient')->nullable();
             $table->integer('participants');
             $table->string('source')->default("website");

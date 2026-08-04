@@ -24,6 +24,10 @@ export const text = {
                 activity: {
                     placeholder: "Atividade *"
                 },
+                meeting_point: {
+                    placeholder: "Ponto de encontro *",
+                    custom_option: "A sua morada (pendente aprovação)"
+                },
                 private: {
                     placeholder: "Experiência privada",
                 },
@@ -76,6 +80,7 @@ export const text = {
                 email: "Email",
                 phone: "Nº de telemóvel",
                 address: "Morada",
+                meeting_point: "Ponto de encontro",
                 private: "Experiência privada",
                 privateAnswer: ['Não', 'Sim'],
                 date: "Data da atividade",

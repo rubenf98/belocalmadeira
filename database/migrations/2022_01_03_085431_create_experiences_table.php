@@ -21,6 +21,8 @@ class CreateExperiencesTable extends Migration
             $table->boolean('visible')->default(true);
             $table->integer('price_per_person')->default(1);
             $table->text('description')->nullable();
+            $table->text('pickup')->nullable();
+            $table->text('pickup_address')->nullable();
             $table->string('image')->nullable();
             $table->string('type')->nullable();
 

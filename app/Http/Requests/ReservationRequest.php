@@ -90,6 +90,7 @@ class ReservationRequest extends FormRequest
             'phone' => $phone,
             'coupon_id' => $coupon ? $coupon->id : null,
             'private' => (bool) $this->private,
+            'meeting_point' => $this->meeting_point == "Your address (pending approval)" ? $this->address : $this->meeting_point,
             'confirmation_token' => uniqid(),
             'experienceable_type' => $experienceable_type,
             'experienceable_id' => $helper_size == 2 ? $this->activity[1] : $this->activity[0],
@@ -116,6 +117,7 @@ class ReservationRequest extends FormRequest
             'name' => 'required|string',
             'participants' => 'required|integer|min:1|max:15',
             'private' => 'required_if:source,website|boolean',
+            'meeting_point' => 'required',
             'phone' => 'required|string',
             'person' => [
                 Rule::requiredIf(function () {

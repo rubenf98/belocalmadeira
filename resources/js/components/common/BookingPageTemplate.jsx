@@ -299,17 +299,8 @@ function BookingPageTemplate({
                             (detail, detailIndex) => (
                                 <Col xs={12} md={12}>
                                     <h4>{text.details.titles[detailIndex]}</h4>
-                                    {text.details.titles[detailIndex] ==
-                                    "MEETING POINT" ? (
-                                        <a
-                                            href="https://maps.app.goo.gl/QGif4UZZpUGJGnph7"
-                                            target="__blank"
-                                        >
-                                            {detail}
-                                        </a>
-                                    ) : (
-                                        <p>{detail}</p>
-                                    )}
+
+                                    <p>{detail}</p>
                                 </Col>
                             ),
                         )}
