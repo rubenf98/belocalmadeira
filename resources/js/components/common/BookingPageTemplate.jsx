@@ -329,11 +329,13 @@ function BookingPageTemplate({
                                             ))}
                                         </ul>
                                     )}
-                                    {text.additional[
-                                        experienceId
-                                    ].description.map((paragraph) => (
-                                        <p>{paragraph}</p>
-                                    ))}
+                                    {text.additional[experienceId]
+                                        .description &&
+                                        text.additional[
+                                            experienceId
+                                        ].description.map((paragraph) => (
+                                            <p>{paragraph}</p>
+                                        ))}
                                 </div>
                             ),
                         )}
