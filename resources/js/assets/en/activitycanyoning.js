@@ -57,33 +57,47 @@ export const text = {
         },
         additional: {
             2: {
-                titles: ["Meeting Point"],
+                titles: ["Transportation & Meeting Point"],
 
                 description: [
+                    (<h4>Option 1 - Hotel Pick-up in Funchal</h4>),
+                    "🚐 Pick-up from your hotel in Funchal",
+                    "⏳ Pending approval and subject to availability.",
 
-                    "We’re very excited to take you on this experience!",
-                    "🅿️ Parking is free and easily accessible — it’s right where we’ll start the experience. Afterwards, we’ll take you back to your car, safe and sound.",
-                    "📍 Location: Curral das Freiras – Capela São Rafael",
-                    "🕘 Meeting time: 09:35 AM",
-                    (<>📌 Google Maps - <a href="https://maps.app.goo.gl/9M2rdhieTADBbJWr7" target="__blank">https://maps.app.goo.gl/9M2rdhieTADBbJWr7</a></>),
-                    "This is a beautiful viewpoint, just 20 minutes from Funchal. After you exit the tunnel, turn right — you’ll see a spectacular view over Nuns Valley.",
-                    "Tip: After exiting the tunnel, turn right and you’ll find a beautiful viewpoint over Nuns Valley. We’re happy to share local recommendations for after your adventure!",
-                    "It’s best to arrive already wearing your bathing suit under your clothes.",
+                    (<h4>Option 2 – Transport from Central Funchal</h4>),
+
+                    "📍 CR7 Pestana Hotel – Pulse Tours & Experiences",
+                    "🕣 Pick-up: 08:30 AM",
+                    (<>📌 Google Maps - <a href="https://maps.app.goo.gl/tVMCvRg8QeDijPVY7" target="__blank">https://maps.app.goo.gl/tVMCvRg8QeDijPVY7</a></>),
+
+                    (<h4>Option 3 – Direct Arrival by Car — Recommended</h4>),
+                    "For guests with their own vehicle, we recommend travelling directly to the meeting point for greater flexibility and convenience.",
+                    "📍 Capela de São Rafael – Curral das Freiras",
+                    "🕤 Meeting time: 09:30 AM",
+                    (<>📌 Google Maps - <a href="https://maps.app.goo.gl/nNK7BMHFBxd47cU29?g_st=ic" target="__blank">https://maps.app.goo.gl/nNK7BMHFBxd47cU29?g_st=ic</a></>),
+                    "🅿️ Free parking is available. After the activity, our team will provide transportation back to your vehicle.",
                 ]
             },
             3: {
-                titles: ["Meeting Point"],
+                titles: ["Transportation & Meeting Point"],
 
                 description: [
+                    (<h4>Option 1 - Hotel Pick-up in Funchal</h4>),
+                    "🚐 Pick-up from your hotel in Funchal",
+                    "⏳ Pending approval and subject to availability.",
 
-                    "We’re very excited to take you on this experience!",
-                    "🅿️ Parking is free and easily accessible — it’s right where we’ll start the experience. Afterwards, we’ll take you back to your car, safe and sound.",
-                    "📍 Location: Curral das Freiras – Capela São Rafael",
-                    "🕘 Meeting time: 09:35 AM",
-                    (<>📌 Google Maps - <a href="https://maps.app.goo.gl/9M2rdhieTADBbJWr7" target="__blank">https://maps.app.goo.gl/9M2rdhieTADBbJWr7</a></>),
-                    "This is a beautiful viewpoint, just 20 minutes from Funchal. After you exit the tunnel, turn right — you’ll see a spectacular view over Nuns Valley.",
-                    "Tip: After exiting the tunnel, turn right and you’ll find a beautiful viewpoint over Nuns Valley. We’re happy to share local recommendations for after your adventure!",
-                    "It’s best to arrive already wearing your bathing suit under your clothes.",
+                    (<h4>Option 2 – Transport from Central Funchal</h4>),
+
+                    "📍 CR7 Pestana Hotel – Pulse Tours & Experiences",
+                    "🕣 Pick-up: 08:30 AM",
+                    (<>📌 Google Maps - <a href="https://maps.app.goo.gl/tVMCvRg8QeDijPVY7" target="__blank">https://maps.app.goo.gl/tVMCvRg8QeDijPVY7</a></>),
+
+                    (<h4>Option 3 – Direct Arrival by Car — Recommended</h4>),
+                    "For guests with their own vehicle, we recommend travelling directly to the meeting point for greater flexibility and convenience.",
+                    "📍 Capela de São Rafael – Curral das Freiras",
+                    "🕤 Meeting time: 09:30 AM",
+                    (<>📌 Google Maps - <a href="https://maps.app.goo.gl/nNK7BMHFBxd47cU29?g_st=ic" target="__blank">https://maps.app.goo.gl/nNK7BMHFBxd47cU29?g_st=ic</a></>),
+                    "🅿️ Free parking is available. After the activity, our team will provide transportation back to your vehicle.",
                 ]
             },
         },

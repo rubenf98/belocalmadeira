@@ -19,6 +19,15 @@ const Container = styled.div`
         font-family: "Russo One", sans-serif;
     }
 
+    h3 {
+        font-size: clamp(18px, 3vw, 24px);
+    }
+
+    h4 {
+        margin-top: 30px;
+        font-weight: bold;
+    }
+
     @media (max-width: ${dimensions.md}) {
         padding: 0px 0px 50px 0px;
 
