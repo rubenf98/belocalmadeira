@@ -105,7 +105,7 @@ export const text = {
                         "📍 Ponta do Sol - The day concludes in Ponta do Sol, a picturesque village on the southwest coast. Known for its charming streets and golden sunsets, it is the perfect setting to end this unforgettable adventure.",
                     ],
                     [
-                        "Free pick-up and drop-off in Funchal & Caniço areas",
+                        "Free pick-up and drop-off in Funchal",
                         "Transportation in a 4x4 jeep with a professional local guide",
                         "Small-group experience (maximum 6 participants)",
                     ],
